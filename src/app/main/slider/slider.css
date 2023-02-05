@@ -1,0 +1,37 @@
+.sliderarea{
+    width: 1440px;
+    height: 650px;
+    background-color: darkgrey;
+    /*padding-top: 40px;*/
+    /*padding-bottom: 40px;*/
+
+}
+
+button {
+    width: 100px;
+    height: 35px;
+}
+.slides{
+    width: 1440px;
+    height: 650px;
+    z-index: 1;
+}
+
+.fullscreen{
+    background-color: darkgrey;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrows{
+    z-index: 2;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: aqua;
+}

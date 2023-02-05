@@ -1,0 +1,11 @@
+.contacts__wrap {
+    width: 1200px;
+    background-color: #7e7e7e;
+    height: 800px;
+}
+
+.contacts__fullscreen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

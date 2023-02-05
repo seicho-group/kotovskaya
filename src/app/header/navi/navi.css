@@ -1,0 +1,38 @@
+.menu {
+    width: 280px;
+    height: 55px;
+    font-size: 14px;
+    background-color: #2a2a2a;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.menu:hover {
+    background-color: white;
+    color: #2a2a2a;
+}
+
+.Navi {
+    display: grid;
+    grid-template-columns: 280px 1fr 1fr 1fr 1fr 1fr;
+    width: 55px;
+    width: 100%;
+}
+
+.navi__element {
+    width: auto;
+    height: 55px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    background-color: #2a2a2a;
+    color: white;
+
+}
+
+a{
+    text-underline: none;
+    text-decoration: none;
+}
