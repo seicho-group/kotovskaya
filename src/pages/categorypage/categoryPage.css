@@ -1,0 +1,9 @@
+.categorypage__grid{
+    width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(4, 286px);
+    justify-content: space-between;
+    grid-row-gap: 45px;
+    grid-column-gap: 52px;  
+    padding-bottom: 60px;
+}

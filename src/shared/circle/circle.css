@@ -1,0 +1,13 @@
+.circle{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.notactive{
+    background-color: #987E71;
+}
+
+.active{
+    background-color: #4F3030;
+}

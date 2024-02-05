@@ -1,0 +1,15 @@
+.folder{
+    background-color: white;
+    width: 300px;
+    align-items: center;
+    display: flex;
+    color: black;
+    padding: 11px 0 11px 50px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.folder:hover{
+    background-color: #E3E2E2;
+}

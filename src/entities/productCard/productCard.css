@@ -1,0 +1,70 @@
+.card{
+    width: 286px;
+    height: 380px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 260px 77px 43px;
+    font-weight: 400;
+}
+
+.card__pic{
+    width: 286px;
+    height: 260px;
+}
+
+.card__name{
+    font-size: 20px;
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.card__bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__bottom > button{
+    background-color: #998169;
+    width: 135px;
+    height: 43px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.card__bottom p{
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.card__quantity{
+    display: grid;
+    width: 135px;
+    grid-template-columns: 40px 55px 40px;
+    height: 43px;
+}
+
+.card__quantity__button{
+    width: 40px;
+    height: 43px;
+    background-color: #998169;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.card__quantity__number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
