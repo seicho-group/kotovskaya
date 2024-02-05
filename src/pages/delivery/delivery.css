@@ -1,41 +1,40 @@
-.delivery{
-    display: flex;
-    justify-content: center;
+.delivery {
+  display: flex;
+  justify-content: center;
 }
 
-.delivery__wrapper{
-    width: 1300px;
+.delivery__wrapper {
+  width: 1300px;
 }
 
-.h1{
-    font-weight: 400;
-    font-size: 26px;
-    font-weight: 400;
-    padding-top: 30px;
+.h1 {
+  font-weight: 400;
+  font-size: 26px;
+  font-weight: 400;
+  padding-top: 30px;
 }
 
-.h2{
-    font-weight: 400;
-    font-size: 22px;
-    font-weight: 400;
-    padding-top: 60px;
+.h2 {
+  font-weight: 400;
+  font-size: 22px;
+  font-weight: 400;
+  padding-top: 60px;
 }
 
-.h1__block{
-    display: flex;
-    align-items: end;
+.h1__block {
+  display: flex;
+  align-items: end;
 }
 
-.bottom25{
-    padding-bottom: 25px;
+.bottom25 {
+  padding-bottom: 25px;
 }
 
-
-.bottom50{
-    padding-bottom: 70px;
+.bottom50 {
+  padding-bottom: 70px;
 }
 
-.dirrow{
-    display: flex;
-    flex-direction: row;
+.dirrow {
+  display: flex;
+  flex-direction: row;
 }

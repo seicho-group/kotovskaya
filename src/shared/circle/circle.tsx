@@ -1,9 +1,5 @@
-import "./circle.css"
+import './circle.css'
 
 export function Circle(props: any) {
-    return(
-    <div className={`circle ${props.status}`}>
-
-    </div>
-        )
+  return <div className={`circle ${props.status}`}></div>
 }

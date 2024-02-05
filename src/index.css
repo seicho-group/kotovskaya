@@ -6,12 +6,12 @@
   font-size: 18px;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
 }
 
-.beige{
-  color: #9B846E;
+.beige {
+  color: #9b846e;
   font-weight: 500;
 }

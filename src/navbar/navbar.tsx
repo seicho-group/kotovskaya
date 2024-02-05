@@ -1,13 +1,18 @@
-import "./navbar.css";
-import { NavButton } from "./navbutton/navbutton";
-import { Link } from "react-router-dom";
-import { CatalogMenu } from "../widgets/catalogmenu/catalogMenu";
-import { useEffect, useState } from "react";
+import './navbar.css'
+import { NavButton } from './navbutton/navbutton'
+import { Link } from 'react-router-dom'
+import { CatalogMenu } from '../widgets/catalogmenu/catalogMenu'
+import { useEffect, useState } from 'react'
 
-import axios from "axios";
+import axios from 'axios'
 
 export function Navbar() {
-  const categoriesArray = [{"Мыльная основа":"Жидкая основа, Цветная мыльная основа, Кремовая основа, Желе основа"}]
+  const categoriesArray = [
+    {
+      'Мыльная основа':
+        'Жидкая основа, Цветная мыльная основа, Кремовая основа, Желе основа',
+    },
+  ]
   // const [categories, setCategories] = useState<string[]>([]);
   // useEffect(() => {
   //   axios
@@ -18,23 +23,23 @@ export function Navbar() {
   //       setCategories(response.data.folders);
   //     });
   // }, []);
-  console.log(categoriesArray);
-  const [isShown, setIsShown] = useState<boolean>(false);
+  console.log(categoriesArray)
+  const [isShown, setIsShown] = useState<boolean>(false)
   return (
     <div className="navbar">
       <div
         onMouseEnter={() => {
-          setIsShown(true);
+          setIsShown(true)
         }}
         onMouseLeave={() => {
-          setIsShown(false);
+          setIsShown(false)
         }}
       >
         <NavButton category="каталог" />
       </div>
       <NavButton category="новинки" />
       <Link to="popular">
-      <NavButton category="популярное" />
+        <NavButton category="популярное" />
       </Link>
       <NavButton category="распродажа" />
       <Link to="delivery">
@@ -47,7 +52,7 @@ export function Navbar() {
       {isShown ? (
         <div
           onMouseEnter={() => {
-            setIsShown(true);
+            setIsShown(true)
           }}
           onMouseLeave={() => setIsShown(false)}
         >
@@ -55,5 +60,5 @@ export function Navbar() {
         </div>
       ) : null}
     </div>
-  );
+  )
 }

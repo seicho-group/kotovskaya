@@ -1,11 +1,11 @@
-import "./cartItem.css";
-import mock from "./../../../assets/mock2.jpg";
-import delete1 from "./../../../assets/delete.svg";
-import { useCartState } from "../../../entities/productCard/productCard";
+import './cartItem.css'
+import mock from './../../../assets/mock2.jpg'
+import delete1 from './../../../assets/delete.svg'
+import { useCartState } from '../../../entities/productCard/productCard'
 
 export function CartItem(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState();
+    useCartState()
   return (
     <div>
       <div className="cartitem__area">
@@ -21,7 +21,7 @@ export function CartItem(props: any) {
             <button
               className="cartitem__quantity__button"
               onClick={() => {
-                console.log("state");
+                console.log('state')
                 if (cart[props.id].quantity === 1) {
                   deleteProduct({
                     name: props.name,
@@ -29,9 +29,9 @@ export function CartItem(props: any) {
                     quantity: 0,
                     id: props.id,
                     image: props.image,
-                  });
+                  })
                 }
-                decrementById(props.id);
+                decrementById(props.id)
               }}
             >
               -
@@ -47,7 +47,7 @@ export function CartItem(props: any) {
                 //   image: `http://95.182.121.35:8080/images/${props.id}`,
                 //   price: props.price / 100,
                 // });
-                incrementById(props.id);
+                incrementById(props.id)
               }}
             >
               +
@@ -59,5 +59,5 @@ export function CartItem(props: any) {
         </div>
       </div>
     </div>
-  );
+  )
 }

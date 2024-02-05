@@ -1,30 +1,30 @@
-import "./cart.css";
-import noitemsyet from "./../../assets/noitemsyet.png";
-import { useCartState } from "../../entities/productCard/productCard";
-import { CartItem } from "./cartitem/cartItem";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import cbempty from "./../../assets/checkboxempty.svg";
-import cb from "./../../assets/checkbox.svg";
+import './cart.css'
+import noitemsyet from './../../assets/noitemsyet.png'
+import { useCartState } from '../../entities/productCard/productCard'
+import { CartItem } from './cartitem/cartItem'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import cbempty from './../../assets/checkboxempty.svg'
+import cb from './../../assets/checkbox.svg'
 
 export function Cart() {
-  const { cart } = useCartState();
+  const { cart } = useCartState()
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
   // );]
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
       previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
-    );
-  }, 0);
-  console.log(totalPrice);
-  const [deliveryWay, setDeliveryWay] = useState("");
-  const [smsNeeded, setSmsNeeded] = useState(false);
+    )
+  }, 0)
+  console.log(totalPrice)
+  const [deliveryWay, setDeliveryWay] = useState('')
+  const [smsNeeded, setSmsNeeded] = useState(false)
 
   return (
     <div>
       {1 > 0 ? (
-        <div className={"fullcart"}>
+        <div className={'fullcart'}>
           <div className="fullcart__wrapper">
             <div className="fullcart__wrapper1">
               <div className="fullcart__wrapper__list">
@@ -34,11 +34,11 @@ export function Cart() {
                     <CartItem
                       name={value.name}
                       id={key}
-                      price={value.price / 100 + "₽"}
+                      price={value.price / 100 + '₽'}
                       quantity={value.quantity}
                       photo={`http://95.182.120.200:8080/images/${key}`}
                     />
-                  );
+                  )
                 })}
               </div>
               <div className="cartifull__personinfo">
@@ -50,25 +50,25 @@ export function Cart() {
                 <div>Выберите способ доставки</div>
                 <div className="delivery__buttons">
                   <button
-                    className={deliveryWay === "самовывоз" ? "active" : ""}
-                    onClick={() => setDeliveryWay("самовывоз")}
+                    className={deliveryWay === 'самовывоз' ? 'active' : ''}
+                    onClick={() => setDeliveryWay('самовывоз')}
                   >
                     Самовывоз
                   </button>
                   <button
-                    className={deliveryWay === "курьер" ? "active" : ""}
-                    onClick={() => setDeliveryWay("курьер")}
+                    className={deliveryWay === 'курьер' ? 'active' : ''}
+                    onClick={() => setDeliveryWay('курьер')}
                   >
                     Курьером
                   </button>
                   <button
-                    className={deliveryWay === "тк" ? "active" : ""}
-                    onClick={() => setDeliveryWay("тк")}
+                    className={deliveryWay === 'тк' ? 'active' : ''}
+                    onClick={() => setDeliveryWay('тк')}
                   >
                     Транспортной компанией
                   </button>
                 </div>
-                {deliveryWay === "курьер" ? (
+                {deliveryWay === 'курьер' ? (
                   <div>
                     <div>
                       <input
@@ -96,9 +96,9 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
-                {deliveryWay === "тк" ? (
+                {deliveryWay === 'тк' ? (
                   <div>
                     <div>
                       <input
@@ -117,16 +117,16 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
-                {deliveryWay === "самовывоз" ? (
+                {deliveryWay === 'самовывоз' ? (
                   <div>
                     <div className="checkbox__area">
                       {smsNeeded ? (
                         <div>
                           <img
                             onClick={() => {
-                              setSmsNeeded(false);
+                              setSmsNeeded(false)
                             }}
                             src={cb}
                             alt=""
@@ -136,7 +136,7 @@ export function Cart() {
                         <div>
                           <img
                             onClick={() => {
-                              setSmsNeeded(true);
+                              setSmsNeeded(true)
                             }}
                             src={cbempty}
                             alt=""
@@ -158,7 +158,7 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ""
+                  ''
                 )}
                 {/*<div className="delivery__info">*/}
                 {/*  Информация о способах доставки:*/}
@@ -181,7 +181,7 @@ export function Cart() {
                   <p className="fz__22">Итого</p>
                   <div className="toorder__element">
                     <div>Товары</div>
-                    <div>{totalPrice + "₽"}</div>
+                    <div>{totalPrice + '₽'}</div>
                   </div>
                   <div className="toorder__element">
                     <div>Доставка</div>
@@ -189,7 +189,7 @@ export function Cart() {
                   </div>
                   <div className="toorder__element">
                     <div>К оплате</div>
-                    <div>{totalPrice + "₽"}</div>
+                    <div>{totalPrice + '₽'}</div>
                   </div>
                   <Link to="/ordered" className="order__button">
                     Оформить заказ
@@ -205,5 +205,5 @@ export function Cart() {
         </div>
       )}
     </div>
-  );
+  )
 }

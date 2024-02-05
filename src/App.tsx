@@ -1,15 +1,15 @@
-import "./App.css";
-import { Header } from "./header/header";
-import { Navbar } from "./navbar/navbar";
-import { Main } from "./main/main";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Footer } from "./footer/footer";
-import { Contacts } from "./pages/contacts/contacts";
-import { Delivery } from "./pages/delivery/delivery";
-import { Cart } from "./pages/cart/cart";
-import { ProductPage } from "./pages/productpage/productpage";
-import { Ordered } from "./pages/ordered/ordered";
-import { Popular } from "./pages/popular";
+import './App.css'
+import { Header } from './header/header'
+import { Navbar } from './navbar/navbar'
+import { Main } from './main/main'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Footer } from './footer/footer'
+import { Contacts } from './pages/contacts/contacts'
+import { Delivery } from './pages/delivery/delivery'
+import { Cart } from './pages/cart/cart'
+import { ProductPage } from './pages/productpage/productpage'
+import { Ordered } from './pages/ordered/ordered'
+import { Popular } from './pages/popular'
 export function App() {
   return (
     <BrowserRouter>
@@ -30,5 +30,5 @@ export function App() {
         <Footer />
       </div>
     </BrowserRouter>
-  );
+  )
 }

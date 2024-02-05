@@ -1,78 +1,78 @@
-import "./productCard.css";
-import mock from "./../../assets/mock.png";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { createLogger } from "vite";
-import { Link } from "react-router-dom";
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import './productCard.css'
+import mock from './../../assets/mock.png'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { createLogger } from 'vite'
+import { Link } from 'react-router-dom'
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
-type CartStorage = Record<string, number>;
+type CartStorage = Record<string, number>
 // { "id": "count" }
 
 type Product = {
-  name: string;
-  price: number;
-  id: string;
-  image: string;
-  quantity: number;
-};
+  name: string
+  price: number
+  id: string
+  image: string
+  quantity: number
+}
 
 type CartState = {
-  cart: Record<string, Product>;
-  incrementById: (id: string) => void;
-  decrementById: (id: string) => void;
-  deleteProduct: (product: Product) => void;
-  setNewProduct: (product: Product) => void;
-};
+  cart: Record<string, Product>
+  incrementById: (id: string) => void
+  decrementById: (id: string) => void
+  deleteProduct: (product: Product) => void
+  setNewProduct: (product: Product) => void
+}
 
 export const useCartState = create(
   persist<CartState>(
     (set, getState) => ({
       cart: {},
       incrementById: (id: string) => {
-        const state = getState().cart;
+        const state = getState().cart
         if (state[id].quantity) {
-          state[id].quantity += 1;
+          state[id].quantity += 1
         } else {
-          state[id].quantity = 1;
+          state[id].quantity = 1
         }
-        set({ cart: state });
+        set({ cart: state })
       },
       decrementById: (id: string) => {
-        const state = getState().cart;
+        const state = getState().cart
         if (state[id].quantity) {
-          state[id].quantity -= 1;
+          state[id].quantity -= 1
         } else {
-          console.error("почему то убираем из корзины то чего в ней нет лол");
+          console.error('почему то убираем из корзины то чего в ней нет лол')
         }
-        set({ cart: state });
+        set({ cart: state })
       },
       setNewProduct: (product: Product) => {
-        const newState = getState().cart;
+        const newState = getState().cart
         if (newState[product.id]) {
-          return;
+          return
         }
-        newState[product.id] = product;
-        set({ cart: newState });
+        newState[product.id] = product
+        set({ cart: newState })
       },
       deleteProduct: (product: Product) => {
-        const newState = getState().cart;
+        const newState = getState().cart
 
-        console.log("state", newState);
-        delete newState[product.id];
-        set({ cart: newState });
+        console.log('state', newState)
+        delete newState[product.id]
+        set({ cart: newState })
       },
     }),
-    { name: "cart" }
+    { name: 'cart' }
   )
-);
+)
 
 export function ProductCard(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
-    useCartState();
-  console.log(cart);
+    useCartState()
+  console.log(cart)
 
   return (
     <div className="card">
@@ -94,13 +94,13 @@ export function ProductCard(props: any) {
       </div>
 
       <div className="card__bottom">
-        <p>{props.price / 100 + "₽"}</p>
+        <p>{props.price / 100 + '₽'}</p>
         {cart[props.id]?.quantity > 0 ? (
           <div className="card__quantity">
             <button
               className="card__quantity__button"
               onClick={() => {
-                console.log("state");
+                console.log('state')
                 if (cart[props.id].quantity === 1) {
                   deleteProduct({
                     name: props.name,
@@ -108,9 +108,9 @@ export function ProductCard(props: any) {
                     quantity: 0,
                     id: props.id,
                     image: props.image,
-                  });
+                  })
                 }
-                decrementById(props.id);
+                decrementById(props.id)
               }}
             >
               -
@@ -128,7 +128,7 @@ export function ProductCard(props: any) {
                 //   image: `http://95.182.121.35:8080/images/${props.id}`,
                 //   price: props.price / 100,
                 // });
-                incrementById(props.id);
+                incrementById(props.id)
               }}
             >
               +
@@ -143,8 +143,8 @@ export function ProductCard(props: any) {
                 quantity: 0,
                 id: props.id,
                 image: props.image,
-              });
-              incrementById(props.id);
+              })
+              incrementById(props.id)
             }}
           >
             В корзину
@@ -185,5 +185,5 @@ export function ProductCard(props: any) {
         {/*)}*/}
       </div>
     </div>
-  );
+  )
 }

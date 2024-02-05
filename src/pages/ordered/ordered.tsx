@@ -1,5 +1,5 @@
-import "./ordered.css";
+import './ordered.css'
 
 export function Ordered() {
-  return <div>Спасибо за заказ!))))0</div>;
+  return <div>Спасибо за заказ!))))0</div>
 }

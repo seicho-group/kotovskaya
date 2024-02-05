@@ -1,7 +1,5 @@
-import "./navbutton.css";
+import './navbutton.css'
 
 export function NavButton(props: any) {
-    return(
-        <button className="button">{props.category}</button>
-    )
+  return <button className="button">{props.category}</button>
 }

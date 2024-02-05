@@ -1,14 +1,13 @@
 .App {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-a{
-    text-decoration: none;
-    color:inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.fz__22{
-    font-size: 22px;
+.fz__22 {
+  font-size: 22px;
 }
-

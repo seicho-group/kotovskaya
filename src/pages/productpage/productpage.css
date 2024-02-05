@@ -1,68 +1,68 @@
-.productpage{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: auto;
-    background-color: white;
+.productpage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  background-color: white;
 }
 
-.productpage__wrapper{
-    width: 1300px;
-    height: 650px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 50px;
+.productpage__wrapper {
+  width: 1300px;
+  height: 650px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 50px;
 }
 
-.productpage__rightinfo{
-    display: grid;
-    height: min-content;
-    grid-template-rows: 80px auto 100px;
+.productpage__rightinfo {
+  display: grid;
+  height: min-content;
+  grid-template-rows: 80px auto 100px;
 }
 
-.productpage__name{
-    font-size: 24px;
+.productpage__name {
+  font-size: 24px;
 }
 
-.productpage__description{
-    font-size: 16px;
-    padding-bottom: 30px;
+.productpage__description {
+  font-size: 16px;
+  padding-bottom: 30px;
 }
 
-.productpage img{
-    width: 470px;
-    height: 450px;
-    margin-left: 50px;
+.productpage img {
+  width: 470px;
+  height: 450px;
+  margin-left: 50px;
 }
 
-.productpage__bottom{
-    display: grid;
-    grid-template-columns: auto 180px;
+.productpage__bottom {
+  display: grid;
+  grid-template-columns: auto 180px;
 }
 
-.productpage__bottom__button{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 100%;
+.productpage__bottom__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
 }
 
-.productpage__price{
-    font-size: 26px;
+.productpage__price {
+  font-size: 26px;
 }
 
 .productpage button {
-    width: 180px;
-    height: 45px;
-    background-color: #998169;
+  width: 180px;
+  height: 45px;
+  background-color: #998169;
 
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
 }

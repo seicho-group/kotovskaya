@@ -1,13 +1,13 @@
-.circle{
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+.circle {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
 }
 
-.notactive{
-    background-color: #987E71;
+.notactive {
+  background-color: #987e71;
 }
 
-.active{
-    background-color: #4F3030;
+.active {
+  background-color: #4f3030;
 }
