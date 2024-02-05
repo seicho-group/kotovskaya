@@ -6,6 +6,7 @@ import { createLogger } from 'vite'
 import { Link } from 'react-router-dom'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+import { API_URL } from '../../shared/api/config'
 
 type CartStorage = Record<string, number>
 // { "id": "count" }
@@ -81,7 +82,7 @@ export function ProductCard(props: any) {
           <Link to={`/product/${props.id}`}>
             <img
               className="card__pic"
-              src={`http://95.182.120.200:8080/images/${props.id}`}
+              src={`${API_URL}/images/${props.id}`}
               alt=""
             />
           </Link>

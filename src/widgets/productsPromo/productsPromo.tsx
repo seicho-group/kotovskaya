@@ -14,14 +14,17 @@ export function ProductsPromo(props: any) {
       </div>
       <div className="productspromo__main">
         <div className="productspromo__grid">
-          {productsArray.map((product: Product) => (
-            <ProductCard
-              id={product.id}
-              photo={mock}
-              name={product.name}
-              price={product?.salePrices?.[0]?.value}
-            />
-          ))}
+          {productsArray.map((product: Product) => {
+            console.log(product.id)
+            return (
+              <ProductCard
+                id={product.id}
+                photo={mock}
+                name={product.name}
+                price={product?.salePrices?.[0]?.value}
+              />
+            )
+          })}
         </div>
       </div>
       <div className="productspromo__footer">
