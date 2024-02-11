@@ -25,6 +25,7 @@ export function Main() {
         setPopularArray(response.data)
       })
   }, [])
+  console.log(newArray)
 
   return (
     <div className="main">

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { CategoryPage } from './categorypage/categoryPage'
 import axios from 'axios'
+import { API_URL } from '../shared/api/config'
 
 export function Popular() {
   const [popularFullArray, setPopularFullArray] = useState<string[]>([])
   useEffect(() => {
     axios
-      .get('http://95.182.120.200:8080/products/popular', {
+      .get(`${API_URL}/popular`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -16,6 +17,7 @@ export function Popular() {
   return (
     <div>
       <CategoryPage category="Популярное" array={popularFullArray} />
+      
     </div>
   )
 }

@@ -1,12 +1,22 @@
 import './catalogmenu.css'
 import { CatalogMenuFolder } from '../catalogmenufolder/catalogmenufolder'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import pic from './../../assets/sidepromo.png'
 import { CatalogItem } from '../../entities/productCard/catalogItem'
+import axios from 'axios';
+import { API_URL } from '../../shared/api/config'
 
 export function CatalogMenu(props: any) {
-  const [isActive, setIsActive] = useState<number>(0)
+  const [categories, setCategories] = useState<string[]>([])
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/categories`, { withCredentials: true })
+      .then((response) => {
+        setCategories(response.data)
+      })
+  }, [])
+  console.log(categories)
   return createPortal(
     <div className="menu">
       <div className="catalog__row">

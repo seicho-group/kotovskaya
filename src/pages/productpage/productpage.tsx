@@ -2,7 +2,7 @@ import './productpage.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import mock from './../../assets/mock2.jpg'
-import { requestProducts } from '../../shared/api/single-product/request'
+import { requestProduct } from '../../shared/api/single-product/request'
 import { useParams } from 'react-router-dom'
 
 export function ProductPage(props: any) {
@@ -12,7 +12,7 @@ export function ProductPage(props: any) {
   )
   useEffect(() => {
     if (id) {
-      requestProducts(id).then((products) => setProductInfo(products))
+      requestProduct(id).then((products) => setProductInfo(products))
     }
   }, [id])
 
