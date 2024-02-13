@@ -3,6 +3,7 @@ import { NavButton } from './navbutton/navbutton'
 import { Link } from 'react-router-dom'
 import { CatalogMenu } from '../widgets/catalogmenu/catalogMenu'
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 import axios from 'axios'
 
@@ -56,7 +57,8 @@ export function Navbar() {
           }}
           onMouseLeave={() => setIsShown(false)}
         >
-          <CatalogMenu categories={categoriesArray} />
+          {createPortal(<CatalogMenu categories={categoriesArray} />, document.body)
+          }
         </div>
       ) : null}
     </div>

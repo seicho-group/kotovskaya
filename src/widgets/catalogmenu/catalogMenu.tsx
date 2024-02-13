@@ -8,22 +8,28 @@ import axios from 'axios';
 import { API_URL } from '../../shared/api/config'
 
 export function CatalogMenu(props: any) {
-  const [categories, setCategories] = useState<string[]>([])
+  const soapArray = [];
+  const candleArray = [];
+  const cosmeticsArray = [];
+  const [categories, setCategories] = useState<any[]>([])
   useEffect(() => {
     axios
-      .get(`${API_URL}/categories`, { withCredentials: true })
+      .get(`${API_URL}/categories/get_all`, { withCredentials: true })
       .then((response) => {
+        console.log(response.data)
         setCategories(response.data)
       })
   }, [])
   console.log(categories)
-  return createPortal(
+  console.log("123")
+  return (
     <div className="menu">
       <div className="catalog__row">
         <p className="catalog__h1">Мыловарение</p>
         <CatalogItem category="Мыльная основа" subcategory="Жидкая основа" />
         <CatalogItem category="Мыльная основа" subcategory="Жидкая основа" />
         <CatalogItem category="Мыльная основа" subcategory="Жидкая основа" />
+        {categories}
       </div>
       <div className="catalog__row">
         <p className="catalog__h1">Cвечеварение</p>
@@ -40,7 +46,6 @@ export function CatalogMenu(props: any) {
         <div className="catalog__sidepromo__h1">Скидки до -40% </div>
         <div className="catalog__sidepromo__p">на все категории товаров</div>
       </div>
-    </div>,
-    document.body
+    </div>
   )
 }
