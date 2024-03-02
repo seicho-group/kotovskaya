@@ -38,11 +38,15 @@ export function Navbar() {
       >
         <NavButton category="каталог" />
       </div>
+      <Link to="new">
       <NavButton category="новинки" />
+      </Link>
       <Link to="popular">
         <NavButton category="популярное" />
       </Link>
+      <Link to="sale">
       <NavButton category="распродажа" />
+      </Link>
       <Link to="delivery">
         <NavButton category="доставка" />
       </Link>

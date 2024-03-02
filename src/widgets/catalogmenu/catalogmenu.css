@@ -25,7 +25,8 @@
 .catalog__row {
   width: auto;
   height: auto;
-  padding-left: 100px;
+  padding-left: 80px;
+  
   flex-direction: column;
 }
 
@@ -50,4 +51,12 @@
 .catalog__h1 {
   font-size: 22px;
   font-weight: 500;
+}
+
+.catalog__row__noh1{
+  width: auto;
+  height: auto;
+  padding-left: 80px;
+  flex-direction: column;
+  padding-top: 25px;
 }

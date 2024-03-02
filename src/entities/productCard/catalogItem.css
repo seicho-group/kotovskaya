@@ -1,7 +1,22 @@
 .catalog__item {
   padding-top: 15px;
+  cursor: pointer;
 }
 
 .catalog__item__h1 {
   font-weight: 500;
+
+}
+
+.catalog__item__body{
+ font-size: 16px;
+ padding-top: 3px;
+}
+
+.catalog__item__body__item:hover{
+    color: #998169;
+  
+}
+.catalog__item__h1:hover {
+  color: #998169;
 }

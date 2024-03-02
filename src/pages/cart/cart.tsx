@@ -20,10 +20,11 @@ export function Cart() {
   console.log(totalPrice)
   const [deliveryWay, setDeliveryWay] = useState('')
   const [smsNeeded, setSmsNeeded] = useState(false)
-
+  
   return (
+    
     <div>
-      {1 > 0 ? (
+      {Object.keys(cart).length!=0 ? (
         <div className={'fullcart'}>
           <div className="fullcart__wrapper">
             <div className="fullcart__wrapper1">
@@ -201,7 +202,7 @@ export function Cart() {
         </div>
       ) : (
         <div className="cart__empty">
-          <img src={noitemsyet} alt="" />
+          В вашей корзине пока пусто
         </div>
       )}
     </div>

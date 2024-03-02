@@ -1,0 +1,9 @@
+.search__product__mobile{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    gap: 20px;
+}

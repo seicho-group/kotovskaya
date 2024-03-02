@@ -1,0 +1,15 @@
+.fff{
+    display: flex;
+    gap: 10px;
+   
+    flex-wrap: wrap;
+}
+
+.mobile__wrapper{
+    margin: 15px;
+}
+
+.mobile__wrapper p{
+    font-size: 20px;
+    margin-bottom: 15px;
+}

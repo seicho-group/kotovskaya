@@ -1,0 +1,42 @@
+.delivery__mobile {
+    display: flex;
+    justify-content: center;
+    margin: 0 40px 0 20px;
+  }
+  
+  .delivery__wrapper__mobile {
+    margin: 0 20px 0 15px;
+  }
+  
+  .h1 {
+    font-weight: 400;
+    font-size: 26px;
+    font-weight: 400;
+    padding-top: 30px;
+  }
+  
+  .h2__mobile {
+    font-weight: 400;
+    font-size: 22px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+  }
+  
+  .h1__block {
+    display: flex;
+    align-items: end;
+  }
+  
+  .bottom25__mobile {
+    padding-bottom: 15px;
+  }
+  
+  .bottom50__mobile {
+    padding-bottom: 70px;
+  }
+  
+  .dirrow {
+    display: flex;
+    flex-direction: row;
+  }
+  

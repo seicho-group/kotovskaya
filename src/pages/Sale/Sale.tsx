@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { CategoryPage } from './categorypage/categoryPage'
+import { CategoryPage } from './../categorypage/categoryPage'
 import axios from 'axios'
-import { API_URL } from '../shared/api/config'
+import { API_URL } from '../../shared/api/config'
 
-export function Popular() {
+export function Sale() {
   const [popularFullArray, setPopularFullArray] = useState<string[]>([])
   useEffect(() => {
     axios
@@ -16,7 +16,7 @@ export function Popular() {
   }, [])
   return (
     <div>
-      <CategoryPage category="Популярное" array={popularFullArray} />
+      <CategoryPage category="Распродажа" array={popularFullArray} />
       
     </div>
   )

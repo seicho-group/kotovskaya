@@ -7,7 +7,7 @@ import searchpic from "./../assets/lupa.svg"
 import { useState } from 'react'
 import { Search } from '../widgets/search/search'
 export function Header() {
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <div className="underHeader">
       <div className="wrapper header">
@@ -18,7 +18,7 @@ export function Header() {
         <div className="left_panel">
           <div className="left_panel_wrapper">
             
-            <div onClick={()=>{setIsClicked(true)}}>
+            <div onClick={isClicked ? ()=>{setIsClicked(false)} : ()=>{setIsClicked(true)}}>
               <img className="searchpic" src={searchpic} alt="" />
             </div>
               <Link to="/cart">

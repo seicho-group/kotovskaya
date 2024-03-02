@@ -1,0 +1,23 @@
+.header__mobile{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 50px;
+    align-items: center;
+}
+
+.header__mobile__burgericon{
+    padding-left: 20px;
+}
+
+.mobilelogo{
+    display: flex;
+    justify-content: center;
+}
+
+.header__mobile__leftpanel{
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+    justify-content: end;
+}
