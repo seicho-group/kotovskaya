@@ -1,9 +1,9 @@
-import './cartItem.css'
-import pic from './../../../assets/фотобудетпозже.png'
-import delete1 from './../../../assets/delete.svg'
-import { useCartState } from '../../../entities/productCard/productCard'
+import './cart-item-mobile.css'
+import pic from './../../assets/фотобудетпозже.png'
+import delete1 from './../../assets/delete.svg'
+import { useCartState } from '../product-card-mobile'
 
-export function CartItem(props: any) {
+export function CartItemMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
     useCartState()
   return (
@@ -56,9 +56,6 @@ export function CartItem(props: any) {
               +
             </button>
           </div>
-        </div>
-        <div className="cartitem__delete__area">
-          <img className="cartitem__delete" src={delete1} alt="" />
         </div>
       </div>
     </div>

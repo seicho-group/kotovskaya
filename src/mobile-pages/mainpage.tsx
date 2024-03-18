@@ -3,7 +3,34 @@ import arrow from "./../assets/Arrow 4.svg"
 import { Link } from 'react-router-dom'
 import longarrow from "./../assets/longaarow.svg"
 import shortarrow from "./../assets/shortarrow.svg"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { API_URL } from "../shared/api/config"
+import { ProductsPromoMobile } from "../mobileentities/products-promo-mobile/products-promo-mobile"
+import { ProductCardMobile } from "../mobileentities/product-card-mobile"
 export function MainPage(){
+    const [popularArrayM, setPopularArrayM] = useState();
+    const [newArrayM, setNewArrayM] = useState();
+    useEffect(() => {
+        axios
+          .get(`${API_URL}/products/popular`, {
+            withCredentials: true,
+          })
+          .then((response) => {
+            console.log(response.data)
+            setPopularArrayM(response.data)
+          })
+      }, [])
+      useEffect(() => {
+        axios
+          .get(`${API_URL}/products/new`, {
+            withCredentials: true,
+          })
+          .then((response) => {
+            console.log(125)
+            setNewArrayM(response.data)
+          })
+      }, [])
     return(
         <div className="mainpage">
             <div className="categrptyblocks__wrapper">
@@ -26,6 +53,13 @@ export function MainPage(){
                     </Link>
                 </div>
             </div>
+            <div>
+                <ProductsPromoMobile array={popularArrayM} category={"Популярное"}/>
+            </div>
+            <div>
+                <ProductsPromoMobile array={newArrayM} category={"Новинки"}/>
+            </div>
+            
         </div>
     )
 }

@@ -5,6 +5,15 @@
     align-items: center;
     width: 470px;
     margin-bottom: 15px;
-    gap: 20px;
+    gap: 15px;
     cursor: pointer;
+}
+
+.search__product:hover{
+    background-color: #F7F7F7;
+}
+
+.search__product__pic{
+    width: 45px;
+    height: 45px;
 }

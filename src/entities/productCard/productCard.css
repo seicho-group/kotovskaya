@@ -1,21 +1,21 @@
 .card {
   width: 286px;
-  height: 380px;
+  height: 406px;
   margin: 0;
   padding: 0;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 260px 77px 43px;
+  grid-template-rows: 286px 77px 43px;
   font-weight: 400;
 }
 
 .card__pic {
   width: 286px;
-  height: 260px;
+  height: 286px;
 }
 
 .card__name {
-  font-size: 20px;
+  font-size: 18px;
   padding-top: 10px;
   text-decoration: none;
 }
@@ -66,4 +66,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card__button__notinstock{
+  background-color: rgb(162, 162, 162); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 135px;
+  height: 43px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: 500;
 }

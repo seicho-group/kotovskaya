@@ -8,7 +8,8 @@
 
 .productpage__wrapper {
   width: 1300px;
-  height: 650px;
+  padding-bottom: 70px;
+  height: auto;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;

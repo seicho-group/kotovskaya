@@ -4,6 +4,7 @@ import cart from '../assets/cart.svg'
 import cart2 from "../assets/cart2.png"
 import { Link } from 'react-router-dom'
 import searchpic from "./../assets/lupa.svg"
+import closepic from "./../assets/Vector (2) 1.svg"
 import { useState } from 'react'
 import { Search } from '../widgets/search/search'
 export function Header() {
@@ -18,8 +19,9 @@ export function Header() {
         <div className="left_panel">
           <div className="left_panel_wrapper">
             
-            <div onClick={isClicked ? ()=>{setIsClicked(false)} : ()=>{setIsClicked(true)}}>
-              <img className="searchpic" src={searchpic} alt="" />
+            <div className='alignitemscenter' onClick={isClicked ? ()=>{setIsClicked(false)} : ()=>{setIsClicked(true)}}>
+              {isClicked ? (<img className="searchpic" src={closepic} alt="" />) : (<img className="searchpic" src={searchpic} alt="" />)}
+              
             </div>
               <Link to="/cart">
                 <img className="cart2" src={cart} alt="корзина" />
@@ -29,7 +31,7 @@ export function Header() {
         </div>
       </div>
       {isClicked ?
-      (<Search/>)
+      (<Search setIsClicked={setIsClicked}/>)
       :null}
     </div>
   )

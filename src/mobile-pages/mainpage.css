@@ -43,12 +43,14 @@
 
 .candle{
     color: white;
-    background-color: #79A2C8;
+    background-color: #AE947C;
+    /* background-color: #79A2C8; */
 }
 
 .cosmetics{
     color: white;
-    background-color: #ADADAD;
+    background-color: #AE947C;
+    /* background-color: #ADADAD; */
 }
 
 .categoryblock p{
@@ -70,5 +72,6 @@
 }
 
 .mainpage{
-    height: 1500px;
+    height: auto;
+    padding-bottom: 50px;
 }

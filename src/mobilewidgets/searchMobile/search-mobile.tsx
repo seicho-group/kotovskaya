@@ -1,15 +1,16 @@
-import "./SearchMobile.css"
+import "./search-mobile.css"
 import { createPortal } from 'react-dom'
 import { SearchProduct } from '../../entities/searchpoduct/searchproduct'
 import { SearchCategory } from '../../entities/searchcategory/searchcategory';
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { API_URL } from "./../../shared/api/config"
+import { API_URL } from "../../shared/api/config"
 import { useDebounce } from '../../shared/hooks/useDebounce';
-import { Product } from './../../widgets/types';
-import { SearchProductMobile } from "../../mobileentities/SearchProductMobile/SearcProductMobile";
+import { Product } from '../../widgets/types';
+import { SearchProductMobile } from "../../mobileentities/SearchProductMobile/search-product-mobile";
 
-export function SearchMobile() {
+export function SearchMobile(props: any) {
+  const setIsClicked = props.setIsClicked
     const [inputState, setInputState] = useState<string>("");
     const debouncedValue = useDebounce(inputState);
     const [popularArrayForSearch, setPopularArrayForSearch] = useState<Product[]>([])
@@ -39,12 +40,14 @@ export function SearchMobile() {
 
         <div className='search__resultsM'>
             <div>
-                {searchProductsResult !== null ? searchProductsResult.map((product: Product) => <SearchProductMobile name={product.name}/>) : popularArrayForSearch.map((product: Product) => <SearchProductMobile name={product.name} />)}
+                {searchProductsResult !== null ? searchProductsResult.map((product: Product) => <SearchProductMobile setIsClicked={setIsClicked} name={product.name}/>) : popularArrayForSearch.map((product: Product) => <SearchProductMobile setIsClicked={setIsClicked} name={product.name} />)}
     
 
         </div>
     
         </div>
+        
+        <div>показать все результаты</div>
       </div>
     </div>,
     document.body

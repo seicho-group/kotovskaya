@@ -16,8 +16,7 @@ export function Sale() {
   }, [])
   return (
     <div>
-      <CategoryPage category="Распродажа" array={popularFullArray} />
-      
+      <CategoryPage category="Распродажа" array={popularFullArray} /> 
     </div>
   )
 }

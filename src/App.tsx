@@ -1,4 +1,4 @@
-import './App.css'
+import './app.css'
 import { Header } from './header/header'
 import { Navbar } from './navbar/navbar'
 import { Main } from './main/main'
@@ -10,20 +10,22 @@ import { Cart } from './pages/cart/cart'
 import { ProductPage } from './pages/productpage/productpage'
 import { Ordered } from './pages/ordered/ordered'
 import { Popular } from './pages/popular'
-import { New } from './pages/new/New'
-import { Sale } from './pages/Sale/Sale'
-import { HeaderMobile } from './header-mobile/headerModile'
-import { MainPage } from './mobilPages/mainpage'
-import { Soapmaking } from './mobilPages/soapmaking/soapmaking'
-import { DeliveryMobile } from './mobilPages/DekiveryMobile/DeliveryMobile'
-import { ContactsMobile } from './mobilPages/ContactsMobile/ContactsMobilex'
+import { New } from './pages/new/new'
+import { Sale } from './pages/sale/sale'
+import { HeaderMobile } from './header-mobile/header-mobile'
+import { MainPage } from './mobile-pages/mainpage'
+import { Soapmaking } from './mobile-pages/soapmaking/soapmaking'
+import { DeliveryMobile } from './mobile-pages/DekiveryMobile/DeliveryMobile'
+import { ContactsMobile } from './mobile-pages/ContactsMobile/ContactsMobilex'
 import { FooterMobile } from './footer-mobile/footer-mobile'
 import { CategoryFullPage } from './pages/category-full-page/category-full-page'
+import { CartMobile } from './mobile-pages/cart-mobile/cart-mobile'
+import { ProductPageMobile } from './mobile-pages/product-page-mobile/product-page-mobile'
 export function App() {
   return (
     <BrowserRouter>
     
-      <div className="App">
+      {/* <div className="App">
         <Header />
         <Navbar />
         <Routes>
@@ -39,17 +41,19 @@ export function App() {
           <Route path="/test" element={<CategoryFullPage  category={"test"} />} />
         </Routes>
         <Footer />
-      </div>
-      {/* <div className='mobile__app'>
+      </div> */}
+      <div className='mobile__app'>
         <HeaderMobile />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/soapmaking" element={<Soapmaking />} />
           <Route path="/delivery" element={<DeliveryMobile/>} />
           <Route path="/contacts" element={<ContactsMobile/>} />
+          <Route path="/cartmobile" element={<CartMobile/>} />
+          <Route path="/product/:id" element={<ProductPageMobile id={123} />} />
         </Routes>
         <FooterMobile/>
-      </div> */}
+      </div>
     </BrowserRouter>
   )
 }

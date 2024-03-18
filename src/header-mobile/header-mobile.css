@@ -21,3 +21,8 @@
     padding-right: 20px;
     justify-content: end;
 }
+
+.alignitemscenter{
+    display: flex;
+    align-items: center;
+}

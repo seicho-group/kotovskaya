@@ -1,0 +1,57 @@
+.productspromo__header .wrapper {
+    width: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .productspromo__footer .wrapper {
+    width: auto;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 22px;
+    font-size: 22px;
+  }
+  
+  .productspromo__footer p {
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .productspromo__header {
+    margin-left: 20px;
+    height: 60px;
+  }
+  
+  .productspromo__footer {
+    display: flex;
+    justify-content: center;
+    height: 110px;
+  }
+  
+  .productspromo__grid {
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    grid-row-gap: 20px;
+    grid-column-gap: 40px;
+  }
+  
+  .productspromo__main {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 0 20px 0 20px;
+  }
+  
+  .productspromo {
+    padding-top: 20px;
+  }
+  

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { API_URL } from '../../shared/api/config'
+import pic from "./../../assets/фотобудетпозже.png"
 
 type CartStorage = Record<string, number>
 // { "id": "count" }
@@ -80,10 +81,13 @@ export function ProductCard(props: any) {
       <div>
         {props.id ? (
           <Link to={`/product/${props.id}`}>
-            <img
+            <img onError={(e) => {
+                // @ts-ignore
+                    e.target.src = pic;
+                }}
               className="card__pic"
               src={`${API_URL}/images/${props.id}`}
-              alt=""
+              alt="alt"
             />
           </Link>
         ) : null}
@@ -96,7 +100,8 @@ export function ProductCard(props: any) {
 
       <div className="card__bottom">
         <p>{props.price / 100 + '₽'}</p>
-        {cart[props.id]?.quantity > 0 ? (
+        {props.quantity < 1 ? 
+        cart[props.id]?.quantity > 0 ? (
           <div className="card__quantity">
             <button
               className="card__quantity__button"
@@ -150,7 +155,8 @@ export function ProductCard(props: any) {
           >
             В корзину
           </button>
-        )}
+        ) : ( <div className='card__button__notinstock'>Нет в наличии</div> )
+      }
         {/*<p>{cart[props.id]}</p>*/}
 
         {/*{currentCart || 0 > 0 ? (*/}

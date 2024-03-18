@@ -1,15 +1,14 @@
-import './cart.css'
+import './cart-mobile.css'
 import noitemsyet from './../../assets/noitemsyet.png'
 import { useCartState } from '../../entities/productCard/productCard'
-import { CartItem } from './cartitem/cartItem'
+import { CartItem } from '../../pages/cart/cartitem/cartItem'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import cbempty from './../../assets/checkboxempty.svg'
 import cb from './../../assets/checkbox.svg'
-import axios from 'axios'
-import { API_URL } from '../../shared/api/config'
+import { CartItemMobile } from '../../mobileentities/cart-item-mobile/cart-item-mobile'
 
-export function Cart() {
+export function CartMobile() {
   const { cart } = useCartState()
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
@@ -20,17 +19,8 @@ export function Cart() {
     )
   }, 0)
   console.log(totalPrice)
-  const positionsArray = [{id: "ea993c8a-bd4f-11e7-7a31-d0fd00056500", price: 42000, name: "Soaptima, белая основа для мыла ББО, 1 кгSoaptima, белая основа для мыла ББО, 1 кг", quantity: 2}]
   const [deliveryWay, setDeliveryWay] = useState('')
   const [smsNeeded, setSmsNeeded] = useState(false)
-  const [name, setName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [mail, setMail] = useState("");
-  const [comment, setComment] = useState("");
-  function sendOrder(){
-    axios.post(`${API_URL}/order/make_order`, {name: name,
-    email: mail, phone: phoneNumber, method_of_delivery: deliveryWay, positions: positionsArray})
-  }
   
   return (
     
@@ -42,8 +32,9 @@ export function Cart() {
               <div className="fullcart__wrapper__list">
                 <div className="fullcart__header">Ваша корзина</div>
                 {Object.entries(cart).map(([key, value]) => {
+                  console.log(value.quantity)
                   return (
-                    <CartItem
+                    <CartItemMobile
                       name={value.name}
                       id={key}
                       price={value.price / 100 + '₽'}
@@ -56,15 +47,10 @@ export function Cart() {
               <div className="cartifull__personinfo">
                 <div className="fullcart__header">Информация о заказе</div>
                 <div className="inputs">
-                <input onChange={event => setName(event.target.value)} type="tel" required placeholder="ФИО" />
-                  <input onChange={event => setPhoneNumber(event.target.value)}  type="text" placeholder="Телефон" />
-                 
+                  <input type="tel" required placeholder="ФИО" />
+                  <input type="tel" placeholder="Телефон" />
                 </div>
-                <div className='inputs'>
-                <input onChange={event => setMail(event.target.value)}  type="text" placeholder="Почта" />
-                  <input onChange={event => setComment(event.target.value)}  type="text" placeholder="Комментрий" />
-                </div>
-                <div>Выберите способ доставки</div>
+                <div className='fullcart__header'>Выберите способ доставки</div>
                 <div className="delivery__buttons">
                   <button
                     className={deliveryWay === 'самовывоз' ? 'active' : ''}
@@ -82,7 +68,7 @@ export function Cart() {
                     className={deliveryWay === 'тк' ? 'active' : ''}
                     onClick={() => setDeliveryWay('тк')}
                   >
-                    Транспортной компанией
+                    ТК
                   </button>
                 </div>
                 {deliveryWay === 'курьер' ? (
@@ -208,7 +194,7 @@ export function Cart() {
                     <div>К оплате</div>
                     <div>{totalPrice + '₽'}</div>
                   </div>
-                  <Link to="/ordered" onClick={sendOrder} className="order__button">
+                  <Link to="/ordered" className="order__button">
                     Оформить заказ
                   </Link>
                 </div>

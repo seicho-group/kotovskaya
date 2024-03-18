@@ -1,4 +1,4 @@
-import './productmobilecard.css'
+import './product-card-mobile.css'
 import mock from './../../assets/mock.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -6,7 +6,8 @@ import { createLogger } from 'vite'
 import { Link } from 'react-router-dom'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { API_URL } from './../shared/api/config'
+import { API_URL } from '../shared/api/config'
+import pic from "./../assets/фотобудетпозже.png"
 
 type CartStorage = Record<string, number>
 // { "id": "count" }
@@ -69,36 +70,40 @@ export const useCartState = create(
   )
 )
 
-export function ProductCard(props: any) {
+export function ProductCardMobile(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
     useCartState()
   console.log(cart)
 
   return (
-    <div className="card">
+    <div className="card__mobile">
       <div>
         {props.id ? (
           <Link to={`/product/${props.id}`}>
-            <img
-              className="card__pic"
+            <img onError={(e) => {
+                // @ts-ignore
+                    e.target.src = pic;
+                }}
+              className="card__pic__mobile"
               src={`${API_URL}/images/${props.id}`}
               alt=""
             />
           </Link>
         ) : null}
       </div>
-      <div className="card__name">
+      <div className="card__name__mobile">
         <Link to={`/product/${props.id}`}>
           <p>{props.name}</p>
         </Link>
       </div>
- <div className="card__bottom">
+ <div className="card__bottom__mobile">
         <p>{props.price / 100 + '₽'}</p>
-        {cart[props.id]?.quantity > 0 ? (
-          <div className="card__quantity">
+        {props.quantity > 0  ? (
+        cart[props.id]?.quantity > 0 ? (
+          <div className="card__quantity__mobile">
             <button
-              className="card__quantity__button"
+              className="card__quantity__button__mobile"
               onClick={() => {
                 console.log('state')
                 if (cart[props.id].quantity === 1) {
@@ -119,7 +124,7 @@ export function ProductCard(props: any) {
               {cart[props.id]?.quantity}
             </div>
             <button
-              className="card__quantity__button"
+              className="card__quantity__button__mobile"
               onClick={() => {
                 // setNewProduct({
                 //   name: props.name,
@@ -149,6 +154,8 @@ export function ProductCard(props: any) {
           >
             В корзину
           </button>
+        )) : (
+          <div className='card__button__notinstock__mobile'>Нет в наличии</div>
         )}
         {/*<p>{cart[props.id]}</p>*/}
 

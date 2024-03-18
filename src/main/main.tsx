@@ -12,6 +12,7 @@ export function Main() {
     axios
       .get(`${API_URL}/products/new`, { withCredentials: true })
       .then((response) => {
+        console.log(response.data)
         setNewArray(response.data)
       })
   }, [])

@@ -1,12 +1,13 @@
 .delivery__mobile {
     display: flex;
     justify-content: center;
-    margin: 0 40px 0 20px;
+    margin: 0 40px 40px 20px;
+
   }
   
-  .delivery__wrapper__mobile {
-    margin: 0 20px 0 15px;
-  }
+  /* .delivery__wrapper__mobile {
+    margin: 0 20px 20px 20px;
+  } */
   
   .h1 {
     font-weight: 400;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { CategoryPage } from './../categorypage/categoryPage'
+import { CategoryPage } from '../categorypage/categoryPage'
 import axios from 'axios'
 import { API_URL } from '../../shared/api/config'
 

@@ -25,18 +25,18 @@ export function DeliveryMobile() {
               1500 рублей{' '}
             </div>
             <div>Доставка осуществляется с 10:00 до 22:00 ежедневно</div>
-            <div className="dirrow">
+            {/* <div className="dirrow">
               <div className="h2__mobile bottom25">
                 Экспресс-доставка по Екатеринбургу <img src={express1} alt="" />
               </div>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               Доставка в течение <span className="beige">3 часов</span> с
               момента оформления <span className="beige">+99 рублей</span>  к
               стоимости
-            </div>
+            </div> */}
             <div className="h2__mobile bottom25">
-              Доставка транспортной комапнией в другие города
+              Доставка транспортной компанией в другие города
             </div>
             <div className="bottom50">
               Минимальная сумма заказа для отправки почтой или ТК составляет 500

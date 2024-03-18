@@ -37,7 +37,7 @@
 
 .productspromo__grid {
   width: 1300px;
-  height: 805px;
+  height: 900px;
   display: grid;
   grid-template-columns: repeat(4, 286px);
   justify-content: space-between;
