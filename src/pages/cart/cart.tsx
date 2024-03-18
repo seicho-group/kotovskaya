@@ -1,42 +1,52 @@
-import './cart.css'
-import noitemsyet from './../../assets/noitemsyet.png'
-import { useCartState } from '../../entities/productCard/productCard'
-import { CartItem } from './cartitem/cartItem'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import cbempty from './../../assets/checkboxempty.svg'
-import cb from './../../assets/checkbox.svg'
-import axios from 'axios'
-import { API_URL } from '../../shared/api/config'
+import "./cart.css";
+import noitemsyet from "./../../assets/noitemsyet.png";
+import { useCartState } from "../../entities/productCard/productCard";
+import { CartItem } from "./cartitem/cartItem";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import cbempty from "./../../assets/checkboxempty.svg";
+import cb from "./../../assets/checkbox.svg";
+import axios from "axios";
+import { API_URL } from "../../shared/api/config";
 
 export function Cart() {
-  const { cart } = useCartState()
+  const { cart } = useCartState();
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
   // );]
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
       previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
-    )
-  }, 0)
-  console.log(totalPrice)
-  const positionsArray = [{id: "ea993c8a-bd4f-11e7-7a31-d0fd00056500", price: 42000, name: "Soaptima, белая основа для мыла ББО, 1 кгSoaptima, белая основа для мыла ББО, 1 кг", quantity: 2}]
-  const [deliveryWay, setDeliveryWay] = useState('')
-  const [smsNeeded, setSmsNeeded] = useState(false)
+    );
+  }, 0);
+  const positionsArray = [
+    {
+      id: "ea993c8a-bd4f-11e7-7a31-d0fd00056500",
+      price: 42000,
+      name: "Soaptima, белая основа для мыла ББО, 1 кгSoaptima, белая основа для мыла ББО, 1 кг",
+      quantity: 2,
+    },
+  ];
+  const [deliveryWay, setDeliveryWay] = useState("");
+  const [smsNeeded, setSmsNeeded] = useState(false);
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [mail, setMail] = useState("");
   const [comment, setComment] = useState("");
-  function sendOrder(){
-    axios.post(`${API_URL}/order/make_order`, {name: name,
-    email: mail, phone: phoneNumber, method_of_delivery: deliveryWay, positions: positionsArray})
+  function sendOrder() {
+    axios.post(`${API_URL}/order/make_order`, {
+      name: name,
+      email: mail,
+      phone: phoneNumber,
+      method_of_delivery: deliveryWay,
+      positions: positionsArray,
+    });
   }
-  
+
   return (
-    
     <div>
-      {Object.keys(cart).length!=0 ? (
-        <div className={'fullcart'}>
+      {Object.keys(cart).length != 0 ? (
+        <div className={"fullcart"}>
           <div className="fullcart__wrapper">
             <div className="fullcart__wrapper1">
               <div className="fullcart__wrapper__list">
@@ -46,46 +56,62 @@ export function Cart() {
                     <CartItem
                       name={value.name}
                       id={key}
-                      price={value.price / 100 + '₽'}
+                      price={value.price / 100 + "₽"}
                       quantity={value.quantity}
                       photo={`http://95.182.120.200:8080/images/${key}`}
                     />
-                  )
+                  );
                 })}
               </div>
               <div className="cartifull__personinfo">
                 <div className="fullcart__header">Информация о заказе</div>
                 <div className="inputs">
-                <input onChange={event => setName(event.target.value)} type="tel" required placeholder="ФИО" />
-                  <input onChange={event => setPhoneNumber(event.target.value)}  type="text" placeholder="Телефон" />
-                 
+                  <input
+                    onChange={(event) => setName(event.target.value)}
+                    type="tel"
+                    required
+                    placeholder="ФИО"
+                  />
+                  <input
+                    onChange={(event) => setPhoneNumber(event.target.value)}
+                    type="text"
+                    placeholder="Телефон"
+                  />
                 </div>
-                <div className='inputs'>
-                <input onChange={event => setMail(event.target.value)}  type="text" placeholder="Почта" />
-                  <input onChange={event => setComment(event.target.value)}  type="text" placeholder="Комментрий" />
+                <div className="inputs">
+                  <input
+                    onChange={(event) => setMail(event.target.value)}
+                    type="text"
+                    placeholder="Почта"
+                  />
+                  <input
+                    onChange={(event) => setComment(event.target.value)}
+                    type="text"
+                    placeholder="Комментрий"
+                  />
                 </div>
                 <div>Выберите способ доставки</div>
                 <div className="delivery__buttons">
                   <button
-                    className={deliveryWay === 'самовывоз' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('самовывоз')}
+                    className={deliveryWay === "самовывоз" ? "active" : ""}
+                    onClick={() => setDeliveryWay("самовывоз")}
                   >
                     Самовывоз
                   </button>
                   <button
-                    className={deliveryWay === 'курьер' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('курьер')}
+                    className={deliveryWay === "курьер" ? "active" : ""}
+                    onClick={() => setDeliveryWay("курьер")}
                   >
                     Курьером
                   </button>
                   <button
-                    className={deliveryWay === 'тк' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('тк')}
+                    className={deliveryWay === "тк" ? "active" : ""}
+                    onClick={() => setDeliveryWay("тк")}
                   >
                     Транспортной компанией
                   </button>
                 </div>
-                {deliveryWay === 'курьер' ? (
+                {deliveryWay === "курьер" ? (
                   <div>
                     <div>
                       <input
@@ -113,9 +139,9 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
-                {deliveryWay === 'тк' ? (
+                {deliveryWay === "тк" ? (
                   <div>
                     <div>
                       <input
@@ -134,16 +160,16 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
-                {deliveryWay === 'самовывоз' ? (
+                {deliveryWay === "самовывоз" ? (
                   <div>
                     <div className="checkbox__area">
                       {smsNeeded ? (
                         <div>
                           <img
                             onClick={() => {
-                              setSmsNeeded(false)
+                              setSmsNeeded(false);
                             }}
                             src={cb}
                             alt=""
@@ -153,7 +179,7 @@ export function Cart() {
                         <div>
                           <img
                             onClick={() => {
-                              setSmsNeeded(true)
+                              setSmsNeeded(true);
                             }}
                             src={cbempty}
                             alt=""
@@ -175,7 +201,7 @@ export function Cart() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
                 {/*<div className="delivery__info">*/}
                 {/*  Информация о способах доставки:*/}
@@ -198,7 +224,7 @@ export function Cart() {
                   <p className="fz__22">Итого</p>
                   <div className="toorder__element">
                     <div>Товары</div>
-                    <div>{totalPrice + '₽'}</div>
+                    <div>{totalPrice + "₽"}</div>
                   </div>
                   <div className="toorder__element">
                     <div>Доставка</div>
@@ -206,9 +232,13 @@ export function Cart() {
                   </div>
                   <div className="toorder__element">
                     <div>К оплате</div>
-                    <div>{totalPrice + '₽'}</div>
+                    <div>{totalPrice + "₽"}</div>
                   </div>
-                  <Link to="/ordered" onClick={sendOrder} className="order__button">
+                  <Link
+                    to="/ordered"
+                    onClick={sendOrder}
+                    className="order__button"
+                  >
                     Оформить заказ
                   </Link>
                 </div>
@@ -217,10 +247,8 @@ export function Cart() {
           </div>
         </div>
       ) : (
-        <div className="cart__empty">
-          В вашей корзине пока пусто
-        </div>
+        <div className="cart__empty">В вашей корзине пока пусто</div>
       )}
     </div>
-  )
+  );
 }

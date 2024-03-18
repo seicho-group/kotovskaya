@@ -1,8 +1,5 @@
-import './ordered.css'
-import thanks from "./../../assets/спсзазаказ.png"
+import "./ordered.css";
 
 export function Ordered() {
-  return <div>
-    <img src={thanks} alt="" />
-    </div>
+  return <div>Спасибо за заказ</div>;
 }
