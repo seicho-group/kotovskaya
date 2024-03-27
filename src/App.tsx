@@ -23,7 +23,7 @@ import { Sale } from "./pages/Sale/Sale";
 import { New } from "./pages/new/New";
 import { useState } from "react";
 export function App() {
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   return (
     <BrowserRouter>
       {!isMobile ? (
