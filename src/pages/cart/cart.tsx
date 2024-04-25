@@ -58,7 +58,7 @@ export function Cart() {
   const formPhone = form.register("phone", {
     validate: (text?: string) =>
       ((text?.startsWith("8") || text?.startsWith("+7")) &&
-        text.length === 16) ||
+        text.length === 11) ||
       "Телефон не отвечает правилам валидации",
   });
   const formEMail = form.register("email", {
