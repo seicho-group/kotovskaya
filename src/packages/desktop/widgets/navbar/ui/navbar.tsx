@@ -7,13 +7,6 @@ import { createPortal } from "react-dom";
 
 import axios from "axios";
 
-const categoriesArray = [
-  {
-    "Мыльная основа":
-      "Жидкая основа, Цветная мыльная основа, Кремовая основа, Желе основа",
-  },
-];
-
 export function Navbar() {
   const [isShown, setIsShown] = useState<boolean>(false);
   return (
@@ -51,10 +44,7 @@ export function Navbar() {
           }}
           onMouseLeave={() => setIsShown(false)}
         >
-          {createPortal(
-            <CatalogMenu categories={categoriesArray} />,
-            document.body
-          )}
+          {createPortal(<CatalogMenu />, document.body)}
         </div>
       ) : null}
     </div>
