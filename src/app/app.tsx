@@ -1,12 +1,12 @@
 import "./app.css";
-import { Header } from "../widgets/header/ui/header";
-import { Navbar } from "../widgets/navbar/ui/navbar";
+import { Header } from "../packages/desktop/widgets/header/ui/header";
+import { Navbar } from "../packages/desktop/widgets/navbar/ui/navbar";
 import { BrowserRouter } from "react-router-dom";
-import { Footer } from "../widgets/footer/ui/footer";
-import { FooterMobile } from "../widgets/footer/ui/mobile/footer-mobile";
-import { HeaderMobile } from "../widgets/header/ui/mobile/header-mobile";
-import { DesktopRouter } from "./routers/desktop-router";
-import { MobileRouter } from "./routers/mobile-router";
+import { Footer } from "../packages/desktop/widgets/footer/ui/footer";
+import { FooterMobile } from "../packages/mobile/widgets/footer/ui/footer-mobile";
+import { HeaderMobile } from "../packages/mobile/widgets/header/ui/header-mobile";
+import { DesktopRouter } from "../packages/desktop/app/routers/desktop-router";
+import { MobileRouter } from "../packages/mobile/app/routers/mobile-router";
 import { createContext } from "react";
 
 export const IsMobileContext = createContext<{ isMobile: boolean }>({
