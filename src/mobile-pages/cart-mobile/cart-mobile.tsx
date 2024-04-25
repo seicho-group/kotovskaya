@@ -1,48 +1,46 @@
-import './cart-mobile.css'
-import noitemsyet from './../../assets/noitemsyet.png'
-import { useCartState } from '../../entities/productCard/productCard'
-import { CartItem } from '../../pages/cart/cartitem/cartItem'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import cbempty from './../../assets/checkboxempty.svg'
-import cb from './../../assets/checkbox.svg'
-import { CartItemMobile } from '../../mobileentities/cart-item-mobile/cart-item-mobile'
+import "./cart-mobile.css";
+import noitemsyet from "./../../assets/noitemsyet.png";
+import { useCartState } from "../../entities/productCard/productCard";
+import { CartItem } from "../../pages/cart/cartitem/cartItem";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import cbempty from "./../../assets/checkboxempty.svg";
+import cb from "../../shared/assets/checkbox.svg";
+import { CartItemMobile } from "../../mobileentities/cart-item-mobile/cart-item-mobile";
 
 export function CartMobile() {
-  const { cart } = useCartState()
+  const { cart } = useCartState();
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
   // );]
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
       previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
-    )
-  }, 0)
-  console.log(totalPrice)
-  const [deliveryWay, setDeliveryWay] = useState('')
-  const [smsNeeded, setSmsNeeded] = useState(false)
+    );
+  }, 0);
+  console.log(totalPrice);
+  const [deliveryWay, setDeliveryWay] = useState("");
+  const [smsNeeded, setSmsNeeded] = useState(false);
 
-  
   return (
-    
     <div>
-      {Object.keys(cart).length!=0 ? (
-        <div className={'fullcart'}>
+      {Object.keys(cart).length != 0 ? (
+        <div className={"fullcart"}>
           <div className="fullcart__wrapper">
             <div className="fullcart__wrapper1">
               <div className="fullcart__wrapper__list">
                 <div className="fullcart__header">Ваша корзина</div>
                 {Object.entries(cart).map(([key, value]) => {
-                  console.log(value.quantity)
+                  console.log(value.quantity);
                   return (
                     <CartItemMobile
                       name={value.name}
                       id={key}
-                      price={value.price / 100 + '₽'}
+                      price={value.price / 100 + "₽"}
                       quantity={value.quantity}
                       photo={`http://95.182.120.200:8080/images/${key}`}
                     />
-                  )
+                  );
                 })}
               </div>
               <div className="cartifull__personinfo">
@@ -53,34 +51,32 @@ export function CartMobile() {
                 </div>
                 <div className="inputs">
                   <input type="tel" required placeholder="Почта" />
-                 
                 </div>
                 <div className="inputs__comment">
-                  
                   <input type="tel" placeholder="Комментарий" />
                 </div>
-                <div className='fullcart__header'>Выберите способ доставки</div>
+                <div className="fullcart__header">Выберите способ доставки</div>
                 <div className="delivery__buttons">
                   <button
-                    className={deliveryWay === 'самовывоз' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('самовывоз')}
+                    className={deliveryWay === "самовывоз" ? "active" : ""}
+                    onClick={() => setDeliveryWay("самовывоз")}
                   >
                     Самовывоз
                   </button>
                   <button
-                    className={deliveryWay === 'курьер' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('курьер')}
+                    className={deliveryWay === "курьер" ? "active" : ""}
+                    onClick={() => setDeliveryWay("курьер")}
                   >
                     Курьером
                   </button>
                   <button
-                    className={deliveryWay === 'тк' ? 'active' : ''}
-                    onClick={() => setDeliveryWay('тк')}
+                    className={deliveryWay === "тк" ? "active" : ""}
+                    onClick={() => setDeliveryWay("тк")}
                   >
                     ТК
                   </button>
                 </div>
-                {deliveryWay === 'курьер' ? (
+                {deliveryWay === "курьер" ? (
                   <div>
                     <div>
                       <input
@@ -108,9 +104,9 @@ export function CartMobile() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
-                {deliveryWay === 'тк' ? (
+                {deliveryWay === "тк" ? (
                   <div>
                     <div>
                       <input
@@ -129,9 +125,9 @@ export function CartMobile() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
-                {deliveryWay === 'самовывоз' ? (
+                {deliveryWay === "самовывоз" ? (
                   <div>
                     {/* <div className="checkbox__area">
                       {smsNeeded ? (
@@ -170,7 +166,7 @@ export function CartMobile() {
                     </div>
                   </div>
                 ) : (
-                  ''
+                  ""
                 )}
                 {/*<div className="delivery__info">*/}
                 {/*  Информация о способах доставки:*/}
@@ -193,7 +189,7 @@ export function CartMobile() {
                   <p className="fz__22">Итого</p>
                   <div className="toorder__element">
                     <div>Товары</div>
-                    <div>{totalPrice + '₽'}</div>
+                    <div>{totalPrice + "₽"}</div>
                   </div>
                   <div className="toorder__element">
                     <div>Доставка</div>
@@ -201,7 +197,7 @@ export function CartMobile() {
                   </div>
                   <div className="toorder__element">
                     <div>К оплате</div>
-                    <div>{totalPrice + '₽'}</div>
+                    <div>{totalPrice + "₽"}</div>
                   </div>
                   <Link to="/ordered" className="order__button">
                     Оформить заказ
@@ -212,10 +208,8 @@ export function CartMobile() {
           </div>
         </div>
       ) : (
-        <div className="cart__empty">
-          В вашей корзине пока пусто
-        </div>
+        <div className="cart__empty">В вашей корзине пока пусто</div>
       )}
     </div>
-  )
+  );
 }

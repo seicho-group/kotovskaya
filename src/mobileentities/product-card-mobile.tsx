@@ -1,90 +1,90 @@
-import './product-card-mobile.css'
-import mock from './../../assets/mock.png'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { createLogger } from 'vite'
-import { Link } from 'react-router-dom'
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import { API_URL } from '../shared/api/config'
-import pic from "./../assets/фотобудетпозже.png"
+import "./product-card-mobile.css";
+import mock from "./../../assets/mock.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { createLogger } from "vite";
+import { Link } from "react-router-dom";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { API_URL } from "../shared/api/config";
+import pic from "../shared/assets/фотобудетпозже.png";
 
-type CartStorage = Record<string, number>
+type CartStorage = Record<string, number>;
 // { "id": "count" }
 
 type Product = {
-  name: string
-  price: number
-  id: string
-  image: string
-  quantity: number
-}
+  name: string;
+  price: number;
+  id: string;
+  image: string;
+  quantity: number;
+};
 
 type CartState = {
-  cart: Record<string, Product>
-  incrementById: (id: string) => void
-  decrementById: (id: string) => void
-  deleteProduct: (product: Product) => void
-  setNewProduct: (product: Product) => void
-}
+  cart: Record<string, Product>;
+  incrementById: (id: string) => void;
+  decrementById: (id: string) => void;
+  deleteProduct: (product: Product) => void;
+  setNewProduct: (product: Product) => void;
+};
 
 export const useCartState = create(
   persist<CartState>(
     (set, getState) => ({
       cart: {},
       incrementById: (id: string) => {
-        const state = getState().cart
+        const state = getState().cart;
         if (state[id].quantity) {
-          state[id].quantity += 1
+          state[id].quantity += 1;
         } else {
-          state[id].quantity = 1
+          state[id].quantity = 1;
         }
-        set({ cart: state })
+        set({ cart: state });
       },
       decrementById: (id: string) => {
-        const state = getState().cart
+        const state = getState().cart;
         if (state[id].quantity) {
-          state[id].quantity -= 1
+          state[id].quantity -= 1;
         } else {
-          console.error('почему то убираем из корзины то чего в ней нет лол')
+          console.error("почему то убираем из корзины то чего в ней нет лол");
         }
-        set({ cart: state })
+        set({ cart: state });
       },
       setNewProduct: (product: Product) => {
-        const newState = getState().cart
+        const newState = getState().cart;
         if (newState[product.id]) {
-          return
+          return;
         }
-        newState[product.id] = product
-        set({ cart: newState })
+        newState[product.id] = product;
+        set({ cart: newState });
       },
       deleteProduct: (product: Product) => {
-        const newState = getState().cart
+        const newState = getState().cart;
 
-        console.log('state', newState)
-        delete newState[product.id]
-        set({ cart: newState })
+        console.log("state", newState);
+        delete newState[product.id];
+        set({ cart: newState });
       },
     }),
-    { name: 'cart' }
+    { name: "cart" }
   )
-)
+);
 
 export function ProductCardMobile(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
-    useCartState()
-
+    useCartState();
 
   return (
     <div className="card__mobile">
       <div>
         {props.id ? (
           <Link to={`/product/${props.id}`}>
-            <img onError={(e) => {
+            <img
+              onError={(e) => {
                 // @ts-ignore
-                    e.target.src = pic;
-                }}
+                e.target.src = pic;
+              }}
               className="card__pic__mobile"
               src={`${API_URL}/images/${props.id}`}
               alt=""
@@ -97,65 +97,68 @@ export function ProductCardMobile(props: any) {
           <p>{props.name}</p>
         </Link>
       </div>
- <div className="card__bottom__mobile">
-        <p>{props.price / 100 + '₽'}</p>
-        {props.quantity > 0  ? (
-        cart[props.id]?.quantity > 0 ? (
-          <div className="card__quantity__mobile">
-            <button
-              className="card__quantity__button__mobile"
-              onClick={() => {
-                console.log('state')
-                if (cart[props.id].quantity === 1) {
-                  deleteProduct({
-                    name: props.name,
-                    price: props.price,
-                    quantity: 0,
-                    id: props.id,
-                    image: props.image,
-                  })
-                }
-                decrementById(props.id)
-              }}
-            >
-              -
-            </button>
-            <div className="card__quantity__number">
-              {cart[props.id]?.quantity}
+      <div className="card__bottom__mobile">
+        <p>{props.price / 100 + "₽"}</p>
+        {props.quantity > 0 ? (
+          cart[props.id]?.quantity > 0 ? (
+            <div className="card__quantity__mobile">
+              <button
+                className="card__quantity__button__mobile"
+                onClick={() => {
+                  console.log("state");
+                  if (cart[props.id].quantity === 1) {
+                    deleteProduct({
+                      name: props.name,
+                      price: props.price,
+                      quantity: 0,
+                      id: props.id,
+                      image: props.image,
+                    });
+                  }
+                  decrementById(props.id);
+                }}
+              >
+                -
+              </button>
+              <div className="card__quantity__number">
+                {cart[props.id]?.quantity}
+              </div>
+              <button
+                className="card__quantity__button__mobile"
+                onClick={() => {
+                  // setNewProduct({
+                  //   name: props.name,
+                  //   quantity: 0,
+                  //   id: props.id,
+                  //   image: `http://95.182.121.35:8080/images/${props.id}`,
+                  //   price: props.price / 100,
+                  // });
+                  incrementById(props.id);
+                }}
+              >
+                +
+              </button>
             </div>
+          ) : (
             <button
-              className="card__quantity__button__mobile"
               onClick={() => {
-                // setNewProduct({
-                //   name: props.name,
-                //   quantity: 0,
-                //   id: props.id,
-                //   image: `http://95.182.121.35:8080/images/${props.id}`,
-                //   price: props.price / 100,
-                // });
-                incrementById(props.id)
+                setNewProduct({
+                  name: props.name,
+                  price: props.price,
+                  quantity: 0,
+                  id: props.id,
+                  image: props.image,
+                });
+                incrementById(props.id);
               }}
             >
-              +
+              В корзину
             </button>
-          </div>
+          )
         ) : (
-          <button
-            onClick={() => {
-              setNewProduct({
-                name: props.name,
-                price: props.price,
-                quantity: 0,
-                id: props.id,
-                image: props.image,
-              })
-              incrementById(props.id)
-            }}
-          >
-            В корзину
-          </button>
-        )) : (
-          <div className='card__button__notinstock__mobile'><div className='notinstock'>Нет в наличии</div></div>
+          <div className="card__button__notinstock__mobile">
+            <div className="notinstock">Нет в наличии</div>
+          </div>
         )}
         {/*<p>{cart[props.id]}</p>*/}
 
@@ -191,7 +194,6 @@ export function ProductCardMobile(props: any) {
         {/*  </button>*/}
         {/*)}*/}
       </div>
-      
     </div>
-  )
+  );
 }

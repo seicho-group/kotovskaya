@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { API_URL } from "../../shared/api/config";
-import pic from "./../../assets/фотобудетпозже.png";
+import pic from "../../shared/assets/фотобудетпозже.png";
 
 type CartStorage = Record<string, number>;
 // { "id": "count" }
