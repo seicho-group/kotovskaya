@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { MainPage } from "../../mobile-pages/mainpage";
-import { Soapmaking } from "../../mobile-pages/soapmaking/soapmaking";
-import { DeliveryMobile } from "../../mobile-pages/delivery-information-mobile/DeliveryMobile";
-import { ContactsMobile } from "../../mobile-pages/ContactsMobile/ContactsMobilex";
-import { CartMobile } from "../../mobile-pages/cart-mobile/cart-mobile";
-import { CategoryPageMobile } from "../../mobile-pages/category-page/category-page";
-import { ShowAllResults } from "../../mobile-pages/show-all-results/show-all-results";
-import { SliderFirst } from "../../mobile-pages/sliderFirst/slider-first";
-import { ProductPageMobile } from "../../mobile-pages/product-page-mobile/product-page-mobile";
+import { MainPage } from "../../pages/mainpage";
+import { Soapmaking } from "../../pages/soapmaking/soapmaking";
+import { DeliveryMobile } from "../../pages/delivery-mobile/DeliveryMobile";
+import { ContactsMobile } from "../../pages/ContactsMobile/ContactsMobilex";
+import { CartMobile } from "../../pages/cart-mobile/cart-mobile";
+import { CategoryPageMobile } from "../../pages/category-page/category-page";
+import { ShowAllResults } from "../../pages/show-all-results/show-all-results";
+import { SliderFirst } from "../../pages/sliderFirst/slider-first";
+import { ProductPageMobile } from "../../pages/product-page-mobile/product-page-mobile";
 
 export const MobileRouter = () => {
   return (
