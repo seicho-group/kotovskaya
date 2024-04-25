@@ -1,7 +1,7 @@
-import './footer.css'
-import vk from './../assets/vk.svg'
-import tg from './../assets/tg.svg'
-import wa from './../assets/wa.svg'
+import "./footer.css";
+import vk from "src/shared/assets/vk.svg";
+import tg from "src/shared/assets/tg.svg";
+import wa from "src/shared/assets/wa.svg";
 
 export function Footer() {
   return (
@@ -48,5 +48,5 @@ export function Footer() {
         </div>
       </div>
     </div>
-  )
+  );
 }

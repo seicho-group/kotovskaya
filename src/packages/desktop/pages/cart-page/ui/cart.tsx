@@ -1,13 +1,11 @@
 import "./cart.css";
-import noitemsyet from "./../../assets/noitemsyet.png";
 import { useCartState } from "../../../entities/productCard/productCard";
 import { CartItem } from "./cart-item/cart-item";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import cbempty from "./../../assets/checkboxempty.svg";
-import cb from "./../../assets/checkbox.svg";
+import cbempty from "src/shared/assets/checkboxempty.svg";
+import cb from "src/shared/assets/checkbox.svg";
 import axios from "axios";
-import { API_URL } from "../../../../../shared/api/config";
+import { API_URL } from "src/shared/api/config";
 import { FormProvider, useForm } from "react-hook-form";
 
 type TCartForm = {

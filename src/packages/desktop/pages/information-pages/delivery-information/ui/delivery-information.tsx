@@ -1,5 +1,5 @@
 import "./delivery-information.css";
-import express1 from "./../../assets/express.svg";
+import express1 from "src/shared/assets/express.svg";
 
 export function DeliveryInformation() {
   return (

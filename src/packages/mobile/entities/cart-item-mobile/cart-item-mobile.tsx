@@ -1,19 +1,23 @@
-import './cart-item-mobile.css'
-import pic from './../../assets/фотобудетпозже.png'
-import delete1 from './../../assets/delete.svg'
-import { useCartState } from '../product-card-mobile'
+import "./cart-item-mobile.css";
+import pic from "src/shared/assets/фотобудетпозже.png";
+import { useCartState } from "../product-card-mobile";
 
 export function CartItemMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState()
+    useCartState();
   return (
     <div>
       <div className="cartitem__area">
         <div className="center">
-          <img onError={(e) => {
-                // @ts-ignore
-                    e.target.src = pic;
-                }} className="cartitem__area__photo" src={props.photo} alt="" />
+          <img
+            onError={(e) => {
+              // @ts-ignore
+              e.target.src = pic;
+            }}
+            className="cartitem__area__photo"
+            src={props.photo}
+            alt=""
+          />
         </div>
         <div className="cartitem__name">
           <p>{props.name}</p>
@@ -24,7 +28,7 @@ export function CartItemMobile(props: any) {
             <button
               className="cartitem__quantity__button"
               onClick={() => {
-                console.log('state')
+                console.log("state");
                 if (cart[props.id].quantity === 1) {
                   deleteProduct({
                     name: props.name,
@@ -32,9 +36,9 @@ export function CartItemMobile(props: any) {
                     quantity: 0,
                     id: props.id,
                     image: props.image,
-                  })
+                  });
                 }
-                decrementById(props.id)
+                decrementById(props.id);
               }}
             >
               -
@@ -50,7 +54,7 @@ export function CartItemMobile(props: any) {
                 //   image: `http://95.182.121.35:8080/images/${props.id}`,
                 //   price: props.price / 100,
                 // });
-                incrementById(props.id)
+                incrementById(props.id);
               }}
             >
               +
@@ -59,5 +63,5 @@ export function CartItemMobile(props: any) {
         </div>
       </div>
     </div>
-  )
+  );
 }

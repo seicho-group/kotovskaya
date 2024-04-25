@@ -13,7 +13,6 @@ import { CategoryFullPage } from "../../pages/category-page/category-full-page/c
 export const DesktopRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
       <Route path="/contacts" element={<KotovskayaContacts />} />
       <Route path="/delivery" element={<DeliveryInformation />} />
       <Route path="/cart" element={<Cart />} />
@@ -23,6 +22,7 @@ export const DesktopRouter = () => {
       <Route path="/new" element={<NewCategoriesPage />} />
       <Route path="/sale" element={<SalesPage />} />
       <Route path="/test" element={<CategoryFullPage category={"test"} />} />
+      <Route path="*" element={<Main />} />
     </Routes>
   );
 };

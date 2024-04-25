@@ -1,11 +1,11 @@
 import "./header-mobile.css";
-import burger from "shared/assets/burgermobile.svg";
-import logo from "shared/assets/mobilelogo.svg";
-import lupa from "shared/assets/lupamobile.svg";
-import cart from "shared/assets/cartmobile.svg";
+import burger from "src/shared/assets/burgermobile.svg";
+import logo from "src/shared/assets/mobilelogo.svg";
+import lupa from "src/shared/assets/lupamobile.svg";
+import cart from "src/shared/assets/cartmobile.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import closepic from "shared/assets/closebrown.svg";
+import closepic from "src/shared/assets/closebrown.svg";
 import { BurgerMobile } from "../../searchMobile/ui/burger/burger-mobile";
 import { SearchMobile } from "../../searchMobile/ui/search-mobile";
 import { create } from "zustand";

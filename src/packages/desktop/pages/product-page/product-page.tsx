@@ -1,8 +1,8 @@
 import "./product-page.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import mock from "./../../assets/mock2.jpg";
-import { requestProduct } from "../../../../shared/api/single-product/request";
+import mock from "src/shared/assets/mock2.jpg";
+import { requestProduct } from "src/shared/api/single-product/request";
 import { useParams } from "react-router-dom";
 
 export function ProductPage(props: any) {

@@ -1,15 +1,12 @@
-import "./mainpage.css";
-import arrow from "./../assets/Arrow 4.svg";
 import { Link } from "react-router-dom";
-import longarrow from "./../assets/longaarow.svg";
-import shortarrow from "./../assets/shortarrow.svg";
+import longarrow from "src/shared/assets/longaarow.svg";
+import shortarrow from "src/shared/assets/shortarrow.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { API_URL } from "../shared/api/config";
-import { ProductsPromoMobile } from "../mobileentities/products-promo-mobile/products-promo-mobile";
-import { ProductCardMobile } from "../mobileentities/product-card-mobile";
-import { Slider } from "../widgets/slider/ui/slider";
-import { SliderMobile } from "../widgets/slider/ui/slider-mobile/slider-mobile";
+import { API_URL } from "src/shared/api/config";
+import { ProductsPromoMobile } from "src/packages/mobile/entities/products-promo-mobile/products-promo-mobile";
+import { SliderMobile } from "src/shared/ui/slider/ui/mobile/slider-mobile";
+
 export function MainPage() {
   const [popularArrayM, setPopularArrayM] = useState();
   const [newArrayM, setNewArrayM] = useState();

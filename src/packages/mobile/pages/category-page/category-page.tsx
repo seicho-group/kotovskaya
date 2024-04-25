@@ -1,11 +1,11 @@
 import "./category-page.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { API_URL } from "../../shared/api/config";
-import { ProductCardMobile } from "../../mobileentities/product-card-mobile";
+import { Product } from "src/shared/types/product";
 import { useParams } from "react-router-dom";
-import { Product } from "../../widgets/types";
-import { CategoryPanel } from "../../mobileentities/category-panel";
+import { API_URL } from "src/shared/api/config";
+import { CategoryPanel } from "src/packages/mobile/entities/category-panel";
+import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile";
 
 export function CategoryPageMobile() {
   const [productsArray, setProductArray] = useState<Product[]>([]);

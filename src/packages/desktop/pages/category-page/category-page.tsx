@@ -1,9 +1,8 @@
 import "../../widgets/products-list/ui/products-list.css";
-import mock from "../../assets/mock.png";
+import mock from "src/shared/assets/mock.png";
 import { ProductCard } from "../../entities/productCard/productCard";
 import "./category-page.css";
-import axios from "axios";
-import { Product } from "../../../../shared/types/product";
+import { Product } from "src/shared/types/product";
 
 export function CategoryPage(props: any) {
   const productsArray: Product[] = props.array;

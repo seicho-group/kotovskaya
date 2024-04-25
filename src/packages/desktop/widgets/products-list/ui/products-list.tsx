@@ -1,8 +1,8 @@
 import "./products-list.css";
-import mock from "./../../assets/mockphoto.png";
+import mock from "src/shared/assets/mockphoto.png";
 import { ProductCard } from "../../../entities/productCard/productCard";
-import showall from "./../../assets/showall.svg";
-import { Product } from "../../../../../shared/types/product";
+import showall from "src/shared/assets/showall.svg";
+import { Product } from "src/shared/types/product";
 import { Link } from "react-router-dom";
 
 export function ProductsList(props: any) {

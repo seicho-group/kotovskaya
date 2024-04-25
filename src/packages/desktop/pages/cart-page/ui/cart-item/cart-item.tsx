@@ -1,6 +1,6 @@
 import "./cart-item.css";
-import pic from "./../../../assets/фотобудетпозже.png";
-import delete1 from "./../../../assets/delete.svg";
+import pic from "src/shared/assets/фотобудетпозже.png";
+import delete1 from "src/shared/assets/delete.svg";
 import { useCartState } from "../../../../entities/productCard/productCard";
 
 // todo: это сущность а не страница

@@ -1,13 +1,9 @@
 import "./productCard.css";
-import mock from "./../../assets/mock.png";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { createLogger } from "vite";
 import { Link } from "react-router-dom";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { API_URL } from "../../../../shared/api/config";
-import pic from "../../../../shared/assets/фотобудетпозже.png";
+import { API_URL } from "src/shared/api/config";
+import pic from "src/shared/assets/фотобудетпозже.png";
 
 type CartStorage = Record<string, number>;
 // { "id": "count" }

@@ -1,12 +1,8 @@
 import "./cart-mobile.css";
-import noitemsyet from "./../../assets/noitemsyet.png";
-import { useCartState } from "../../entities/productCard/productCard";
-import { CartItem } from "../../pages/cart/cart-item/cartItem";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import cbempty from "./../../assets/checkboxempty.svg";
-import cb from "../../shared/assets/checkbox.svg";
-import { CartItemMobile } from "../../mobileentities/cart-item-mobile/cart-item-mobile";
+import { useCartState } from "src/packages/mobile/entities/product-card-mobile";
+import { CartItemMobile } from "src/packages/mobile/entities/cart-item-mobile/cart-item-mobile";
 
 export function CartMobile() {
   const { cart } = useCartState();

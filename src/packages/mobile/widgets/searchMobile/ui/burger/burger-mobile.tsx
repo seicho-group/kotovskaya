@@ -1,8 +1,8 @@
 import "./burger-mobile.css";
 import { Link } from "react-router-dom";
-import vk from "./../../assets/vk 3.svg";
-import wa from "./../../assets/wa.svg";
-import tg from "./../../assets/tg.svg";
+import vk from "src/shared/assets/vk 3.svg";
+import wa from "src/shared/assets/wa.svg";
+import tg from "src/shared/assets/tg.svg";
 export function BurgerMobile(props: any) {
   return (
     <div

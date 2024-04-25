@@ -1,15 +1,7 @@
 import "./products-promo-mobile.css";
-import mock from "../../assets/mock.png";
-import { ProductCard } from "../../../desktop/entities/productCard/productCard";
-import showall from "./../../assets/showall.svg";
-import { Product } from "../../../../shared/types/product";
-
-import { Link } from "react-router-dom";
+import mock from "src/shared/mock.png";
+import { Product } from "src/shared/types/product";
 import { ProductCardMobile } from "../product-card-mobile";
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import { API_URL } from "../../../../shared/api/config";
 
 export function ProductsPromoMobile(props: any) {
   const productsArray: Product[] = props.array;
