@@ -1,12 +1,12 @@
-import './../../widgets/productsPromo/productsPromo.css'
-import mock from '../../assets/mock.png'
-import { ProductCard } from '../../entities/productCard/productCard'
-import './categoryPage.css'
-import axios from 'axios'
-import { Product } from '../../widgets/types'
+import "../../widgets/productsPromo/ui/productsPromo.css";
+import mock from "../../assets/mock.png";
+import { ProductCard } from "../../entities/productCard/productCard";
+import "./categoryPage.css";
+import axios from "axios";
+import { Product } from "../../widgets/types";
 
 export function CategoryPage(props: any) {
-  const productsArray: Product[] = props.array
+  const productsArray: Product[] = props.array;
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -25,5 +25,5 @@ export function CategoryPage(props: any) {
         </div>
       </div>
     </div>
-  )
+  );
 }

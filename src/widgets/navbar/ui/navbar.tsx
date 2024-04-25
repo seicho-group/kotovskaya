@@ -1,19 +1,19 @@
-import './navbar.css'
-import { NavButton } from './navbutton/navbutton'
-import { Link } from 'react-router-dom'
-import { CatalogMenu } from '../widgets/catalogmenu/catalogMenu'
-import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
+import "./navbar.css";
+import { NavButton } from "./navbutton/navbutton";
+import { Link } from "react-router-dom";
+import { CatalogMenu } from "../../catalogmenu/ui/catalogMenu";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
-import axios from 'axios'
+import axios from "axios";
 
 export function Navbar() {
   const categoriesArray = [
     {
-      'Мыльная основа':
-        'Жидкая основа, Цветная мыльная основа, Кремовая основа, Желе основа',
+      "Мыльная основа":
+        "Жидкая основа, Цветная мыльная основа, Кремовая основа, Желе основа",
     },
-  ]
+  ];
   // const [categories, setCategories] = useState<string[]>([]);
   // useEffect(() => {
   //   axios
@@ -24,28 +24,28 @@ export function Navbar() {
   //       setCategories(response.data.folders);
   //     });
   // }, []);
-  console.log(categoriesArray)
-  const [isShown, setIsShown] = useState<boolean>(false)
+  console.log(categoriesArray);
+  const [isShown, setIsShown] = useState<boolean>(false);
   return (
     <div className="navbar">
       <div
         onMouseEnter={() => {
-          setIsShown(true)
+          setIsShown(true);
         }}
         onMouseLeave={() => {
-          setIsShown(false)
+          setIsShown(false);
         }}
       >
         <NavButton category="каталог" />
       </div>
       <Link to="new">
-      <NavButton category="новинки" />
+        <NavButton category="новинки" />
       </Link>
       <Link to="popular">
         <NavButton category="популярное" />
       </Link>
       <Link to="sale">
-      <NavButton category="распродажа" />
+        <NavButton category="распродажа" />
       </Link>
       <Link to="delivery">
         <NavButton category="доставка" />
@@ -57,14 +57,16 @@ export function Navbar() {
       {isShown ? (
         <div
           onMouseEnter={() => {
-            setIsShown(true)
+            setIsShown(true);
           }}
           onMouseLeave={() => setIsShown(false)}
         >
-          {createPortal(<CatalogMenu categories={categoriesArray} />, document.body)
-          }
+          {createPortal(
+            <CatalogMenu categories={categoriesArray} />,
+            document.body
+          )}
         </div>
       ) : null}
     </div>
-  )
+  );
 }

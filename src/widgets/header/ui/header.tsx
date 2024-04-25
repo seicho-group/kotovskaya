@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import searchpic from "./../assets/lupa.svg";
 import closepic from "./../assets/Vector (2) 1.svg";
 import { useState } from "react";
-import { Search } from "../widgets/search/search";
+import { Search } from "../../search/ui/search";
 export function Header() {
   const [isClicked, setIsClicked] = useState(false);
   return (

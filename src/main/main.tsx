@@ -1,43 +1,43 @@
-import './main.css'
-import { Slider } from '../widgets/slider/slider'
-import mock from './../assets/mock.png'
-import { ProductsPromo } from '../widgets/productsPromo/productsPromo'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { API_URL } from '../shared/api/config'
+import "./main.css";
+import { Slider } from "../widgets/slider/ui/slider";
+import mock from "./../assets/mock.png";
+import { ProductsPromo } from "../widgets/productsPromo/ui/productsPromo";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { API_URL } from "../shared/api/config";
 
 export function Main() {
-  const [newArray, setNewArray] = useState<string[]>([])
+  const [newArray, setNewArray] = useState<string[]>([]);
   useEffect(() => {
     axios
       .get(`${API_URL}/products/new`, { withCredentials: true })
       .then((response) => {
-        console.log(response.data)
-        setNewArray(response.data)
-      })
-  }, [])
-  const [popularArray, setPopularArray] = useState<string[]>([])
+        console.log(response.data);
+        setNewArray(response.data);
+      });
+  }, []);
+  const [popularArray, setPopularArray] = useState<string[]>([]);
   useEffect(() => {
     axios
       .get(`${API_URL}/products/popular`, {
         withCredentials: true,
       })
       .then((response) => {
-        setPopularArray(response.data)
-      })
-  }, [])
-  console.log(newArray)
+        setPopularArray(response.data);
+      });
+  }, []);
+  console.log(newArray);
 
   return (
     <div className="main">
       <Slider />
-      <ProductsPromo category={'Новинки'} array={newArray} link={'new'} />
+      <ProductsPromo category={"Новинки"} array={newArray} link={"new"} />
       <ProductsPromo
-        category={'Популярное'}
+        category={"Популярное"}
         array={popularArray}
-        link={'popular'}
+        link={"popular"}
       />
-      <ProductsPromo category={'Распродажа'} array={[]} link={'sale'} />
+      <ProductsPromo category={"Распродажа"} array={[]} link={"sale"} />
     </div>
-  )
+  );
 }
