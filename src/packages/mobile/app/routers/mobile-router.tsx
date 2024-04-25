@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "../../mobile-pages/mainpage";
 import { Soapmaking } from "../../mobile-pages/soapmaking/soapmaking";
-import { DeliveryMobile } from "../../mobile-pages/delivery-mobile/DeliveryMobile";
+import { DeliveryMobile } from "../../mobile-pages/delivery-information-mobile/DeliveryMobile";
 import { ContactsMobile } from "../../mobile-pages/ContactsMobile/ContactsMobilex";
 import { CartMobile } from "../../mobile-pages/cart-mobile/cart-mobile";
 import { CategoryPageMobile } from "../../mobile-pages/category-page/category-page";

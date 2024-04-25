@@ -15,7 +15,7 @@ export function BurgerMobile(props: any) {
     >
       <div className="burger" onClick={(e) => e.stopPropagation()}>
         <div className="burger__items">
-          <Link to={"/delivery"}>
+          <Link to={"/delivery-information"}>
             <div
               onClick={() => {
                 props.setBurgerClicked(false);

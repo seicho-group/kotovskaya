@@ -1,7 +1,7 @@
 import "./search-mobile.css";
 import { createPortal } from "react-dom";
-import { SearchProduct } from "../../../../../entities/searchpoduct/searchproduct";
-import { SearchCategory } from "../../../../../entities/searchcategory/searchcategory";
+import { SearchProduct } from "../../../../desktop/entities/searchpoduct/searchproduct";
+import { SearchCategory } from "../../../../desktop/entities/searchcategory/searchcategory";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../../../../shared/api/config";

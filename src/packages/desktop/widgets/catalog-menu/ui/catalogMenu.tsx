@@ -1,6 +1,6 @@
 import "./catalogmenu.css";
 import { useState, useEffect } from "react";
-import { CatalogItem } from "../../../../../entities/productCard/catalogItem";
+import { CatalogItem } from "../../../entities/productCard/catalogItem";
 import axios from "axios";
 import { API_URL } from "../../../../../shared/api/config";
 

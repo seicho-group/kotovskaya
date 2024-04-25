@@ -1,5 +1,5 @@
 import "./navbar.css";
-import { NavButton } from "./navbutton/navbutton";
+import { NavButton } from "./nav-button/nav-button";
 import { Link } from "react-router-dom";
 import { CatalogMenu } from "../../catalog-menu/ui/catalogMenu";
 import { useEffect, useState } from "react";

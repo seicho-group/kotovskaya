@@ -1,6 +1,6 @@
 import "./products-promo-mobile.css";
 import mock from "../../assets/mock.png";
-import { ProductCard } from "../../../../entities/productCard/productCard";
+import { ProductCard } from "../../../desktop/entities/productCard/productCard";
 import showall from "./../../assets/showall.svg";
 import { Product } from "../../../../shared/types/product";
 

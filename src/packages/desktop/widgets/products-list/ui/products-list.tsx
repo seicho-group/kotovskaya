@@ -1,6 +1,6 @@
 import "./products-list.css";
 import mock from "./../../assets/mockphoto.png";
-import { ProductCard } from "../../../../../entities/productCard/productCard";
+import { ProductCard } from "../../../entities/productCard/productCard";
 import showall from "./../../assets/showall.svg";
 import { Product } from "../../../../../shared/types/product";
 import { Link } from "react-router-dom";

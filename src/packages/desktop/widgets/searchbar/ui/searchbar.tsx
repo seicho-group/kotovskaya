@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import "./searchbar.css";
-import { SearchProduct } from "../../../../../entities/searchpoduct/searchproduct";
-import { SearchCategory } from "../../../../../entities/searchcategory/searchcategory";
+import { SearchProduct } from "../../../entities/searchpoduct/searchproduct";
+import { SearchCategory } from "../../../entities/searchcategory/searchcategory";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../../../../shared/api/config";
