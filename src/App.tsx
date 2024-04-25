@@ -28,11 +28,11 @@ import { ShowAllResults } from "./mobile-pages/show-all-results/show-all-results
 import { SliderFirst } from "./mobile-pages/sliderFirst/slider-first";
 
 export function App() {
-  // const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [isMobile, setIsMobile] = useState<boolean>(true);
   return (
     <BrowserRouter>
-      {/* {!isMobile ? ( */}
-         {/* <div className="App">
+      {!isMobile ? (
+         <div className="App">
           <Header />
           <Navbar />
           <Routes>
@@ -51,8 +51,8 @@ export function App() {
             />
           </Routes>
           <Footer />
-        </div>  */}
-      {/* ) : ( */}
+        </div> 
+      ) : (
         <div className="mobile__app">
           <HeaderMobile />
           <Routes>
@@ -71,7 +71,7 @@ export function App() {
           </Routes>
           <FooterMobile />
         </div> 
-    
+      )}
     </BrowserRouter>
   );
 }
