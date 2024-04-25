@@ -12,22 +12,27 @@ import { Ordered } from "./pages/ordered/ordered";
 import { Popular } from "./pages/popular";
 import { MainPage } from "./mobile-pages/mainpage";
 import { Soapmaking } from "./mobile-pages/soapmaking/soapmaking";
-import { DeliveryMobile } from "./mobile-pages/DekiveryMobile/DeliveryMobile";
+import { DeliveryMobile } from "./mobile-pages/delivery-mobile/DeliveryMobile";
 import { ContactsMobile } from "./mobile-pages/ContactsMobile/ContactsMobilex";
 import { FooterMobile } from "./footer-mobile/footer-mobile";
 import { CategoryFullPage } from "./pages/category-full-page/category-full-page";
 import { CartMobile } from "./mobile-pages/cart-mobile/cart-mobile";
 import { ProductPageMobile } from "./mobile-pages/product-page-mobile/product-page-mobile";
 import { HeaderMobile } from "./header/mobile/header-mobile";
-import { Sale } from "./pages/Sale/Sale";
-import { New } from "./pages/new/New";
+import { Sale } from "./pages/sale/sale";
+import { New } from "./pages/new/new";
 import { useState } from "react";
+import {CategoryPageMobile} from "./mobile-pages/category-page/category-page"
+import { Ctm } from "./mobile-pages/category-page/сt";
+import { ShowAllResults } from "./mobile-pages/show-all-results/show-all-results";
+import { SliderFirst } from "./mobile-pages/sliderFirst/slider-first";
+
 export function App() {
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  // const [isMobile, setIsMobile] = useState<boolean>(true);
   return (
     <BrowserRouter>
-      {!isMobile ? (
-        <div className="App">
+      {/* {!isMobile ? ( */}
+         {/* <div className="App">
           <Header />
           <Navbar />
           <Routes>
@@ -46,8 +51,8 @@ export function App() {
             />
           </Routes>
           <Footer />
-        </div>
-      ) : (
+        </div>  */}
+      {/* ) : ( */}
         <div className="mobile__app">
           <HeaderMobile />
           <Routes>
@@ -56,14 +61,17 @@ export function App() {
             <Route path="/delivery" element={<DeliveryMobile />} />
             <Route path="/contacts" element={<ContactsMobile />} />
             <Route path="/cartmobile" element={<CartMobile />} />
+            <Route path="/categorypage/:id" element={<CategoryPageMobile />} />
+            <Route path="/showallresults" element={<ShowAllResults />} />
+            <Route path="/slider/:id" element={<SliderFirst />} />
             <Route
               path="/product/:id"
               element={<ProductPageMobile id={123} />}
             />
           </Routes>
           <FooterMobile />
-        </div>
-      )}
+        </div> 
+    
     </BrowserRouter>
   );
 }

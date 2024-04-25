@@ -1,5 +1,5 @@
 .categoryblock{
-    height: 100px;
+    height: 80px;
     border-radius: 17px;
     margin: 20px 15px 0 15px;
     display: grid;
@@ -10,7 +10,7 @@
 }
 
 .categoryblock2{
-    height: 100px;
+    height: 80px;
     border-radius: 17px;
     display: grid;
     grid-row: 1fr 1fr;

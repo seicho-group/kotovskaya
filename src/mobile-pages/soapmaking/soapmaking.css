@@ -1,7 +1,7 @@
 .fff{
     display: flex;
     gap: 10px;
-   
+    margin: 15px 0 25px 0;
     flex-wrap: wrap;
 }
 
@@ -9,8 +9,8 @@
     margin: 15px;
 }
 
-.mobile__wrapper p{
+/* .mobile__wrapper p{
     font-size: 20px;
     margin-bottom: 15px;
     font-weight: 500;
-}
+} */

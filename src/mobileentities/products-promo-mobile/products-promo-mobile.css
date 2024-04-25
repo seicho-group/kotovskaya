@@ -34,7 +34,7 @@
     height: 110px;
   }
   
-  .productspromo__grid {
+  .productspromo__grid__mobile {
     width: auto;
     height: auto;
     display: grid;

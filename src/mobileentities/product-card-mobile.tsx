@@ -74,7 +74,7 @@ export function ProductCardMobile(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
     useCartState()
-  console.log(cart)
+
 
   return (
     <div className="card__mobile">
@@ -155,7 +155,7 @@ export function ProductCardMobile(props: any) {
             В корзину
           </button>
         )) : (
-          <div className='card__button__notinstock__mobile'>Нет в наличии</div>
+          <div className='card__button__notinstock__mobile'><div className='notinstock'>Нет в наличии</div></div>
         )}
         {/*<p>{cart[props.id]}</p>*/}
 

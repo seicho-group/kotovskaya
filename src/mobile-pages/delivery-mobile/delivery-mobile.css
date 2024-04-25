@@ -1,8 +1,8 @@
 .delivery__mobile {
     display: flex;
     justify-content: center;
-    margin: 0 40px 40px 20px;
-
+    margin: 0 40px 30px 20px;
+    /* height: calc(100vh - 250px); */
   }
   
   /* .delivery__wrapper__mobile {

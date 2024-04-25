@@ -20,7 +20,7 @@ export function ProductsPromoMobile(props: any) {
         <div className="wrapper">{props.category}</div>
       </div>
       <div className="productspromo__main">
-        <div className="productspromo__grid">
+        <div className="productspromo__grid__mobile">
           {productsArray?.map((product: Product) => {
             console.log(product.quantity)
             return (

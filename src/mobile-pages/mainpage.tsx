@@ -8,6 +8,8 @@ import axios from "axios"
 import { API_URL } from "../shared/api/config"
 import { ProductsPromoMobile } from "../mobileentities/products-promo-mobile/products-promo-mobile"
 import { ProductCardMobile } from "../mobileentities/product-card-mobile"
+import { Slider } from "../widgets/slider/slider"
+import { SliderMobile } from "../widgets/slider/slider0mobile/slider-mobile"
 export function MainPage(){
     const [popularArrayM, setPopularArrayM] = useState();
     const [newArrayM, setNewArrayM] = useState();
@@ -33,6 +35,7 @@ export function MainPage(){
       }, [])
     return(
         <div className="mainpage">
+          <SliderMobile />
             <div className="categrptyblocks__wrapper">
                 <Link to={'/soapmaking'}>
                 <div className="categoryblock soap">

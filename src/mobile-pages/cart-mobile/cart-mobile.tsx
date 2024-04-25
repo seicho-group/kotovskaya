@@ -21,6 +21,7 @@ export function CartMobile() {
   console.log(totalPrice)
   const [deliveryWay, setDeliveryWay] = useState('')
   const [smsNeeded, setSmsNeeded] = useState(false)
+
   
   return (
     
@@ -49,6 +50,14 @@ export function CartMobile() {
                 <div className="inputs">
                   <input type="tel" required placeholder="ФИО" />
                   <input type="tel" placeholder="Телефон" />
+                </div>
+                <div className="inputs">
+                  <input type="tel" required placeholder="Почта" />
+                 
+                </div>
+                <div className="inputs__comment">
+                  
+                  <input type="tel" placeholder="Комментарий" />
                 </div>
                 <div className='fullcart__header'>Выберите способ доставки</div>
                 <div className="delivery__buttons">
@@ -124,7 +133,7 @@ export function CartMobile() {
                 )}
                 {deliveryWay === 'самовывоз' ? (
                   <div>
-                    <div className="checkbox__area">
+                    {/* <div className="checkbox__area">
                       {smsNeeded ? (
                         <div>
                           <img
@@ -150,7 +159,7 @@ export function CartMobile() {
                         Звонок не требуется (уведомление о том, что заказ вас
                         ожидает придет по смс)
                       </div>
-                    </div>
+                    </div> */}
                     <div className="delivery__info">
                       Информация о выбранном способе доставки:
                       <div className="delivery__info__item">

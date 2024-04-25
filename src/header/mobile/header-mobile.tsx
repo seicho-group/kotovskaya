@@ -8,8 +8,23 @@ import { Link } from "react-router-dom";
 import closepic from "../../assets/closebrown.svg";
 import { Burger } from "../../mobilewidgets/searchMobile/Burger";
 import { SearchMobile } from "../../mobilewidgets/searchMobile/search-mobile";
+import { create } from "zustand";
+
+type TSearchIsClicked = {
+  searchIsClicked: boolean,
+  setSearchIsOpened: () => void
+  setSearchIsClosed: () => void
+}
+
+export const useSearchIsClicked = create<TSearchIsClicked>((set) => ({
+  searchIsClicked: false,
+  setSearchIsOpened : () => set(() => ({ searchIsClicked: true  })),
+  setSearchIsClosed : () => set(() => ({ searchIsClicked: false}))
+}))
+
 
 export function HeaderMobile() {
+  const {searchIsClicked, setSearchIsOpened, setSearchIsClosed } = useSearchIsClicked();
   const [searchClicked, setSearchClicked] = useState(false);
   const [burgerClicked, setBurgerClicked] = useState(false);
   return (
@@ -38,12 +53,12 @@ export function HeaderMobile() {
           <div
             className="alignitemscenter"
             onClick={() =>
-              searchClicked == false
-                ? setSearchClicked(true)
-                : setSearchClicked(false)
+              searchIsClicked == false
+                ? setSearchIsOpened()
+                : setSearchIsClosed()
             }
           >
-            {searchClicked ? (
+            {searchIsClicked ? (
               <img className="searchpic" src={closepic} alt="" />
             ) : (
               <img className="searchpic" src={lupa} alt="" />
@@ -57,7 +72,7 @@ export function HeaderMobile() {
         </div>
       </div>
       {burgerClicked ? <Burger setBurgerClicked={setBurgerClicked} /> : ""}
-      {searchClicked ? <SearchMobile setIsClicked={setSearchClicked} /> : ""}
+      {searchIsClicked ? <SearchMobile /> : ""}
     </>
   );
 }

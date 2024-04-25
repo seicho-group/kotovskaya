@@ -21,11 +21,11 @@ export function ContactsMobile() {
     </div>
     <div className='contacts__item'>
       <p>Телефон</p>
-      <p>+7 908 787 56 56</p>
+      <p>+7 982 754 4397</p>
     </div>
     <div className='contacts__item'>
       <p>Почта</p>
-      <p>mkotovskaya@gmail.com</p>
+      <p>madamkotovskaya@mail.ru</p>
     </div>
     <div className='contacts__item'>
       <p>Мы в социальных сетях</p>
@@ -37,12 +37,12 @@ export function ContactsMobile() {
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://t.me/+79827544397">
                   <img src={tg} alt="" />
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://wa.me/+79827544397">
                   <img src={wa} alt="" />
                 </a>
               </div>
