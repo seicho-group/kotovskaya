@@ -13,6 +13,7 @@ import { SliderMobile } from "../widgets/slider/slider0mobile/slider-mobile"
 export function MainPage(){
     const [popularArrayM, setPopularArrayM] = useState();
     const [newArrayM, setNewArrayM] = useState();
+    
     useEffect(() => {
         axios
           .get(`${API_URL}/products/popular`, {
@@ -22,7 +23,7 @@ export function MainPage(){
             console.log(response.data)
             setPopularArrayM(response.data)
           })
-      }, [])
+}, [])
       useEffect(() => {
         axios
           .get(`${API_URL}/products/new`, {

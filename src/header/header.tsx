@@ -11,7 +11,7 @@ export function Header() {
   return (
     <div className="underHeader">
       <div className="wrapper header">
-        <div></div>
+                <div></div>
         <Link className="center" to="/">
           <img className="logo" src={logo} alt="logotip" />
         </Link>
