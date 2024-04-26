@@ -1,17 +1,17 @@
-import "./header.css";
-import logo from "../assets/logo.svg";
-import cart from "../assets/cart.svg";
-import { Link } from "react-router-dom";
-import searchpic from "./../assets/lupa.svg";
-import closepic from "./../assets/Vector (2) 1.svg";
-import { useState } from "react";
-import { Search } from "../widgets/search/search";
+import "./header.css"
+import logo from "../assets/logo.svg"
+import cart from "../assets/cart.svg"
+import { Link } from "react-router-dom"
+import searchpic from "./../assets/lupa.svg"
+import closepic from "./../assets/Vector (2) 1.svg"
+import { useState } from "react"
+import { Search } from "../widgets/search/search"
 export function Header() {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false)
   return (
     <div className="underHeader">
       <div className="wrapper header">
-                <div></div>
+        <div></div>
         <Link className="center" to="/">
           <img className="logo" src={logo} alt="logotip" />
         </Link>
@@ -22,10 +22,10 @@ export function Header() {
               onClick={
                 isClicked
                   ? () => {
-                      setIsClicked(false);
+                      setIsClicked(false)
                     }
                   : () => {
-                      setIsClicked(true);
+                      setIsClicked(true)
                     }
               }
             >
@@ -43,5 +43,5 @@ export function Header() {
       </div>
       {isClicked ? <Search setIsClicked={setIsClicked} /> : null}
     </div>
-  );
+  )
 }

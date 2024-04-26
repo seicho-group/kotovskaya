@@ -1,5 +1,5 @@
 import "./main.css"
-import { Slider } from "../widgets/slider/slider"
+import { Slider } from "src/shared/ui/slider/ui/slider"
 import mock from "./../assets/mock.png"
 import { ProductsPromo } from "../widgets/productsPromo/productsPromo"
 import axios from "axios"
