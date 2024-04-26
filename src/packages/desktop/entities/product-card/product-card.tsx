@@ -1,76 +1,76 @@
-import "./productCard.css";
-import { Link } from "react-router-dom";
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import { API_URL } from "src/shared/api/config";
-import pic from "src/shared/assets/фотобудетпозже.png";
+import "./product-card.css"
+import { Link } from "react-router-dom"
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
+import { API_URL } from "src/shared/api/config"
+import pic from "src/shared/assets/фотобудетпозже.png"
 
-type CartStorage = Record<string, number>;
+type CartStorage = Record<string, number>
 // { "id": "count" }
 
 type Product = {
-  name: string;
-  price: number;
-  id: string;
-  image: string;
-  quantity: number;
-};
+  name: string
+  price: number
+  id: string
+  image: string
+  quantity: number
+}
 
 type CartState = {
-  cart: Record<string, Product>;
-  incrementById: (id: string) => void;
-  decrementById: (id: string) => void;
-  deleteProduct: (product: Product) => void;
-  setNewProduct: (product: Product) => void;
-};
+  cart: Record<string, Product>
+  incrementById: (id: string) => void
+  decrementById: (id: string) => void
+  deleteProduct: (product: Product) => void
+  setNewProduct: (product: Product) => void
+}
 
 export const useCartState = create(
   persist<CartState>(
     (set, getState) => ({
       cart: {},
       incrementById: (id: string) => {
-        const state = getState().cart;
+        const state = getState().cart
         if (state[id].quantity) {
-          state[id].quantity += 1;
+          state[id].quantity += 1
         } else {
-          state[id].quantity = 1;
+          state[id].quantity = 1
         }
-        set({ cart: state });
+        set({ cart: state })
       },
       decrementById: (id: string) => {
-        const state = getState().cart;
+        const state = getState().cart
         if (state[id].quantity) {
-          state[id].quantity -= 1;
+          state[id].quantity -= 1
         } else {
-          console.error("почему то убираем из корзины то чего в ней нет лол");
+          console.error("почему то убираем из корзины то чего в ней нет лол")
         }
-        set({ cart: state });
+        set({ cart: state })
       },
       setNewProduct: (product: Product) => {
-        const newState = getState().cart;
+        const newState = getState().cart
         if (newState[product.id]) {
-          return;
+          return
         }
-        newState[product.id] = product;
-        set({ cart: newState });
+        newState[product.id] = product
+        set({ cart: newState })
       },
       deleteProduct: (product: Product) => {
-        const newState = getState().cart;
+        const newState = getState().cart
 
-        console.log("state", newState);
-        delete newState[product.id];
-        set({ cart: newState });
+        console.log("state", newState)
+        delete newState[product.id]
+        set({ cart: newState })
       },
     }),
-    { name: "cart" }
-  )
-);
+    { name: "cart" },
+  ),
+)
 
 export function ProductCard(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
-    useCartState();
-  console.log(cart);
+    useCartState()
+  console.log(cart)
 
   return (
     <div className="card">
@@ -80,7 +80,7 @@ export function ProductCard(props: any) {
             <img
               onError={(e) => {
                 // @ts-ignore
-                e.target.src = pic;
+                e.target.src = pic
               }}
               className="card__pic"
               src={`${API_URL}/images/${props.id}`}
@@ -110,9 +110,9 @@ export function ProductCard(props: any) {
                       quantity: 0,
                       id: props.id,
                       image: props.image,
-                    });
+                    })
                   }
-                  decrementById(props.id);
+                  decrementById(props.id)
                 }}
               >
                 -
@@ -130,7 +130,7 @@ export function ProductCard(props: any) {
                   //   image: `http://95.182.121.35:8080/images/${props.id}`,
                   //   price: props.price / 100,
                   // });
-                  incrementById(props.id);
+                  incrementById(props.id)
                 }}
               >
                 +
@@ -145,8 +145,8 @@ export function ProductCard(props: any) {
                   quantity: 0,
                   id: props.id,
                   image: props.image,
-                });
-                incrementById(props.id);
+                })
+                incrementById(props.id)
               }}
             >
               В корзину
@@ -190,5 +190,5 @@ export function ProductCard(props: any) {
         {/*)}*/}
       </div>
     </div>
-  );
+  )
 }

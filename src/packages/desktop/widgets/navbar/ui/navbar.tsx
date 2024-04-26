@@ -1,22 +1,22 @@
-import "./navbar.css";
-import { NavButton } from "./nav-button/nav-button";
-import { Link } from "react-router-dom";
-import { CatalogMenu } from "../../catalog-menu/ui/catalogMenu";
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import "./navbar.css"
+import { NavButton } from "./nav-button/nav-button"
+import { Link } from "react-router-dom"
+import { CatalogMenu } from "../../catalog-menu/ui/catalog-menu"
+import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 
-import axios from "axios";
+import axios from "axios"
 
 export function Navbar() {
-  const [isShown, setIsShown] = useState<boolean>(false);
+  const [isShown, setIsShown] = useState<boolean>(false)
   return (
     <div className="navbar">
       <div
         onMouseEnter={() => {
-          setIsShown(true);
+          setIsShown(true)
         }}
         onMouseLeave={() => {
-          setIsShown(false);
+          setIsShown(false)
         }}
       >
         <NavButton category="каталог" />
@@ -40,7 +40,7 @@ export function Navbar() {
       {isShown ? (
         <div
           onMouseEnter={() => {
-            setIsShown(true);
+            setIsShown(true)
           }}
           onMouseLeave={() => setIsShown(false)}
         >
@@ -48,5 +48,5 @@ export function Navbar() {
         </div>
       ) : null}
     </div>
-  );
+  )
 }

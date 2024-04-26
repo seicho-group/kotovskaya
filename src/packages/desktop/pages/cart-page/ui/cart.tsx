@@ -1,42 +1,42 @@
-import "./cart.css";
-import { useCartState } from "../../../entities/productCard/productCard";
-import { CartItem } from "./cart-item/cart-item";
-import { useState } from "react";
-import cbempty from "src/shared/assets/checkboxempty.svg";
-import cb from "src/shared/assets/checkbox.svg";
-import axios from "axios";
-import { API_URL } from "src/shared/api/config";
-import { FormProvider, useForm } from "react-hook-form";
+import "./cart.css"
+import { useCartState } from "../../../entities/product-card/product-card"
+import { CartItem } from "./cart-item/cart-item"
+import { useState } from "react"
+import cbempty from "src/shared/assets/checkboxempty.svg"
+import cb from "src/shared/assets/checkbox.svg"
+import axios from "axios"
+import { API_URL } from "src/shared/api/config"
+import { FormProvider, useForm } from "react-hook-form"
 
 type TCartForm = {
-  name: string;
-  email: string;
-  phone: string;
-  common: string;
-  deliveryWay: string;
-};
+  name: string
+  email: string
+  phone: string
+  common: string
+  deliveryWay: string
+}
 
 export function Cart() {
-  const form = useForm({ reValidateMode: "onBlur" });
-  const { cart } = useCartState();
+  const form = useForm({ reValidateMode: "onBlur" })
+  const { cart } = useCartState()
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
   // );]
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
       previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
-    );
-  }, 0);
-  const [smsNeeded, setSmsNeeded] = useState(false);
+    )
+  }, 0)
+  const [smsNeeded, setSmsNeeded] = useState(false)
 
   function sendOrder() {
     form.handleSubmit(
       (formValues) => {
-        console.log(formValues);
-        axios.post(`${API_URL}/order/make_order`, formValues);
+        console.log(formValues)
+        axios.post(`${API_URL}/order/make_order`, formValues)
       },
-      (e) => console.log(e)
-    )();
+      (e) => console.log(e),
+    )()
   }
 
   /**
@@ -48,22 +48,22 @@ export function Cart() {
    *
    * */
 
-  const deliveryWay = form.watch("deliveryWay");
+  const deliveryWay = form.watch("deliveryWay")
 
   const formName = form.register("name", {
     required: true,
-  });
+  })
   const formPhone = form.register("phone", {
     validate: (text?: string) =>
       ((text?.startsWith("8") || text?.startsWith("+7")) &&
         text.length === 11) ||
       "Телефон не отвечает правилам валидации",
-  });
+  })
   const formEMail = form.register("email", {
     validate: (text?: string) => text?.includes("@") && text.length > 5,
-  });
-  const formComment = form.register("comment");
-  form.register<string>("deliveryWay");
+  })
+  const formComment = form.register("comment")
+  form.register<string>("deliveryWay")
 
   return (
     <FormProvider {...form}>
@@ -83,7 +83,7 @@ export function Cart() {
                         quantity={value.quantity}
                         photo={`http://95.182.120.200:8080/images/${key}`}
                       />
-                    );
+                    )
                   })}
                 </div>
                 <div className="cartifull__personinfo">
@@ -219,7 +219,7 @@ export function Cart() {
                           <div>
                             <img
                               onClick={() => {
-                                setSmsNeeded(false);
+                                setSmsNeeded(false)
                               }}
                               src={cb}
                               alt=""
@@ -229,7 +229,7 @@ export function Cart() {
                           <div>
                             <img
                               onClick={() => {
-                                setSmsNeeded(true);
+                                setSmsNeeded(true)
                               }}
                               src={cbempty}
                               alt=""
@@ -297,5 +297,5 @@ export function Cart() {
         )}
       </div>
     </FormProvider>
-  );
+  )
 }

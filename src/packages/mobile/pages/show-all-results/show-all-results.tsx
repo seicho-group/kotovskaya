@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useSearchStore } from "src/packages/mobile/widgets/searchMobile/ui/search-mobile";
-import { Product } from "src/shared/types/product";
-import { API_URL } from "src/shared/api/config";
-import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile";
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
+import { Product } from "src/shared/types/product"
+import { API_URL } from "src/shared/api/config"
+import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 
 export function ShowAllResults() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
     Product[]
-  >([]);
-  const { searchRequest, setWord } = useSearchStore();
+  >([])
+  const { searchRequest, setWord } = useSearchStore()
 
   useEffect(() => {
     axios
@@ -17,9 +17,9 @@ export function ShowAllResults() {
         text: searchRequest,
       })
       .then((res) => {
-        setProductsSearchResultAll(res.data);
-      });
-  }, []);
+        setProductsSearchResultAll(res.data)
+      })
+  }, [])
 
   return (
     <div className="mobile__wrapper">
@@ -29,5 +29,5 @@ export function ShowAllResults() {
         ))}
       </div>
     </div>
-  );
+  )
 }

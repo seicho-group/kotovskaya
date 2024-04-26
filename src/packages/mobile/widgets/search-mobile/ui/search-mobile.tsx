@@ -1,27 +1,27 @@
-import "./search-mobile.css";
-import { createPortal } from "react-dom";
-import { SearchProduct } from "../../../../desktop/entities/searchpoduct/search-product";
-import { SearchCategory } from "../../../../desktop/entities/searchcategory/searchcategory";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { API_URL } from "../../../../../shared/api/config";
-import { useDebounce } from "../../../../../shared/hooks/useDebounce";
-import { Product } from "../../../../../shared/types/product";
-import { SearchProductMobile } from "../../../entities/SearchProductMobile/search-product-mobile";
-import { create } from "zustand";
-import { Link } from "react-router-dom";
-import { useSearchIsClicked } from "../../header/ui/header-mobile";
+import "./search-mobile.css"
+import { createPortal } from "react-dom"
+import { SearchProduct } from "../../../../desktop/entities/search-product/search-product"
+import { SearchCategory } from "../../../../desktop/entities/search-category/search-category"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { API_URL } from "../../../../../shared/api/config"
+import { useDebounce } from "../../../../../shared/hooks/use-debounce"
+import { Product } from "../../../../../shared/types/product"
+import { SearchProductMobile } from "../../../entities/search-product-mobile/search-product-mobile"
+import { create } from "zustand"
+import { Link } from "react-router-dom"
+import { useSearchIsClicked } from "../../header/ui/header-mobile"
 
 type TSearchStore = {
-  searchRequest: string;
-  setWord: (input: string) => void;
-};
+  searchRequest: string
+  setWord: (input: string) => void
+}
 
 export const useSearchStore = create<TSearchStore>((set) => ({
   searchRequest: "",
   setWord: (searchRequest: string) =>
     set(() => ({ searchRequest: searchRequest })),
-}));
+}))
 
 // function Counter() {
 //   const { count, inc } = useStore()
@@ -35,26 +35,26 @@ export const useSearchStore = create<TSearchStore>((set) => ({
 
 export function SearchMobile(props: any) {
   const { searchIsClicked, setSearchIsOpened, setSearchIsClosed } =
-    useSearchIsClicked();
-  const { searchRequest, setWord } = useSearchStore();
-  const setIsClicked = props.setIsClicked;
-  const [inputState, setInputState] = useState<string>("");
-  const debouncedValue = useDebounce(inputState);
+    useSearchIsClicked()
+  const { searchRequest, setWord } = useSearchStore()
+  const setIsClicked = props.setIsClicked
+  const [inputState, setInputState] = useState<string>("")
+  const debouncedValue = useDebounce(inputState)
   const [popularArrayForSearch, setPopularArrayForSearch] = useState<Product[]>(
-    []
-  );
-  const [searchProductsResult, setProductsSearchResult] = useState<any>(null);
-  console.log(searchRequest);
+    [],
+  )
+  const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
+  console.log(searchRequest)
   useEffect(() => {
     axios
       .get(`${API_URL}/products/popular`, {
         withCredentials: true,
       })
       .then((response) => {
-        setPopularArrayForSearch(response.data);
-      });
-  }, []);
-  console.log(popularArrayForSearch);
+        setPopularArrayForSearch(response.data)
+      })
+  }, [])
+  console.log(popularArrayForSearch)
   useEffect(() => {
     if (debouncedValue) {
       axios
@@ -62,10 +62,10 @@ export function SearchMobile(props: any) {
           text: debouncedValue,
         })
         .then((res) => {
-          setProductsSearchResult(res.data);
-        });
+          setProductsSearchResult(res.data)
+        })
     }
-  }, [debouncedValue]);
+  }, [debouncedValue])
 
   return createPortal(
     <div className="searchM">
@@ -100,8 +100,8 @@ export function SearchMobile(props: any) {
         <Link to="/showallresults">
           <div
             onClick={() => {
-              setWord(debouncedValue || "");
-              setSearchIsClosed();
+              setWord(debouncedValue || "")
+              setSearchIsClosed()
             }}
           >
             показать все результаты
@@ -109,6 +109,6 @@ export function SearchMobile(props: any) {
         </Link>
       </div>
     </div>,
-    document.body
-  );
+    document.body,
+  )
 }

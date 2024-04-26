@@ -1,43 +1,43 @@
-import "./header-mobile.css";
-import burger from "src/shared/assets/burgermobile.svg";
-import logo from "src/shared/assets/mobilelogo.svg";
-import lupa from "src/shared/assets/lupamobile.svg";
-import cart from "src/shared/assets/cartmobile.svg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import closepic from "src/shared/assets/closebrown.svg";
-import { BurgerMobile } from "../../searchMobile/ui/burger/burger-mobile";
-import { SearchMobile } from "../../searchMobile/ui/search-mobile";
-import { create } from "zustand";
+import "./header-mobile.css"
+import burger from "src/shared/assets/burgermobile.svg"
+import logo from "src/shared/assets/mobilelogo.svg"
+import lupa from "src/shared/assets/lupamobile.svg"
+import cart from "src/shared/assets/cartmobile.svg"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import closepic from "src/shared/assets/closebrown.svg"
+import { BurgerMobile } from "../../search-mobile/ui/burger/burger-mobile"
+import { SearchMobile } from "../../search-mobile/ui/search-mobile"
+import { create } from "zustand"
 
 type TSearchIsClicked = {
-  searchIsClicked: boolean;
-  setSearchIsOpened: () => void;
-  setSearchIsClosed: () => void;
-};
+  searchIsClicked: boolean
+  setSearchIsOpened: () => void
+  setSearchIsClosed: () => void
+}
 
 export const useSearchIsClicked = create<TSearchIsClicked>((set) => ({
   searchIsClicked: false,
   setSearchIsOpened: () => set(() => ({ searchIsClicked: true })),
   setSearchIsClosed: () => set(() => ({ searchIsClicked: false })),
-}));
+}))
 
 export function HeaderMobile() {
   const { searchIsClicked, setSearchIsOpened, setSearchIsClosed } =
-    useSearchIsClicked();
-  const [searchClicked, setSearchClicked] = useState(false);
-  const [burgerClicked, setBurgerClicked] = useState(false);
+    useSearchIsClicked()
+  const [searchClicked, setSearchClicked] = useState(false)
+  const [burgerClicked, setBurgerClicked] = useState(false)
   return (
     <>
       <div className="header__mobile">
         <div
           onClick={() => {
             if (burgerClicked) {
-              setBurgerClicked(false);
-              document.body.style.overflow = "auto";
+              setBurgerClicked(false)
+              document.body.style.overflow = "auto"
             } else {
-              setBurgerClicked(true);
-              document.body.style.overflow = "hidden";
+              setBurgerClicked(true)
+              document.body.style.overflow = "hidden"
             }
           }}
           className="header__mobile__burgericon"
@@ -78,5 +78,5 @@ export function HeaderMobile() {
       )}
       {searchIsClicked ? <SearchMobile /> : ""}
     </>
-  );
+  )
 }
