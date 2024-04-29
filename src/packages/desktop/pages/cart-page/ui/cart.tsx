@@ -7,14 +7,7 @@ import cb from "src/shared/assets/checkbox.svg"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { FormProvider, useForm } from "react-hook-form"
-
-type TCartForm = {
-  name: string
-  email: string
-  phone: string
-  common: string
-  deliveryWay: string
-}
+import { Product } from "src/shared/types/product"
 
 export function Cart() {
   const form = useForm({ reValidateMode: "onBlur" })
@@ -81,6 +74,7 @@ export function Cart() {
                         id={key}
                         price={value.price / 100 + "₽"}
                         quantity={value.quantity}
+                        accumulator={value.accumulator}
                         photo={`http://95.182.120.200:8080/images/${key}`}
                       />
                     )

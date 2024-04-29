@@ -1,90 +1,102 @@
 .card__mobile {
-    width: 150px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: grid;
-    grid-template-rows: 150px 80px 50px;
-    font-weight: 400;
-  }
-  
-  .card__pic__mobile {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .card__name__mobile {
-    font-size: 14px;
-    padding-top: 10px;
-    text-decoration: none;
-  }
-  
-  .card__bottom__mobile {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .card__bottom__mobile > button {
-    background-color: #998169;
-    width: 85px;
-    height: 33px;
-    color: white;
-    font-size: 13px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-  }
-  
-  .card__bottom__mobile p {
-    padding: 8px 10px 0 0;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  .card__quantity__mobile {
-    display: grid;
-    width: 85px;
-    grid-template-columns: 30px 25px 30px;
-    height: 43px;
-  }
-  
-  .card__quantity__button__mobile {
-  
-    width: 30px;
-    height: 33px;
-    background-color: #998169;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .card__quantity__number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-  }
+  width: 150px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 150px 80px 50px;
+  font-weight: 400;
+}
 
-  .card__button__notinstock__mobile{
-    background-color: rgb(162, 162, 162);
-    width: 85px;
-    height: 33px;
-    color: white;
-    font-size: 13px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .notinstock{
-    margin-left: 15px;
-  }
+.card__pic__mobile {
+  width: 150px;
+  height: 150px;
+}
+
+.card__name__mobile {
+  font-size: 14px;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.card__bottom__mobile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__bottom__mobile > button {
+  background-color: #998169;
+  width: 85px;
+  height: 33px;
+  color: white;
+  font-size: 13px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.card__bottom__mobile p {
+  padding: 8px 10px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.card__quantity__mobile {
+  display: grid;
+  width: 85px;
+  grid-template-columns: 30px 25px 30px;
+  height: 43px;
+}
+
+.card__quantity__button__mobile {
+  width: 30px;
+  height: 33px;
+  background-color: #998169;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.card__quantity__number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.card__button__notinstock__mobile {
+  background-color: rgb(162, 162, 162);
+  width: 85px;
+  height: 33px;
+  color: white;
+  font-size: 13px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notinstock {
+  margin-left: 15px;
+}
+
+.card__quantity__button__mobile__disabled {
+  width: 30px;
+  height: 33px;
+  background-color: #c8c8c8;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

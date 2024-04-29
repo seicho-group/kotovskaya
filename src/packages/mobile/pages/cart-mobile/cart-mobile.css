@@ -1,178 +1,185 @@
-.cart__empty {
-    height: calc(100vh - 250px);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: gray;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  .fullcart {
-    display: flex;
-    justify-content: center;
-  }
-  
- 
-  
-  .fullcart__wrapper__list {
-    width: auto;
-    height: auto;
-    padding-bottom: 30px;
-  
-    padding-top: 30px;
-  }
-  
-  .fullcart__wrapper__info {
-    display: flex;
-    justify-content: center;
-   margin-top: 20px;
-   
-  }
-  
-  .fullcart__header {
-    font-size: 26px;
-    padding-bottom: 30px;
-    margin-left: 20px;
-    margin-top: 10px;
-  }
-  
-  .toorder__wrapper {
-    width: 100%;
-    margin: 0 20px 20px 20px;
-    height: 270px;
-    border: #e6e6e6 solid 1px;
-    border-radius: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .toorder {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    margin: 0 20px 0 20px;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    height: 220px;
-   
-  }
-  
-  .order__button {
-    border-radius: 7px;
-    background-color: #9b846e;
-    color: white;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .toorder__element {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .fullcart__wrapper1 {
-    display: grid;
-    grid-template-rows: auto auto;
-  }
-  
-  .inputs {
-    width: auto;
-    height: 50px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 0 20px 20px 20px;
-  }
-  
-  .inputs input {
-    border-radius: 7px;
-    outline: none;
-    height: 40px;
-    border: 1px #e3e2e2 solid;
-    width: auto;
-    font-size: 14px;
-    padding-left: 13px;
-  }
+.cart__empty__mobile {
+  height: calc(100vh - 250px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  font-size: 20px;
+  font-weight: 500;
+}
 
-  .inputs__comment input {
-    border-radius: 7px;
-    outline: none;
-    height: 80px;
-    border: 1px #e3e2e2 solid;
-    width: calc(100% - 53px);
-    font-size: 14px;
-    padding-left: 13px;
-  }
-  
+.fullcart__mobile {
+  display: flex;
+  justify-content: center;
+}
 
-  .delivery__buttons button {
-    width: 100px;
-    height: 50px;
-    border-radius: 7px;
-    border: #998169 solid 2px;
-    background-color: white;
-    font-size: 16px;
-  }
-  
-  .delivery__buttons {
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    margin: 0 20px 0 20px;
-  }
-  
-  .delivery__buttons button.active {
-    background-color: #998169;
-    color: white;
-  }
-  
-  .delivery__info {
-    color: gray;
-    font-size: 16px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: auto;
-    margin: 0 20px 0 20px;
-  }
-  
-  .delivery__info__item {
-    font-size: 16px;
-  }
-  
-  .delivery__input {
-    border-radius: 7px;
-    outline: none;
-    height: 40px;
-    border: 1px #e3e2e2 solid;
-    width: 100%;
-    margin: 20px 20px 0 20px;
-    font-size: 14px;
-    padding-left: 13px;
- 
-  }
-  
-  label {
-    font-size: 16px;
-  }
-  
-  .checkbox__area {
-    display: grid;
-    grid-template-columns: 30px auto;
-  }
-  
-  .checkbox__area__text {
-    font-size: 16px;
-  }
-  
-  .inputs__comment{
-    height: 100px;
-   
-    margin: 0 20px 20px 20px;
-  }
+.fullcart__wrapper__list__mobile {
+  width: auto;
+  height: auto;
+  padding-bottom: 30px;
+
+  padding-top: 30px;
+}
+
+.fullcart__wrapper__info__mobile {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.fullcart__header__mobile {
+  font-size: 26px;
+  padding-bottom: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.toorder__wrapper__mobile {
+  width: 100%;
+  margin: 0 20px 20px 20px;
+  height: 270px;
+  border: #e6e6e6 solid 1px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toorder__mobile {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0 20px 0 20px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  height: 220px;
+}
+
+.order__button__mobile {
+  border-radius: 7px;
+  background-color: #9b846e;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toorder__element__mobile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fullcart__wrapper1__mobile {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.inputs__mobile {
+  width: auto;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 0 20px 20px 20px;
+}
+
+.inputs__mobile input {
+  border-radius: 7px;
+  outline: none;
+  height: 40px;
+  border: 1px #e3e2e2 solid;
+  width: auto;
+  font-size: 14px;
+  padding-left: 13px;
+}
+
+.inputs__comment__mobile input {
+  border-radius: 7px;
+  outline: none;
+  height: 80px;
+  border: 1px #e3e2e2 solid;
+  width: calc(100% - 53px);
+  font-size: 14px;
+  padding-left: 13px;
+}
+
+.delivery__buttons__mobile button {
+  width: 100px;
+  height: 50px;
+  border-radius: 7px;
+  border: #998169 solid 2px;
+  background-color: white;
+  font-size: 16px;
+}
+
+.delivery__buttons__mobile {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin: 0 20px 0 20px;
+}
+
+.delivery__buttons__mobile button.active {
+  background-color: #998169;
+  color: white;
+}
+
+.delivery__info__mobile {
+  color: gray;
+  font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: auto;
+  margin: 0 20px 0 20px;
+}
+
+.delivery__info__item__mobile {
+  font-size: 16px;
+}
+
+.delivery__input__mobile {
+  border-radius: 7px;
+  outline: none;
+  height: 40px;
+  border: 1px #e3e2e2 solid;
+  width: 100%;
+  margin: 20px 20px 0 20px;
+  font-size: 14px;
+  padding-left: 13px;
+}
+
+label {
+  font-size: 16px;
+}
+
+.checkbox__area__mobile {
+  display: grid;
+  grid-template-columns: 30px auto;
+}
+
+.checkbox__area__text__mobile {
+  font-size: 16px;
+}
+
+.inputs__comment__mobile {
+  height: 100px;
+
+  margin: 0 20px 20px 20px;
+}
+
+.card__quantity__button__mobile__disabled {
+  width: 30px;
+  height: 33px;
+  background-color: #c8c8c8;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
