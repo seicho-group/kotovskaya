@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "../../../../../shared/api/config"
 import { useDebounce } from "../../../../../shared/hooks/use-debounce"
-import { Product } from "../../../../../shared/types/product"
+import { ProductDTO } from "../../../../../shared/types/productDTO"
 import { SearchProductMobile } from "../../../entities/search-product-mobile/search-product-mobile"
 import { create } from "zustand"
 import { Link } from "react-router-dom"
@@ -40,9 +40,9 @@ export function SearchMobile(props: any) {
   const setIsClicked = props.setIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
-  const [popularArrayForSearch, setPopularArrayForSearch] = useState<Product[]>(
-    [],
-  )
+  const [popularArrayForSearch, setPopularArrayForSearch] = useState<
+    ProductDTO[]
+  >([])
   const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
   console.log(searchRequest)
   useEffect(() => {
@@ -82,14 +82,14 @@ export function SearchMobile(props: any) {
         <div className="search__resultsM">
           <div>
             {searchProductsResult !== null
-              ? searchProductsResult.map((product: Product) => (
+              ? searchProductsResult.map((product: ProductDTO) => (
                   <SearchProductMobile
                     setIsClicked={setIsClicked}
                     id={product.id}
                     name={product.name}
                   />
                 ))
-              : popularArrayForSearch.map((product: Product) => (
+              : popularArrayForSearch.map((product: ProductDTO) => (
                   <SearchProductMobile
                     setIsClicked={setIsClicked}
                     name={product.name}

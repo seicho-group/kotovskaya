@@ -1,10 +1,10 @@
-import "./category-full-page.css";
-import { Product } from "../../../../../shared/types/product";
-import { Subactegory } from "../../../entities/subcategory/subcategory";
+import "./category-full-page.css"
+import { ProductDTO } from "../../../../../shared/types/productDTO"
+import { Subactegory } from "../../../entities/subcategory/subcategory"
 
 export function CategoryFullPage(props: any) {
-  const array123 = ["масло", "гель", "мыло", "бальзам"];
-  const productsArray: Product[] = props.array;
+  const array123 = ["масло", "гель", "мыло", "бальзам"]
+  const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -30,5 +30,5 @@ export function CategoryFullPage(props: any) {
         </div>
       </div>
     </div>
-  );
+  )
 }

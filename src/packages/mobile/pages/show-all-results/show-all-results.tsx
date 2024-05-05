@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
-import { Product } from "src/shared/types/product"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 
 export function ShowAllResults() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
-    Product[]
+    ProductDTO[]
   >([])
   const { searchRequest, setWord } = useSearchStore()
 
@@ -24,7 +24,7 @@ export function ShowAllResults() {
   return (
     <div className="mobile__wrapper">
       <div className="productspromo__grid__mobile">
-        {productsSearchResultAll.map((product: Product) => (
+        {productsSearchResultAll.map((product: ProductDTO) => (
           <ProductCardMobile name={product?.name} id={product?.id} />
         ))}
       </div>

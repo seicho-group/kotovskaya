@@ -6,16 +6,16 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "../../../../../shared/api/config"
 import { useDebounce } from "../../../../../shared/hooks/use-debounce"
-import { Product } from "../../../../../shared/types/product"
+import { ProductDTO } from "../../../../../shared/types/productDTO"
 import { Link } from "react-router-dom"
 
 export function Searchbar(props: any) {
   const setIsClicked = props.SetIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
-  const [popularArrayForSearch, setPopularArrayForSearch] = useState<Product[]>(
-    [],
-  )
+  const [popularArrayForSearch, setPopularArrayForSearch] = useState<
+    ProductDTO[]
+  >([])
   const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
   useEffect(() => {
     axios
@@ -54,14 +54,14 @@ export function Searchbar(props: any) {
         <div className="search__results">
           <div>
             {searchProductsResult !== null
-              ? searchProductsResult.map((product: Product) => (
+              ? searchProductsResult.map((product: ProductDTO) => (
                   <SearchProduct
                     setIsClicked={setIsClicked}
                     name={product.name}
                     id={product.id}
                   />
                 ))
-              : popularArrayForSearch.map((product: Product) => (
+              : popularArrayForSearch.map((product: ProductDTO) => (
                   <SearchProduct
                     setIsClicked={setIsClicked}
                     name={product.name}

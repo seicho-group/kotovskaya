@@ -4,17 +4,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { API_URL } from "src/shared/api/config"
 import pic from "src/shared/assets/фотобудетпозже.png"
-
-type CartStorage = Record<string, number>
-// { "id": "count" }
-
-type Product = {
-  name: string
-  price: number
-  id: string
-  image: string
-  quantity: number
-}
+import { Product, ProductDTO } from "src/shared/types/productDTO"
 
 type CartState = {
   cart: Record<string, Product>

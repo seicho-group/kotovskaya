@@ -2,10 +2,10 @@ import "../../widgets/products-list/ui/products-list.css"
 import mock from "src/shared/assets/mock.png"
 import { ProductCard } from "../../entities/product-card/product-card"
 import "./category-page.css"
-import { Product } from "src/shared/types/product"
+import { ProductDTO } from "src/shared/types/productDTO"
 
 export function CategoryPage(props: any) {
-  const productsArray: Product[] = props.array
+  const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -13,7 +13,7 @@ export function CategoryPage(props: any) {
       </div>
       <div className="productspromo__main">
         <div className="categorypage__grid">
-          {productsArray.map((product: Product) => (
+          {productsArray.map((product: ProductDTO) => (
             <ProductCard
               id={product.id}
               photo={mock}

@@ -7,10 +7,11 @@ import cb from "src/shared/assets/checkbox.svg"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { FormProvider, useForm } from "react-hook-form"
-import { Product } from "src/shared/types/product"
+import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
+import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
 
 export function Cart() {
-  const form = useForm({ reValidateMode: "onBlur" })
+  const form = useForm<OrderForm>({ reValidateMode: "onBlur" })
   const { cart } = useCartState()
   // const nonNullCartItems = Object.entries(cart).filter(
   //   ([key, value]) => value > 0
@@ -25,21 +26,14 @@ export function Cart() {
   function sendOrder() {
     form.handleSubmit(
       (formValues) => {
-        console.log(formValues)
-        axios.post(`${API_URL}/order/make_order`, formValues)
+        axios.post(
+          `${API_URL}/order/make_order`,
+          getOrderRequestByFormValues(formValues, Object.values(cart)),
+        )
       },
       (e) => console.log(e),
     )()
   }
-
-  /**
-   * {
-   *     name: dskjfgbndjikgn
-   *     phone: 89082442323 -> 9082442323
-   *     emaiL: vdfjbvhjdf@gm.com
-   * }
-   *
-   * */
 
   const deliveryWay = form.watch("deliveryWay")
 
@@ -56,7 +50,7 @@ export function Cart() {
     validate: (text?: string) => text?.includes("@") && text.length > 5,
   })
   const formComment = form.register("comment")
-  form.register<string>("deliveryWay")
+  form.register("deliveryWay")
 
   return (
     <FormProvider {...form}>

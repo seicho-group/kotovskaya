@@ -2,11 +2,11 @@ import "./products-list.css"
 import mock from "src/shared/assets/mockphoto.png"
 import { ProductCard } from "../../../entities/product-card/product-card"
 import showall from "src/shared/assets/showall.svg"
-import { Product } from "src/shared/types/product"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 
 export function ProductsList(props: any) {
-  const productsArray: Product[] = props.array
+  const productsArray: ProductDTO[] = props.array
 
   return (
     <div>
@@ -17,7 +17,7 @@ export function ProductsList(props: any) {
           </div>
           <div className="productspromo__main">
             <div className="productspromo__grid">
-              {productsArray.map((product: Product) => {
+              {productsArray.map((product: ProductDTO) => {
                 console.log(product.id)
                 return (
                   <ProductCard

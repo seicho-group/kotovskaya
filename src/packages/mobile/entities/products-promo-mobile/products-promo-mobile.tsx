@@ -1,10 +1,10 @@
-import "./products-promo-mobile.css";
-import mock from "src/shared/mock.png";
-import { Product } from "src/shared/types/product";
-import { ProductCardMobile } from "../product-card-mobile";
+import "./products-promo-mobile.css"
+import mock from "src/shared/mock.png"
+import { ProductDTO } from "src/shared/types/productDTO"
+import { ProductCardMobile } from "../product-card-mobile"
 
 export function ProductsPromoMobile(props: any) {
-  const productsArray: Product[] = props.array;
+  const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -12,8 +12,8 @@ export function ProductsPromoMobile(props: any) {
       </div>
       <div className="productspromo__main">
         <div className="productspromo__grid__mobile">
-          {productsArray?.map((product: Product) => {
-            console.log(product.quantity);
+          {productsArray?.map((product: ProductDTO) => {
+            console.log(product.quantity)
             return (
               <ProductCardMobile
                 id={product.id}
@@ -22,7 +22,7 @@ export function ProductsPromoMobile(props: any) {
                 quantity={product.quantity}
                 price={product?.salePrices?.[0]?.value}
               />
-            );
+            )
           })}
         </div>
       </div>
@@ -35,5 +35,5 @@ export function ProductsPromoMobile(props: any) {
         </Link>
       </div> */}
     </div>
-  );
+  )
 }

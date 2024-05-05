@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { API_URL } from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
-import { Product } from "src/shared/types/product"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 
 export type Category = {
@@ -75,7 +75,7 @@ export function Soapmaking() {
             ))}
         </div>
         <div className="productspromo__grid__mobile">
-          {products.map((item: Product | undefined) => (
+          {products.map((item: ProductDTO | undefined) => (
             <ProductCardMobile
               name={item?.name}
               id={item?.id}
@@ -83,7 +83,7 @@ export function Soapmaking() {
               price={item?.salePrices[0].value}
             />
           ))}
-          {soapmakingSoapBases.map((item: Product | undefined) => (
+          {soapmakingSoapBases.map((item: ProductDTO | undefined) => (
             <ProductCardMobile
               name={item?.name}
               id={item?.id}
@@ -91,7 +91,7 @@ export function Soapmaking() {
               price={item?.salePrices[0].value}
             />
           ))}
-          {colors.map((item: Product | undefined) => (
+          {colors.map((item: ProductDTO | undefined) => (
             <ProductCardMobile
               name={item?.name}
               id={item?.id}
