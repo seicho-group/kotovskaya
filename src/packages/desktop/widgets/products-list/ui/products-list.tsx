@@ -1,12 +1,12 @@
-import "./products-list.css";
-import mock from "src/shared/assets/mockphoto.png";
-import { ProductCard } from "../../../entities/productCard/productCard";
-import showall from "src/shared/assets/showall.svg";
-import { Product } from "src/shared/types/product";
-import { Link } from "react-router-dom";
+import "./products-list.css"
+import mock from "src/shared/assets/mockphoto.png"
+import { ProductCard } from "../../../entities/product-card/product-card"
+import showall from "src/shared/assets/showall.svg"
+import { Product } from "src/shared/types/product"
+import { Link } from "react-router-dom"
 
 export function ProductsList(props: any) {
-  const productsArray: Product[] = props.array;
+  const productsArray: Product[] = props.array
 
   return (
     <div>
@@ -18,7 +18,7 @@ export function ProductsList(props: any) {
           <div className="productspromo__main">
             <div className="productspromo__grid">
               {productsArray.map((product: Product) => {
-                console.log(product.id);
+                console.log(product.id)
                 return (
                   <ProductCard
                     id={product.id}
@@ -27,7 +27,7 @@ export function ProductsList(props: any) {
                     quantity={product.quantity}
                     price={product?.salePrices?.[0]?.value}
                   />
-                );
+                )
               })}
             </div>
           </div>
@@ -44,5 +44,5 @@ export function ProductsList(props: any) {
         ""
       )}
     </div>
-  );
+  )
 }

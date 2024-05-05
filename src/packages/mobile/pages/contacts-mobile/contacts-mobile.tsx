@@ -1,8 +1,8 @@
-import "./ContactMobile.css";
-import photo from "src/shared/assets/contacts__photo.png";
-import vk from "src/shared/assets/vk.svg";
-import tg from "src/shared/assets/tg.svg";
-import wa from "src/shared/assets/wa.svg";
+import "./contacts-mobile.css"
+import photo from "src/shared/assets/contacts__photo.png"
+import vk from "src/shared/assets/vk.svg"
+import tg from "src/shared/assets/tg.svg"
+import wa from "src/shared/assets/wa.svg"
 
 export function ContactsMobile() {
   return (
@@ -103,5 +103,5 @@ export function ContactsMobile() {
       </div>
     </div> */}
     </>
-  );
+  )
 }

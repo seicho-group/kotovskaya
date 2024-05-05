@@ -1,67 +1,78 @@
-.cartitem__area {
-    width: auto;
-    background-color: white;
-    height: 50px;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    /*border-bottom: #E6E6E6 solid 1px;*/
-    margin: 20px;
-  }
-  
-  .cartitem__area__photo {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .cartitem__name {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-left: 20px;
-    font-size: 15px;
-  }
-  
-  .cartitem__quantity__buttons {
-    width: 100px;
-    height: 30px;
-    display: grid;
-    grid-template-columns: 30px 40px 30px;
-  }
-  
-  .cartitem__quantity {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cartitem__quantity__button {
-    width: 30px;
-    height: 30px;
-    background-color: #998169;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .cartitem__quantity {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .cartitem__delete {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .cartitem__delete__area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .center {
-    display: flex;
-    align-items: center;
-  }
-  
+.cartitem__area__mobile {
+  width: auto;
+  background-color: white;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  /*border-bottom: #E6E6E6 solid 1px;*/
+  margin: 20px;
+}
+
+.cartitem__area__photo__mobile {
+  width: 30px;
+  height: 30px;
+}
+
+.cartitem__name__mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.cartitem__quantity__buttons__mobile {
+  width: 100px;
+  height: 30px;
+  display: grid;
+  grid-template-columns: 30px 40px 30px;
+}
+
+.cartitem__quantity__mobile {
+  display: flex;
+  align-items: center;
+}
+
+.cartitem__quantity__button__mobile {
+  width: 30px;
+  height: 30px;
+  background-color: #9b846e;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.cartitem__quantity__button__mobile__disabled {
+  width: 30px;
+  height: 30px;
+  background-color: #c8c8c8;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartitem__quantity__mobile {
+  display: flex;
+  justify-content: center;
+}
+
+.cartitem__delete__mobile {
+  width: 25px;
+  height: 25px;
+}
+
+.cartitem__delete__area__mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}

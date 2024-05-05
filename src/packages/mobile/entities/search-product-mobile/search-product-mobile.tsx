@@ -1,6 +1,6 @@
-import "./SearchProductMobile.css";
-import { Link } from "react-router-dom";
-import pic from "src/shared/assets/searchpic.png";
+import "./search-product-mobile.css"
+import { Link } from "react-router-dom"
+import pic from "src/shared/assets/searchpic.png"
 export function SearchProductMobile(props: any) {
   return (
     <>
@@ -14,5 +14,5 @@ export function SearchProductMobile(props: any) {
         </div>
       </Link>
     </>
-  );
+  )
 }

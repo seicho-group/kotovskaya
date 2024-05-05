@@ -1,11 +1,11 @@
-import "../../widgets/products-list/ui/products-list.css";
-import mock from "src/shared/assets/mock.png";
-import { ProductCard } from "../../entities/productCard/productCard";
-import "./category-page.css";
-import { Product } from "src/shared/types/product";
+import "../../widgets/products-list/ui/products-list.css"
+import mock from "src/shared/assets/mock.png"
+import { ProductCard } from "../../entities/product-card/product-card"
+import "./category-page.css"
+import { Product } from "src/shared/types/product"
 
 export function CategoryPage(props: any) {
-  const productsArray: Product[] = props.array;
+  const productsArray: Product[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -24,5 +24,5 @@ export function CategoryPage(props: any) {
         </div>
       </div>
     </div>
-  );
+  )
 }

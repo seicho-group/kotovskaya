@@ -1,12 +1,12 @@
-import "./cart-item.css";
-import pic from "src/shared/assets/фотобудетпозже.png";
-import delete1 from "src/shared/assets/delete.svg";
-import { useCartState } from "../../../../entities/productCard/productCard";
+import "./cart-item.css"
+import pic from "src/shared/assets/фотобудетпозже.png"
+import delete1 from "src/shared/assets/delete.svg"
+import { useCartState } from "../../../../entities/product-card/product-card"
 
 // todo: это сущность а не страница
 export function CartItem(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState();
+    useCartState()
   return (
     <div>
       <div className="cartitem__area">
@@ -14,7 +14,7 @@ export function CartItem(props: any) {
           <img
             onError={(e) => {
               // @ts-ignore
-              e.target.src = pic;
+              e.target.src = pic
             }}
             className="cartitem__area__photo"
             src={props.photo}
@@ -30,7 +30,7 @@ export function CartItem(props: any) {
             <button
               className="cartitem__quantity__button"
               onClick={() => {
-                console.log("state");
+                console.log("state")
                 if (cart[props.id].quantity === 1) {
                   deleteProduct({
                     name: props.name,
@@ -38,9 +38,9 @@ export function CartItem(props: any) {
                     quantity: 0,
                     id: props.id,
                     image: props.image,
-                  });
+                  })
                 }
-                decrementById(props.id);
+                decrementById(props.id)
               }}
             >
               -
@@ -56,7 +56,7 @@ export function CartItem(props: any) {
                 //   image: `http://95.182.121.35:8080/images/${props.id}`,
                 //   price: props.price / 100,
                 // });
-                incrementById(props.id);
+                incrementById(props.id)
               }}
             >
               +
@@ -68,5 +68,5 @@ export function CartItem(props: any) {
         </div>
       </div>
     </div>
-  );
+  )
 }

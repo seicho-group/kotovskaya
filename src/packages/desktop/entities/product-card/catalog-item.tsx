@@ -1,12 +1,12 @@
-import "./catalogItem.css";
-import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalogMenu";
+import "./catalog-item.css"
+import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 
 export function CatalogItem({
   category,
   subcategory,
 }: {
-  category: string;
-  subcategory: TCategory[] | null;
+  category: string
+  subcategory: TCategory[] | null
 }) {
   return (
     <div className="catalog__item">
@@ -17,5 +17,5 @@ export function CatalogItem({
         ))}
       </div>
     </div>
-  );
+  )
 }

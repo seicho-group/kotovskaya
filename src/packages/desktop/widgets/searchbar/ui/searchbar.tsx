@@ -1,32 +1,32 @@
-import { createPortal } from "react-dom";
-import "./searchbar.css";
-import { SearchProduct } from "../../../entities/searchpoduct/search-product";
-import { SearchCategory } from "../../../entities/searchcategory/searchcategory";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { API_URL } from "../../../../../shared/api/config";
-import { useDebounce } from "../../../../../shared/hooks/useDebounce";
-import { Product } from "../../../../../shared/types/product";
-import { Link } from "react-router-dom";
+import { createPortal } from "react-dom"
+import "./searchbar.css"
+import { SearchProduct } from "../../../entities/search-product/search-product"
+import { SearchCategory } from "../../../entities/search-category/search-category"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { API_URL } from "../../../../../shared/api/config"
+import { useDebounce } from "../../../../../shared/hooks/use-debounce"
+import { Product } from "../../../../../shared/types/product"
+import { Link } from "react-router-dom"
 
 export function Searchbar(props: any) {
-  const setIsClicked = props.SetIsClicked;
-  const [inputState, setInputState] = useState<string>("");
-  const debouncedValue = useDebounce(inputState);
+  const setIsClicked = props.SetIsClicked
+  const [inputState, setInputState] = useState<string>("")
+  const debouncedValue = useDebounce(inputState)
   const [popularArrayForSearch, setPopularArrayForSearch] = useState<Product[]>(
-    []
-  );
-  const [searchProductsResult, setProductsSearchResult] = useState<any>(null);
+    [],
+  )
+  const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
   useEffect(() => {
     axios
       .get(`${API_URL}/products/popular`, {
         withCredentials: true,
       })
       .then((response) => {
-        setPopularArrayForSearch(response.data);
-      });
-  }, []);
-  console.log(popularArrayForSearch);
+        setPopularArrayForSearch(response.data)
+      })
+  }, [])
+  console.log(popularArrayForSearch)
   useEffect(() => {
     if (debouncedValue) {
       axios
@@ -34,10 +34,10 @@ export function Searchbar(props: any) {
           text: debouncedValue,
         })
         .then((res) => {
-          setProductsSearchResult(res.data);
-        });
+          setProductsSearchResult(res.data)
+        })
     }
-  }, [debouncedValue]);
+  }, [debouncedValue])
 
   return createPortal(
     <div className="search">
@@ -80,6 +80,6 @@ export function Searchbar(props: any) {
         </div>
       </div>
     </div>,
-    document.body
-  );
+    document.body,
+  )
 }

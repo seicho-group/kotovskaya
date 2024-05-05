@@ -1,8 +1,4 @@
-import './subactegory.css'
+import "./subcategory.css"
 export function Subactegory(props: any) {
-    return(
-        <div className='subcategory'>
-            {props.subcategory}
-        </div>
-    )
+  return <div className="subcategory">{props.subcategory}</div>
 }
