@@ -1,22 +1,22 @@
 .categorypage__grid {
-    width: 1300px;
-    display: grid;
-    grid-template-columns: repeat(4, 286px);
-    justify-content: space-between;
-    grid-row-gap: 45px;
-    grid-column-gap: 52px;
-    padding-bottom: 60px;
-  }
-  
-  .productspromo__subcategories{
-    width: 1300px;
-display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(4, 286px);
+  justify-content: space-between;
+  grid-row-gap: 45px;
+  grid-column-gap: 52px;
+  padding-bottom: 60px;
+}
 
-  .productspromo__subcategories__wrapper{
-    display: flex;
-    justify-content: center;
-   
-  }
+.productspromo__subcategories {
+  width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.productspromo__subcategories__wrapper {
+  display: flex;
+  justify-content: center;
+}

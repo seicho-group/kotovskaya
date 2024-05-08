@@ -3,9 +3,23 @@ import mock from "src/shared/assets/mock.png"
 import { ProductCard } from "../../entities/product-card/product-card"
 import "./category-page.css"
 import { ProductDTO } from "src/shared/types/productDTO"
+import { useParams } from "react-router-dom"
+import { API_URL } from "src/shared/api/config"
+import axios from "axios"
+import { useEffect } from "react"
+import { useState } from "react"
 
 export function CategoryPage(props: any) {
-  const productsArray: ProductDTO[] = props.array
+  const [productsArray, setProductArray] = useState<ProductDTO[]>([])
+  useEffect(() => {
+    axios
+      .post(`${API_URL}/categories/get_category`, { category_id: id })
+      .then((res) => {
+        setProductArray(res.data)
+      })
+  }, [])
+  let { id } = useParams<{ id: string }>()
+  // const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">

@@ -39,6 +39,7 @@ export function CatalogMenu(props: any) {
       .filter((product) => filterStrings.includes(product.category_name))
       .map((product) => (
         <CatalogItem
+          id={product.category_id}
           key={product.category_id}
           category={product.category_name}
           subcategory={product.category_items}

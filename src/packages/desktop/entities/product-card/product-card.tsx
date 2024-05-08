@@ -47,7 +47,7 @@ export const useCartState = create(
       deleteProduct: (product: Product) => {
         const newState = getState().cart
 
-        console.log("state", newState)
+        // console.log("state", newState)
         delete newState[product.id]
         set({ cart: newState })
       },
@@ -60,7 +60,7 @@ export function ProductCard(props: any) {
   // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
     useCartState()
-  console.log(cart)
+  // console.log(cart)
 
   return (
     <div className="card">

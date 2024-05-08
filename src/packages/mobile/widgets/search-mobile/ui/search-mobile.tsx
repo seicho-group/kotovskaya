@@ -91,6 +91,7 @@ export function SearchMobile(props: any) {
                 ))
               : popularArrayForSearch.map((product: ProductDTO) => (
                   <SearchProductMobile
+                    id={product.id}
                     setIsClicked={setIsClicked}
                     name={product.name}
                   />
