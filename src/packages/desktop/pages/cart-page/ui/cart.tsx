@@ -15,7 +15,7 @@ export function Cart() {
   const { cart } = useCartStore()
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
-      previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
+      previous + ((cart[key]?.price || 0) * (cart[key]?.accumulator || 0)) / 100
     )
   }, 0)
   const [smsNeeded, setSmsNeeded] = useState(false)
