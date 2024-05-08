@@ -5,15 +5,19 @@ import showall from "src/shared/assets/showall.svg"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 
-export function ProductsList(props: any) {
-  const productsArray: ProductDTO[] = props.array
+type Props = {
+  productsArray: ProductDTO[]
+  categoryName: string
+  linkTo?: string
+}
 
+export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
   return (
     <div>
       {productsArray.length ? (
         <div className="productspromo">
           <div className="productspromo__header">
-            <div className="wrapper">{props.category}</div>
+            <div className="wrapper">{categoryName}</div>
           </div>
           <div className="productspromo__main">
             <div className="productspromo__grid">
@@ -32,12 +36,14 @@ export function ProductsList(props: any) {
             </div>
           </div>
           <div className="productspromo__footer">
-            <Link to={props.link}>
-              <div className="wrapper">
-                <p>смотреть все</p>
-                <img src={showall} alt="" />
-              </div>
-            </Link>
+            {linkTo ? (
+              <Link to={linkTo}>
+                <div className="wrapper">
+                  <p>смотреть все</p>
+                  <img src={showall} alt="" />
+                </div>
+              </Link>
+            ) : null}
           </div>
         </div>
       ) : (

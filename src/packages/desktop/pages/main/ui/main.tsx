@@ -30,8 +30,16 @@ export function Main() {
   return (
     <div className="main">
       <Slider />
-      <ProductsList category={"Новинки"} array={newArray} />
-      <ProductsList category={"Популярное"} array={popularArray} />
+      <ProductsList
+        categoryName={"Новинки"}
+        productsArray={newArray}
+        linkTo={"/new"}
+      />
+      <ProductsList
+        categoryName={"Популярное"}
+        productsArray={popularArray}
+        linkTo={"/popular"}
+      />
       {/*<ProductsList category={"Распродажа"} array={[]} link={"sale"} />*/}
     </div>
   )
