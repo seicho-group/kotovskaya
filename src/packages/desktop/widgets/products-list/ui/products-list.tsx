@@ -18,7 +18,7 @@ export function ProductsList(props: any) {
           <div className="productspromo__main">
             <div className="productspromo__grid">
               {productsArray.map((product: ProductDTO) => {
-                console.log(product.id)
+                console.log(product)
                 return (
                   <ProductCard
                     id={product.id}

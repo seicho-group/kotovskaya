@@ -87,7 +87,7 @@ export function ProductCard(props: any) {
 
       <div className="card__bottom">
         <p>{props.price / 100 + "₽"}</p>
-        {props.quantity < 1 ? (
+        {props.quantity > 0 ? (
           cart[props.id]?.quantity > 0 ? (
             <div className="card__quantity">
               <button

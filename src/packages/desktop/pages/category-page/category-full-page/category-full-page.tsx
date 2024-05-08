@@ -1,12 +1,11 @@
 import "./category-full-page.css"
-import { ProductDTO } from "../../../../../shared/types/productDTO"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { Subactegory } from "../../../entities/subcategory/subcategory"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { useState } from "react"
-import { Product } from "../../../../../shared/types/productDTO"
 import { ProductCard } from "src/packages/desktop/entities/product-card/product-card"
 
 export function CategoryFullPage(props: any) {
@@ -17,7 +16,6 @@ export function CategoryFullPage(props: any) {
     axios
       .post(`${API_URL}/categories/get_category`, { category_id: id })
       .then((res) => {
-        console.log(res)
         setProductArray(res.data)
       })
   }, [id])
