@@ -1,12 +1,11 @@
 import "./cart-item.css"
 import pic from "src/shared/assets/фотобудетпозже.png"
 import delete1 from "src/shared/assets/delete.svg"
-import { useCartState } from "../../../../entities/product-card/product-card"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 // todo: это сущность а не страница
 export function CartItem(props: any) {
-  const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState()
+  const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
   return (
     <div>
       <div className="cartitem__area">
@@ -30,32 +29,20 @@ export function CartItem(props: any) {
             <button
               className="cartitem__quantity__button"
               onClick={() => {
-                console.log("state")
-                if (cart[props.id].quantity === 1) {
-                  deleteProduct({
-                    name: props.name,
-                    price: props.price,
-                    quantity: 0,
-                    id: props.id,
-                    image: props.image,
-                  })
+                if (cart[props.id].accumulator === 1) {
+                  deleteProduct(props.id)
                 }
                 decrementById(props.id)
               }}
             >
               -
             </button>
-            <div className="cartitem__quantity">{cart[props.id]?.quantity}</div>
+            <div className="cartitem__quantity">
+              {cart[props.id]?.accumulator}
+            </div>
             <button
               className="cartitem__quantity__button"
               onClick={() => {
-                // setNewProduct({
-                //   name: props.name,
-                //   quantity: 0,
-                //   id: props.id,
-                //   image: `http://95.182.121.35:8080/images/${props.id}`,
-                //   price: props.price / 100,
-                // });
                 incrementById(props.id)
               }}
             >
@@ -63,7 +50,11 @@ export function CartItem(props: any) {
             </button>
           </div>
         </div>
-        <div className="cartitem__delete__area">
+        <div
+          className="cartitem__delete__area"
+          onClick={() => deleteProduct(props.id)}
+          style={{ cursor: "pointer" }}
+        >
           <img className="cartitem__delete" src={delete1} alt="" />
         </div>
       </div>
