@@ -1,8 +1,9 @@
-.button {
+.navbutton {
   height: 50px;
-  background-color: white;
+  background-color: transparent;
   font-size: 18px;
-  color: #605f5f;
+  color: inherit;
+
   border: none;
   outline: none;
   cursor: pointer;

@@ -1,7 +1,7 @@
 .underHeader {
   width: 100%;
   height: 100px;
-  background-color: #998169;
+  background-color: #c1a88a;
   display: flex;
   justify-content: center;
 }
@@ -50,7 +50,7 @@
 .search {
   width: 250px;
   height: 27px;
-  background-color: #998169;
+  background-color: #c1a88a;
   outline: none;
   border: none;
   border-bottom: 2px solid white;
