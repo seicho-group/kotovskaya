@@ -1,6 +1,6 @@
 import "./category-full-page.css"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { Subactegory } from "../../../entities/subcategory/subcategory"
+import { Subcategory } from "../../../entities/subcategory/subcategory"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import axios from "axios"
@@ -33,8 +33,6 @@ export function CategoryFullPage() {
 
   const found = searchObject(mockArray, id || "", "category_items") as Category
 
-  // const found = mockArray.find((element: any) => element.category_id == id)
-  // const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -43,7 +41,7 @@ export function CategoryFullPage() {
       <div className="productspromo__subcategories__wrapper">
         <div className="productspromo__subcategories">
           {found?.category_items?.map((element: any) => (
-            <Subactegory
+            <Subcategory
               id={element.category_id}
               key={element.category_id}
               subcategory={element.category_name}

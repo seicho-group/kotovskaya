@@ -22,7 +22,6 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
           <div className="productspromo__main">
             <div className="productspromo__grid">
               {productsArray.map((product: ProductDTO) => {
-                console.log(product)
                 return (
                   <ProductCard
                     id={product.id}

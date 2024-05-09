@@ -40,14 +40,7 @@ export function ProductCardMobile(props: any) {
                 onClick={() => {
                   console.log("state")
                   if (cart[props.id].accumulator === 1) {
-                    deleteProduct({
-                      name: props.name,
-                      price: props.price,
-                      accumulator: 0,
-                      id: props.id,
-                      image: props.image,
-                      quantity: props.quantity,
-                    })
+                    deleteProduct(props.id)
                   }
                   decrementById(props.id)
                 }}
