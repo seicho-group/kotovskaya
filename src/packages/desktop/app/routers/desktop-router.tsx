@@ -16,7 +16,7 @@ export const DesktopRouter = () => {
       <Route path="/contacts" element={<KotovskayaContacts />} />
       <Route path="/delivery" element={<DeliveryInformation />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/product/:id" element={<ProductPage id={123} />} />
+      <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/ordered" element={<Ordered />} />
       <Route path="/popular" element={<PopularCategoriesPage />} />
       <Route path="/new" element={<NewCategoriesPage />} />
