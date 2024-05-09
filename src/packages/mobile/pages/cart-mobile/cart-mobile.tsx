@@ -1,18 +1,16 @@
 import "./cart-mobile.css"
-import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useCartState } from "src/packages/mobile/entities/product-card-mobile"
 import { CartItemMobile } from "src/packages/mobile/entities/cart-item-mobile/cart-item-mobile"
 import { FormProvider, useForm } from "react-hook-form"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
+import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
+import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function CartMobile() {
-  const form = useForm({ reValidateMode: "onBlur" })
-  const { cart } = useCartState()
-  // const nonNullCartItems = Object.entries(cart).filter(
-  //   ([key, value]) => value > 0
-  // );]
+  const form = useForm<OrderForm>({ reValidateMode: "onBlur" })
+  const { cart } = useCartStore()
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
       previous + ((cart[key]?.price || 0) * (cart[key]?.accumulator || 0)) / 100
@@ -23,7 +21,10 @@ export function CartMobile() {
     form.handleSubmit(
       (formValues) => {
         console.log(formValues)
-        axios.post(`${API_URL}/order/make_order`, formValues)
+        axios.post(
+          `${API_URL}/order/make_order`,
+          getOrderRequestByFormValues(formValues, Object.values(cart)),
+        )
       },
       (e) => console.log(e),
     )()
@@ -44,7 +45,7 @@ export function CartMobile() {
     validate: (text?: string) => text?.includes("@") && text.length > 5,
   })
   const formComment = form.register("comment")
-  form.register<string>("deliveryWay")
+  form.register("deliveryWay")
 
   return (
     <FormProvider {...form}>

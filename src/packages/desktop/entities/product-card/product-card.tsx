@@ -1,66 +1,13 @@
 import "./product-card.css"
 import { Link } from "react-router-dom"
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
 import { API_URL } from "src/shared/api/config"
 import pic from "src/shared/assets/фотобудетпозже.png"
-import { Product, ProductDTO } from "src/shared/types/productDTO"
-
-type CartState = {
-  cart: Record<string, Product>
-  incrementById: (id: string) => void
-  decrementById: (id: string) => void
-  deleteProduct: (product: Product) => void
-  setNewProduct: (product: Product) => void
-}
-
-export const useCartState = create(
-  persist<CartState>(
-    (set, getState) => ({
-      cart: {},
-      incrementById: (id: string) => {
-        const state = getState().cart
-        if (state[id].accumulator) {
-          state[id].accumulator += 1
-        } else {
-          state[id].accumulator = 1
-        }
-        set({ cart: state })
-      },
-      decrementById: (id: string) => {
-        const state = getState().cart
-        if (state[id].accumulator) {
-          state[id].accumulator -= 1
-        } else {
-          console.error("почему то убираем из корзины то чего в ней нет лол")
-        }
-        set({ cart: state })
-      },
-      setNewProduct: (product: Product) => {
-        const newState = getState().cart
-        if (newState[product.id]) {
-          return
-        }
-        newState[product.id] = product
-        set({ cart: newState })
-      },
-      deleteProduct: (product: Product) => {
-        const newState = getState().cart
-
-        // console.log("state", newState)
-        delete newState[product.id]
-        set({ cart: newState })
-      },
-    }),
-    { name: "cart" },
-  ),
-)
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function ProductCard(props: any) {
-  // const { getQuantityById, setQuantityById } =
   const { cart, incrementById, decrementById, setNewProduct, deleteProduct } =
-    useCartState()
-  // console.log(cart)
+    useCartStore()
+  console.log(cart)
 
   return (
     <div className="card">
@@ -88,22 +35,16 @@ export function ProductCard(props: any) {
       <div className="card__bottom">
         <p>{props.price / 100 + "₽"}</p>
         {props.quantity > 0 ? (
-          cart[props.id]?.quantity > 0 ? (
+          cart[props.id]?.accumulator > 0 ? (
             <div className="card__quantity">
               <button
                 className="card__quantity__button"
                 onClick={() => {
                   if (cart[props.id].accumulator === 1) {
-                    deleteProduct({
-                      name: props.name,
-                      price: props.price,
-                      quantity: props.quantity,
-                      id: props.id,
-                      image: props.image,
-                      accumulator: 0,
-                    })
+                    deleteProduct(props.id)
+                  } else {
+                    decrementById(props.id)
                   }
-                  decrementById(props.id)
                 }}
               >
                 -
@@ -111,25 +52,14 @@ export function ProductCard(props: any) {
               <div className="card__quantity__number">
                 {cart[props.id]?.accumulator}
               </div>
-              {cart[props.id]?.accumulator < cart[props.id]?.quantity ? (
-                <button
-                  className="card__quantity__button"
-                  onClick={() => {
-                    // setNewProduct({
-                    //   name: props.name,
-                    //   quantity: 0,
-                    //   id: props.id,
-                    //   image: `http://95.182.121.35:8080/images/${props.id}`,
-                    //   price: props.price / 100,
-                    // });
-                    incrementById(props.id)
-                  }}
-                >
-                  +
-                </button>
-              ) : (
-                <div className="card__quantity__button__disabled">+</div>
-              )}
+              <button
+                className="card__quantity__button"
+                onClick={() => {
+                  incrementById(props.id)
+                }}
+              >
+                +
+              </button>
             </div>
           ) : (
             <button
@@ -137,7 +67,7 @@ export function ProductCard(props: any) {
                 setNewProduct({
                   name: props.name,
                   price: props.price,
-                  quantity: props.quantity,
+                  quantity: props.quantity || 0,
                   id: props.id,
                   image: props.image,
                   accumulator: 0,
@@ -151,39 +81,6 @@ export function ProductCard(props: any) {
         ) : (
           <div className="card__button__notinstock">Нет в наличии</div>
         )}
-        {/*<p>{cart[props.id]}</p>*/}
-
-        {/*{currentCart || 0 > 0 ? (*/}
-        {/*  <div className="card__quantity">*/}
-        {/*    <button*/}
-        {/*
-        {/*      }}*/}
-        {/*    >*/}
-        {/*      -*/}
-        {/*    </button>*/}
-        {/*    {currentCart[props.id]}*/}
-        {/*    /!*<div className="card__quantity__number">{currentQuantity}</div>*!/*/}
-        {/*
-        {/*        });*/}
-        {/*        localStorage.setItem(*/}
-        {/*          "cart",*/}
-        {/*          localStorage.getItem("cart") || "{}"*/}
-        {/*        );*/}
-        {/*      }}*/}
-        {/*    >*/}
-        {/*      +*/}
-        {/*    </button>*/}
-        {/*  </div>*/}
-        {/*) : (*/}
-        {/*  <button*/}
-        {/*  // onClick={() => {*/}
-        {/*  //   localStorage.setItem(props.id, "1");*/}
-        {/*  //   setCurrentCart();*/}
-        {/*  // }}*/}
-        {/*  >*/}
-        {/*    В корзину*/}
-        {/*  </button>*/}
-        {/*)}*/}
       </div>
     </div>
   )
