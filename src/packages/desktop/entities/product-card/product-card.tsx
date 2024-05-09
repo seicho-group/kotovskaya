@@ -20,17 +20,17 @@ export const useCartState = create(
       cart: {},
       incrementById: (id: string) => {
         const state = getState().cart
-        if (state[id].quantity) {
-          state[id].quantity += 1
+        if (state[id].accumulator) {
+          state[id].accumulator += 1
         } else {
-          state[id].quantity = 1
+          state[id].accumulator = 1
         }
         set({ cart: state })
       },
       decrementById: (id: string) => {
         const state = getState().cart
-        if (state[id].quantity) {
-          state[id].quantity -= 1
+        if (state[id].accumulator) {
+          state[id].accumulator -= 1
         } else {
           console.error("почему то убираем из корзины то чего в ней нет лол")
         }
@@ -93,13 +93,14 @@ export function ProductCard(props: any) {
               <button
                 className="card__quantity__button"
                 onClick={() => {
-                  if (cart[props.id].quantity === 1) {
+                  if (cart[props.id].accumulator === 1) {
                     deleteProduct({
                       name: props.name,
                       price: props.price,
-                      quantity: 0,
+                      quantity: props.quantity,
                       id: props.id,
                       image: props.image,
+                      accumulator: 0,
                     })
                   }
                   decrementById(props.id)
@@ -108,23 +109,27 @@ export function ProductCard(props: any) {
                 -
               </button>
               <div className="card__quantity__number">
-                {cart[props.id]?.quantity}
+                {cart[props.id]?.accumulator}
               </div>
-              <button
-                className="card__quantity__button"
-                onClick={() => {
-                  // setNewProduct({
-                  //   name: props.name,
-                  //   quantity: 0,
-                  //   id: props.id,
-                  //   image: `http://95.182.121.35:8080/images/${props.id}`,
-                  //   price: props.price / 100,
-                  // });
-                  incrementById(props.id)
-                }}
-              >
-                +
-              </button>
+              {cart[props.id]?.accumulator < cart[props.id]?.quantity ? (
+                <button
+                  className="card__quantity__button"
+                  onClick={() => {
+                    // setNewProduct({
+                    //   name: props.name,
+                    //   quantity: 0,
+                    //   id: props.id,
+                    //   image: `http://95.182.121.35:8080/images/${props.id}`,
+                    //   price: props.price / 100,
+                    // });
+                    incrementById(props.id)
+                  }}
+                >
+                  +
+                </button>
+              ) : (
+                <div className="card__quantity__button__disabled">+</div>
+              )}
             </div>
           ) : (
             <button
@@ -132,9 +137,10 @@ export function ProductCard(props: any) {
                 setNewProduct({
                   name: props.name,
                   price: props.price,
-                  quantity: 0,
+                  quantity: props.quantity,
                   id: props.id,
                   image: props.image,
+                  accumulator: 0,
                 })
                 incrementById(props.id)
               }}

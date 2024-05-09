@@ -31,13 +31,14 @@ export function CartItem(props: any) {
               className="cartitem__quantity__button"
               onClick={() => {
                 console.log("state")
-                if (cart[props.id].quantity === 1) {
+                if (cart[props.id].accumulator === 1) {
                   deleteProduct({
                     name: props.name,
                     price: props.price,
-                    quantity: 0,
+                    quantity: props.quantity,
                     id: props.id,
                     image: props.image,
+                    accumulator: 0,
                   })
                 }
                 decrementById(props.id)
@@ -45,7 +46,9 @@ export function CartItem(props: any) {
             >
               -
             </button>
-            <div className="cartitem__quantity">{cart[props.id]?.quantity}</div>
+            <div className="cartitem__quantity">
+              {cart[props.id]?.accumulator}
+            </div>
             <button
               className="cartitem__quantity__button"
               onClick={() => {

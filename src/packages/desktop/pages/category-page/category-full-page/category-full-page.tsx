@@ -7,6 +7,8 @@ import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { useState } from "react"
 import { ProductCard } from "src/packages/desktop/entities/product-card/product-card"
+import { searchObject } from "src/shared/utils/get-deep-object-by-id"
+import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 
 export function CategoryFullPage(props: any) {
   const [mockArray, setMockArray] = useState<any[]>([])
@@ -28,8 +30,10 @@ export function CategoryFullPage(props: any) {
         setMockArray(response.data)
       })
   }, [])
+  const found = id ? searchObject(mockArray, id) : null
+  console.log(found)
 
-  const found = mockArray.find((element: any) => element.category_id == id)
+  // const found = mockArray.find((element: any) => element.category_id == id)
   // const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
@@ -40,6 +44,7 @@ export function CategoryFullPage(props: any) {
         <div className="productspromo__subcategories">
           {found?.category_items?.map((element: any) => (
             <Subactegory
+              id={element.category_id}
               key={element.category_id}
               subcategory={element.category_name}
             />
@@ -53,6 +58,7 @@ export function CategoryFullPage(props: any) {
               id={product.id}
               name={product.name}
               price={product?.salePrices?.[0]?.value}
+              quantity={product.quantity}
             />
           ))}
         </div>

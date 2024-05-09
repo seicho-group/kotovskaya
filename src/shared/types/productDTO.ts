@@ -11,7 +11,7 @@ export type Product = {
   id: string
   image: string
   quantity: number
-  accumulator?: number
+  accumulator: number
 }
 
 // type Product = {

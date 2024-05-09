@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.card__quantity__number {
+.card__quantity__number__mobile {
   display: flex;
   justify-content: center;
   align-items: center;
