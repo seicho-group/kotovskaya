@@ -26,7 +26,7 @@
 }
 
 .card__bottom > button {
-  background-color: #998169;
+  background-color: #c1a88a;
   width: 135px;
   height: 43px;
   color: white;
@@ -54,7 +54,7 @@
 .card__quantity__button {
   width: 40px;
   height: 43px;
-  background-color: #998169;
+  background-color: #c1a88a;
   outline: none;
   border: none;
   border-radius: 5px;

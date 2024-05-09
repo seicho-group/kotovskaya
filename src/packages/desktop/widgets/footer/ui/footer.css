@@ -1,14 +1,14 @@
 .footer {
   height: 460px;
   width: 100%;
-  background-color: #998169;
+  background-color: #c1a88a;
   display: flex;
   justify-content: center;
   color: white;
 }
 
 .footer__wrapper {
-  background-color: #998169;
+  background-color: #c1a88a;
   height: 460px;
   width: 1300px;
   display: grid;
