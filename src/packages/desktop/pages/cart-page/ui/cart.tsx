@@ -1,5 +1,4 @@
 import "./cart.css"
-import { useCartState } from "../../../entities/product-card/product-card"
 import { CartItem } from "./cart-item/cart-item"
 import { useState } from "react"
 import cbempty from "src/shared/assets/checkboxempty.svg"
@@ -9,16 +8,14 @@ import { API_URL } from "src/shared/api/config"
 import { FormProvider, useForm } from "react-hook-form"
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function Cart() {
   const form = useForm<OrderForm>({ reValidateMode: "onBlur" })
-  const { cart } = useCartState()
-  // const nonNullCartItems = Object.entries(cart).filter(
-  //   ([key, value]) => value > 0
-  // );]
+  const { cart } = useCartStore()
   const totalPrice = Object.keys(cart).reduce((previous, key) => {
     return (
-      previous + ((cart[key]?.price || 0) * (cart[key]?.quantity || 0)) / 100
+      previous + ((cart[key]?.price || 0) * (cart[key]?.accumulator || 0)) / 100
     )
   }, 0)
   const [smsNeeded, setSmsNeeded] = useState(false)

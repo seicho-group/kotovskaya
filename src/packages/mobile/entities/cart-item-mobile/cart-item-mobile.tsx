@@ -1,10 +1,9 @@
 import "./cart-item-mobile.css"
 import pic from "src/shared/assets/фотобудетпозже.png"
-import { useCartState } from "../product-card-mobile"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function CartItemMobile(props: any) {
-  const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState()
+  const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
   return (
     <div>
       <div className="cartitem__area__mobile">
@@ -30,14 +29,7 @@ export function CartItemMobile(props: any) {
               onClick={() => {
                 console.log("state")
                 if (cart[props.id].accumulator === 1) {
-                  deleteProduct({
-                    name: props.name,
-                    price: props.price,
-                    quantity: props.quantity,
-                    id: props.id,
-                    image: props.image,
-                    accumulator: 0,
-                  })
+                  deleteProduct(props.id)
                 }
                 decrementById(props.id)
               }}

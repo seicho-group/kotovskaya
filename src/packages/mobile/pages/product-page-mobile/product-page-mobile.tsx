@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 import mock from "src/shared/assets/mock2.jpg"
 import { useParams } from "react-router-dom"
 import { requestProduct } from "src/shared/api/single-product/request"
-import { useCartState } from "../../entities/product-card-mobile"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function ProductPageMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartState()
+    useCartStore()
   const { id } = useParams<{ id: string }>()
   const [productInfo, setProductInfo] = useState<Record<string, any> | null>(
     null,
@@ -15,9 +15,12 @@ export function ProductPageMobile(props: any) {
   useEffect(() => {
     if (id) {
       requestProduct(id).then((products) => setProductInfo(products))
+    } else {
+      console.error(
+        "Страница ProductPage была использована без айди продукта в url",
+      )
     }
   }, [id])
-  console.log(productInfo)
   return (
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
@@ -35,12 +38,11 @@ export function ProductPageMobile(props: any) {
         <div className="productpage__bottom__mobile">
           <div className="productpage__bottom__button__mobile">
             {productInfo?.quantity > 0 ? (
-              cart[productInfo?.id]?.accumulator > 0 ? (
+              (cart[productInfo?.id]?.accumulator || 0) > 0 ? (
                 <div className="card__quantity__mobile">
                   <button
                     className="card__quantity__button__mobile"
                     onClick={() => {
-                      console.log("state")
                       if (cart[props.id].accumulator === 1) {
                         deleteProduct({
                           name: productInfo?.name,
@@ -59,18 +61,11 @@ export function ProductPageMobile(props: any) {
                   <div className="card__quantity__number">
                     {cart[props.id]?.accumulator}
                   </div>
-                  {cart[productInfo?.id]?.accumulator <
+                  {(cart[productInfo?.id]?.accumulator || 0) <
                   cart[productInfo?.id]?.quantity ? (
                     <button
                       className="card__quantity__button__mobile"
                       onClick={() => {
-                        // setNewProduct({
-                        //   name: productInfo?.name,
-                        //   quantity: 0,
-                        //   id: productInfo?.id,
-                        //   image: `http://95.182.121.35:8080/images/${productInfo?.id}`,
-                        //   price: productInfo?.price / 100,
-                        // });
                         incrementById(productInfo?.id)
                       }}
                     >
