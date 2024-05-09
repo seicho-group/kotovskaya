@@ -1,29 +1,30 @@
-import "./product-page.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import mock from "src/shared/assets/mock2.jpg";
-import { requestProduct } from "src/shared/api/single-product/request";
-import { useParams } from "react-router-dom";
+import "./product-page.css"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import mock from "src/shared/assets/mock2.jpg"
+import { requestProduct } from "src/shared/api/single-product/request"
+import { useParams } from "react-router-dom"
+import { Image } from "src/shared/get-image/get-image"
 
 export function ProductPage(props: any) {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>()
   const [productInfo, setProductInfo] = useState<Record<string, any> | null>(
-    null
-  );
+    null,
+  )
   useEffect(() => {
     if (id) {
-      requestProduct(id).then((products) => setProductInfo(products));
+      requestProduct(id).then((products) => setProductInfo(products))
     } else {
       console.error(
-        "Страница ProductPage была использована без айди продукта в url"
-      );
+        "Страница ProductPage была использована без айди продукта в url",
+      )
     }
-  }, [id]);
+  }, [id])
 
   return (
     <div className="productpage">
       <div className="productpage__wrapper">
-        <img src={mock} alt="" />
+        <Image id={productInfo?.id} />
         <div className="productpage__rightinfo">
           <div className="productpage__name">{productInfo?.name}</div>
           <div className="productpage__description">
@@ -41,5 +42,5 @@ export function ProductPage(props: any) {
         </div>
       </div>
     </div>
-  );
+  )
 }
