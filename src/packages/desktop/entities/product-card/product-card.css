@@ -66,10 +66,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 43px;
 }
 
-.card__button__notinstock{
-  background-color: rgb(162, 162, 162); 
+.card__button__notinstock {
+  background-color: rgb(162, 162, 162);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,4 +82,17 @@
   outline: none;
   border: none;
   font-weight: 500;
+}
+
+.card__quantity__button__disabled {
+  width: 40px;
+  height: 43px;
+  background-color: #b2b2b2;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }

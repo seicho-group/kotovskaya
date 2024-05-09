@@ -56,6 +56,7 @@ export function CategoryPageMobile() {
               name={item?.name}
               id={item?.id}
               quantity={item?.quantity}
+              price={item?.salePrices[0].value}
             />
           ))}
         </div>

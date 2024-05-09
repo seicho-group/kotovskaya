@@ -54,7 +54,7 @@ export function ProductCardMobile(props: any) {
               >
                 -
               </button>
-              <div className="card__quantity__number">
+              <div className="card__quantity__number__mobile">
                 {cart[props.id]?.accumulator}
               </div>
               {(cart[props.id]?.accumulator || 0) < cart[props.id]?.quantity ? (

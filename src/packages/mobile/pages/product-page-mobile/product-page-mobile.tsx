@@ -59,7 +59,7 @@ export function ProductPageMobile(props: any) {
                     -
                   </button>
                   <div className="card__quantity__number">
-                    {cart[props.id]?.accumulator}
+                    {cart[productInfo?.id]?.accumulator}
                   </div>
                   {(cart[productInfo?.id]?.accumulator || 0) <
                   cart[productInfo?.id]?.quantity ? (
@@ -83,7 +83,7 @@ export function ProductPageMobile(props: any) {
                     setNewProduct({
                       name: productInfo?.name,
                       price: productInfo?.price,
-                      accumulator: 0,
+                      accumulator: 1,
                       id: productInfo?.id,
                       image: productInfo?.image,
                       quantity: productInfo?.quantity,

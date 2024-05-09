@@ -25,7 +25,11 @@ export function ShowAllResults() {
     <div className="mobile__wrapper">
       <div className="productspromo__grid__mobile">
         {productsSearchResultAll.map((product: ProductDTO) => (
-          <ProductCardMobile name={product?.name} id={product?.id} />
+          <ProductCardMobile
+            name={product?.name}
+            id={product?.id}
+            price={product.salePrices[0].value}
+          />
         ))}
       </div>
     </div>
