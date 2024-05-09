@@ -38,7 +38,7 @@ export function CategoryFullPage() {
   return (
     <div className="productspromo">
       <div className="productspromo__header">
-        <div className="wrapper">{found?.category_name}</div>
+        <div className="productspromo__wrapper">{found?.category_name}</div>
       </div>
       <div className="productspromo__subcategories__wrapper">
         <div className="productspromo__subcategories">

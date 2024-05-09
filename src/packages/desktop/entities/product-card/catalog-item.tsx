@@ -15,12 +15,16 @@ export function CatalogItem({
     <div className="catalog__item">
       <Link to={`/categorypage/${id}`}>
         <div className="catalog__item__h1">{category}</div>
-        <div className="catalog__item__body">
-          {subcategory?.map((sub: TCategory) => (
-            <div className="catalog__item__body__item">{sub.category_name}</div>
-          ))}
-        </div>
       </Link>
+      <div className="catalog__item__body">
+        {subcategory?.map((sub: TCategory) => (
+          <div className="catalog__item__body__item">
+            <Link to={`/categorypage/${sub.category_id}`}>
+              {sub.category_name}
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

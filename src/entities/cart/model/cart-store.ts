@@ -17,6 +17,7 @@ export const useCartStore = create(
       incrementById: (id: string) => {
         const state = { ...getState().cart }
         state[id].accumulator = state[id].accumulator + 1
+
         set({ cart: state })
       },
       decrementById: (id: string) => {
