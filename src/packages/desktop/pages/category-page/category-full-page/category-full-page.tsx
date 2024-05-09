@@ -33,8 +33,6 @@ export function CategoryFullPage() {
 
   const found = searchObject(mockArray, id || "", "category_items") as Category
 
-  // const found = mockArray.find((element: any) => element.category_id == id)
-  // const productsArray: ProductDTO[] = props.array
   return (
     <div className="productspromo">
       <div className="productspromo__header">
@@ -54,12 +52,7 @@ export function CategoryFullPage() {
       <div className="productspromo__main">
         <div className="categorypage__grid">
           {productsArray.map((product: ProductDTO) => (
-            <ProductCard
-              id={product.id}
-              name={product.name}
-              price={product?.salePrices?.[0]?.value}
-              quantity={product.quantity}
-            />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>

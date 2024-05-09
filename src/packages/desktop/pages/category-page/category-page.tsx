@@ -28,12 +28,7 @@ export function CategoryPage(props: any) {
       <div className="productspromo__main">
         <div className="categorypage__grid">
           {productsArray.map((product: ProductDTO) => (
-            <ProductCard
-              id={product.id}
-              photo={mock}
-              name={product.name}
-              price={product?.salePrices?.[0]?.value}
-            />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>

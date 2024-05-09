@@ -21,18 +21,9 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
           </div>
           <div className="productspromo__main">
             <div className="productspromo__grid">
-              {productsArray.map((product: ProductDTO) => {
-                console.log(product)
-                return (
-                  <ProductCard
-                    id={product.id}
-                    photo={mock}
-                    name={product.name}
-                    quantity={product.quantity}
-                    price={product?.salePrices?.[0]?.value}
-                  />
-                )
-              })}
+              {productsArray.map((product: ProductDTO) => (
+                <ProductCard product={product} />
+              ))}
             </div>
           </div>
           <div className="productspromo__footer">
