@@ -40,7 +40,6 @@ export function Main() {
         productsArray={popularArray}
         linkTo={"/popular"}
       />
-      {/*<ProductsList category={"Распродажа"} array={[]} link={"sale"} />*/}
     </div>
   )
 }

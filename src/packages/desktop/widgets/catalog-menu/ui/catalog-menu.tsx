@@ -17,7 +17,20 @@ const soapmaking = [
   "Щелочь",
   "Формы",
 ]
-const soapmaking2 = ["Красители", "Отдушки"]
+const soapmaking2 = [
+  "Красители",
+  "Отдушки",
+  "Инструменты и приспособления",
+  "Люфа, скрабы, сухоцветы",
+]
+const soapmaking3 = [
+  "Эфирные масла",
+  "Упаковка",
+  "Тара",
+  "Водорастворимая бумага",
+  "ПАВы",
+  "Штампы для мыла",
+]
 const candlesMaking = ["Все для свечей"]
 const cosmeticsMaking = ["Компоненты для косметики"]
 
@@ -56,13 +69,18 @@ export function CatalogMenu(props: any) {
       <div className="catalog__row__noh1">
         {mapCategoriesToUI(categories, soapmaking2)}
       </div>
-      <div className="catalog__row">
-        <p className="catalog__h1">Cвечеварение</p>
-        {mapCategoriesToUI(categories, candlesMaking)}
+      <div className="catalog__row__noh1">
+        {mapCategoriesToUI(categories, soapmaking3)}
       </div>
-      <div className="catalog__row">
-        <p className="catalog__h1">Косметика ручной работы</p>
-        {mapCategoriesToUI(categories, cosmeticsMaking)}
+      <div>
+        <div style={{ marginBottom: "50px" }} className="catalog__row">
+          <p className="catalog__h1">Cвечеварение</p>
+          {mapCategoriesToUI(categories, candlesMaking)}
+        </div>
+        <div className="catalog__row">
+          <p className="catalog__h1">Косметика ручной работы</p>
+          {mapCategoriesToUI(categories, cosmeticsMaking)}
+        </div>
       </div>
     </div>
   )

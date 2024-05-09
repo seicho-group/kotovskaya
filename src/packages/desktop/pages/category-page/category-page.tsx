@@ -11,15 +11,14 @@ import { useState } from "react"
 
 export function CategoryPage(props: any) {
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
+  let { id } = useParams<{ id: string }>()
   useEffect(() => {
     axios
       .post(`${API_URL}/categories/get_category`, { category_id: id })
       .then((res) => {
         setProductArray(res.data)
       })
-  }, [])
-  let { id } = useParams<{ id: string }>()
-  // const productsArray: ProductDTO[] = props.array
+  }, [id])
   return (
     <div className="productspromo">
       <div className="productspromo__header">
