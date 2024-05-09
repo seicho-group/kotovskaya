@@ -1,25 +1,19 @@
-import { CSSProperties } from "react"
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { Product, ProductDTO } from "src/shared/types/productDTO"
+import { ProductDTO } from "src/shared/types/productDTO"
 import mock from "src/shared/mock.png"
+import { Button } from "src/shared/ui/button/button"
+import { CSSProperties } from "react"
 
 type Props = {
   product: ProductDTO
 }
 
-const buttonStyles: CSSProperties = {
-  backgroundColor: "rgb(162, 162, 162)",
+const accumulatorCounterStyles: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  width: "135px",
   height: "43px",
-  color: "white",
-  fontSize: "16px",
-  borderRadius: "5px",
-  outline: "none",
-  border: "none",
-  fontWeight: "500",
+  fontSize: "20px",
 }
 
 export const ProductAccumulatorControls = ({ product }: Props) => {
@@ -28,13 +22,13 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
 
   const currentProductInCart = cart[product.id]
 
-  if (product.quantity === 0) {
-    return <div style={buttonStyles}>Нет в наличии</div>
+  if (product.quantity === 0 || !product.quantity) {
+    return <Button disabled>Нет в наличии</Button>
   }
 
   if (currentProductInCart?.accumulator === 0 || !currentProductInCart) {
     return (
-      <button
+      <Button
         onClick={() => {
           setNewProduct({
             accumulator: 1,
@@ -47,13 +41,13 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
         }}
       >
         В корзину
-      </button>
+      </Button>
     )
   }
   return (
     <div className="card__quantity">
-      <button
-        className="card__quantity__button"
+      <Button
+        width={"40px"}
         onClick={() => {
           if (currentProductInCart?.accumulator === 1) {
             deleteProduct(currentProductInCart?.id)
@@ -63,18 +57,19 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
         }}
       >
         -
-      </button>
-      <div className="card__quantity__number">
+      </Button>
+      <div style={accumulatorCounterStyles}>
         {currentProductInCart?.accumulator}
       </div>
-      <button
-        className="card__quantity__button"
+      <Button
+        width={"40px"}
         onClick={() => {
           incrementById(currentProductInCart?.id)
         }}
+        disabled={currentProductInCart?.accumulator === product.quantity}
       >
         +
-      </button>
+      </Button>
     </div>
   )
 }
