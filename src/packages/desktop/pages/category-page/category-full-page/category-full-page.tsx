@@ -10,7 +10,7 @@ import { ProductCard } from "src/packages/desktop/entities/product-card/product-
 import { searchObject } from "src/shared/utils/get-deep-object-by-id"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 
-export function CategoryFullPage(props: any) {
+export function CategoryFullPage() {
   const [mockArray, setMockArray] = useState<any[]>([])
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
   let { id } = useParams<{ id: string }>()
@@ -30,8 +30,8 @@ export function CategoryFullPage(props: any) {
         setMockArray(response.data)
       })
   }, [])
-  const found = id ? searchObject(mockArray, id) : null
-  console.log(found)
+
+  const found = searchObject(mockArray, id || "", "category_items") as Category
 
   // const found = mockArray.find((element: any) => element.category_id == id)
   // const productsArray: ProductDTO[] = props.array
