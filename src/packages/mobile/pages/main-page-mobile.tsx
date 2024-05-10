@@ -7,6 +7,7 @@ import { API_URL } from "src/shared/api/config"
 import { SliderMobile } from "src/shared/ui/slider/ui/mobile/slider-mobile"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
+import { Slider } from "src/shared/ui/slider/ui/slider"
 
 export function MainPageMobile() {
   const [popularArrayM, setPopularArrayM] = useState<ProductDTO[]>([])
@@ -34,7 +35,7 @@ export function MainPageMobile() {
 
   return (
     <div className="mainpage">
-      <SliderMobile />
+      <Slider />
       <div className="categrptyblocks__wrapper">
         <Link to={"/soapmaking"}>
           <div className="categoryblock soap">
