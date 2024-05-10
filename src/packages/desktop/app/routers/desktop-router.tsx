@@ -9,6 +9,7 @@ import { PopularCategoriesPage } from "../../pages/popular-categories-page/popul
 import { NewCategoriesPage } from "../../pages/new-categories-page/ui/new-categories-page"
 import { SalesPage } from "../../pages/sales-page/sales-page"
 import { CategoryFullPage } from "../../pages/category-page/category-full-page/category-full-page"
+import { ShowAllResults } from "../../pages/show-all-results/show-all-results"
 
 export const DesktopRouter = () => {
   return (
@@ -22,6 +23,7 @@ export const DesktopRouter = () => {
       <Route path="/new" element={<NewCategoriesPage />} />
       <Route path="/sale" element={<SalesPage />} />
       <Route path="/categorypage/:id" element={<CategoryFullPage />} />
+      <Route path="/searchresults" element={<ShowAllResults />} />
       <Route path="*" element={<Main />} />
     </Routes>
   )

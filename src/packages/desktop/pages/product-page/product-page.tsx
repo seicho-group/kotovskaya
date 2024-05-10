@@ -1,10 +1,10 @@
 import "./product-page.css"
 import { useEffect, useState } from "react"
-import mock from "src/shared/assets/mock2.jpg"
 import { requestProduct } from "src/shared/api/single-product/request"
 import { useParams } from "react-router-dom"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
+import { Image } from "src/shared/get-image/get-image"
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -22,7 +22,7 @@ export function ProductPage() {
   return (
     <div className="productpage">
       <div className="productpage__wrapper">
-        <img src={mock} alt="" />
+        <Image id={productInfo?.id} />
         <div className="productpage__rightinfo">
           <div className="productpage__name">{productInfo?.name}</div>
           <div className="productpage__description">
@@ -37,5 +37,5 @@ export function ProductPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

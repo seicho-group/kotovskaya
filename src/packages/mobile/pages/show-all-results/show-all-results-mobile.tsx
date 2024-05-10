@@ -5,7 +5,7 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 
-export function ShowAllResults() {
+export function ShowAllResultsMobile() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
     ProductDTO[]
   >([])
@@ -29,6 +29,7 @@ export function ShowAllResults() {
             name={product?.name}
             id={product?.id}
             price={product.salePrices[0].value}
+            quantity={product.quantity}
           />
         ))}
       </div>
