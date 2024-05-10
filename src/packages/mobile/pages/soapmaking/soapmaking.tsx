@@ -67,7 +67,6 @@ export function Soapmaking() {
       <div className="mobile__wrapper">
         <p className="category__name">Мыловарение</p>
         <div className="fff">
-          {/* {soapmakingM.map((el)=>(<CategoryPanel category={el}/>))} */}
           {categories
             .filter((key) => soapmakingM.includes(key.category_name))
             .map((category) => (
@@ -80,7 +79,7 @@ export function Soapmaking() {
               name={item?.name}
               id={item?.id}
               quantity={item?.quantity}
-              price={item?.salePrices[0].value}
+              price={item?.salePrices?.[0].value}
             />
           ))}
           {soapmakingSoapBases.map((item: ProductDTO | undefined) => (
@@ -88,7 +87,7 @@ export function Soapmaking() {
               name={item?.name}
               id={item?.id}
               quantity={item?.quantity}
-              price={item?.salePrices[0].value}
+              price={item?.salePrices?.[0].value}
             />
           ))}
           {colors.map((item: ProductDTO | undefined) => (
@@ -96,7 +95,7 @@ export function Soapmaking() {
               name={item?.name}
               id={item?.id}
               quantity={item?.quantity}
-              price={item?.salePrices[0].value}
+              price={item?.salePrices?.[0].value}
             />
           ))}
         </div>

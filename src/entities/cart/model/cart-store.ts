@@ -25,7 +25,7 @@ export const useCartStore = create(
         state[id].accumulator = state[id].accumulator - 1
 
         if (state[id].accumulator < 0) {
-          console.log("почему то убираем из корзины то чего в ней нет лол")
+          console.error("почему то убираем из корзины то чего в ней нет лол")
         }
 
         set({ cart: state })

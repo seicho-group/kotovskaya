@@ -1,9 +1,15 @@
 import "./subcategory.css"
 import { Link } from "react-router-dom"
-export function Subcategory(props: any) {
+
+type Props = {
+  subcategoryId: string
+  subcategoryName: string
+}
+
+export function Subcategory({ subcategoryName, subcategoryId }: Props) {
   return (
     <div className="subcategory">
-      <Link to={`/categorypage/${props.id}`}>{props.subcategory}</Link>
+      <Link to={`/categorypage/${subcategoryId}`}>{subcategoryName}</Link>
     </div>
   )
 }

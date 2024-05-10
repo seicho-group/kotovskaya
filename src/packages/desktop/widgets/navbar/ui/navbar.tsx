@@ -9,8 +9,8 @@ import axios from "axios"
 import { ZIndex } from "src/shared/types/zIndex"
 
 const sidebarStyles: CSSProperties = {
-  position: "absolute",
-  top: "100px",
+  position: "sticky",
+  top: "0",
   left: "0",
   backgroundColor: "transparent",
   zIndex: ZIndex.OVERLAY,
@@ -19,13 +19,28 @@ const sidebarStyles: CSSProperties = {
 }
 
 export function Navbar() {
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const handleScroll = () => {
+    const position = window.pageYOffset
+    setScrollPosition(position)
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   const [isShown, setIsShown] = useState<boolean>(false)
   return (
     <div
       className="navbar"
       style={{
         ...sidebarStyles,
-        backgroundColor: isShown ? "white" : "transparent",
+        backgroundColor:
+          isShown || scrollPosition > 100 ? "white" : "transparent",
+        boxShadow:
+          scrollPosition > 100 ? "0px 0px 3px rgba(0, 0, 0, 0.1)" : "none",
       }}
     >
       <div
@@ -62,7 +77,7 @@ export function Navbar() {
           }}
           onMouseLeave={() => setIsShown(false)}
         >
-          {createPortal(<CatalogMenu />, document.body)}
+          <CatalogMenu />
         </div>
       ) : null}
     </div>

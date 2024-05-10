@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { API_URL } from "src/shared/api/config"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
-import { ProductDTO } from "src/shared/types/productDTO"
+import { useQueryGetPopularProducts } from "src/shared/api/use-query-get-popular-products"
 
 export function PopularCategoriesPage() {
-  const [popularFullArray, setPopularFullArray] = useState<ProductDTO[]>([])
-  useEffect(() => {
-    axios
-      .get<ProductDTO[]>(`${API_URL}/products/popular`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setPopularFullArray(response.data)
-      })
-  }, [])
+  const { data: popularProducts = [] } = useQueryGetPopularProducts()
   return (
     <div>
-      <ProductsList
-        categoryName="Популярное"
-        productsArray={popularFullArray}
-      />
+      <ProductsList categoryName="Популярное" productsArray={popularProducts} />
     </div>
   )
 }
