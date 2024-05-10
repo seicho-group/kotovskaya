@@ -30,12 +30,7 @@ export function ShowAllResults() {
           <div className="search__results__header">Результаты поиска</div>
           <div className="categorypage__grid">
             {productsSearchResultAll.map((product: ProductDTO) => (
-              <ProductCard
-                name={product?.name}
-                id={product?.id}
-                price={product.salePrices[0].value}
-                quantity={product.quantity}
-              />
+              <ProductCard product={product} />
             ))}
           </div>
         </div>

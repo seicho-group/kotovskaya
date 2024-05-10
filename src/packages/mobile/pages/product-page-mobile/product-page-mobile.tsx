@@ -44,14 +44,7 @@ export function ProductPageMobile(props: any) {
                     className="card__quantity__button__mobile"
                     onClick={() => {
                       if (cart[props.id].accumulator === 1) {
-                        deleteProduct({
-                          name: productInfo?.name,
-                          price: productInfo?.price,
-                          accumulator: 0,
-                          id: productInfo?.id,
-                          image: productInfo?.image,
-                          quantity: productInfo?.quantity,
-                        })
+                        deleteProduct(productInfo?.id)
                       }
                       decrementById(productInfo?.id)
                     }}

@@ -28,7 +28,7 @@ export function ShowAllResultsMobile() {
           <ProductCardMobile
             name={product?.name}
             id={product?.id}
-            price={product.salePrices[0].value}
+            price={product.salePrices?.[0].value}
             quantity={product.quantity}
           />
         ))}
