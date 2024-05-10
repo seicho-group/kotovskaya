@@ -9,7 +9,7 @@ type Props = ButtonHTMLAttributes<any> & {
 const buttonStyles: CSSProperties = {
   // colors
   color: "white",
-  backgroundColor: "#998169",
+  backgroundColor: "#c1a88a",
   // positioning
   display: "flex",
   justifyContent: "center",
@@ -26,7 +26,7 @@ const buttonStyles: CSSProperties = {
 
 const disabledButtonStyles: CSSProperties = {
   ...buttonStyles,
-  backgroundColor: "#999",
+  backgroundColor: "#a19f9f",
   cursor: "not-allowed",
 }
 

@@ -1,7 +1,6 @@
 import "./slider.css"
 import photo0 from "src/shared/assets/slider/Frame 116 (3).png"
 import photo1 from "src/shared/assets/slider/Frame 50.png"
-import photo2 from "src/shared/assets/photo2.png"
 import rightarrow from "src/shared/assets/rightarrow.svg"
 import leftarrow from "src/shared/assets/leftarrow.svg"
 import { useState } from "react"

@@ -5,6 +5,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { API_URL } from "src/shared/api/config"
 import { ProductDTO } from "src/shared/types/productDTO"
+import { useInView } from "react-intersection-observer"
 
 export function Main() {
   const [newArray, setNewArray] = useState<ProductDTO[]>([])
