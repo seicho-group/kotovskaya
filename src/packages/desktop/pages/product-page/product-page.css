@@ -38,8 +38,9 @@
 }
 
 .productpage__bottom {
-  display: grid;
-  grid-template-columns: auto 180px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 .productpage__bottom__button {

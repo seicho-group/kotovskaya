@@ -42,9 +42,9 @@ export function CategoryFullPage() {
         <div className="productspromo__subcategories">
           {found?.category_items?.map((element: any) => (
             <Subcategory
-              id={element.category_id}
+              subcategoryId={element.category_id}
               key={element.category_id}
-              subcategory={element.category_name}
+              subcategoryName={element.category_name}
             />
           ))}
         </div>
@@ -52,12 +52,7 @@ export function CategoryFullPage() {
       <div className="productspromo__main">
         <div className="categorypage__grid">
           {productsArray.map((product: ProductDTO) => (
-            <ProductCard
-              id={product.id}
-              name={product.name}
-              price={product?.salePrices?.[0]?.value}
-              quantity={product.quantity}
-            />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
