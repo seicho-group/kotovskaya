@@ -4,7 +4,6 @@ import SHORT_ARROW_ICON from "src/shared/assets/shortarrow.svg"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
-import { ProductsPromoMobile } from "src/packages/mobile/entities/products-promo-mobile/products-promo-mobile"
 import { SliderMobile } from "src/shared/ui/slider/ui/mobile/slider-mobile"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
@@ -71,7 +70,11 @@ export function MainPageMobile() {
         />
       </div>
       <div>
-        <ProductsList productsArray={newArrayM} categoryName={"Новинки"} />
+        <ProductsList
+          productsArray={newArrayM}
+          categoryName={"Новинки"}
+          linkTo={"/new"}
+        />
       </div>
     </div>
   )

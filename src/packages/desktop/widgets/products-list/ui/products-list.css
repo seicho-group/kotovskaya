@@ -48,7 +48,7 @@
   width: 1300px;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(4, 286px);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-around;
   grid-row-gap: 45px;
   grid-column-gap: 52px;
@@ -63,10 +63,10 @@
   padding-top: 20px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
   .productspromo__grid {
     width: 100%;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 15px;
     grid-row-gap: 15px;
     padding: 0 15px;

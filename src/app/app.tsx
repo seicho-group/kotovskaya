@@ -7,14 +7,25 @@ import { FooterMobile } from "../packages/mobile/widgets/footer/ui/footer-mobile
 import { HeaderMobile } from "../packages/mobile/widgets/header/ui/header-mobile"
 import { DesktopRouter } from "../packages/desktop/app/routers/desktop-router"
 import { MobileRouter } from "../packages/mobile/app/routers/mobile-router"
-import { createContext } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const IsMobileContext = createContext<{ isMobile: boolean }>({
   isMobile: false,
 })
 
 export function App() {
-  const isMobile = document.documentElement.clientWidth < 800
+  const [isMobile, setIsMobile] = useState(
+    document.documentElement.clientWidth < 1300,
+  )
+
+  useEffect(() => {
+    const onResize = () => {
+      setIsMobile(document.documentElement.clientWidth < 1300)
+    }
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
+
   return (
     <BrowserRouter>
       <IsMobileContext.Provider value={{ isMobile }}>
