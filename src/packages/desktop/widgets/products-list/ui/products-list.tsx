@@ -48,7 +48,7 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
           <Link to={linkTo}>
             <div
               className="wrapper"
-              style={{ width: isMobile ? "100%" : "1300px" }}
+              style={{ width: isMobile ? "100vw" : "1300px" }}
             >
               <p>смотреть все</p>
               <img src={showall} alt="" />
