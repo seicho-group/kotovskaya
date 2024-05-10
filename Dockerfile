@@ -21,7 +21,7 @@ RUN npm run build
 FROM nginx:1.25.0-alpine
 
 # Копируем собранные файлы приложения
-COPY --from=build-stage /app/build /usr/share/nginx/html
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 # Запускаем Nginx
 CMD ["nginx", "-g", "daemon off;"]
