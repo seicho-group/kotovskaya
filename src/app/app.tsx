@@ -31,10 +31,14 @@ export function App() {
       <IsMobileContext.Provider value={{ isMobile }}>
         {!isMobile ? (
           <div className="app">
-            <Header />
-            <Navbar />
-            <div style={{ height: "50px" }} />
-            <DesktopRouter />
+            <header>
+              <Header />
+              <Navbar />
+            </header>
+            <main style={{ minHeight: "calc(100vh - 610px)" }}>
+              <div style={{ height: "50px" }} />
+              <DesktopRouter />
+            </main>
             <Footer />
           </div>
         ) : (
