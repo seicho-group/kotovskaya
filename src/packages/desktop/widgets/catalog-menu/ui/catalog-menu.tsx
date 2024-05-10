@@ -1,8 +1,9 @@
 import "./catalog-menu.css"
 import { useState, useEffect } from "react"
 import { CatalogItem } from "../../../entities/product-card/catalog-item"
-import axios from "axios"
+import axios, { AxiosResponse } from "axios"
 import { API_URL } from "src/shared/api/config"
+import { useQuery } from "@tanstack/react-query"
 
 export type TCategory = {
   category_id: string
@@ -34,30 +35,47 @@ const soapmaking3 = [
 const candlesMaking = ["Все для свечей"]
 const cosmeticsMaking = ["Компоненты для косметики"]
 
-export function CatalogMenu(props: any) {
-  const [categories, setCategories] = useState<TCategory[]>([])
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/categories/get_all`, { withCredentials: true })
-      .then((response) => {
-        setCategories(response.data)
-      })
-  }, [])
+const useCategories = () => {
+  return useQuery<TCategory[]>({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const response = await axios.get<TCategory[]>(
+        `${API_URL}/categories/get_all`,
+        {
+          withCredentials: true,
+        },
+      )
+      return response.data
+    },
+    staleTime: 1000 * 60 * 60,
+  })
+}
 
-  const mapCategoriesToUI = (
-    categories: TCategory[],
-    filterStrings: string[],
-  ) => {
-    return categories
-      .filter((product) => filterStrings.includes(product.category_name))
-      .map((product) => (
-        <CatalogItem
-          id={product.category_id}
-          key={product.category_id}
-          category={product.category_name}
-          subcategory={product.category_items}
-        />
-      ))
+const mapCategoriesToUI = (
+  categories: TCategory[],
+  filterStrings: string[],
+) => {
+  return categories
+    .filter((product) => filterStrings.includes(product.category_name))
+    .map((product) => (
+      <CatalogItem
+        id={product.category_id}
+        key={product.category_id}
+        category={product.category_name}
+        subcategory={product.category_items}
+      />
+    ))
+}
+
+export function CatalogMenu(props: any) {
+  const { data: categories = [], isPending } = useCategories()
+
+  if (isPending) {
+    return (
+      <div className="menu">
+        <div className="catalog__row">Loading...</div>
+      </div>
+    )
   }
 
   return (

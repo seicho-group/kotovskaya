@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { MainPage } from "../../pages/mainpage"
+import { MainPageMobile } from "../../pages/main-page-mobile"
 import { Soapmaking } from "../../pages/soapmaking/soapmaking"
 import { DeliveryMobile } from "../../pages/delivery-mobile/delivery-mobile"
 import { ContactsMobile } from "../../pages/contacts-mobile/contacts-mobile"
@@ -12,7 +12,7 @@ import { ProductPageMobile } from "../../pages/product-page-mobile/product-page-
 export const MobileRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={<MainPageMobile />} />
       <Route path="/soapmaking" element={<Soapmaking />} />
       <Route path="/delivery" element={<DeliveryMobile />} />
       <Route path="/contacts" element={<ContactsMobile />} />

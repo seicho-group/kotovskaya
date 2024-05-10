@@ -20,7 +20,6 @@ export function CartMobile() {
   function sendOrder() {
     form.handleSubmit(
       (formValues) => {
-        console.log(formValues)
         axios.post(
           `${API_URL}/order/make_order`,
           getOrderRequestByFormValues(formValues, Object.values(cart)),
@@ -57,7 +56,6 @@ export function CartMobile() {
                 <div className="fullcart__wrapper__list__mobile">
                   <div className="fullcart__header__mobile">Ваша корзина</div>
                   {Object.entries(cart).map(([key, value]) => {
-                    console.log(value.quantity)
                     return (
                       <CartItemMobile
                         name={value.name}

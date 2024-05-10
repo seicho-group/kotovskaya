@@ -1,12 +1,11 @@
 import { createPortal } from "react-dom"
 import "./searchbar.css"
 import { SearchProduct } from "../../../entities/search-product/search-product"
-import { SearchCategory } from "../../../entities/search-category/search-category"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { API_URL } from "../../../../../shared/api/config"
-import { useDebounce } from "../../../../../shared/hooks/use-debounce"
-import { ProductDTO } from "../../../../../shared/types/productDTO"
+import { API_URL } from "src/shared/api/config"
+import { useDebounce } from "src/shared/hooks/use-debounce"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 
 export function Searchbar(props: any) {
@@ -26,7 +25,6 @@ export function Searchbar(props: any) {
         setPopularArrayForSearch(response.data)
       })
   }, [])
-  console.log(popularArrayForSearch)
   useEffect(() => {
     if (debouncedValue) {
       axios

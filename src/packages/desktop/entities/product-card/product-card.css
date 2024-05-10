@@ -1,17 +1,17 @@
 .card {
-  width: 286px;
-  height: 406px;
+  width: auto;
+  height: auto;
   margin: 0;
   padding: 0;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 286px 77px 43px;
+  grid-template-rows: auto 70px auto;
   font-weight: 400;
 }
 
 .card__pic {
-  width: 286px;
-  height: 286px;
+  width: 100%;
+  aspect-ratio: 1/1;
 }
 
 .card__name {

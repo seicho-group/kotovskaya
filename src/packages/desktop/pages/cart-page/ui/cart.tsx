@@ -58,18 +58,9 @@ export function Cart() {
               <div className="fullcart__wrapper1">
                 <div className="fullcart__wrapper__list">
                   <div className="fullcart__header">Ваша корзина</div>
-                  {Object.entries(cart).map(([key, value]) => {
-                    return (
-                      <CartItem
-                        name={value.name}
-                        id={key}
-                        price={value.price / 100 + "₽"}
-                        quantity={value.quantity}
-                        accumulator={value.accumulator}
-                        photo={`http://95.182.120.200:8080/images/${key}`}
-                      />
-                    )
-                  })}
+                  {Object.entries(cart).map(([key, value]) => (
+                    <CartItem product={value} key={key} />
+                  ))}
                 </div>
                 <div className="cartifull__personinfo">
                   <div className="fullcart__header">Информация о заказе</div>

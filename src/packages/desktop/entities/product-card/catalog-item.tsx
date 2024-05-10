@@ -18,7 +18,7 @@ export function CatalogItem({
       </Link>
       <div className="catalog__item__body">
         {subcategory?.map((sub: TCategory) => (
-          <div className="catalog__item__body__item">
+          <div className="catalog__item__body__item" key={sub.category_id}>
             <Link to={`/categorypage/${sub.category_id}`}>
               {sub.category_name}
             </Link>

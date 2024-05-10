@@ -27,7 +27,6 @@ export function CartItemMobile(props: any) {
             <button
               className="cartitem__quantity__button__mobile"
               onClick={() => {
-                console.log("state")
                 if (cart[props.id].accumulator === 1) {
                   deleteProduct(props.id)
                 }

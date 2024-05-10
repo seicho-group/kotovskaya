@@ -44,7 +44,6 @@ export function SearchMobile(props: any) {
     ProductDTO[]
   >([])
   const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
-  console.log(searchRequest)
   useEffect(() => {
     axios
       .get(`${API_URL}/products/popular`, {
