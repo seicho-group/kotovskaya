@@ -5,6 +5,7 @@ import { API_URL } from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
+import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 
 export type Category = {
   category_name: string
@@ -13,9 +14,11 @@ export type Category = {
 }
 
 export function Soapmaking() {
-  const [products, setProducts] = useState([])
-  const [soapmakingSoapBases, setSoapmakingSoapBases] = useState([])
-  const [colors, setColors] = useState([])
+  const [products, setProducts] = useState<ProductDTO[]>([])
+  const [soapmakingSoapBases, setSoapmakingSoapBases] = useState<ProductDTO[]>(
+    [],
+  )
+  const [colors, setColors] = useState<ProductDTO[]>([])
   const soapmakingM = [
     "Базовые масла",
     "Инcтрументы и приспособления",
@@ -73,32 +76,10 @@ export function Soapmaking() {
               <CategoryPanel category={category} />
             ))}
         </div>
-        <div className="productspromo__grid__mobile">
-          {products.map((item: ProductDTO | undefined) => (
-            <ProductCardMobile
-              name={item?.name}
-              id={item?.id}
-              quantity={item?.quantity}
-              price={item?.salePrices?.[0].value}
-            />
-          ))}
-          {soapmakingSoapBases.map((item: ProductDTO | undefined) => (
-            <ProductCardMobile
-              name={item?.name}
-              id={item?.id}
-              quantity={item?.quantity}
-              price={item?.salePrices?.[0].value}
-            />
-          ))}
-          {colors.map((item: ProductDTO | undefined) => (
-            <ProductCardMobile
-              name={item?.name}
-              id={item?.id}
-              quantity={item?.quantity}
-              price={item?.salePrices?.[0].value}
-            />
-          ))}
-        </div>
+        <ProductsList
+          productsArray={[...products, ...colors, ...soapmakingSoapBases]}
+          categoryName="Мыловарение"
+        />
       </div>
     </div>
   )

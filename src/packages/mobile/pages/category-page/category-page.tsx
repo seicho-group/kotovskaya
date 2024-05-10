@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom"
 import { API_URL } from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
+import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 
 export function CategoryPageMobile() {
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
@@ -28,7 +30,9 @@ export function CategoryPageMobile() {
         setMockArray(response.data)
       })
   }, [])
-  const found = mockArray.find((element: any) => element.category_id == id)
+  const found = mockArray.find(
+    (element: any) => element.category_id == id,
+  ) as Category
   const name = found?.category_name
 
   return (
@@ -40,16 +44,10 @@ export function CategoryPageMobile() {
             <CategoryPanel key={element.category_id} category={element} />
           ))}
         </div>
-        <div className="productspromo__grid__mobile">
-          {productsArray?.map((item: ProductDTO | undefined) => (
-            <ProductCardMobile
-              name={item?.name}
-              id={item?.id}
-              quantity={item?.quantity}
-              price={item?.salePrices?.[0].value}
-            />
-          ))}
-        </div>
+        <ProductsList
+          productsArray={productsArray}
+          categoryName={found?.category_name}
+        />
       </div>
     </div>
   )

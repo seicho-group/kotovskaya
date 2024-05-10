@@ -14,7 +14,7 @@ export const IsMobileContext = createContext<{ isMobile: boolean }>({
 })
 
 export function App() {
-  const isMobile = document.documentElement.clientWidth < 720
+  const isMobile = document.documentElement.clientWidth < 800
   return (
     <BrowserRouter>
       <IsMobileContext.Provider value={{ isMobile }}>

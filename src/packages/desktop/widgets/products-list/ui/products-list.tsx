@@ -4,6 +4,8 @@ import { ProductCard } from "../../../entities/product-card/product-card"
 import showall from "src/shared/assets/showall.svg"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { IsMobileContext } from "src/app/app"
 
 type Props = {
   productsArray: ProductDTO[]
@@ -12,6 +14,8 @@ type Props = {
 }
 
 export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
+  const { isMobile } = useContext(IsMobileContext)
+
   if (!productsArray) {
     return (
       <div className="productspromo">
@@ -21,10 +25,16 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
       </div>
     )
   }
+
   return (
     <div className="productspromo">
       <div className="productspromo__header">
-        <div className="wrapper">{categoryName}</div>
+        <div
+          className="wrapper"
+          style={{ width: isMobile ? "100%" : "1300px" }}
+        >
+          {categoryName}
+        </div>
       </div>
       <div className="productspromo__main">
         <div className="productspromo__grid">
@@ -36,7 +46,10 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
       <div className="productspromo__footer">
         {linkTo ? (
           <Link to={linkTo}>
-            <div className="wrapper">
+            <div
+              className="wrapper"
+              style={{ width: isMobile ? "100%" : "1300px" }}
+            >
               <p>смотреть все</p>
               <img src={showall} alt="" />
             </div>
