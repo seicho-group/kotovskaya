@@ -20,7 +20,6 @@ export function CategoryPageMobile() {
       })
   }, [])
   useEffect(() => {
-    console.log("NewCategoriesPage!!!!!")
     axios
       .get(`${API_URL}/categories/get_all`, {
         withCredentials: true,
@@ -30,21 +29,12 @@ export function CategoryPageMobile() {
       })
   }, [])
   const found = mockArray.find((element: any) => element.category_id == id)
-  console.log(found)
   const name = found?.category_name
-  console.log(found?.category_items)
 
   return (
     <div>
       <div className="mobile__wrapper">
         <p className="category__name">{name}</p>
-        {/* <div className='fff'>
-                {soapmakingM.map((el)=>(<CategoryPanel category={el}/>))}
-                {categories
-                  .filter((key)=>(soapmakingM
-                  .includes(key.category_name)))
-                  .map((category) => (<CategoryPanel category={category}/>))}
-                </div> */}
         <div className="fff">
           {found?.category_items?.map((element: any) => (
             <CategoryPanel key={element.category_id} category={element} />
@@ -56,7 +46,7 @@ export function CategoryPageMobile() {
               name={item?.name}
               id={item?.id}
               quantity={item?.quantity}
-              price={item?.salePrices[0].value}
+              price={item?.salePrices?.[0].value}
             />
           ))}
         </div>

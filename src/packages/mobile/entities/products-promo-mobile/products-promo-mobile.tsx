@@ -13,7 +13,6 @@ export function ProductsPromoMobile(props: any) {
       <div className="productspromo__main">
         <div className="productspromo__grid__mobile">
           {productsArray?.map((product: ProductDTO) => {
-            console.log(product.quantity)
             return (
               <ProductCardMobile
                 id={product.id}
