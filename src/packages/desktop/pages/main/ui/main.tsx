@@ -6,18 +6,12 @@ import { useEffect, useState } from "react"
 import { API_URL } from "src/shared/api/config"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { useInView } from "react-intersection-observer"
+import { useQueryNewProducts } from "src/packages/desktop/pages/new-categories-page/ui/new-categories-page"
 
 export function Main() {
-  const [newArray, setNewArray] = useState<ProductDTO[]>([])
   const [popularArray, setPopularArray] = useState<ProductDTO[]>([])
 
-  useEffect(() => {
-    axios
-      .get<ProductDTO[]>(`${API_URL}/products/new`, { withCredentials: true })
-      .then((response) => {
-        setNewArray(response.data)
-      })
-  }, [])
+  const { data: newArray = [] } = useQueryNewProducts()
 
   useEffect(() => {
     axios

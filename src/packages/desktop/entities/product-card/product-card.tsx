@@ -20,7 +20,7 @@ export function ProductCard({ product }: Props) {
       ref={ref}
       style={{
         opacity: inView ? 1 : 0,
-        transition: "1s all ease-in-out",
+        transition: "0.6s all ease-in-out",
       }}
     >
       <div>
