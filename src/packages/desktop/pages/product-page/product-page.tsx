@@ -1,24 +1,23 @@
-import "./product-page.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import mock from "src/shared/assets/mock2.jpg";
-import { requestProduct } from "src/shared/api/single-product/request";
-import { useParams } from "react-router-dom";
+import "./product-page.css"
+import { useEffect, useState } from "react"
+import mock from "src/shared/assets/mock2.jpg"
+import { requestProduct } from "src/shared/api/single-product/request"
+import { useParams } from "react-router-dom"
+import { ProductDTO } from "src/shared/types/productDTO"
+import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 
-export function ProductPage(props: any) {
-  const { id } = useParams<{ id: string }>();
-  const [productInfo, setProductInfo] = useState<Record<string, any> | null>(
-    null
-  );
+export function ProductPage() {
+  const { id } = useParams<{ id: string }>()
+  const [productInfo, setProductInfo] = useState<ProductDTO | null>(null)
   useEffect(() => {
     if (id) {
-      requestProduct(id).then((products) => setProductInfo(products));
+      requestProduct(id).then(setProductInfo)
     } else {
       console.error(
-        "Страница ProductPage была использована без айди продукта в url"
-      );
+        "Страница ProductPage была использована без айди продукта в url",
+      )
     }
-  }, [id]);
+  }, [id])
 
   return (
     <div className="productpage">
@@ -31,15 +30,12 @@ export function ProductPage(props: any) {
           </div>
           <div className="productpage__bottom">
             <div></div>
-            <div className="productpage__bottom__button">
-              <div className="productpage__price">
-                {productInfo?.salePrices?.[0]?.value / 100 + "₽"}
-              </div>
-              <button>В корзину</button>
-            </div>
+            {productInfo && (
+              <ProductAccumulatorControls product={productInfo} />
+            )}
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

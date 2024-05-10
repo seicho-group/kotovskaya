@@ -52,12 +52,7 @@ export function CategoryFullPage() {
       <div className="productspromo__main">
         <div className="categorypage__grid">
           {productsArray.map((product: ProductDTO) => (
-            <ProductCard
-              id={product.id}
-              name={product.name}
-              price={product?.salePrices?.[0]?.value}
-              quantity={product.quantity}
-            />
+            <ProductCard product={product} key={product.id} />
           ))}
         </div>
       </div>
