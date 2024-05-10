@@ -42,9 +42,9 @@ export function CategoryFullPage() {
         <div className="productspromo__subcategories">
           {found?.category_items?.map((element: any) => (
             <Subcategory
-              id={element.category_id}
+              subcategoryId={element.category_id}
               key={element.category_id}
-              subcategory={element.category_name}
+              subcategoryName={element.category_name}
             />
           ))}
         </div>

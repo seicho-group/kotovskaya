@@ -11,6 +11,7 @@ type Props = {
   linkTo?: string
 }
 
+// todo: избавиться от двойных тернарников
 export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
   return (
     <div>
