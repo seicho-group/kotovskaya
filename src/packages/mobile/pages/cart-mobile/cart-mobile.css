@@ -57,7 +57,7 @@
 
 .order__button__mobile {
   border-radius: 7px;
-  background-color: #9b846e;
+  background-color: #c1a88a;
   color: white;
   outline: none;
   cursor: pointer;
@@ -99,7 +99,7 @@
 .inputs__comment__mobile input {
   border-radius: 7px;
   outline: none;
-  height: 80px;
+  height: 40px;
   border: 1px #e3e2e2 solid;
   width: calc(100% - 53px);
   font-size: 14px;
@@ -107,19 +107,21 @@
 }
 
 .delivery__buttons__mobile button {
-  width: 100px;
+  /* width: 100px; */
   height: 50px;
   border-radius: 7px;
-  border: #998169 solid 2px;
+  border: #c1a88a solid 2px;
   background-color: white;
   font-size: 16px;
 }
 
 .delivery__buttons__mobile {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
   width: auto;
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  padding-bottom: 20px;
+
   margin: 0 20px 0 20px;
 }
 
@@ -166,8 +168,6 @@ label {
 }
 
 .inputs__comment__mobile {
-  height: 100px;
-
   margin: 0 20px 20px 20px;
 }
 
@@ -183,3 +183,22 @@ label {
   justify-content: center;
   align-items: center;
 }
+
+.mail {
+  width: 100%;
+}
+
+/* .inputs__mobile__mail input {
+  border-radius: 7px;
+  outline: none;
+  height: 40px;
+  border: 1px #e3e2e2 solid;
+  width: calc(100% - 53px);
+  font-size: 14px;
+  padding-left: 13px;
+}
+
+.inputs__mobile__mail {
+  display: flex;
+  justify-content: center;
+} */

@@ -6,6 +6,8 @@ import { useCartStore } from "src/entities/cart/model/cart-store"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { useInView } from "react-intersection-observer"
+import { IsMobileContext } from "src/app/app"
+import { useContext } from "react"
 
 type Props = {
   product: ProductDTO
@@ -13,7 +15,10 @@ type Props = {
 
 // todo: пропсами принимать ProductDTO
 export function ProductCard({ product }: Props) {
+  const isOnSale = product?.salePrices?.[2].value != 0 ? true : false
   const { ref, inView } = useInView()
+
+  const { isMobile } = useContext(IsMobileContext)
   return (
     <div
       className="card"
@@ -38,14 +43,26 @@ export function ProductCard({ product }: Props) {
           </Link>
         ) : null}
       </div>
-      <div className="card__name">
+      <div className={isMobile ? "card__name__mobile" : "card__name"}>
         <Link to={`/product/${product.id}`}>
           <p>{product.name}</p>
         </Link>
       </div>
 
       <div className="card__bottom">
-        <p>{(product?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+        {isOnSale ? (
+          <div className="saleprice__bottom">
+            <div className="newprice">
+              {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
+            </div>{" "}
+            <div className="oldprice">
+              {(product?.salePrices?.[2].value || 0) / 100 + "₽"}
+            </div>
+          </div>
+        ) : (
+          <p>{(product?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+        )}
+
         <ProductAccumulatorControls product={product} />
       </div>
     </div>

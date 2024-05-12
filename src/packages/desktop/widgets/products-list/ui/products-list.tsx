@@ -6,14 +6,23 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { IsMobileContext } from "src/app/app"
+import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
+import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
+import { Subcategory } from "src/packages/desktop/entities/subcategory/subcategory"
 
 type Props = {
   productsArray: ProductDTO[]
-  categoryName: string
+  categoryName?: string
+  subcategoryArray?: Category[]
   linkTo?: string
 }
 
-export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
+export function ProductsList({
+  categoryName,
+  productsArray,
+  linkTo,
+  subcategoryArray,
+}: Props) {
   const { isMobile } = useContext(IsMobileContext)
 
   if (!productsArray) {
@@ -28,14 +37,24 @@ export function ProductsList({ categoryName, productsArray, linkTo }: Props) {
 
   return (
     <div className="productspromo">
-      <div className="productspromo__header">
-        <div
-          className="wrapper"
-          style={{ width: isMobile ? "100%" : "1300px" }}
-        >
-          {categoryName}
+      {categoryName ? (
+        <div className="productspromo__header">
+          <div
+            className="wrapper"
+            style={{ width: isMobile ? "100%" : "1300px" }}
+          >
+            {categoryName}
+          </div>
         </div>
-      </div>
+      ) : null}
+
+      {subcategoryArray && (
+        <div className="fff">
+          {subcategoryArray?.map((element: any) => (
+            <CategoryPanel key={element.category_id} category={element} />
+          ))}
+        </div>
+      )}
       <div className="productspromo__main">
         <div className="productspromo__grid">
           {productsArray.map((product: ProductDTO) => (

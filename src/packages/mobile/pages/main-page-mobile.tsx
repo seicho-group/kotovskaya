@@ -8,6 +8,7 @@ import { SliderMobile } from "src/shared/ui/slider/ui/mobile/slider-mobile"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Slider } from "src/shared/ui/slider/ui/slider"
+import "./main-page-mobile.css"
 
 export function MainPageMobile() {
   const [popularArrayM, setPopularArrayM] = useState<ProductDTO[]>([])

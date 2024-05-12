@@ -9,6 +9,15 @@
   font-weight: 400;
 }
 
+@media (width < 1300px) {
+  .card__quantity {
+    display: grid;
+    width: 15px;
+
+    height: 40px;
+  }
+}
+
 .card__pic {
   width: 100%;
   aspect-ratio: 1/1;
@@ -18,11 +27,24 @@
   font-size: 18px;
   padding-top: 10px;
   text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__name__mobile {
+  font-size: 16px;
+  padding-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__bottom {
   display: flex;
   justify-content: space-between;
+}
+
+.card__bottom__mobile {
+  display: flex;
 }
 
 .card__bottom > button {
@@ -39,22 +61,32 @@
 }
 
 .card__bottom p {
-  padding: 10px;
-  font-size: 22px;
+  /* padding: 10px; */
+  font-size: 18px;
   font-weight: 400;
+  margin-top: 10px;
 }
 
 .card__quantity {
   display: grid;
-  width: 135px;
-  grid-template-columns: 40px 55px 40px;
-  height: 43px;
+  width: 130px;
+  grid-template-columns: 40px 50px 40px;
+  height: 40px;
+  color: rgb(40, 40, 40);
+}
+
+.card__quantity__mobile {
+  display: grid;
+  width: 99px;
+  grid-template-columns: 33px 33px 33px;
+  height: 40px;
+  color: rgb(20, 20, 20);
 }
 
 .card__quantity__button {
   width: 40px;
   height: 43px;
-  background-color: #c1a88a;
+  background-color: red;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -95,4 +127,22 @@
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.saleprice__bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newprice {
+  color: #c2a88c;
+  font-size: 22px;
+  padding: 10px 0 10px 0;
+}
+
+.oldprice {
+  font-size: 16px;
+  color: #898989;
+  text-decoration: line-through;
+  padding: 15px 0 0 10px;
 }

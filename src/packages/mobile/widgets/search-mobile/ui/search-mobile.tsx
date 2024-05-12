@@ -97,15 +97,14 @@ export function SearchMobile(props: any) {
                 ))}
           </div>
         </div>
-        <Link to="/showallresults">
-          <div
-            onClick={() => {
-              setWord(debouncedValue || "")
-              setSearchIsClosed()
-            }}
-          >
-            показать все результаты
-          </div>
+        <Link
+          onClick={() => {
+            setSearchIsClosed()
+            setWord(debouncedValue || "")
+          }}
+          to="/showallresults"
+        >
+          <div>показать все результаты</div>
         </Link>
       </div>
     </div>,

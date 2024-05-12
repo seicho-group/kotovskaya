@@ -4,6 +4,7 @@ import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/sea
 import { ProductDTO } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
+import { ProductCard } from "src/packages/desktop/entities/product-card/product-card"
 
 export function ShowAllResultsMobile() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
@@ -25,12 +26,7 @@ export function ShowAllResultsMobile() {
     <div className="mobile__wrapper">
       <div className="productspromo__grid__mobile">
         {productsSearchResultAll.map((product: ProductDTO) => (
-          <ProductCardMobile
-            name={product?.name}
-            id={product?.id}
-            price={product.salePrices[0].value}
-            quantity={product.quantity}
-          />
+          <ProductCard product={product} />
         ))}
       </div>
     </div>

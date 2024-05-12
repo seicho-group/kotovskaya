@@ -106,7 +106,7 @@ export function CartMobile() {
                       </p>
                     </div>
                   </div>
-                  <div className="inputs__mobile">
+                  <div className="inputs__comment__mobile">
                     <input
                       onChange={formEMail.onChange}
                       name={formEMail.name}
@@ -230,11 +230,10 @@ export function CartMobile() {
                       </div>
                     </div> */}
                       <div className="delivery__info__mobile">
-                        Информация о выбранном способе доставки:
+                        {/* Информация о выбранном способе доставки: */}
                         <div className="delivery__info__item__mobile">
-                          Самовывоз - бесплатно. Мы заранее соберем заказ и
-                          позвоним или напишем (нажмите галочку выше) как только
-                          он будет готов.
+                          <b>Самовывоз или ваш Яндекс Курьер.</b> Мы заранее
+                          соберем заказ и позвоним, как только он будет готов.
                         </div>
                       </div>
                     </div>

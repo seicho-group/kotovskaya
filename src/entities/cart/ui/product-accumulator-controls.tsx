@@ -3,17 +3,29 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import mock from "src/shared/mock.png"
 import { Button } from "src/shared/ui/button/button"
 import { CSSProperties } from "react"
+import { IsMobileContext } from "src/app/app"
+import { useContext } from "react"
 
 type Props = {
   product: ProductDTO
+}
+
+const accumulatorCounterStylesMobile: CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "40px",
+  fontSize: "20px",
+  width: "33px",
 }
 
 const accumulatorCounterStyles: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  height: "43px",
+  height: "40px",
   fontSize: "20px",
+  width: "50px",
 }
 
 export const ProductAccumulatorControls = ({ product }: Props) => {
@@ -21,14 +33,19 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
     useCartStore()
 
   const currentProductInCart = cart[product.id]
-
+  const { isMobile } = useContext(IsMobileContext)
   if (product.quantity === 0 || !product.quantity) {
-    return <Button disabled>Нет в наличии</Button>
+    return (
+      <Button width={IsMobileContext ? "99px" : "135px"} disabled>
+        Нет в наличии
+      </Button>
+    )
   }
 
   if (currentProductInCart?.accumulator === 0 || !currentProductInCart) {
     return (
       <Button
+        width={isMobile ? "99px" : "130px"}
         onClick={() => {
           setNewProduct({
             accumulator: 1,
@@ -45,9 +62,9 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
     )
   }
   return (
-    <div className="card__quantity">
+    <div className={isMobile ? "card__quantity__mobile" : "card__quantity"}>
       <Button
-        width={"40px"}
+        width={isMobile ? "33px" : "40px"}
         onClick={() => {
           if (currentProductInCart?.accumulator === 1) {
             deleteProduct(currentProductInCart?.id)
@@ -62,7 +79,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
         {currentProductInCart?.accumulator}
       </div>
       <Button
-        width={"40px"}
+        width={isMobile ? "33px" : "40px"}
         onClick={() => {
           incrementById(currentProductInCart?.id)
         }}

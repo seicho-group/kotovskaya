@@ -1,12 +1,17 @@
-.fff{
-    display: flex;
-    gap: 10px;
-    margin: 15px 0 25px 0;
-    flex-wrap: wrap;
+.fff {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0 25px 0;
+  flex-wrap: wrap;
+}
+@media (min-width: 1300px) {
+  .fff {
+    padding: 0px 100px;
+  }
 }
 
-.mobile__wrapper{
-    margin: 15px;
+.mobile__wrapper {
+  margin: 15px;
 }
 
 /* .mobile__wrapper p{
