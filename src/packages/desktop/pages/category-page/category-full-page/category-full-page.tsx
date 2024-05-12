@@ -9,6 +9,7 @@ import { useState } from "react"
 import { ProductCard } from "src/packages/desktop/entities/product-card/product-card"
 import { searchObject } from "src/shared/utils/get-deep-object-by-id"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
+import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 
 export function CategoryFullPage() {
   const [mockArray, setMockArray] = useState<any[]>([])
@@ -35,27 +36,11 @@ export function CategoryFullPage() {
 
   return (
     <div className="productspromo">
-      <div className="productspromo__header">
-        <div className="productspromo__wrapper">{found?.category_name}</div>
-      </div>
-      <div className="productspromo__subcategories__wrapper">
-        <div className="productspromo__subcategories">
-          {found?.category_items?.map((element: any) => (
-            <Subcategory
-              subcategoryId={element.category_id}
-              key={element.category_id}
-              subcategoryName={element.category_name}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="productspromo__main">
-        <div className="categorypage__grid">
-          {productsArray.map((product: ProductDTO) => (
-            <ProductCard product={product} key={product.id} />
-          ))}
-        </div>
-      </div>
+      <ProductsList
+        productsArray={productsArray}
+        subcategoryArray={found?.category_items}
+        categoryName={found?.category_name}
+      />
     </div>
   )
 }

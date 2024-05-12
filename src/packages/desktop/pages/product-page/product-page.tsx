@@ -9,6 +9,7 @@ import { Image } from "src/shared/get-image/get-image"
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const [productInfo, setProductInfo] = useState<ProductDTO | null>(null)
+  const isOnSale = productInfo?.salePrices?.[2].value != 0 ? true : false
   useEffect(() => {
     if (id) {
       requestProduct(id).then(setProductInfo)
@@ -29,7 +30,20 @@ export function ProductPage() {
             {productInfo?.description}
           </div>
           <div className="productpage__bottom">
-            <div></div>
+            <div>
+              {isOnSale ? (
+                <div className="saleprice__bottom">
+                  <div className="newprice">
+                    {(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}
+                  </div>{" "}
+                  <div className="oldprice">
+                    {(productInfo?.salePrices?.[2].value || 0) / 100 + "₽"}
+                  </div>
+                </div>
+              ) : (
+                <p>{(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+              )}
+            </div>
             {productInfo && (
               <ProductAccumulatorControls product={productInfo} />
             )}
@@ -37,5 +51,5 @@ export function ProductPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -4,6 +4,7 @@ import mock from "src/shared/assets/mock2.jpg"
 import { useParams } from "react-router-dom"
 import { requestProduct } from "src/shared/api/single-product/request"
 import { useCartStore } from "src/entities/cart/model/cart-store"
+import { Image } from "src/shared/get-image/get-image"
 
 export function ProductPageMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
@@ -25,7 +26,7 @@ export function ProductPageMobile(props: any) {
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
         <div className="image__productpage">
-          <img src={mock} alt="" />
+          <Image id={productInfo?.id} />
         </div>
 
         <div className="productpage__name__mobile">{productInfo?.name}</div>

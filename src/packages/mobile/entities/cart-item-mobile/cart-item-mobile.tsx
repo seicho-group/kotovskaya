@@ -1,6 +1,7 @@
 import "./cart-item-mobile.css"
 import pic from "src/shared/assets/фотобудетпозже.png"
 import { useCartStore } from "src/entities/cart/model/cart-store"
+import { Image } from "src/shared/get-image/get-image"
 
 export function CartItemMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
@@ -8,7 +9,8 @@ export function CartItemMobile(props: any) {
     <div>
       <div className="cartitem__area__mobile">
         <div className="center">
-          <img
+          <Image id={props.id} />
+          {/* <img
             onError={(e) => {
               // @ts-ignore
               e.target.src = pic
@@ -16,10 +18,10 @@ export function CartItemMobile(props: any) {
             className="cartitem__area__photo__mobile"
             src={props.photo}
             alt=""
-          />
+          /> */}
         </div>
         <div className="cartitem__name__mobile">
-          <p>{props.name}</p>
+          <p className="cartitem__name__block">{props.name}</p>
           <div>{props.price}</div>
         </div>
         <div className="cartitem__quantity__mobile">

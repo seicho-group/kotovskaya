@@ -7,9 +7,11 @@ import { API_URL } from "src/shared/api/config"
 import { useDebounce } from "src/shared/hooks/use-debounce"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
+import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 
 export function Searchbar(props: any) {
-  const setIsClicked = props.SetIsClicked
+  const { searchRequest, setWord } = useSearchStore()
+  const setIsClicked = props.setIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
   const [popularArrayForSearch, setPopularArrayForSearch] = useState<
@@ -67,8 +69,16 @@ export function Searchbar(props: any) {
                   />
                 ))}
           </div>
-          <Link onClick={() => setIsClicked(false)} to={"/searchresults"}>
-            <div className="showallresults">Показать все результаты</div>
+          <Link to={"/searchresults"}>
+            <div
+              onClick={() => {
+                setWord(debouncedValue || "")
+                setIsClicked(false)
+              }}
+              className="showallresults"
+            >
+              Показать все результаты
+            </div>
           </Link>
           {/* <div>
             <SearchCategory/>

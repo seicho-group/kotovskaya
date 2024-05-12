@@ -28,6 +28,12 @@ const disabledButtonStyles: CSSProperties = {
   ...buttonStyles,
   backgroundColor: "#a19f9f",
   cursor: "not-allowed",
+  width: "99px",
+}
+
+const MobileButtonStyles: CSSProperties = {
+  ...buttonStyles,
+  width: "30px",
 }
 
 export const Button = ({

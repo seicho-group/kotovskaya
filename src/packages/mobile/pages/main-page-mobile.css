@@ -1,77 +1,74 @@
-.categoryblock{
-    height: 80px;
-    border-radius: 17px;
-    margin: 20px 15px 0 15px;
-    display: grid;
-    grid-row: 1fr 1fr;
-    font-size: 18px;
-    font-weight: 500;
-  
+.categoryblock {
+  height: 80px;
+  border-radius: 17px;
+  margin: 20px 15px 0 15px;
+  display: grid;
+  grid-row: 1fr 1fr;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.categoryblock2{
-    height: 80px;
-    border-radius: 17px;
-    display: grid;
-    grid-row: 1fr 1fr;
-    font-size: 18px;
-    font-weight: 500;
-    
+.categoryblock2 {
+  height: 80px;
+  border-radius: 17px;
+  display: grid;
+  grid-row: 1fr 1fr;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-.categrptyblocks__wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.categrptyblocks__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.bottomblock{
-    display: grid;
-    gap: 10px;
-    margin-top: 10px;
-    grid-template-columns: 1fr 1fr;
-    margin-left: 15px;
-    margin-right: 15px;
-    
+.bottomblock {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-.soap{
-    color: white;
-    background-color: #AE947C;
+.soap {
+  color: white;
+  background-color: #c1a88a;
 }
 
-.candle{
-    color: white;
-    background-color: #AE947C;
-    /* background-color: #79A2C8; */
+.candle {
+  color: white;
+  background-color: #c1a88a;
+  /* background-color: #79A2C8; */
 }
 
-.cosmetics{
-    color: white;
-    background-color: #AE947C;
-    /* background-color: #ADADAD; */
+.cosmetics {
+  color: white;
+  background-color: #c1a88a;
+  /* background-color: #ADADAD; */
 }
 
-.categoryblock p{
-    margin: 10px 0 0 10px;
+.categoryblock p {
+  margin: 10px 0 0 10px;
 }
 
-.categoryblock2 p{
-    margin: 10px 0 0 10px;
+.categoryblock2 p {
+  margin: 10px 0 0 10px;
 }
 
-.arrowblock{
-    display: flex;
-    justify-content: end;
-    align-items: end;
+.arrowblock {
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
 
-.arrowblock img{
-    margin: 0 10px 10px 0;
+.arrowblock img {
+  margin: 0 10px 10px 0;
 }
-
-.mainpage{
-    height: auto;
-    padding-bottom: 50px;
-}
+/* 
+.mainpage {
+  height: auto;
+  padding-bottom: 50px;
+} */

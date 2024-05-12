@@ -1,4 +1,4 @@
-.card__mobile {
+/* .card__mobile {
   width: 150px;
   height: auto;
   margin: 0;
@@ -48,7 +48,7 @@
   display: grid;
   width: 85px;
   grid-template-columns: 30px 25px 30px;
-  height: 43px;
+  height: 40px;
 }
 
 .card__quantity__button__mobile {
@@ -99,4 +99,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
