@@ -1,6 +1,6 @@
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { ProductDTO } from "src/shared/types/productDTO"
-import mock from "src/shared/mock.png"
+import mock from "src/shared/assets/mock.png"
 import { Button } from "src/shared/ui/button/button"
 import { CSSProperties } from "react"
 import { IsMobileContext } from "src/app/app"
