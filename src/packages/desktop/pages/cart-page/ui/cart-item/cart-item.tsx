@@ -28,7 +28,7 @@ export function CartItem({ product }: Props) {
         </div>
         <div className="cartitem__name">
           <p>{product.name}</p>
-          <div>{product.price}</div>
+          <div>{product.price / 100 + "₽"}</div>
         </div>
         <div className="cartitem__quantity">
           <div className="cartitem__quantity__buttons">

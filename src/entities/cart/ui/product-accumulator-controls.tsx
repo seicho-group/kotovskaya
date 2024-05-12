@@ -36,7 +36,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
   const { isMobile } = useContext(IsMobileContext)
   if (product.quantity === 0 || !product.quantity) {
     return (
-      <Button width={IsMobileContext ? "99px" : "135px"} disabled>
+      <Button width={isMobile ? "99px" : "135px"} disabled>
         Нет в наличии
       </Button>
     )
@@ -46,6 +46,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
     return (
       <Button
         width={isMobile ? "99px" : "130px"}
+        // font-size={isMobile ? "16px" : "20pxpx"}
         onClick={() => {
           setNewProduct({
             accumulator: 1,

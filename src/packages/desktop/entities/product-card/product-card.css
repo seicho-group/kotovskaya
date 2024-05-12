@@ -62,7 +62,7 @@
 
 .card__bottom p {
   /* padding: 10px; */
-  font-size: 18px;
+  /* font-size: 18px; */
   font-weight: 400;
   margin-top: 10px;
 }
@@ -145,4 +145,12 @@
   color: #898989;
   text-decoration: line-through;
   padding: 15px 0 0 10px;
+}
+
+.card__price {
+  font-size: 22px;
+}
+
+.card__price__mobile {
+  font-size: 18px;
 }

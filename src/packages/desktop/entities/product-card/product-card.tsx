@@ -60,7 +60,9 @@ export function ProductCard({ product }: Props) {
             </div>
           </div>
         ) : (
-          <p>{(product?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+          <p className={isMobile ? "card__price__mobile" : "card__price"}>
+            {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
+          </p>
         )}
 
         <ProductAccumulatorControls product={product} />
