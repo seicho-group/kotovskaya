@@ -4,6 +4,7 @@ import delete1 from "src/shared/assets/delete.svg"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Product } from "src/shared/types/productDTO"
 import { getImageUrl } from "src/shared/api/get-image-url"
+import { Link } from "react-router-dom"
 
 type Props = {
   product: Product
@@ -27,7 +28,10 @@ export function CartItem({ product }: Props) {
           />
         </div>
         <div className="cartitem__name">
-          <p>{product.name}</p>
+          {" "}
+          <Link to={`/product/${product.id}`}>
+            <p>{product.name}</p>
+          </Link>
           <div>{product.price / 100 + "₽"}</div>
         </div>
         <div className="cartitem__quantity">
