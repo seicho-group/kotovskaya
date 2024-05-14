@@ -94,8 +94,9 @@ export function Cart() {
                 <div className="cartifull__personinfo">
                   <div className="fullcart__header">Информация о заказе</div>
                   <div className="inputs">
-                    <div>
+                    <div style={{ width: "100%" }}>
                       <input
+                        style={{ width: "100%" }}
                         className="input__info"
                         onChange={formName.onChange}
                         type="name"
@@ -111,6 +112,7 @@ export function Cart() {
                     </div>
                     <div>
                       <input
+                        style={{ width: "100%" }}
                         className="input__info"
                         type="text"
                         onChange={formPhone.onChange}

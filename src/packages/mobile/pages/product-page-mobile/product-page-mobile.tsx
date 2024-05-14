@@ -5,14 +5,14 @@ import { useParams } from "react-router-dom"
 import { requestProduct } from "src/shared/api/single-product/request"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Image } from "src/shared/get-image/get-image"
+import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
+import { Product, ProductDTO } from "src/shared/types/productDTO"
 
 export function ProductPageMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
     useCartStore()
   const { id } = useParams<{ id: string }>()
-  const [productInfo, setProductInfo] = useState<Record<string, any> | null>(
-    null,
-  )
+  const [productInfo, setProductInfo] = useState<ProductDTO | null>(null)
   useEffect(() => {
     if (id) {
       requestProduct(id).then((products) => setProductInfo(products))
@@ -22,6 +22,9 @@ export function ProductPageMobile(props: any) {
       )
     }
   }, [id])
+  if (!productInfo) {
+    return null
+  }
   return (
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
@@ -33,10 +36,19 @@ export function ProductPageMobile(props: any) {
         <div className="productpage__price">
           {productInfo?.salePrices?.[0]?.value / 100 + "₽"}
         </div>
-        <div className="productpage__description">
+        <div className="productpage__description__mobile">
           {productInfo?.description}
         </div>
-        <div className="productpage__bottom__mobile">
+        <div
+          style={{
+            marginRight: "20px",
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <ProductAccumulatorControls product={productInfo} />
+        </div>
+        {/* <div className="productpage__bottom__mobile">
           <div className="productpage__bottom__button__mobile">
             {productInfo?.quantity > 0 ? (
               (cart[productInfo?.id]?.accumulator || 0) > 0 ? (
@@ -94,7 +106,7 @@ export function ProductPageMobile(props: any) {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

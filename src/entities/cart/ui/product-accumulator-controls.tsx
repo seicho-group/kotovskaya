@@ -76,7 +76,11 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
       >
         -
       </Button>
-      <div style={accumulatorCounterStyles}>
+      <div
+        style={
+          isMobile ? accumulatorCounterStylesMobile : accumulatorCounterStyles
+        }
+      >
         {currentProductInCart?.accumulator}
       </div>
       <Button
