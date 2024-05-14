@@ -79,19 +79,21 @@
 }
 
 .inputs {
+  grid-template-columns: auto auto;
+  gap: 40px;
   width: 720px;
   height: 50px;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 40px;
+  display: grid;
+
+  margin-bottom: 20px;
 }
 
-.inputs input {
+.input__info {
   border-radius: 7px;
   outline: none;
   height: 40px;
   border: 1px #e3e2e2 solid;
-  width: 320px;
+
   font-size: 14px;
   padding-left: 13px;
 }
@@ -100,7 +102,7 @@
   width: 230px;
   height: 70px;
   border-radius: 7px;
-  border: #998169 solid 2px;
+  border: #c1a88a solid 2px;
   background-color: white;
   font-size: 16px;
 }
@@ -121,7 +123,7 @@
 .delivery__info {
   color: gray;
   font-size: 16px;
-  padding-top: 20px;
+  margin-top: 20px;
   padding-bottom: 50px;
 }
 
@@ -151,4 +153,8 @@ label {
 
 .checkbox__area__text {
   font-size: 16px;
+}
+
+.delivery__header {
+  margin-top: 30px;
 }
