@@ -134,6 +134,22 @@
   justify-content: flex-end;
 }
 
+.saleprice__bottom__mobile {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.newprice__mobile {
+  color: #c2a88c;
+  font-size: 18px;
+}
+
+.oldprice__mobile {
+  font-size: 12px;
+  color: #898989;
+  text-decoration: line-through;
+}
+
 .newprice {
   color: #c2a88c;
   font-size: 22px;
