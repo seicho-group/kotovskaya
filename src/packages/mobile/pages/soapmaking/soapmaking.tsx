@@ -78,7 +78,6 @@ export function Soapmaking() {
         </div>
         <ProductsList
           productsArray={[...products, ...colors, ...soapmakingSoapBases]}
-          categoryName="Мыловарение"
         />
       </div>
     </div>
