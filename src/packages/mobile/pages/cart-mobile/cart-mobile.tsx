@@ -2,11 +2,13 @@ import "./cart-mobile.css"
 import { Link } from "react-router-dom"
 import { CartItemMobile } from "src/packages/mobile/entities/cart-item-mobile/cart-item-mobile"
 import { FormProvider, useForm } from "react-hook-form"
-import axios from "axios"
+import axios, { AxiosResponse } from "axios"
 import { API_URL } from "src/shared/api/config"
 import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { useCartStore } from "src/entities/cart/model/cart-store"
+import { useNavigate } from "react-router-dom"
+import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/ui/cart"
 
 export function CartMobile() {
   const form = useForm<OrderForm>({ reValidateMode: "onBlur" })
@@ -16,18 +18,22 @@ export function CartMobile() {
       previous + ((cart[key]?.price || 0) * (cart[key]?.accumulator || 0)) / 100
     )
   }, 0)
-
+  const { orderId, setOrderId } = useOrderIdStore()
+  const navigate = useNavigate()
   function sendOrder() {
     form.handleSubmit(
-      (formValues) => {
-        axios.post(
+      async (formValues) => {
+        const id: AxiosResponse<string> = await axios.post(
           `${API_URL}/order/make_order`,
           getOrderRequestByFormValues(formValues, Object.values(cart)),
         )
+        setOrderId(id.data)
+        navigate("/ordered")
       },
       (e) => console.log(e),
     )()
   }
+  console.log(orderId)
 
   const deliveryWay = form.watch("deliveryWay")
 

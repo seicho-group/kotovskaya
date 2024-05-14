@@ -41,7 +41,9 @@ export function ProductPage() {
                   </div>
                 </div>
               ) : (
-                <p>{(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+                <div className="productpage__bottom__price">
+                  {(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}
+                </div>
               )}
             </div>
             {productInfo && (

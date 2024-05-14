@@ -1,7 +1,7 @@
 export type ProductDTO = {
   name: string
   description?: string
-  salePrices?: { value: number }[]
+  salePrices: { value: number }[]
   id: string
   quantity: number
 }

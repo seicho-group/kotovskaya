@@ -38,10 +38,17 @@ export function ProductsList({
   return (
     <div className="productspromo">
       {categoryName ? (
-        <div className="productspromo__header">
+        <div
+          className={
+            isMobile ? "productspromo__header__mobile" : "productspromo__header"
+          }
+        >
           <div
             className="wrapper"
-            style={{ width: isMobile ? "100%" : "1300px" }}
+            style={{
+              width: isMobile ? "100%" : "1300px",
+              height: isMobile ? "50px" : "",
+            }}
           >
             {categoryName}
           </div>

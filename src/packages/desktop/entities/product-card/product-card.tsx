@@ -51,16 +51,22 @@ export function ProductCard({ product }: Props) {
 
       <div className="card__bottom">
         {isOnSale ? (
-          <div className="saleprice__bottom">
-            <div className="newprice">
+          <div
+            className={
+              isMobile ? "saleprice__bottom__mobile" : "saleprice__bottom"
+            }
+          >
+            <div className={isMobile ? "newprice__mobile" : "newprice"}>
               {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
             </div>{" "}
-            <div className="oldprice">
+            <div className={isMobile ? "oldprice__mobile" : "oldprice"}>
               {(product?.salePrices?.[2].value || 0) / 100 + "₽"}
             </div>
           </div>
         ) : (
-          <p>{(product?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+          <p className={isMobile ? "card__price__mobile" : "card__price"}>
+            {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
+          </p>
         )}
 
         <ProductAccumulatorControls product={product} />

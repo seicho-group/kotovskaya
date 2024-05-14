@@ -2,6 +2,7 @@ import "./cart-item-mobile.css"
 import pic from "src/shared/assets/фотобудетпозже.png"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Image } from "src/shared/get-image/get-image"
+import { Link } from "react-router-dom"
 
 export function CartItemMobile(props: any) {
   const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
@@ -21,7 +22,10 @@ export function CartItemMobile(props: any) {
           /> */}
         </div>
         <div className="cartitem__name__mobile">
-          <p className="cartitem__name__block">{props.name}</p>
+          <p className="cartitem__name__block">
+            {" "}
+            <Link to={`/product/${props.id}`}> {props.name}</Link>
+          </p>
           <div>{props.price}</div>
         </div>
         <div className="cartitem__quantity__mobile">

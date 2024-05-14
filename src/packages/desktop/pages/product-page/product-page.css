@@ -8,7 +8,7 @@
 
 .productpage__wrapper {
   width: 1300px;
-  padding-bottom: 70px;
+  padding-bottom: 50px;
   height: auto;
   background-color: white;
   display: grid;
@@ -37,10 +37,19 @@
   margin-left: 50px;
 }
 
+.productpage__bottom__price {
+  display: flex;
+  justify-content: end;
+  font-size: 22px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
 .productpage__bottom {
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
+  height: 50px;
 }
 
 .productpage__bottom__button {
