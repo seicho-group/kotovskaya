@@ -161,6 +161,7 @@
   color: #898989;
   text-decoration: line-through;
   padding: 15px 0 0 10px;
+  margin-right: 10px;
 }
 
 .card__price {
