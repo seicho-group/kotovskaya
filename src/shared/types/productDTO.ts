@@ -15,6 +15,11 @@ export type Product = {
   accumulator: number
 }
 
+export type ProductOrderRequest = {
+  id: string
+  quantity: number
+}
+
 // type Product = {
 //   name: string;
 //   price: number;
@@ -22,3 +27,23 @@ export type Product = {
 //   image: string;
 //   quantity: number;
 // };
+
+// export type DeliveryWay = {}
+
+export enum DeliveryWay {
+  Self,
+  Courier,
+  Mail,
+}
+
+export type Order = {
+  authorName: string
+  authorPhone: string
+  authorMail: string
+  hasAuthorDiscount?: boolean
+  comment?: string
+  deliveryWay: DeliveryWay
+  deliveryAddress?: string
+  priorityOrderDate?: string
+  positions: ProductDTO[]
+}

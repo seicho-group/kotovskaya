@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import cbempty from "src/shared/assets/checkboxempty.svg"
 import cb from "src/shared/assets/checkbox.svg"
 import axios, { AxiosResponse } from "axios"
-import { API_URL } from "src/shared/api/config"
+import { API_URL, API_URL_ORDERS } from "src/shared/api/config"
 import { FormProvider, useForm } from "react-hook-form"
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
@@ -12,6 +12,15 @@ import { useCartStore } from "src/entities/cart/model/cart-store"
 import DatePicker from "react-datepicker"
 import { Link, useNavigate } from "react-router-dom"
 import { create } from "zustand"
+import { Order, ProductOrderRequest } from "src/shared/types/productDTO"
+import { Product } from "src/shared/types/productDTO"
+
+export function productsToProductsDTO(array: Product[]): ProductOrderRequest[] {
+  array.map((product: Product) => {
+    return
+    product.id, product.accumulator
+  })
+}
 
 type TOrderIdStore = {
   orderId: string
@@ -49,9 +58,11 @@ export function Cart() {
   function sendOrder() {
     form.handleSubmit(
       async (formValues) => {
-        const id: AxiosResponse<string> = await axios.post(
-          `${API_URL}/order/make_order`,
-          getOrderRequestByFormValues(formValues, Object.values(cart)),
+        const id = await axios.post<Order, AxiosResponse<string>>(
+          `${API_URL_ORDERS}/create_order`,
+          // todo: в карте лежат Продукты, из них надо сделать productDto (просто маппилку)
+          // поставить вместо массива и в мобилке также
+          getOrderRequestByFormValues(formValues, cart.productsToProductsDTO),
         )
         setOrderId(id.data)
         navigate("/ordered")

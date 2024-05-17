@@ -79,7 +79,6 @@
 
 .inputs__mobile {
   width: auto;
-  height: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -101,7 +100,7 @@
   outline: none;
   height: 40px;
   border: 1px #e3e2e2 solid;
-  width: calc(100% - 53px);
+  width: 100%;
   font-size: 14px;
   padding-left: 13px;
 }

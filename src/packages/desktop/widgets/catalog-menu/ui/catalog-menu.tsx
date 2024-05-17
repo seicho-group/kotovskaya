@@ -2,7 +2,7 @@ import "./catalog-menu.css"
 import { useState, useEffect } from "react"
 import { CatalogItem } from "../../../entities/product-card/catalog-item"
 import axios, { AxiosResponse } from "axios"
-import { API_URL } from "src/shared/api/config"
+import { API_URL, API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"
 
 export type TCategory = {
@@ -40,7 +40,7 @@ const useCategories = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await axios.get<TCategory[]>(
-        `${API_URL}/categories/get_all`,
+        `${API_URL_CATEGORIES}/get_all_categories_tree`,
         {
           withCredentials: true,
         },
