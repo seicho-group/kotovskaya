@@ -1,12 +1,17 @@
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
-import { Product, ProductDTO } from "src/shared/types/productDTO"
+import { DeliveryWay, Product, ProductDTO } from "src/shared/types/productDTO"
+import { Order } from "src/shared/types/productDTO"
 
 export const getOrderRequestByFormValues = (
   formValues: OrderForm,
-  positions: Product[],
-) => {
+  positions: ProductDTO[],
+): Order => {
   return {
-    positions: positions,
-    ...formValues,
+    positions,
+    authorPhone: formValues.phone,
+    authorName: formValues.name,
+    authorMail: formValues.email,
+    // в форме надо тип поправить
+    deliveryWay: DeliveryWay.Self,
   }
 }

@@ -20,7 +20,7 @@ export function ProductPageMobile(props: any) {
 
   useEffect(() => {
     if (id) {
-      requestProduct(id).then((products) => setProductInfo(products))
+      requestProduct(id).then((product) => setProductInfo(product))
     } else {
       console.error(
         "Страница ProductPage была использована без айди продукта в url",
