@@ -30,8 +30,8 @@ export function Searchbar(props: any) {
   useEffect(() => {
     if (debouncedValue) {
       axios
-        .post(`${API_URL}/products/search_for_product`, {
-          text: debouncedValue,
+        .post(`${API_URL}/products/search_for_products`, {
+          searchString: debouncedValue,
         })
         .then((res) => {
           setProductsSearchResult(res.data)
