@@ -14,7 +14,7 @@ import { API_URL_CATEGORIES } from "src/shared/api/config"
 
 export function CategoryFullPage() {
   const [mockArray, setMockArray] = useState<any[]>([])
-  // const [mockArray, setMockArray] = useState<any[]>([])
+  const [subcategoriesArray, setsubcategoriesArray] = useState<any[]>([])
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
   let { id } = useParams<{ id: string }>()
   useEffect(() => {
@@ -22,6 +22,7 @@ export function CategoryFullPage() {
       .post(`${API_URL_CATEGORIES}/get_category_items`, { categoryId: id })
       .then((res) => {
         setProductArray(res.data.categoryItems)
+        setsubcategoriesArray(res.data.categoryChildren)
       })
   }, [id])
   useEffect(() => {
@@ -40,8 +41,8 @@ export function CategoryFullPage() {
     <div className="productspromo">
       <ProductsList
         productsArray={productsArray}
-        subcategoryArray={found?.category_items}
-        categoryName={found?.category_name}
+        subcategoryArray={subcategoriesArray}
+        categoryName={found?.name}
       />
     </div>
   )

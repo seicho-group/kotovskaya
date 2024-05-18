@@ -36,7 +36,7 @@ export function CartItem({ product }: Props) {
           <Link to={`/product/${product.id}`}>
             <p>{product.name}</p>
           </Link>
-          <div>{product.price / 100 + "₽"}</div>
+          {/* <div>{product.price / 100 + "₽"}</div> */}
         </div>
         <div className="cartitem__quantity">
           <div className="cartitem__quantity__buttons">

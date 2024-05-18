@@ -16,7 +16,8 @@ import { searchObject } from "src/shared/utils/get-deep-object-by-id"
 
 export function CategoryPageMobile() {
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
-
+  const [categoryName, setCategoryName] = useState("")
+  const [categoryChildren, setCategoryChildren] = useState([])
   const [mockArray, setMockArray] = useState<any[]>([])
 
   let { id } = useParams<{ id: string }>()
@@ -25,18 +26,20 @@ export function CategoryPageMobile() {
     axios
       .post(`${API_URL_CATEGORIES}/get_category_items`, { categoryId: id })
       .then((res) => {
-        setProductArray(res.data)
+        setProductArray(res.data.categoryItems)
+        setCategoryName(res.data.categoryName)
+        setCategoryChildren(res.data.categoryChildren)
       })
   }, [id])
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/categories/get_all`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setMockArray(response.data)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API_URL}/categories/get_all`, {
+  //       withCredentials: true,
+  //     })
+  //     .then((response) => {
+  //       setMockArray(response.data)
+  //     })
+  // }, [])
   // const found = mockArray.find(
   //   (element: any) => element.category_id == id,
   // ) as Category
@@ -49,8 +52,8 @@ export function CategoryPageMobile() {
 
         <ProductsList
           productsArray={productsArray}
-          categoryName={found?.category_name}
-          subcategoryArray={found?.category_items}
+          categoryName={categoryName}
+          subcategoryArray={categoryChildren}
         />
       </div>
     </div>
