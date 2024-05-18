@@ -72,7 +72,7 @@ export function ProductCardMobile(props: any) {
                   price: props.price,
                   accumulator: 0,
                   id: props.id,
-                  image: props.image,
+                  imageLink: props.imageLink,
                   quantity: props.quantity,
                 })
                 incrementById(props.id)

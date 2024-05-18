@@ -8,12 +8,12 @@ import { Link } from "react-router-dom"
 import { Image } from "src/shared/get-image/get-image"
 import { ProductDTO } from "src/shared/types/productDTO"
 
-type Props = {
-  product: ProductDTO
+type TProps = {
+  product: Product
 }
 
 // todo: это сущность а не страница
-export function CartItem({ product }: Props) {
+export function CartItem({ product }: TProps) {
   const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
 
   return (

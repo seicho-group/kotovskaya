@@ -1,4 +1,5 @@
-import { API_URL } from "../api/config"
+import pic from "../assets/mockphoto.png"
+
 export function Image(props: any) {
   return (
     <img
