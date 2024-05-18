@@ -12,25 +12,15 @@ export type Product = {
   name: string
   price: number
   id: string
-  image: string
+  imageLink: string
   quantity: number
   accumulator: number
 }
 
 export type ProductOrderRequest = {
-  id: string
+  productId: string
   quantity: number
 }
-
-// type Product = {
-//   name: string;
-//   price: number;
-//   id: string;
-//   image: string;
-//   quantity: number;
-// };
-
-// export type DeliveryWay = {}
 
 export enum DeliveryWay {
   Self,
@@ -47,5 +37,5 @@ export type Order = {
   deliveryWay: DeliveryWay
   deliveryAddress?: string
   priorityOrderDate?: string
-  positions: ProductDTO[]
+  positions: ProductOrderRequest[]
 }

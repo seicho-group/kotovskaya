@@ -1,7 +1,7 @@
 import "./cart-item-mobile.css"
 import pic from "src/shared/assets/фотобудетпозже.png"
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { Image } from "src/shared/get-image/get-image"
+import { Image } from "src/shared/ui/image/image"
 import { Link } from "react-router-dom"
 
 export function CartItemMobile(props: any) {
