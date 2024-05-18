@@ -9,7 +9,7 @@ import { Image } from "src/shared/get-image/get-image"
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const [productInfo, setProductInfo] = useState<ProductDTO | null>(null)
-  const isOnSale = productInfo?.salePrices?.[2].value != 0 ? true : false
+  const isOnSale = productInfo?.oldPrice != null ? true : false
   useEffect(() => {
     if (id) {
       requestProduct(id).then(setProductInfo)
@@ -34,15 +34,15 @@ export function ProductPage() {
               {isOnSale ? (
                 <div className="saleprice__bottom">
                   <div className="newprice">
-                    {(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}
+                    {(productInfo?.salePrice || 0) / 100 + "₽"}
                   </div>{" "}
                   <div className="oldprice">
-                    {(productInfo?.salePrices?.[2].value || 0) / 100 + "₽"}
+                    {(productInfo?.oldPrice || 0) / 100 + "₽"}
                   </div>
                 </div>
               ) : (
                 <div className="productpage__bottom__price">
-                  {(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}
+                  {(productInfo?.salePrice || 0) / 100 + "₽"}
                 </div>
               )}
             </div>

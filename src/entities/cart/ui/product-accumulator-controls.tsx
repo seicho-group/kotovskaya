@@ -54,7 +54,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
             quantity: product.quantity,
             image: mock,
             name: product.name,
-            price: product.salePrices?.[0]?.value || 0,
+            price: product.salePrice || 0,
           })
         }}
       >

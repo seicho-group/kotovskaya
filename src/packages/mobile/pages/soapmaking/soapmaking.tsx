@@ -71,9 +71,9 @@ export function Soapmaking() {
   useEffect(() => {
     axios
       .post<GetCategoryRequest, AxiosResponse<GetCategoryItemsResponse>>(
-        `${API_URL_CATEGORIES}/get_category`,
+        `${API_URL_CATEGORIES}/get_category_items`,
         {
-          category_id: "19be723c-cd2b-4c6d-8947-d07f5c5cc7da",
+          categoryId: "19be723c-cd2b-4c6d-8947-d07f5c5cc7da",
         },
       )
       .then((res) => {

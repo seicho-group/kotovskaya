@@ -3,7 +3,7 @@ import LONG_ARROW_ICON from "src/shared/assets/longaarow.svg"
 import SHORT_ARROW_ICON from "src/shared/assets/shortarrow.svg"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { API_URL } from "src/shared/api/config"
+import { API_URL, API_URL_PRODUCTS } from "src/shared/api/config"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Slider } from "src/shared/ui/slider/ui/slider"
@@ -15,9 +15,7 @@ export function MainPageMobile() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/products/popular`, {
-        withCredentials: true,
-      })
+      .post(`${API_URL_PRODUCTS}/get_popular_products`, undefined)
       .then((response) => {
         setPopularArrayM(response.data)
       })
@@ -25,9 +23,7 @@ export function MainPageMobile() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/products/new`, {
-        withCredentials: true,
-      })
+      .post(`${API_URL_PRODUCTS}/get_new_products`, undefined)
       .then((response) => {
         setNewArrayM(response.data)
       })
