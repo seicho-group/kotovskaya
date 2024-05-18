@@ -8,7 +8,8 @@ import { getOrderRequestByFormValues } from "src/packages/desktop/features/order
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { useNavigate } from "react-router-dom"
-import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/ui/cart"
+
+import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/lib/use-order-id-store"
 
 export function CartMobile() {
   const form = useForm<OrderForm>({ reValidateMode: "onBlur" })

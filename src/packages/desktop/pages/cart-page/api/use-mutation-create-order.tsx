@@ -4,7 +4,8 @@ import { Order, Product } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
 import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
-import { productsToProductOrderRequest } from "src/packages/desktop/pages/cart-page/ui/cart"
+
+import { productsToProductOrderRequest } from "src/packages/desktop/pages/cart-page/lib/products-to-product-order-request"
 
 export const useMutationCreateOrder = () => {
   return useMutation<string, Error, { formValues: OrderForm; cart: Product[] }>(

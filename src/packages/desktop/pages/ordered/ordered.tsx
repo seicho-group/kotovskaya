@@ -1,5 +1,6 @@
 import "./ordered.css"
-import { useOrderIdStore } from "../cart-page/ui/cart"
+
+import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/lib/use-order-id-store"
 
 export function Ordered() {
   const { orderId, setOrderId } = useOrderIdStore()

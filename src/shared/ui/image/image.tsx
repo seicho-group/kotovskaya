@@ -1,4 +1,4 @@
-import pic from "../assets/mockphoto.png"
+import pic from "../../assets/mockphoto.png"
 
 export function Image(props: any) {
   return (

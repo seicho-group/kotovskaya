@@ -4,7 +4,7 @@ import { requestProduct } from "src/shared/api/single-product/request"
 import { useParams } from "react-router-dom"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
-import { Image } from "src/shared/get-image/get-image"
+import { Image } from "src/shared/ui/image/image"
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()

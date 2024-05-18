@@ -5,7 +5,7 @@ import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Product } from "src/shared/types/productDTO"
 import { getImageUrl } from "src/shared/api/get-image-url"
 import { Link } from "react-router-dom"
-import { Image } from "src/shared/get-image/get-image"
+import { Image } from "src/shared/ui/image/image"
 import { ProductDTO } from "src/shared/types/productDTO"
 
 type TProps = {

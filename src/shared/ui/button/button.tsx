@@ -40,6 +40,7 @@ export const Button = ({
   children,
   width = "135px",
   height = "40px",
+  style,
   ...props
 }: Props) => {
   const baseStyles = {
@@ -54,7 +55,7 @@ export const Button = ({
   }
 
   return (
-    <button style={{ ...getStyle(), ...baseStyles }} {...props}>
+    <button style={{ ...style, ...getStyle(), ...baseStyles }} {...props}>
       {children}
     </button>
   )
