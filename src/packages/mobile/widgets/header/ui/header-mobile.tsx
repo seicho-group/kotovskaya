@@ -64,7 +64,7 @@ export function HeaderMobile() {
               <img className="searchpic" src={lupa} alt="" />
             )}
           </div>
-          <Link to={"/cartmobile"}>
+          <Link to={"/cart"}>
             <div>
               <img src={cart} alt="" />
             </div>

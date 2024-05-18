@@ -63,25 +63,6 @@ export function Soapmaking() {
     "Красители",
     "Отдушки",
   ]
-  const [categories, setCategories] = useState<Category[]>([])
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/categories/get_all`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setCategories(response.data)
-      })
-  }, [])
-  // useEffect(() => {
-  //   axios
-  //     .post(`${API_URL}/categories/get_category`, {
-  //       category_id: "0ce6b1e6-7205-4def-b499-6288cf4e7fde",
-  //     })
-  //     .then((res) => {
-  //       setProducts(res.data)
-  //     })
-  // }, [])
 
   useEffect(() => {
     axios
@@ -95,26 +76,7 @@ export function Soapmaking() {
         setSoapmakingSoapBases(res.data.categoryItems)
       })
   }, [])
-  console.log(soapmakingSoapBases)
-  // useEffect(() => {
-  //   axios
-  //     .post(`${API_URL}/categories/get_category`, {
-  //       category_id: "19be723c-cd2b-4c6d-8947-d07f5c5cc7da",
-  //     })
-  //     .then((res) => {
-  //       setSoapmakingSoapBases(res.data)
-  //     })
-  // }, [])
 
-  // useEffect(() => {
-  //   axios
-  //     .post(`${API_URL}/categories/get_category`, {
-  //       category_id: "2f05dba0-6069-456f-8f68-f748eac4ca00",
-  //     })
-  //     .then((res) => {
-  //       setColors(res.data)
-  //     })
-  // }, [])
   return (
     <div>
       <div className="mobile__wrapper">
