@@ -23,7 +23,7 @@ export function ProductPage() {
   return (
     <div className="productpage">
       <div className="productpage__wrapper">
-        <Image id={productInfo?.id} />
+        <Image imageLink={productInfo?.imageLink} />
         <div className="productpage__rightinfo">
           <div className="productpage__name">{productInfo?.name}</div>
           <div className="productpage__description">

@@ -3,7 +3,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { useParams } from "react-router-dom"
-import { API_URL } from "src/shared/api/config"
+import {
+  API_URL,
+  API_URL_CATEGORIES,
+  API_URL_PRODUCTS,
+} from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
@@ -19,7 +23,7 @@ export function CategoryPageMobile() {
   const found = searchObject(mockArray, id || "", "category_items") as Category
   useEffect(() => {
     axios
-      .post(`${API_URL}/categories/get_category`, { category_id: id })
+      .post(`${API_URL_CATEGORIES}/get_category_items`, { categoryId: id })
       .then((res) => {
         setProductArray(res.data)
       })

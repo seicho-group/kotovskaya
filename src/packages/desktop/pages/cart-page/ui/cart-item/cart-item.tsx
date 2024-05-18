@@ -5,19 +5,22 @@ import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Product } from "src/shared/types/productDTO"
 import { getImageUrl } from "src/shared/api/get-image-url"
 import { Link } from "react-router-dom"
+import { Image } from "src/shared/get-image/get-image"
+import { ProductDTO } from "src/shared/types/productDTO"
 
 type Props = {
-  product: Product
+  product: ProductDTO
 }
 
 // todo: это сущность а не страница
 export function CartItem({ product }: Props) {
   const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
+
   return (
     <div>
       <div className="cartitem__area">
         <div className="center">
-          <img
+          {/* <img
             onError={(e) => {
               // @ts-ignore
               e.target.src = pic
@@ -25,7 +28,8 @@ export function CartItem({ product }: Props) {
             className="cartitem__area__photo"
             src={getImageUrl(product.id)}
             alt=""
-          />
+          /> */}
+          <Image imageLink={product.imageLink} />
         </div>
         <div className="cartitem__name">
           {" "}

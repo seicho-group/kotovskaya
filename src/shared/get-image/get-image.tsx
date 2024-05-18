@@ -7,8 +7,8 @@ export function Image(props: any) {
         e.target.src = pic
       }}
       className="card__pic"
-      src={`${API_URL}/images/${props.id}`}
-      alt="alt"
+      src={`https://storage.yandexcloud.net/kotovskaya.products/${props.imageLink}`}
+      alt="фотография не загрузилась"
     />
   )
 }

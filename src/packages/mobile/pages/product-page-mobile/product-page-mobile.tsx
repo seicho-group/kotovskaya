@@ -35,7 +35,7 @@ export function ProductPageMobile(props: any) {
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
         <div className="image__productpage">
-          <Image id={productInfo?.id} />
+          <Image imageLink={productInfo?.imageLink} />
         </div>
 
         <div className="productpage__name__mobile">{productInfo?.name}</div>
