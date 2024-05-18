@@ -58,7 +58,7 @@ export function ProductsList({
       {subcategoryArray && (
         <div className="fff">
           {subcategoryArray?.map((element: any) => (
-            <CategoryPanel key={element.category_id} category={element} />
+            <CategoryPanel key={element.id} category={element} />
           ))}
         </div>
       )}
