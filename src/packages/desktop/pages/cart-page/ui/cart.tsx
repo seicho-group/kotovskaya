@@ -9,16 +9,17 @@ import { FormProvider, useForm } from "react-hook-form"
 import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { getOrderRequestByFormValues } from "src/packages/desktop/features/order/model/order-request"
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import DatePicker from "react-datepicker"
 import { Link, useNavigate } from "react-router-dom"
 import { create } from "zustand"
 import { Order, ProductOrderRequest } from "src/shared/types/productDTO"
 import { Product } from "src/shared/types/productDTO"
 
 export function productsToProductsDTO(array: Product[]): ProductOrderRequest[] {
-  array.map((product: Product) => {
-    return
-    product.id, product.accumulator
+  return array.map((product: Product) => {
+    return {
+      id: product.id,
+      quantity: product.accumulator,
+    }
   })
 }
 
