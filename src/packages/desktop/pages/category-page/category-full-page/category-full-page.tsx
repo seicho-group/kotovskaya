@@ -13,8 +13,8 @@ import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/prod
 import { API_URL_CATEGORIES } from "src/shared/api/config"
 
 export function CategoryFullPage() {
-  const [mockArray, setMockArray] = useState<any[]>([])
-  const [subcategoriesArray, setsubcategoriesArray] = useState<any[]>([])
+  const [categoryName, setCategoryName] = useState<string | null>(null)
+  const [subcategoriesArray, setSubcategoriesArray] = useState<any[]>([])
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
   let { id } = useParams<{ id: string }>()
   useEffect(() => {
@@ -22,27 +22,17 @@ export function CategoryFullPage() {
       .post(`${API_URL_CATEGORIES}/get_category_items`, { categoryId: id })
       .then((res) => {
         setProductArray(res.data.categoryItems)
-        setsubcategoriesArray(res.data.categoryChildren)
+        setSubcategoriesArray(res.data.categoryChildren)
+        setCategoryName(res.data.categoryName)
       })
   }, [id])
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/categories/get_all`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setMockArray(response.data)
-      })
-  }, [])
-
-  const found = searchObject(mockArray, id || "", "category_items") as Category
 
   return (
     <div className="productspromo">
       <ProductsList
         productsArray={productsArray}
         subcategoryArray={subcategoriesArray}
-        categoryName={found?.name}
+        categoryName={categoryName || ""}
       />
     </div>
   )
