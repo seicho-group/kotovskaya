@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { Main } from "../../pages/main/ui/main"
 import { KotovskayaContacts } from "../../pages/information-pages/kotovskaya-contacts/ui/kotovskaya-contacts"
 import { DeliveryInformation } from "../../pages/information-pages/delivery-information/ui/delivery-information"
-// import { Cart } from "../../pages/cart-page/ui/cart"
+import { Cart } from "../../pages/cart-page/ui/cart"
 import { ProductPage } from "../../pages/product-page/product-page"
 import { Ordered } from "../../pages/ordered/ordered"
 import { PopularCategoriesPage } from "../../pages/popular-categories-page/popular-categories-page"
@@ -10,13 +10,14 @@ import { NewCategoriesPage } from "../../pages/new-categories-page/ui/new-catego
 import { SalesPage } from "../../pages/sales-page/sales-page"
 import { CategoryFullPage } from "../../pages/category-page/category-full-page/category-full-page"
 import { ShowAllResults } from "../../pages/show-all-results/show-all-results"
+import { CartPage } from "src/packages/desktop/pages/cart-page/cart-page"
 
 export const DesktopRouter = () => {
   return (
     <Routes>
       <Route path="/contacts" element={<KotovskayaContacts />} />
       <Route path="/delivery" element={<DeliveryInformation />} />
-      {/* <Route path="/cart" element={<Cart />} /> */}
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/ordered" element={<Ordered />} />
       <Route path="/popular" element={<PopularCategoriesPage />} />

@@ -52,7 +52,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
             accumulator: 1,
             id: product.id,
             quantity: product.quantity,
-            image: mock,
+            imageLink: product.imageLink,
             name: product.name,
             price: product.salePrice || 0,
           })
