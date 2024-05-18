@@ -160,3 +160,44 @@ label {
 .delivery__header {
   margin-top: 30px;
 }
+
+@media (width < 1300px) {
+  .fullcart__wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .fullcart__wrapper1 {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .fullcart__wrapper__list {
+    width: 100%;
+    max-width: 100%;
+  }
+  .cartifull__personinfo {
+    width: 100%;
+  }
+  .inputs {
+    display: flex;
+    padding: 0 10px;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    gap: 20px;
+  }
+  .delivery__header {
+    text-align: center;
+  }
+  .delivery__buttons {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .fullcart__wrapper__info {
+    padding-top: 30px;
+  }
+}
