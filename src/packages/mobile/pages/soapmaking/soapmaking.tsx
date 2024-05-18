@@ -10,11 +10,14 @@ import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { useQuery } from "@tanstack/react-query"
+import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 
 export type Category = {
-  category_name: string
-  category_id: string
-  category_items: Category[]
+  name: string
+  id: string
+  categoryChildren: Category[]
+  categoryItems: ProductDTO[]
 }
 
 export type CategoryDTO = {
@@ -32,8 +35,20 @@ export type GetCategoryItemsResponse = {
 export type GetCategoryRequest = {
   categoryId: string
 }
-
+const useCategories = () => {
+  return useQuery<TCategory[]>({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const response = await axios.get<TCategory[]>(
+        `${API_URL_CATEGORIES}/get_all_categories_tree`,
+      )
+      return response.data
+    },
+    staleTime: 1000 * 60 * 60,
+  })
+}
 export function Soapmaking() {
+  const { data: allCategories = [], isPending } = useCategories()
   const [products, setProducts] = useState<ProductDTO[]>([])
   const [soapmakingSoapBases, setSoapmakingSoapBases] = useState<ProductDTO[]>(
     [],
@@ -71,9 +86,9 @@ export function Soapmaking() {
   useEffect(() => {
     axios
       .post<GetCategoryRequest, AxiosResponse<GetCategoryItemsResponse>>(
-        `${API_URL_CATEGORIES}/get_category`,
+        `${API_URL_CATEGORIES}/get_category_items`,
         {
-          category_id: "19be723c-cd2b-4c6d-8947-d07f5c5cc7da",
+          categoryId: "19be723c-cd2b-4c6d-8947-d07f5c5cc7da",
         },
       )
       .then((res) => {
@@ -105,8 +120,8 @@ export function Soapmaking() {
       <div className="mobile__wrapper">
         <p className="category__name">Мыловарение</p>
         <div className="fff">
-          {categories
-            .filter((key) => soapmakingM.includes(key.category_name))
+          {allCategories
+            .filter((key) => soapmakingM.includes(key.name))
             .map((category) => (
               <CategoryPanel category={category} />
             ))}

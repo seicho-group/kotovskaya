@@ -15,7 +15,7 @@ type Props = {
 
 // todo: пропсами принимать ProductDTO
 export function ProductCard({ product }: Props) {
-  const isOnSale = product?.salePrices?.[2].value != 0 ? true : false
+  const isOnSale = product?.oldPrice != null ? true : false
   const { ref, inView } = useInView()
 
   const { isMobile } = useContext(IsMobileContext)
@@ -37,7 +37,7 @@ export function ProductCard({ product }: Props) {
                 e.target.src = pic
               }}
               className="card__pic"
-              src={`${API_URL}/images/${product.id}`}
+              src={`https://storage.yandexcloud.net/kotovskaya.products/${product.imageLink}`}
               alt="alt"
             />
           </Link>
@@ -57,15 +57,15 @@ export function ProductCard({ product }: Props) {
             }
           >
             <div className={isMobile ? "newprice__mobile" : "newprice"}>
-              {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
+              {(product?.salePrice || 0) / 100 + "₽"}
             </div>{" "}
             <div className={isMobile ? "oldprice__mobile" : "oldprice"}>
-              {(product?.salePrices?.[2].value || 0) / 100 + "₽"}
+              {(product?.oldPrice || 0) / 100 + "₽"}
             </div>
           </div>
         ) : (
           <p className={isMobile ? "card__price__mobile" : "card__price"}>
-            {(product?.salePrices?.[0].value || 0) / 100 + "₽"}
+            {(product?.salePrice || 0) / 100 + "₽"}
           </p>
         )}
 

@@ -4,7 +4,7 @@ import { SearchProduct } from "../../../../desktop/entities/search-product/searc
 import { SearchCategory } from "../../../../desktop/entities/search-category/search-category"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import { API_URL } from "../../../../../shared/api/config"
+import { API_URL, API_URL_PRODUCTS } from "../../../../../shared/api/config"
 import { useDebounce } from "../../../../../shared/hooks/use-debounce"
 import { ProductDTO } from "../../../../../shared/types/productDTO"
 import { SearchProductMobile } from "../../../entities/search-product-mobile/search-product-mobile"
@@ -57,8 +57,8 @@ export function SearchMobile(props: any) {
   useEffect(() => {
     if (debouncedValue) {
       axios
-        .post(`${API_URL}/products/search_for_product`, {
-          text: debouncedValue,
+        .post(`${API_URL_PRODUCTS}/search_for_products`, {
+          searchString: debouncedValue,
         })
         .then((res) => {
           setProductsSearchResult(res.data)

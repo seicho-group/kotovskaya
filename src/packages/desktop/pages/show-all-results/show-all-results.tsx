@@ -16,8 +16,9 @@ export function ShowAllResults() {
   console.log(searchRequest)
   useEffect(() => {
     axios
-      .post(`${API_URL}/products/search_for_product`, {
-        text: searchRequest,
+      .post(`${API_URL}/products/search_for_products`, {
+        searchString: searchRequest,
+        limit: 30,
       })
       .then((res) => {
         setProductsSearchResultAll(res.data)

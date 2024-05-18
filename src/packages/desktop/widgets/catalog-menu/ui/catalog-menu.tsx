@@ -6,9 +6,9 @@ import { API_URL, API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"
 
 export type TCategory = {
-  category_id: string
-  category_name: string
-  category_items: TCategory[] | null
+  id: string
+  name: string
+  categoryItems: TCategory[] | null
 }
 
 const soapmaking = [
@@ -41,9 +41,6 @@ const useCategories = () => {
     queryFn: async () => {
       const response = await axios.get<TCategory[]>(
         `${API_URL_CATEGORIES}/get_all_categories_tree`,
-        {
-          withCredentials: true,
-        },
       )
       return response.data
     },
@@ -56,13 +53,13 @@ const mapCategoriesToUI = (
   filterStrings: string[],
 ) => {
   return categories
-    .filter((product) => filterStrings.includes(product.category_name))
+    .filter((product) => filterStrings.includes(product.name))
     .map((product) => (
       <CatalogItem
-        id={product.category_id}
-        key={product.category_id}
-        category={product.category_name}
-        subcategory={product.category_items}
+        id={product.id}
+        key={product.id}
+        category={product.name}
+        subcategory={product.categoryItems}
       />
     ))
 }

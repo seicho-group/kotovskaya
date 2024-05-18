@@ -9,7 +9,7 @@ export const searchObject = <T extends Category>(
     return null
   }
   const res = objs.map((obj) => {
-    if (obj.category_id === category_id) {
+    if (obj.id === category_id) {
       return obj
     } else {
       const found = searchObject(obj[childName] as T[], category_id, childName)

@@ -4,7 +4,7 @@ import mock from "src/shared/assets/mock2.jpg"
 import { useParams } from "react-router-dom"
 import { requestProduct } from "src/shared/api/single-product/request"
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { Image } from "src/shared/get-image/get-image"
+import { Image } from "src/shared/ui/image/image"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 import { Product, ProductDTO } from "src/shared/types/productDTO"
 import { IsMobileContext } from "src/app/app"
@@ -27,7 +27,7 @@ export function ProductPageMobile(props: any) {
       )
     }
   }, [id])
-  const isOnSale = productInfo?.salePrices?.[2].value != 0 ? true : false
+  const isOnSale = productInfo?.oldPrice != null ? true : false
   if (!productInfo) {
     return null
   }
@@ -35,7 +35,7 @@ export function ProductPageMobile(props: any) {
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
         <div className="image__productpage">
-          <Image id={productInfo?.id} />
+          <Image imageLink={productInfo?.imageLink} />
         </div>
 
         <div className="productpage__name__mobile">{productInfo?.name}</div>
@@ -43,14 +43,14 @@ export function ProductPageMobile(props: any) {
           {isOnSale ? (
             <div>
               <div className="oldprice__mobile">
-                {(productInfo?.salePrices?.[2].value || 0) / 100 + "₽"}
+                {(productInfo?.oldPrice || 0) / 100 + "₽"}
               </div>
               <div className="newprice__mobile">
-                {(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}
+                {(productInfo?.salePrice || 0) / 100 + "₽"}
               </div>{" "}
             </div>
           ) : (
-            <p>{(productInfo?.salePrices?.[0].value || 0) / 100 + "₽"}</p>
+            <p>{(productInfo?.salePrice || 0) / 100 + "₽"}</p>
           )}
         </div>
         <div className="productpage__description__mobile">

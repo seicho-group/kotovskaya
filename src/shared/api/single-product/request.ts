@@ -11,7 +11,7 @@ export async function requestProduct(id: string) {
     .post<
       GetProductInfoRequest,
       AxiosResponse<ProductDTO>
-    >(`${API_URL_PRODUCTS}/get_product_info/${id}`, { productId: null })
+    >(`${API_URL_PRODUCTS}/get_product_info`, { productId: id })
     .then((response) => {
       return response.data
     })

@@ -8,15 +8,16 @@ import { API_URL } from "src/shared/api/config"
 import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react"
+import { API_URL_CATEGORIES } from "src/shared/api/config"
 
 export function CategoryPage(props: any) {
   const [productsArray, setProductArray] = useState<ProductDTO[]>([])
   let { id } = useParams<{ id: string }>()
   useEffect(() => {
     axios
-      .post(`${API_URL}/categories/get_category`, { category_id: id })
+      .post(`${API_URL_CATEGORIES}/get_category_items`, { categoryId: id })
       .then((res) => {
-        setProductArray(res.data)
+        setProductArray(res.data.categoryChildren)
       })
   }, [id])
   return (
