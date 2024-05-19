@@ -38,12 +38,12 @@
 
 .fullcart__header {
   font-size: 26px;
-  padding-bottom: 30px;
+  padding: 30px 0 30px 0;
 }
 
 .toorder__wrapper {
-  width: 420px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   border: #e6e6e6 solid 1px;
   border-radius: 7px;
   display: flex;
@@ -53,9 +53,9 @@
 
 .toorder {
   display: grid;
-  width: 300px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  height: 220px;
+  width: 280px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 180px;
 }
 
 .order__button {
@@ -90,6 +90,13 @@
   margin-bottom: 20px;
 }
 
+.inputs__mobile {
+  grid-template-columns: auto auto auto;
+  display: grid;
+  gap: 40px;
+  margin: 0 20px 0 20px;
+}
+
 .input__info {
   border-radius: 7px;
   outline: none;
@@ -113,7 +120,7 @@
   width: 720px;
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+
   padding-bottom: 20px;
 }
 
@@ -167,6 +174,25 @@ label {
     flex-direction: column;
     max-width: 100%;
   }
+  .toorder__wrapper {
+    width: 100%;
+    height: 300px;
+    border: #e6e6e6 solid 1px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px 20px 20px;
+  }
+
+  .toorder__wrapper {
+    height: 250px;
+  }
+
+  .fullcart__header {
+    font-size: 24px;
+    padding: 30px 0 30px 0;
+  }
   .fullcart__wrapper1 {
     display: flex;
     flex-direction: column;
@@ -175,29 +201,47 @@ label {
   .fullcart__wrapper__list {
     width: 100%;
     max-width: 100%;
+    padding: 0 20px 20px 20px;
   }
   .cartifull__personinfo {
     width: 100%;
+    padding: 0 20px;
   }
   .inputs {
     display: flex;
-    padding: 0 10px;
+    /* padding: 0 20px; */
     flex-direction: column;
     height: auto;
     width: 100%;
     gap: 20px;
   }
-  .delivery__header {
+  /* .delivery__header {
     text-align: center;
-  }
+  } */
   .delivery__buttons {
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
-    align-items: center;
+    padding: 0px;
+    /* padding: 20px 20px 0 20px; */
   }
   .fullcart__wrapper__info {
     padding-top: 30px;
+  }
+  .delivery__buttons button {
+    width: auto;
+    height: 60px;
+    border-radius: 7px;
+    border: #c1a88a solid 2px;
+    background-color: white;
+    font-size: 16px;
+  }
+  .delivery__info {
+    margin-top: 20px;
+    padding-bottom: 0px;
+  }
+  .delivery__input {
+    width: 100%;
   }
 }

@@ -3,9 +3,13 @@ import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
 import { validatePhoneNumber } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
 import { DeliveryWay } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
+import { IsMobileContext } from "src/app/app"
+import { useContext } from "react"
 import ReactInputMask from "react-input-mask"
 
+
 export function CartPersonalInfo() {
+  const { isMobile } = useContext(IsMobileContext)
   // form data -> убрать по компонентам через форм контекст
   const { watch, register, setValue, formState } = useFormContext<OrderForm>()
 
@@ -81,11 +85,11 @@ export function CartPersonalInfo() {
         />
       </div>
 
-      <div>
+      {/* <div style={{ color: "gray" }}>
         Если у вас есть карта постоянного клиента, пожалуйста введите ее номер в
         комментарий
-      </div>
-      <div className="delivery__header">Выберите способ доставки</div>
+      </div> */}
+      <div className="fullcart__header">Выберите способ доставки</div>
       <div className="delivery__buttons">
         <button
           className={deliveryWay === DeliveryWay.Self ? "active" : ""}
