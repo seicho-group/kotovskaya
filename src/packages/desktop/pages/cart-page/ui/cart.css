@@ -42,8 +42,8 @@
 }
 
 .toorder__wrapper {
-  width: 420px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   border: #e6e6e6 solid 1px;
   border-radius: 7px;
   display: flex;
@@ -53,9 +53,9 @@
 
 .toorder {
   display: grid;
-  width: 300px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  height: 220px;
+  width: 280px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  height: 180px;
 }
 
 .order__button {
@@ -185,6 +185,10 @@ label {
     margin: 0 20px 20px 20px;
   }
 
+  .toorder__wrapper {
+    height: 250px;
+  }
+
   .fullcart__header {
     font-size: 24px;
     padding: 30px 0 30px 0;
@@ -236,5 +240,8 @@ label {
   .delivery__info {
     margin-top: 20px;
     padding-bottom: 0px;
+  }
+  .delivery__input {
+    width: 100%;
   }
 }
