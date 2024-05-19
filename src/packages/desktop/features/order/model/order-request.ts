@@ -16,6 +16,7 @@ export const getOrderRequestByFormValues = (
     authorPhone: formValues.phone,
     authorName: formValues.name,
     authorMail: formValues.email,
+    comment: formValues.comment,
     // в форме надо тип поправить
     deliveryWay: DeliveryWay.Self,
   }

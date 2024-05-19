@@ -2,7 +2,7 @@ import { useDeliveryPrice } from "src/packages/desktop/pages/cart-page/lib/use-d
 import { useCreateOrder } from "src/packages/desktop/pages/cart-page/lib/use-create-order"
 
 export function CartOrderDetails() {
-  const { deliveryPrice, totalPrice } = useDeliveryPrice()
+  const { deliveryPriceInfo, totalPrice } = useDeliveryPrice()
   // сохранение заказа
   const { createOrder, isPending } = useCreateOrder()
 
@@ -16,12 +16,12 @@ export function CartOrderDetails() {
         </div>
         <div className="toorder__element">
           <div>Доставка</div>
-          <div>{deliveryPrice}</div>
+          <div>{deliveryPriceInfo}</div>
         </div>
-        <div className="toorder__element">
+        {/* <div className="toorder__element">
           <div>К оплате</div>
-          <div>{deliveryPrice + "₽"}</div>
-        </div>
+          <div>{totalPrice + "₽"}</div>
+        </div> */}
         <div onClick={createOrder} className="order__button">
           {isPending ? "Заказ создается..." : "Оформить заказ"}
         </div>
