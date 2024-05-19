@@ -5,6 +5,8 @@ import { DeliveryWay } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
+import ReactInputMask from "react-input-mask"
+
 
 export function CartPersonalInfo() {
   const { isMobile } = useContext(IsMobileContext)
@@ -45,14 +47,15 @@ export function CartPersonalInfo() {
           </p>
         </div>
         <div>
-          <input
+          <ReactInputMask
+            mask="+7 (999) 999-99-99"
+            maskChar={null}
             style={{ width: "100%" }}
             className="input__info"
-            type="text"
+            value={watch("phone")}
             onChange={formPhone.onChange}
             name={formPhone.name}
             ref={formPhone.ref}
-            onBlur={formPhone.onBlur}
             placeholder="Телефон"
           />
 
