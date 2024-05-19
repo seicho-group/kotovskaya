@@ -8,6 +8,7 @@ import { ShowAllResultsMobile } from "../../pages/show-all-results/show-all-resu
 import { SliderFirst } from "../../pages/slider-first/slider-first"
 import { ProductPageMobile } from "../../pages/product-page-mobile/product-page-mobile"
 import { CartPage } from "src/packages/desktop/pages/cart-page/cart-page"
+import { Ordered } from "src/packages/desktop/pages/ordered/ordered"
 
 export const MobileRouter = () => {
   return (
@@ -21,6 +22,7 @@ export const MobileRouter = () => {
       <Route path="/showallresults" element={<ShowAllResultsMobile />} />
       <Route path="/slider/:id" element={<SliderFirst />} />
       <Route path="/product/:id" element={<ProductPageMobile id={123} />} />
+      <Route path="/ordered" element={<Ordered />} />
     </Routes>
   )
 }
