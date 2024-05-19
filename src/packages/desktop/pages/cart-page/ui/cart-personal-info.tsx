@@ -82,10 +82,10 @@ export function CartPersonalInfo() {
         />
       </div>
 
-      <div style={{ color: "gray" }}>
+      {/* <div style={{ color: "gray" }}>
         Если у вас есть карта постоянного клиента, пожалуйста введите ее номер в
         комментарий
-      </div>
+      </div> */}
       <div className="fullcart__header">Выберите способ доставки</div>
       <div className="delivery__buttons">
         <button
