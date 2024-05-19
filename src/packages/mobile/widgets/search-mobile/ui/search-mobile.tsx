@@ -86,6 +86,7 @@ export function SearchMobile(props: any) {
                     setIsClicked={setIsClicked}
                     id={product.id}
                     name={product.name}
+                    imageLink={product.imageLink}
                   />
                 ))
               : popularArrayForSearch.map((product: ProductDTO) => (
@@ -93,6 +94,7 @@ export function SearchMobile(props: any) {
                     id={product.id}
                     setIsClicked={setIsClicked}
                     name={product.name}
+                    imageLink={product.imageLink}
                   />
                 ))}
           </div>
