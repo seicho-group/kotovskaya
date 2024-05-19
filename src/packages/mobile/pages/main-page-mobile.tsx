@@ -44,7 +44,7 @@ export function MainPageMobile() {
           </div>
         </Link>
         <div className="bottomblock">
-          <Link to={"/candlemaking"}>
+          <Link to={"/categorypage/5986b77d-7eae-4889-b290-65a0e9bb5115"}>
             <div className="categoryblock2 candle">
               <p>Свечеварение</p>
               <div className="arrowblock">
@@ -52,7 +52,7 @@ export function MainPageMobile() {
               </div>
             </div>
           </Link>
-          <Link to={"/cosmetics"}>
+          <Link to={"/categorypage/fc2bfc1b-a68f-42c6-bf36-413860296137"}>
             <div className="categoryblock2 cosmetics">
               <p>Компоненты для косметики</p>
               <div className="arrowblock">
