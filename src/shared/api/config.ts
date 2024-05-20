@@ -1,5 +1,6 @@
 // export const API_URL = "http://31.184.240.134:8080"
-export const API_URL = "http://mkotovskaya-api.ru"
-export const API_URL_CATEGORIES = "http://mkotovskaya-api.ru/categories"
-export const API_URL_ORDERS = "http://mkotovskaya-api.ru/order"
-export const API_URL_PRODUCTS = "http://mkotovskaya-api.ru/products"
+export const API_URL = "https://mkotovskaya-api.ru"
+/*@deprecated*/
+export const API_URL_CATEGORIES = "https://mkotovskaya-api.ru/categories"
+/*@deprecated*/
+export const API_URL_PRODUCTS = "https://mkotovskaya-api.ru/products"
