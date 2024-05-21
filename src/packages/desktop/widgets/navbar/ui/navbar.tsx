@@ -77,7 +77,7 @@ export function Navbar() {
           }}
           onMouseLeave={() => setIsShown(false)}
         >
-          <CatalogMenu />
+          <CatalogMenu setIsShown={setIsShown} />
         </div>
       ) : null}
     </div>

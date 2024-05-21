@@ -3,10 +3,7 @@ import map from "src/shared/assets/contacts__photo.png"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
-import {
-  formatPhone,
-  normalizePhone,
-} from "../../../cart-page/lib/cart-form-validators"
+import { formatPhone } from "../../../cart-page/lib/cart-form-validators"
 import { phoneNumber } from "./../../../../../../shared/static-info/phone-number"
 
 export function KotovskayaContacts() {

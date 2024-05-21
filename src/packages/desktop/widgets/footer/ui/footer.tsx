@@ -2,6 +2,8 @@ import "./footer.css"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
+import { phoneNumber } from "src/shared/static-info/phone-number"
+import { formatPhone } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
 
 export function Footer() {
   return (
@@ -9,7 +11,7 @@ export function Footer() {
       <div className="footer__wrapper">
         <div className="footer__wrapper__1stc">
           <div>
-            <p className="phone">8 982 754 43-97</p>
+            <p className="phone">{formatPhone(phoneNumber)}</p>
             <p className="schedule">
               пн - выходной
               <br />

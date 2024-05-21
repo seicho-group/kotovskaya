@@ -51,6 +51,7 @@ const useCategories = () => {
 const mapCategoriesToUI = (
   categories: TCategory[],
   filterStrings: string[],
+  setIsShown: (isOShown: boolean) => void,
 ) => {
   return categories
     .filter((product) => filterStrings.includes(product.name))
@@ -60,13 +61,14 @@ const mapCategoriesToUI = (
         key={product.id}
         category={product.name}
         subcategory={product.categoryItems}
+        setIsShown={setIsShown}
       />
     ))
 }
 
 export function CatalogMenu(props: any) {
   const { data: categories = [], isPending } = useCategories()
-
+  const setIsShown = props.setIsShown
   if (isPending) {
     return (
       <div className="menu">
@@ -79,22 +81,22 @@ export function CatalogMenu(props: any) {
     <div className="menu">
       <div className="catalog__row">
         <p className="catalog__h1">Мыловарение</p>
-        {mapCategoriesToUI(categories, soapmaking)}
+        {mapCategoriesToUI(categories, soapmaking, setIsShown)}
       </div>
       <div className="catalog__row__noh1">
-        {mapCategoriesToUI(categories, soapmaking2)}
+        {mapCategoriesToUI(categories, soapmaking2, setIsShown)}
       </div>
       <div className="catalog__row__noh1">
-        {mapCategoriesToUI(categories, soapmaking3)}
+        {mapCategoriesToUI(categories, soapmaking3, setIsShown)}
       </div>
       <div>
         <div style={{ marginBottom: "50px" }} className="catalog__row">
           <p className="catalog__h1">Cвечеварение</p>
-          {mapCategoriesToUI(categories, candlesMaking)}
+          {mapCategoriesToUI(categories, candlesMaking, setIsShown)}
         </div>
         <div className="catalog__row">
           <p className="catalog__h1">Косметика ручной работы</p>
-          {mapCategoriesToUI(categories, cosmeticsMaking)}
+          {mapCategoriesToUI(categories, cosmeticsMaking, setIsShown)}
         </div>
       </div>
     </div>
