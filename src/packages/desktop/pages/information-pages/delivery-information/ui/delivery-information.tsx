@@ -1,5 +1,4 @@
 import "./delivery-information.css"
-import express1 from "src/shared/assets/express.svg"
 
 export function DeliveryInformation() {
   return (
@@ -17,14 +16,12 @@ export function DeliveryInformation() {
               Курьерская доставка по Екатеринбургу
             </div>
             <div className="bottom25">
-              {" "}
               <span className="beige">Бесплатная доставка</span> - при сумме
               заказа более 1500 рублей кроме мыльной основы (т.е. в Вашем заказе
               может быть любое количество мыльной основы, но она не идет в счет
               суммы минимального заказа для бесплатной доставки).
             </div>
             <div className="bottom25">
-              {" "}
               *Бесплатная доставка в отдаленные районы (Кольцово, Изоплит,
               Химмаш, Птицефабрика, Широкая речка, Компрессорный, Сортировка,
               Эльмаш, Уралмаш) осуществляется при сумме заказа не менее 2000 р,
@@ -37,16 +34,7 @@ export function DeliveryInformation() {
             <div>
               Доставка осуществляется ежедневно с 12:00 до 20:00 ежедневно
             </div>
-            {/* <div className="dirrow">
-              <div className="h2 bottom25">
-                Экспресс-доставка по Екатеринбургу <img src={express1} alt="" />
-              </div>
-            </div>
-            <div>
-              Доставка в течение <span className="beige">3 часов</span> с
-              момента оформления <span className="beige">+99 рублей</span>  к
-              стоимости
-            </div> */}
+
             <div
               style={{ marginTop: "50px", textDecoration: "underline" }}
               className="h2 bottom25"
