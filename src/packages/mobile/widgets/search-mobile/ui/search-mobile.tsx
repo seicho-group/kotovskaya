@@ -9,7 +9,7 @@ import { useDebounce } from "../../../../../shared/hooks/use-debounce"
 import { ProductDTO } from "../../../../../shared/types/productDTO"
 import { SearchProductMobile } from "../../../entities/search-product-mobile/search-product-mobile"
 import { create } from "zustand"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useSearchIsClicked } from "../../header/ui/header-mobile"
 
 type TSearchStore = {
@@ -22,16 +22,6 @@ export const useSearchStore = create<TSearchStore>((set) => ({
   setWord: (searchRequest: string) =>
     set(() => ({ searchRequest: searchRequest })),
 }))
-
-// function Counter() {
-//   const { count, inc } = useStore()
-//   return (
-//     <div>
-//       <span>{count}</span>
-//       <button onClick={inc}>one up</button>
-//     </div>
-//   )
-// }
 
 export function SearchMobile(props: any) {
   const { searchIsClicked, setSearchIsOpened, setSearchIsClosed } =
@@ -66,17 +56,24 @@ export function SearchMobile(props: any) {
     }
   }, [debouncedValue])
 
+  const navigate = useNavigate()
+  const onInputSubmit = () => {
+    setWord(inputState || "")
+    setIsClicked(false)
+    navigate("/searchresults")
+  }
+
   return createPortal(
     <div className="searchM">
       <div className="search__wrapperM">
-        <div>
+        <form onSubmit={onInputSubmit}>
           <input
             onChange={(event) => setInputState(event.target.value)}
             className="searchinputM"
             type="search"
             placeholder="Поиск..."
           />
-        </div>
+        </form>
 
         <div className="search__resultsM">
           <div>
