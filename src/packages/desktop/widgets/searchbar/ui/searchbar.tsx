@@ -6,7 +6,7 @@ import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { useDebounce } from "src/shared/hooks/use-debounce"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 
 export function Searchbar(props: any) {
@@ -39,17 +39,25 @@ export function Searchbar(props: any) {
     }
   }, [debouncedValue])
 
+  const navigate = useNavigate()
+  const onInputSubmit = () => {
+    setWord(inputState || "")
+    setIsClicked(false)
+    navigate("/searchresults")
+  }
+
   return createPortal(
     <div className="search">
       <div className="search__wrapper">
-        <div>
+        <form onSubmit={onInputSubmit}>
           <input
             onChange={(event) => setInputState(event.target.value)}
             className="searchinput"
             type="search"
             placeholder="Поиск..."
+            onSelect={console.log}
           />
-        </div>
+        </form>
 
         <div className="search__results">
           <div>

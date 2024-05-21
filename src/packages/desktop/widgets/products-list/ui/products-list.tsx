@@ -46,7 +46,7 @@ export function ProductsList({
           <div
             className="wrapper"
             style={{
-              width: isMobile ? "100%" : "1300px",
+              width: isMobile ? "100%" : "1100px",
               height: isMobile ? "50px" : "",
             }}
           >

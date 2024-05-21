@@ -15,12 +15,12 @@ export const IsMobileContext = createContext<{ isMobile: boolean }>({
 
 export function App() {
   const [isMobile, setIsMobile] = useState(
-    document.documentElement.clientWidth < 1300,
+    document.documentElement.clientWidth < 1100,
   )
 
   useEffect(() => {
     const onResize = () => {
-      setIsMobile(document.documentElement.clientWidth < 1300)
+      setIsMobile(document.documentElement.clientWidth < 1100)
     }
     window.addEventListener("resize", onResize)
     return () => window.removeEventListener("resize", onResize)
