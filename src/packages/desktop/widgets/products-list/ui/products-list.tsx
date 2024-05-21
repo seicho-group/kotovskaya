@@ -74,7 +74,7 @@ export function ProductsList({
           <Link to={linkTo}>
             <div
               className="wrapper"
-              style={{ width: isMobile ? "100vw" : "1300px" }}
+              style={{ width: isMobile ? "100vw" : "1100px" }}
             >
               <p>смотреть все</p>
               <img src={showall} alt="" />
