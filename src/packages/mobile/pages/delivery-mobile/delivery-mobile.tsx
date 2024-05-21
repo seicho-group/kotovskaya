@@ -1,4 +1,4 @@
-import "./delivery-mobile.css";
+import "./delivery-mobile.css"
 
 export function DeliveryMobile() {
   return (
@@ -27,10 +27,10 @@ export function DeliveryMobile() {
               КРОМЕ мыльной основы.
             </div>
             <div className="bottom25">
-              <span className="beige">250 рублей</span> - при сумме заказа менее
-              1500 рублей{" "}
+              <span className="beige">150 - 300 рублей</span> (в зависимости от
+              удаленности от центра города) - при сумме заказа менее 1500 рублей{" "}
             </div>
-            <div>Доставка осуществляется с 10:00 до 22:00 ежедневно</div>
+            <div>Доставка осуществляется ежедневно с 12:00 до 20:00 </div>
             {/* <div className="dirrow">
               <div className="h2__mobile bottom25">
                 Экспресс-доставка по Екатеринбургу <img src={express1} alt="" />
@@ -54,5 +54,5 @@ export function DeliveryMobile() {
         </div>
       </div>
     </div>
-  );
+  )
 }

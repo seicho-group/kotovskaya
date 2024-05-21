@@ -1,5 +1,5 @@
 .cart__empty {
-  height: 500px;
+  height: calc(100vh - 250px);
   width: 100%;
   display: flex;
   align-items: center;
