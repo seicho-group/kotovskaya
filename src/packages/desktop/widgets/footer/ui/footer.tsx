@@ -1,7 +1,7 @@
-import "./footer.css";
-import vk from "src/shared/assets/vk.svg";
-import tg from "src/shared/assets/tg.svg";
-import wa from "src/shared/assets/wa.svg";
+import "./footer.css"
+import vk from "src/shared/assets/vk.svg"
+import tg from "src/shared/assets/tg.svg"
+import wa from "src/shared/assets/wa.svg"
 
 export function Footer() {
   return (
@@ -11,9 +11,13 @@ export function Footer() {
           <div>
             <p className="phone">8 982 754 43-97</p>
             <p className="schedule">
-              пн-пт 10:00-20:00
+              пн - выходной
+              <br />
+              вт-пт 11:00-19:00
               <br />
               cб 11:00-18:00
+              <br />
+              вс - выходной
             </p>
           </div>
           <div>
@@ -25,12 +29,12 @@ export function Footer() {
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://t.me/+79827544397">
                   <img src={tg} alt="" />
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://wa.me/+79827544397">
                   <img src={wa} alt="" />
                 </a>
               </div>
@@ -48,5 +52,5 @@ export function Footer() {
         </div>
       </div>
     </div>
-  );
+  )
 }

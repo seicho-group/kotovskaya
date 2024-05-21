@@ -1,8 +1,8 @@
-import "./kotovskaya-contacts.css";
-import photo from "src/shared/assets/contacts__photo.png";
-import vk from "src/shared/assets/vk.svg";
-import tg from "src/shared/assets/tg.svg";
-import wa from "src/shared/assets/wa.svg";
+import "./kotovskaya-contacts.css"
+import photo from "src/shared/assets/contacts__photo.png"
+import vk from "src/shared/assets/vk.svg"
+import tg from "src/shared/assets/tg.svg"
+import wa from "src/shared/assets/wa.svg"
 
 export function KotovskayaContacts() {
   return (
@@ -19,14 +19,15 @@ export function KotovskayaContacts() {
             </div>
             <div className="bottom10">График работы</div>
             <div className="bottom25">
-              пн-пт: с 11:00 до 19:00 <br />
+              пн: выходной <br />
+              вт-пт: с 11:00 до 19:00 <br />
               сб: с 11:00 до 18:00 <br />
               вс: выходной
             </div>
             <div className="bottom10">Телефон</div>
-            <div className="bottom25">+7 908 787 56 56</div>
+            <div className="bottom25">8 982 754 43-97</div>
             <div className="bottom10">Почта</div>
-            <div className="bottom25">mkotovskaya@gmail.com</div>
+            <div className="bottom25">madamkotovskaya@mail.ru</div>
             <div className="bottom10">Мы в социальных сетях</div>
             <div className="contacts__socials">
               <div>
@@ -35,12 +36,12 @@ export function KotovskayaContacts() {
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://t.me/+79827544397">
                   <img src={tg} alt="" />
                 </a>
               </div>
               <div className="left5">
-                <a href="https://vk.com/kotovskaya_soap">
+                <a href="https://wa.me/+79827544397">
                   <img src={wa} alt="" />
                 </a>
               </div>
@@ -49,5 +50,5 @@ export function KotovskayaContacts() {
         </div>
       </div>
     </div>
-  );
+  )
 }

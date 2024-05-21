@@ -19,15 +19,15 @@ export function ContactsMobile() {
         <div className="contacts__item">
           <p>График работы</p>
           <p>
-            {" "}
-            пн-пт: с 11:00 до 19:00 <br />
+            пн: выходной
+            <br /> вт-пт: с 11:00 до 19:00 <br />
             сб: с 11:00 до 18:00 <br />
             вс: выходной
           </p>
         </div>
         <div className="contacts__item">
           <p>Телефон</p>
-          <p>+7 982 754 4397</p>
+          <p>+7 982 754 43-97</p>
         </div>
         <div className="contacts__item">
           <p>Почта</p>
