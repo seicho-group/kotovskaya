@@ -46,12 +46,16 @@ export function Slider() {
         marginTop: isMobile ? "0" : "-50px",
       }}
     >
-      <img className="leftarrow" onClick={decrement} src={leftarrow} alt="" />
+      {sliderGallery.length != 1 && <img className="leftarrow" onClick={decrement} src={leftarrow} alt="" />}
+      
       <Link to={"/categorypage/5986b77d-7eae-4889-b290-65a0e9bb5115"}>
         <img className="sliderPic" src={sliderGallery[current]} alt="" />
       </Link>
-      <div className="slider__circles">{circlesArray}</div>
-      <img className="rightarrow" onClick={increment} src={rightarrow} alt="" />
+      {sliderGallery.length != 1 && circlesArray}
+      {sliderGallery.length != 1 && <img className="rightarrow" onClick={increment} src={rightarrow} alt="" />}
+
+      
+      
     </div>
   )
 }
