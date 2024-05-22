@@ -15,7 +15,10 @@ export function Cart() {
         <div className="cart__empty">
           В вашей корзине пока пусто
           <Link to="/">
-            <Button width={"auto"} style={{ padding: "0 10px" }}>
+            <Button
+              width={"auto"}
+              style={{ padding: "0 20px", margin: "15px 0" }}
+            >
               Вернуться в каталог
             </Button>
           </Link>
