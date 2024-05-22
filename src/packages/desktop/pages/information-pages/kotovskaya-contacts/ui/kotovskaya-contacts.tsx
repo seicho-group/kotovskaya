@@ -1,8 +1,10 @@
 import "./kotovskaya-contacts.css"
-import photo from "src/shared/assets/contacts__photo.png"
+import map from "src/shared/assets/contacts__photo.png"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
+import { formatPhone } from "../../../cart-page/lib/cart-form-validators"
+import { phoneNumber } from "./../../../../../../shared/static-info/phone-number"
 
 export function KotovskayaContacts() {
   return (
@@ -10,7 +12,7 @@ export function KotovskayaContacts() {
       <div className="contacts__wrapper bottom50">
         <div className="h1 bottom25">Контакты</div>
         <div className="contacts__grid">
-          <img src={photo} alt="" />
+          <img src={map} alt="" />
           <div className="left25">
             <div className="bottom10">Адрес</div>
             <div className="bottom25">
@@ -25,7 +27,7 @@ export function KotovskayaContacts() {
               вс: выходной
             </div>
             <div className="bottom10">Телефон</div>
-            <div className="bottom25">8 982 754 43-97</div>
+            <div className="bottom25">{formatPhone(phoneNumber)}</div>
             <div className="bottom10">Почта</div>
             <div className="bottom25">madamkotovskaya@mail.ru</div>
             <div className="bottom10">Мы в социальных сетях</div>
@@ -35,6 +37,7 @@ export function KotovskayaContacts() {
                   <img src={vk} alt="" />
                 </a>
               </div>
+
               <div className="left5">
                 <a href="https://t.me/+79827544397">
                   <img src={tg} alt="" />

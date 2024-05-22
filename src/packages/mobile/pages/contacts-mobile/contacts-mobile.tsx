@@ -3,6 +3,8 @@ import photo from "src/shared/assets/contacts__photo.png"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
+import { phoneNumber } from "src/shared/static-info/phone-number"
+import { formatPhone } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
 
 export function ContactsMobile() {
   return (
@@ -27,7 +29,7 @@ export function ContactsMobile() {
         </div>
         <div className="contacts__item">
           <p>Телефон</p>
-          <p>+7 982 754 43-97</p>
+          <p>{formatPhone(phoneNumber)}</p>
         </div>
         <div className="contacts__item">
           <p>Почта</p>
