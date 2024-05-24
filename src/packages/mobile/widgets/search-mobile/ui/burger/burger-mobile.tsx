@@ -45,10 +45,10 @@ export function BurgerMobile(props: any) {
               <img src={vk} alt="" />
             </a>
             <a href="https://t.me/+79827544397">
-              <img src={wa} alt="" />
+              <img src={tg} alt="" />
             </a>
             <a href="https://wa.me/+79827544397">
-              <img src={tg} alt="" />
+              <img src={wa} alt="" />
             </a>
           </div>
         </div>
