@@ -33,6 +33,7 @@ export function Navbar() {
 
   const [isShown, setIsShown] = useState<boolean>(false)
   return (
+    <>
     <div
       className="navbar"
       style={{
@@ -81,5 +82,6 @@ export function Navbar() {
         </div>
       ) : null}
     </div>
+    </>
   )
 }
