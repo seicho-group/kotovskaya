@@ -16,6 +16,9 @@
 
     height: 40px;
   }
+  .card{
+    grid-template-rows: auto 70px auto;
+  }
 }
 
 .card__pic {

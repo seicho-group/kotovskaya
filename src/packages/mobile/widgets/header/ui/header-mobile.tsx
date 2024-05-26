@@ -77,6 +77,7 @@ export function HeaderMobile() {
         ""
       )}
       {searchIsClicked ? <SearchMobile /> : ""}
+      <div className="header-line">Добро пожаловать на наш новый сайт!</div>
     </>
   )
 }
