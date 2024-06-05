@@ -35,7 +35,16 @@ export function ProductPageMobile(props: any) {
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
         <div className="image__productpage">
-          <Image imageLink={productInfo?.imageLink} />
+          <img
+            onError={(e) => {
+              // @ts-ignore
+              e.target.src = pic
+            }}
+            className="card__pic"
+            src={`https://storage.yandexcloud.net/kotovskaya.products/${productInfo?.imageLink}`}
+            alt="alt"
+          />
+          {/* <Image imageLink={productInfo?.imageLink} /> */}
         </div>
 
         <div className="productpage__name__mobile">{productInfo?.name}</div>
