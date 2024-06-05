@@ -23,7 +23,16 @@ export function ProductPage() {
   return (
     <div className="productpage">
       <div className="productpage__wrapper">
-        <Image imageLink={productInfo?.imageLink} />
+        <img
+          onError={(e) => {
+            // @ts-ignore
+            e.target.src = pic
+          }}
+          className="card__pic"
+          src={`https://storage.yandexcloud.net/kotovskaya.products/${productInfo?.imageLink}`}
+          alt="alt"
+        />
+        {/* <Image imageLink={productInfo?.imageLink} /> */}
         <div className="productpage__rightinfo">
           <div className="productpage__name">{productInfo?.name}</div>
           <div className="productpage__description">
