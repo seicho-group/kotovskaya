@@ -55,10 +55,12 @@ export function ProductsList({
       ) : null}
 
       {subcategoryArray && (
-        <div className="fff">
-          {subcategoryArray?.map((element: any) => (
-            <CategoryPanel key={element.id} category={element} />
-          ))}
+        <div className="fff__wrapper">
+          <div className="fff">
+            {subcategoryArray?.map((element: any) => (
+              <CategoryPanel key={element.id} category={element} />
+            ))}
+          </div>
         </div>
       )}
       <div className="productspromo__main">

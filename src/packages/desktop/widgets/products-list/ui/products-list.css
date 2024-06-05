@@ -1,9 +1,9 @@
 .productspromo__header .wrapper {
   width: 100%;
-  height: 120px;
+  height: 30px;
   display: flex;
   align-items: center;
-  padding: 0 15px;
+
   font-size: 28px;
   font-weight: 500;
 }
@@ -45,7 +45,7 @@
 .productspromo__header {
   display: flex;
   justify-content: center;
-  height: 120px;
+  height: 40px;
 }
 
 .productspromo__header__mobile {

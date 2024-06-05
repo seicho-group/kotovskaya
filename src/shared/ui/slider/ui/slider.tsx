@@ -15,7 +15,7 @@ export function Slider() {
 
   const { isMobile } = useContext(IsMobileContext)
 
-  const sliderGallery = [techsboi]
+  const sliderGallery = [slider0]
   const circlesArray: any = sliderGallery.map((photo, index) => {
     if (current === index) {
       return <Circle status="active" key={index} />
@@ -50,9 +50,9 @@ export function Slider() {
       {sliderGallery.length != 1 && (
         <img className="leftarrow" onClick={decrement} src={leftarrow} alt="" />
       )}
-
-      <img className="sliderPic" src={sliderGallery[current]} alt="" />
-
+      <Link to={"/categorypage/5986b77d-7eae-4889-b290-65a0e9bb5115"}>
+        <img className="sliderPic" src={sliderGallery[current]} alt="" />
+      </Link>
       {sliderGallery.length != 1 && circlesArray}
       {sliderGallery.length != 1 && (
         <img
