@@ -34,7 +34,6 @@ export function ProductsList({
       </div>
     )
   }
-  console.log(categoryName)
   return (
     <div className="productspromo">
       {categoryName ? (

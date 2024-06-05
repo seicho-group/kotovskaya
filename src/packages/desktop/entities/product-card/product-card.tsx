@@ -33,6 +33,7 @@ export function ProductCard({ product }: Props) {
           <Link to={`/product/${product.id}`}>
             <img
               onError={(e) => {
+                e.preventDefault()
                 // @ts-ignore
                 e.target.src = pic
               }}
