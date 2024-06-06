@@ -72,7 +72,7 @@ export function ProductsList({
         </div>
       </div>
       <div className="productspromo__footer">
-        {linkTo ? (
+        {/* {linkTo ? (
           <Link to={linkTo}>
             <div
               className="wrapper"
@@ -82,7 +82,7 @@ export function ProductsList({
               <img src={showall} alt="" />
             </div>
           </Link>
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   )
