@@ -4,11 +4,13 @@ import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
 import { formatPhone } from "../../../cart-page/lib/cart-form-validators"
-import { phoneNumber } from "./../../../../../../shared/static-info/phone-number"
+import { phoneNumber } from "src/shared/static-info/phone-number"
+import { Helmet } from "react-helmet"
 
 export function KotovskayaContacts() {
   return (
     <div className="contacts">
+      <Helmet title={"Контакты"} />
       <div className="contacts__wrapper bottom50">
         <div className="h1 bottom25">Контакты</div>
         <div className="contacts__grid">

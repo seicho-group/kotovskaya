@@ -3,6 +3,7 @@ import { Slider } from "src/shared/ui/slider/ui/slider"
 import { ProductsList } from "../../../widgets/products-list/ui/products-list"
 import { useQueryGetNewProducts } from "src/shared/api/use-query-get-new-products"
 import { useQueryGetPopularProducts } from "src/shared/api/use-query-get-popular-products"
+import { Helmet } from "react-helmet"
 
 export function Main() {
   const { data: newProducts = [] } = useQueryGetNewProducts()
@@ -10,6 +11,7 @@ export function Main() {
 
   return (
     <div className="main">
+      <Helmet title={"Мыловарня Мадам Котовской"} />
       <Slider />
       <ProductsList
         categoryName={"Новинки"}

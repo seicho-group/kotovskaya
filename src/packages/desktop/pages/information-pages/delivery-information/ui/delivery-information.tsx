@@ -1,8 +1,10 @@
 import "./delivery-information.css"
+import { Helmet } from "react-helmet"
 
 export function DeliveryInformation() {
   return (
     <div className="delivery">
+      <Helmet title={"Доставка"} />
       <div className="delivery__wrapper">
         <div>
           <div className="h1__block">

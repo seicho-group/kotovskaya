@@ -3,6 +3,7 @@ import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
+import { Helmet } from "react-helmet"
 
 export function SalesPage() {
   const [salesFullArray, setSalesFullArray] = useState<ProductDTO[]>([])
@@ -17,6 +18,7 @@ export function SalesPage() {
   }, [])
   return (
     <div>
+      <Helmet title={"Распродажа"} />
       <ProductsList categoryName="Распродажа" productsArray={salesFullArray} />
     </div>
   )
