@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 import { Image } from "src/shared/ui/image/image"
+import { Helmet } from "react-helmet"
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -22,6 +23,7 @@ export function ProductPage() {
 
   return (
     <div className="productpage">
+      <Helmet title={productInfo?.name ?? "Страница продукта"} />
       <div className="productpage__wrapper">
         <img
           onError={(e) => {

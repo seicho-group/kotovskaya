@@ -8,6 +8,7 @@ import { HeaderMobile } from "../packages/mobile/widgets/header/ui/header-mobile
 import { DesktopRouter } from "../packages/desktop/app/routers/desktop-router"
 import { MobileRouter } from "../packages/mobile/app/routers/mobile-router"
 import { createContext, useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 
 export const IsMobileContext = createContext<{ isMobile: boolean }>({
   isMobile: false,
@@ -28,6 +29,29 @@ export function App() {
 
   return (
     <BrowserRouter>
+      <Helmet
+        title={"Мыловарня Мадам Котовской"}
+        meta={[
+          { charSet: "utf-8" },
+          {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0",
+          },
+          { name: "author", content: "SeichoGroup" },
+          {
+            name: "description",
+            content:
+              "Магазин товаров для Мыловарения в Екатеринбурге с доставкой по всей России",
+          },
+          {
+            name: "keywords",
+            content:
+              "мыловарение, soap making, soap, мыло, мыльная основа, рецепты для мыловарения, масло,\n" +
+              "отдушки, магазин, озон, ozon, shop, eshop, receipt, candles, candles making, свечеварение, свечи, свеча\n" +
+              "косметика, хобби, ручная работа",
+          },
+        ]}
+      ></Helmet>
       <IsMobileContext.Provider value={{ isMobile }}>
         {!isMobile ? (
           <div className="app">
