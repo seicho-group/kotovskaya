@@ -16,15 +16,12 @@ type Props = {
 // todo: пропсами принимать ProductDTO
 export function ProductCard({ product }: Props) {
   const isOnSale = product?.oldPrice != null ? true : false
-  const { ref, inView } = useInView()
 
   const { isMobile } = useContext(IsMobileContext)
   return (
     <div
       className="card"
-      ref={ref}
       style={{
-        opacity: inView ? 1 : 0,
         transition: "0.6s all ease-in-out",
       }}
     >
