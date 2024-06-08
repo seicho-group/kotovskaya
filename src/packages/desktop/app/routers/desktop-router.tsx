@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { Main } from "../../pages/main/ui/main"
 import { KotovskayaContacts } from "../../pages/information-pages/kotovskaya-contacts/ui/kotovskaya-contacts"
 import { DeliveryInformation } from "../../pages/information-pages/delivery-information/ui/delivery-information"
@@ -25,7 +25,8 @@ export const DesktopRouter = () => {
       <Route path="/sale" element={<SalesPage />} />
       <Route path="/categorypage/:id" element={<CategoryFullPage />} />
       <Route path="/searchresults" element={<ShowAllResults />} />
-      <Route path="*" element={<Main />} />
+      <Route path="/" element={<Main />} />
+      <Route path="*" element={<Navigate replace to={"/"} />} />
     </Routes>
   )
 }
