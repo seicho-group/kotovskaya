@@ -49,7 +49,9 @@ export function ProductsList({
               height: isMobile ? "50px" : "",
             }}
           >
-            {categoryName}
+            <h1 style={{ fontSize: "28px", fontWeight: "500" }}>
+              {categoryName}
+            </h1>
           </div>
         </div>
       ) : null}
