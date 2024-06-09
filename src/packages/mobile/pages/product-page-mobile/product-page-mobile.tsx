@@ -47,7 +47,7 @@ export function ProductPageMobile(props: any) {
           {/* <Image imageLink={productInfo?.imageLink} /> */}
         </div>
 
-        <div className="productpage__name__mobile">{productInfo?.name}</div>
+        <h1 className="productpage__name__mobile">{productInfo?.name}</h1>
         <div className="productpage__price">
           {isOnSale ? (
             <div>

@@ -36,7 +36,7 @@ export function ProductPage() {
         />
         {/* <Image imageLink={productInfo?.imageLink} /> */}
         <div className="productpage__rightinfo">
-          <div className="productpage__name">{productInfo?.name}</div>
+          <h1 className="productpage__name">{productInfo?.name}</h1>
           <div className="productpage__description">
             {productInfo?.description}
           </div>
