@@ -1,8 +1,7 @@
 import "./catalog-menu.css"
-import { useState, useEffect } from "react"
 import { CatalogItem } from "../../../entities/product-card/catalog-item"
-import axios, { AxiosResponse } from "axios"
-import { API_URL, API_URL_CATEGORIES } from "src/shared/api/config"
+import axios from "axios"
+import { API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"
 
 export type TCategory = {
@@ -10,8 +9,7 @@ export type TCategory = {
   name: string
   categoryItems: TCategory[] | null
 }
-
-const soapmaking = [
+export const soapmaking = [
   "Эфирные масла",
   "Базовые масла",
   "Инcтрументы и приспособления",
@@ -19,23 +17,24 @@ const soapmaking = [
   "Щелочь",
   "Формы",
 ]
-const soapmaking2 = [
+export const soapmaking2 = [
   "Красители",
   "Отдушки",
   "Инструменты и приспособления",
   "Люфа, скрабы, сухоцветы",
 ]
-const soapmaking3 = [
+export const soapmaking3 = [
   "Упаковка",
   "Тара",
   "Водорастворимая бумага",
   "ПАВы",
   "Штампы для мыла",
 ]
-const candlesMaking = ["Все для свечей"]
-const cosmeticsMaking = ["Компоненты для косметики"]
 
-const useCategories = () => {
+export const candlesMaking = ["Все для свечей"]
+export const cosmeticsMaking = ["Компоненты для косметики"]
+
+export const useCategories = () => {
   return useQuery<TCategory[]>({
     queryKey: ["categories"],
     queryFn: async () => {

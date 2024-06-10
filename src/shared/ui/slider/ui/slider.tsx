@@ -1,19 +1,13 @@
 import "./slider.css"
-import photo0 from "src/shared/assets/slider/Frame 116 (3).png"
-import photo1 from "src/shared/assets/slider/Frame 50.png"
 import rightarrow from "src/shared/assets/rightarrow.svg"
 import leftarrow from "src/shared/assets/leftarrow.svg"
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Circle } from "../../circle/circle"
-import { IsMobileContext } from "src/app/app"
 import slider0 from "./../../../assets/silder0.png"
 import { Link } from "react-router-dom"
-import techsboi from "./../../../assets/techsboi.png"
 
 export function Slider() {
   const [current, setCurrent] = useState(0)
-
-  const { isMobile } = useContext(IsMobileContext)
 
   const sliderGallery = [slider0]
   const circlesArray: any = sliderGallery.map((photo, index) => {
@@ -41,12 +35,7 @@ export function Slider() {
   }
 
   return (
-    <div
-      className="slider"
-      style={{
-        marginTop: isMobile ? "0" : "-50px",
-      }}
-    >
+    <div className="slider">
       {sliderGallery.length != 1 && (
         <img className="leftarrow" onClick={decrement} src={leftarrow} alt="" />
       )}

@@ -1,0 +1,42 @@
+.navigationSection {
+    width: 100%;
+    aspect-ratio: 231/245;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.navigationSection img {
+    transition: 0.4s;
+}
+
+.navigationSection:hover img {
+    transform: scale(110%);
+}
+
+.navigationSectionOverlap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.navigationSectionOverlap p {
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    user-select: none;
+}
+
+.navigationSectionOverlap p:after {
+    content: "→";
+    position: relative;
+    padding-left: 2px;
+    top: 2px;
+}

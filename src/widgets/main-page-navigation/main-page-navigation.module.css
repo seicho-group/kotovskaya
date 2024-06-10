@@ -1,0 +1,17 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigationTitle {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navigationList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
