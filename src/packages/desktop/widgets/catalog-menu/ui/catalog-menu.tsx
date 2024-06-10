@@ -30,11 +30,9 @@ export const soapmaking3 = [
   "ПАВы",
   "Штампы для мыла",
 ]
-const candlesMaking = ["Все для свечей"]
-const cosmeticsMaking = ["Компоненты для косметики", "Бисер для ванн"]
 
 export const candlesMaking = ["Все для свечей"]
-export const cosmeticsMaking = ["Компоненты для косметики"]
+export const cosmeticsMaking = ["Компоненты для косметики", "Бисер для ванн"]
 
 export const useCategories = () => {
   return useQuery<TCategory[]>({
