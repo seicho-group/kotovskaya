@@ -60,7 +60,6 @@ export function App() {
               <Navbar />
             </header>
             <main style={{ minHeight: "calc(100vh - 610px)" }}>
-              <div style={{ height: "50px" }} />
               <DesktopRouter />
             </main>
             <Footer />

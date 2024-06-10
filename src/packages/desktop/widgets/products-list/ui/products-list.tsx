@@ -1,14 +1,11 @@
 import "./products-list.css"
-import mock from "src/shared/assets/mockphoto.png"
 import { ProductCard } from "../../../entities/product-card/product-card"
-import showall from "src/shared/assets/showall.svg"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { IsMobileContext } from "src/app/app"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
-import { Subcategory } from "src/packages/desktop/entities/subcategory/subcategory"
+import sharedStyles from "src/shared/styles/shared.module.css"
 
 type Props = {
   productsArray: ProductDTO[]
@@ -20,7 +17,6 @@ type Props = {
 export function ProductsList({
   categoryName,
   productsArray,
-  linkTo,
   subcategoryArray,
 }: Props) {
   const { isMobile } = useContext(IsMobileContext)
@@ -38,21 +34,14 @@ export function ProductsList({
     <div className="productspromo">
       {categoryName ? (
         <div
-          className={
-            isMobile ? "productspromo__header__mobile" : "productspromo__header"
-          }
+          className={sharedStyles.contentWrapper}
+          style={{
+            paddingTop: "50px",
+            width: isMobile ? "100%" : "1100px",
+            height: isMobile ? "50px" : "",
+          }}
         >
-          <div
-            className="wrapper"
-            style={{
-              width: isMobile ? "100%" : "1100px",
-              height: isMobile ? "50px" : "",
-            }}
-          >
-            <h1 style={{ fontSize: "28px", fontWeight: "500" }}>
-              {categoryName}
-            </h1>
-          </div>
+          <h2>{categoryName}</h2>
         </div>
       ) : null}
 
@@ -71,19 +60,6 @@ export function ProductsList({
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
-      </div>
-      <div className="productspromo__footer">
-        {/* {linkTo ? (
-          <Link to={linkTo}>
-            <div
-              className="wrapper"
-              style={{ width: isMobile ? "100vw" : "1100px" }}
-            >
-              <p>смотреть все</p>
-              <img src={showall} alt="" />
-            </div>
-          </Link>
-        ) : null} */}
       </div>
     </div>
   )
