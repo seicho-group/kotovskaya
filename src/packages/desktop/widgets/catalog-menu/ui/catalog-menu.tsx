@@ -33,7 +33,7 @@ const soapmaking3 = [
   "Штампы для мыла",
 ]
 const candlesMaking = ["Все для свечей"]
-const cosmeticsMaking = ["Компоненты для косметики"]
+const cosmeticsMaking = ["Компоненты для косметики", "Бисер для ванн"]
 
 const useCategories = () => {
   return useQuery<TCategory[]>({

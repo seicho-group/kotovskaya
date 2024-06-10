@@ -9,13 +9,14 @@ import { IsMobileContext } from "src/app/app"
 import slider0 from "./../../../assets/silder0.png"
 import { Link } from "react-router-dom"
 import techsboi from "./../../../assets/techsboi.png"
+import bisersale from "./../../../assets/bisersale.png"
 
 export function Slider() {
   const [current, setCurrent] = useState(0)
 
   const { isMobile } = useContext(IsMobileContext)
 
-  const sliderGallery = [slider0]
+  const sliderGallery = [bisersale]
   const circlesArray: any = sliderGallery.map((photo, index) => {
     if (current === index) {
       return <Circle status="active" key={index} />
@@ -50,7 +51,7 @@ export function Slider() {
       {sliderGallery.length != 1 && (
         <img className="leftarrow" onClick={decrement} src={leftarrow} alt="" />
       )}
-      <Link to={"/categorypage/5986b77d-7eae-4889-b290-65a0e9bb5115"}>
+      <Link to={"/categorypage/ffd433e7-ef80-417f-b36d-fed4031d17a0"}>
         <img className="sliderPic" src={sliderGallery[current]} alt="" />
       </Link>
       {sliderGallery.length != 1 && circlesArray}
