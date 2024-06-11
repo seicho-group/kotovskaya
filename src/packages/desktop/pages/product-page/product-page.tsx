@@ -6,6 +6,7 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 import { Image } from "src/shared/ui/image/image"
 import { Helmet } from "react-helmet"
+import { Loader } from "src/widgets/loader/loader"
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>()
@@ -20,6 +21,10 @@ export function ProductPage() {
       )
     }
   }, [id])
+
+  if (!productInfo) {
+    return <Loader />
+  }
 
   return (
     <div className="productpage">

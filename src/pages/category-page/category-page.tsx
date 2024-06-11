@@ -9,13 +9,14 @@ import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { useQueryGetCategory } from "src/shared/api/use-query-get-category"
 import { CategoryInfo } from "src/widgets/category-info/category-info"
 import { Helmet } from "react-helmet"
+import { Loader } from "src/widgets/loader/loader"
 
 export function CategoryPage() {
   const { id } = useParams<{ id: string }>()
   const { data, isPending } = useQueryGetCategory(id!)
 
   if (isPending) {
-    return <div className={"productsListContainer"}>Loading...</div>
+    return <Loader />
   }
   if (!data) {
     return (

@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 
 export function Searchbar(props: any) {
-  const { searchRequest, setWord } = useSearchStore()
+  const { setWord } = useSearchStore()
   const setIsClicked = props.setIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
@@ -88,11 +88,6 @@ export function Searchbar(props: any) {
               Показать все результаты
             </div>
           </Link>
-          {/* <div>
-            <SearchCategory/>
-            <SearchCategory/>
-            <SearchCategory/>
-        </div> */}
         </div>
       </div>
     </div>,

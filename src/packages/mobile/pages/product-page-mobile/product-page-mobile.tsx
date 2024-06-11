@@ -9,6 +9,7 @@ import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumul
 import { Product, ProductDTO } from "src/shared/types/productDTO"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
+import { Loader } from "src/widgets/loader/loader"
 
 export function ProductPageMobile() {
   const { id } = useParams<{ id: string }>()
@@ -25,7 +26,7 @@ export function ProductPageMobile() {
   }, [id])
   const isOnSale = productInfo?.oldPrice != null ? true : false
   if (!productInfo) {
-    return null
+    return <Loader />
   }
   return (
     <div className="productpage__mobile">

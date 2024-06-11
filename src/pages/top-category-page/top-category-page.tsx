@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom"
 import React from "react"
 import { CategoryPanel } from "src/widgets/category-panel/category-panel"
 import { ContentWrapper } from "src/widgets/content-wrapper/content-wrapper"
+import { Loader } from "src/widgets/loader/loader"
 
 // todo: объединить с categoryPage
 export const TopCategoryPage = ({
@@ -20,7 +21,7 @@ export const TopCategoryPage = ({
   }
 
   if (isPending) {
-    return <p> loading...</p>
+    return <Loader />
   }
   return (
     <ContentWrapper>

@@ -34,54 +34,54 @@ export function Navbar() {
   const [isShown, setIsShown] = useState<boolean>(false)
   return (
     <>
-    <div
-      className="navbar"
-      style={{
-        ...sidebarStyles,
-        backgroundColor:
-          isShown || scrollPosition > 100 ? "white" : "transparent",
-        boxShadow:
-          scrollPosition > 100 ? "0px 0px 3px rgba(0, 0, 0, 0.1)" : "none",
-      }}
-    >
       <div
-        onMouseEnter={() => {
-          setIsShown(true)
+        className="navbar"
+        style={{
+          ...sidebarStyles,
+          backgroundColor:
+            isShown || scrollPosition > 100 ? "white" : "transparent",
+          boxShadow:
+            scrollPosition > 100 ? "0px 0px 3px rgba(0, 0, 0, 0.1)" : "none",
         }}
-        onMouseLeave={() => {
-          setIsShown(false)
-        }}
-        style={{ color: "inherit" }}
       >
-        <NavButton category="каталог" />
-      </div>
-      <Link to="new">
-        <NavButton category="новинки" />
-      </Link>
-      <Link to="popular">
-        <NavButton category="популярное" />
-      </Link>
-      <Link to="sale">
-        <NavButton category="распродажа" />
-      </Link>
-      <Link to="delivery">
-        <NavButton category="доставка" />
-      </Link>
-      <Link to="contacts">
-        <NavButton category="контакты" />
-      </Link>
-
-      {isShown ? (
         <div
           onMouseEnter={() => {
             setIsShown(true)
           }}
-          onMouseLeave={() => setIsShown(false)}
+          onMouseLeave={() => {
+            setIsShown(false)
+          }}
+          style={{ color: "inherit" }}
         >
-          <CatalogMenu setIsShown={setIsShown} />
+          <NavButton category="каталог" />
         </div>
-      ) : null}
-    </div>
+        <Link to="new">
+          <NavButton category="новинки" />
+        </Link>
+        <Link to="popular">
+          <NavButton category="популярное" />
+        </Link>
+        {/*<Link to="sale">*/}
+        {/*  <NavButton category="распродажа" />*/}
+        {/*</Link>*/}
+        <Link to="delivery">
+          <NavButton category="доставка" />
+        </Link>
+        <Link to="contacts">
+          <NavButton category="контакты" />
+        </Link>
+
+        {isShown ? (
+          <div
+            onMouseEnter={() => {
+              setIsShown(true)
+            }}
+            onMouseLeave={() => setIsShown(false)}
+          >
+            <CatalogMenu setIsShown={setIsShown} />
+          </div>
+        ) : null}
+      </div>
     </>
   )
 }

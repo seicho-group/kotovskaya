@@ -13,7 +13,6 @@ export function ShowAllResults() {
     ProductDTO[]
   >([])
   const { searchRequest, setWord } = useSearchStore()
-  console.log(searchRequest)
   useEffect(() => {
     axios
       .post(`${API_URL}/products/search_for_products`, {
@@ -24,7 +23,7 @@ export function ShowAllResults() {
         setProductsSearchResultAll(res.data)
       })
   }, [searchRequest])
-  console.log(productsSearchResultAll)
+
   return (
     <>
       <div className="productsListMain">

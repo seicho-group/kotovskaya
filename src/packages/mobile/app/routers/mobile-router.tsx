@@ -43,7 +43,6 @@ export const MobileRouter = () => {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/category/:id" element={<CategoryPage />} />
       <Route path="/showallresults" element={<ShowAllResultsMobile />} />
-      <Route path="/slider/:id" element={<SliderFirst />} />
       <Route path="/product/:id" element={<ProductPageMobile />} />
       <Route path="/ordered" element={<Ordered />} />
     </Routes>

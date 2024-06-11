@@ -5,6 +5,7 @@ import { Loader } from "src/widgets/loader/loader"
 
 export function NewCategoriesPage() {
   const { data: newFullArray = [], isPending } = useQueryGetNewProducts()
+
   if (isPending) {
     return <Loader />
   }

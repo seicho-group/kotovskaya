@@ -1,7 +1,10 @@
 .burger {
   color: #9b846e;
   background-color: white;
-  height: 100vh;
+  height: calc(100vh - 50px);
+  position: absolute;
+  top: 50px;
+  left: 0;
   width: 80vw;
   display: flex;
   gap: 50px;
@@ -9,6 +12,7 @@
   font-size: 21px;
   overflow: hidden;
   padding: 20px;
+  justify-content: space-between;
 }
 
 .burger__items {
@@ -17,10 +21,12 @@
   flex-direction: column;
 }
 
-
+.burger__item p {
+  color: black;
+}
 
 .burger__forclick {
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   width: 100vw;
   height: calc(100vh - 50px);
