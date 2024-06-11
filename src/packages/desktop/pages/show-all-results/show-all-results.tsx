@@ -5,8 +5,7 @@ import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { ProductCard } from "src/widgets/product-card/product-card"
-import { ProductsList } from "src/widgets/products-list/ui/products-list"
+import { CategoryInfo } from "src/widgets/category-info/category-info"
 
 export function ShowAllResults() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
@@ -25,13 +24,11 @@ export function ShowAllResults() {
   }, [searchRequest])
 
   return (
-    <>
-      <div className="productsListMain">
-        <div>
-          <div className="search__results__header">Результаты поиска</div>
-          <ProductsList productsArray={productsSearchResultAll} />
-        </div>
-      </div>
-    </>
+    <div style={{ margin: "50px 0" }}>
+      <CategoryInfo
+        categoryName={`Результаты поиска: ${searchRequest}`}
+        productsArray={productsSearchResultAll}
+      />
+    </div>
   )
 }

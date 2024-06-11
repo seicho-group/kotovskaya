@@ -46,7 +46,16 @@
   align-items: start;
 }
 
+.search_on_click {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+
 .search {
+  position: absolute;
   width: 250px;
   height: 27px;
   background-color: #c1a88a;

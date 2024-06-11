@@ -17,7 +17,7 @@ export const TopCategoryPage = ({
   )
 
   if (categories.length === 1) {
-    return <Navigate to={`/categorypage/${categories[0].id}`} />
+    return <Navigate to={`/category/${categories[0].id}`} />
   }
 
   if (isPending) {
