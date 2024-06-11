@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
-import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Helmet } from "react-helmet"
+import { CategoryInfo } from "src/widgets/category-info/category-info"
 
 export function SalesPage() {
   const [salesFullArray, setSalesFullArray] = useState<ProductDTO[]>([])
@@ -19,7 +19,7 @@ export function SalesPage() {
   return (
     <div>
       <Helmet title={"Распродажа"} />
-      <ProductsList categoryName="Распродажа" productsArray={salesFullArray} />
+      <CategoryInfo categoryName="Распродажа" productsArray={salesFullArray} />
     </div>
   )
 }
