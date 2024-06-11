@@ -4,8 +4,9 @@
   height: 100vh;
   width: 80vw;
   position: absolute;
-  display: grid;
-  grid-template-rows: auto 350px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   font-size: 21px;
   overflow: hidden;
 }
@@ -15,11 +16,9 @@
   margin-top: 25px;
 }
 
-.burger__items {
-  margin-top: 30px;
-}
 
 .burger__forclick {
+  position: absolute;
   width: 100vw;
   height: calc(100vh - 50px);
 }

@@ -1,4 +1,4 @@
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQueryGetNewProducts } from "src/shared/api/use-query-get-new-products"
 import { Helmet } from "react-helmet"
 

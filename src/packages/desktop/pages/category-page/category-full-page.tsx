@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios, { AxiosResponse } from "axios"
 import { API_URL_CATEGORIES } from "src/shared/api/config"
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQuery } from "@tanstack/react-query"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 
@@ -33,17 +33,17 @@ export function CategoryFullPage() {
   const { data, isPending } = useQueryGetCategory(id!)
 
   if (isPending) {
-    return <div className={"productspromo"}>Loading...</div>
+    return <div className={"productsListContainer"}>Loading...</div>
   }
   if (!data) {
     return (
-      <div className={"productspromo"}>
+      <div className={"productsListContainer"}>
         Произошла ошибка, перезагрузите страницу
       </div>
     )
   }
   return (
-    <div className="productspromo">
+    <div className="productsListContainer">
       <ProductsList
         productsArray={data.categoryItems}
         subcategoryArray={data.categoryChildren}

@@ -1,6 +1,6 @@
-import "./main.css"
-import { Slider } from "src/shared/ui/slider/ui/slider"
-import { ProductsList } from "../../../widgets/products-list/ui/products-list"
+import styles from "./main.module.css"
+import { Slider } from "src/widgets/slider/ui/slider"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQueryGetNewProducts } from "src/shared/api/use-query-get-new-products"
 import { useQueryGetPopularProducts } from "src/shared/api/use-query-get-popular-products"
 import { Helmet } from "react-helmet"
@@ -11,7 +11,7 @@ export function Main() {
   const { data: popularProducts = [] } = useQueryGetPopularProducts()
 
   return (
-    <div className="main">
+    <div className={styles.main}>
       <Helmet title={"Мыловарня Мадам Котовской"} />
       <Slider />
       <MainPageNavigation />

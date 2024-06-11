@@ -1,15 +1,10 @@
 import "./soapmaking.css"
 import axios, { AxiosResponse } from "axios"
-import { useState, useEffect } from "react"
-import {
-  API_URL,
-  API_URL_CATEGORIES,
-  API_URL_PRODUCTS,
-} from "src/shared/api/config"
+import { useEffect, useState } from "react"
+import { API_URL_CATEGORIES } from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQuery } from "@tanstack/react-query"
 import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 
@@ -68,8 +63,7 @@ export function Soapmaking() {
     "Штампы для мыла",
     "ПАВы",
     "Водорастворимая бумага",
-    "Люфа, скрабы,"
-    
+    "Люфа, скрабы,",
   ]
 
   useEffect(() => {

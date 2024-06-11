@@ -5,7 +5,7 @@ import { SearchCategory } from "../../../../desktop/entities/search-category/sea
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL, API_URL_PRODUCTS } from "../../../../../shared/api/config"
-import { useDebounce } from "../../../../../shared/hooks/use-debounce"
+import { useDebounce } from "src/shared/utils/hooks/use-debounce"
 import { ProductDTO } from "../../../../../shared/types/productDTO"
 import { SearchProductMobile } from "../../../entities/search-product-mobile/search-product-mobile"
 import { create } from "zustand"

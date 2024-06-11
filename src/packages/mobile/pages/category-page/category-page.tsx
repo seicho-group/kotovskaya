@@ -10,7 +10,7 @@ import {
 } from "src/shared/api/config"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
 import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { searchObject } from "src/shared/utils/get-deep-object-by-id"
 
@@ -31,19 +31,6 @@ export function CategoryPageMobile() {
         setCategoryChildren(res.data.categoryChildren)
       })
   }, [id])
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API_URL}/categories/get_all`, {
-  //       withCredentials: true,
-  //     })
-  //     .then((response) => {
-  //       setMockArray(response.data)
-  //     })
-  // }, [])
-  // const found = mockArray.find(
-  //   (element: any) => element.category_id == id,
-  // ) as Category
-  // const name = found?.category_name
 
   return (
     <div>

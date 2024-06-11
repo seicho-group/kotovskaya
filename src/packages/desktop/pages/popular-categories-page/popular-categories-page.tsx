@@ -1,4 +1,4 @@
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQueryGetPopularProducts } from "src/shared/api/use-query-get-popular-products"
 import { Helmet } from "react-helmet"
 

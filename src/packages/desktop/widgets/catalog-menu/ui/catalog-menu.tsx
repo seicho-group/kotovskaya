@@ -1,5 +1,5 @@
 import "./catalog-menu.css"
-import { CatalogItem } from "../../../entities/product-card/catalog-item"
+import { CatalogItem } from "src/widgets/product-card/catalog-item"
 import axios from "axios"
 import { API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"

@@ -1,11 +1,8 @@
 import "./product-card.css"
 import { Link } from "react-router-dom"
-import { API_URL } from "src/shared/api/config"
 import pic from "src/shared/assets/фотобудетпозже.png"
-import { useCartStore } from "src/entities/cart/model/cart-store"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { useInView } from "react-intersection-observer"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
 
@@ -13,9 +10,8 @@ type Props = {
   product: ProductDTO
 }
 
-// todo: пропсами принимать ProductDTO
 export function ProductCard({ product }: Props) {
-  const isOnSale = product?.oldPrice != null ? true : false
+  const isOnSale = product?.oldPrice != null
 
   const { isMobile } = useContext(IsMobileContext)
   return (

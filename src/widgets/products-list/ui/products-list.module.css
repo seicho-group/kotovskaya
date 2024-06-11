@@ -22,7 +22,7 @@
   font-size: 20px;
 }
 
-.productspromo__header {
+.productsListTitle {
   display: flex;
   justify-content: center;
   height: 40px;
@@ -41,7 +41,7 @@
   height: 110px;
 }
 
-.productspromo__grid {
+.productsListItems {
   width: 1100px;
   height: auto;
   display: grid;
@@ -51,17 +51,26 @@
   grid-column-gap: 52px;
 }
 
-.productspromo__main {
+.productsListMain {
   display: flex;
   justify-content: center;
 }
 
-.productspromo {
+.productsListContainer {
   padding-bottom: 60px;
 }
 
+.productsListSubcategories {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 1100px) {
-  .productspromo__grid {
+  .productsListContainer {
+    padding: 0 5px;
+  }
+
+  .productsListItems {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 15px;

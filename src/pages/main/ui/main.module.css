@@ -7,3 +7,10 @@
   gap: 80px;
   padding-bottom: 60px;
 }
+
+@media (max-width: 1100px) {
+  .main {
+    gap: 30px;
+    padding-bottom: 20px;
+  }
+}
