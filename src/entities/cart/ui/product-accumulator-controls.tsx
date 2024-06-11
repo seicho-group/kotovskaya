@@ -1,5 +1,5 @@
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { ProductDTO } from "src/shared/types/productDTO"
+import { Product, ProductDTO } from "src/shared/types/productDTO"
 import mock from "src/shared/assets/mock.png"
 import { Button } from "src/shared/ui/button/button"
 import { CSSProperties } from "react"
