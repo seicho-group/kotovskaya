@@ -14,19 +14,8 @@ export function Searchbar(props: any) {
   const setIsClicked = props.setIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
-  const [popularArrayForSearch, setPopularArrayForSearch] = useState<
-    ProductDTO[]
-  >([])
   const [searchProductsResult, setProductsSearchResult] = useState<any>(null)
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/products/popular`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setPopularArrayForSearch(response.data)
-      })
-  }, [])
+
   useEffect(() => {
     if (debouncedValue) {
       axios
@@ -50,34 +39,29 @@ export function Searchbar(props: any) {
     <div className="search_on_click" onClick={() => setIsClicked(false)}>
       <div className="search" onClick={(e) => e.stopPropagation()}>
         <div className="search__wrapper">
-          <form onSubmit={onInputSubmit}>
+          <form
+            onSubmit={onInputSubmit}
+            style={{ display: "grid", placeItems: "center" }}
+          >
             <input
               onChange={(event) => setInputState(event.target.value)}
+              onSubmit={onInputSubmit}
               className="searchinput"
-              type="search"
+              type="text"
               placeholder="Поиск..."
               onSelect={console.log}
             />
           </form>
 
           <div className="search__results">
-            <div>
-              {searchProductsResult !== null
-                ? searchProductsResult.map((product: ProductDTO) => (
-                    <SearchProduct
-                      setIsClicked={setIsClicked}
-                      name={product.name}
-                      id={product.id}
-                    />
-                  ))
-                : popularArrayForSearch.map((product: ProductDTO) => (
-                    <SearchProduct
-                      setIsClicked={setIsClicked}
-                      name={product.name}
-                      id={product.id}
-                    />
-                  ))}
-            </div>
+            {(searchProductsResult || []).map((product: ProductDTO) => (
+              <SearchProduct
+                setIsClicked={setIsClicked}
+                name={product.name}
+                imageLink={product.imageLink}
+                id={product.id}
+              />
+            ))}
             <Link to={"/searchresults"}>
               <div
                 onClick={() => {

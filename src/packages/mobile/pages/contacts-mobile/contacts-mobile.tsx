@@ -3,7 +3,7 @@ import photo from "src/shared/assets/contacts__photo.png"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
-import { formatPhone } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
+import { formatPhone } from "src/pages/cart-page/lib/cart-form-validators"
 import { phoneNumber } from "src/shared/const"
 
 export function ContactsMobile() {

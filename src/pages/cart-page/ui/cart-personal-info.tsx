@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form"
-import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
-import { validatePhoneNumber } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
+import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { validatePhoneNumber } from "src/pages/cart-page/lib/cart-form-validators"
 import { DeliveryWay } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
 import { IsMobileContext } from "src/app/app"

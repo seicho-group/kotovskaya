@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import "./ordered.css"
 
-import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/lib/use-order-id-store"
+import { useOrderIdStore } from "src/pages/cart-page/lib/use-order-id-store"
 import { useNavigate } from "react-router-dom"
 
 export function Ordered() {

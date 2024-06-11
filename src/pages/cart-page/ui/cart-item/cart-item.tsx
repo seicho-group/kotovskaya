@@ -27,7 +27,9 @@ export function CartItem({ product }: TProps) {
       </div>
       <div className="cartitem__name">
         <Text>{product.name}</Text>
-        <Text isBolder>{product.price / 100 + "₽"}</Text>
+        <Text isBolder>
+          {(cart[product.id].accumulator * product.price) / 100 + "₽"}
+        </Text>
       </div>
       <div className="cartitem__quantity">
         <div className="cartitem__quantity__buttons">

@@ -1,21 +1,15 @@
-import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
+import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
 import {
   DeliveryWay,
-  Product,
-  ProductDTO,
+  Order,
   ProductOrderRequest,
 } from "src/shared/types/productDTO"
-import { Order } from "src/shared/types/productDTO"
-import {
-  formatPhone,
-  normalizePhone,
-} from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
+import { normalizePhone } from "src/pages/cart-page/lib/cart-form-validators"
 
 export const getOrderRequestByFormValues = (
   formValues: OrderForm,
   positions: ProductOrderRequest[],
 ): Order => {
-  console.log(normalizePhone(formValues.phone))
   return {
     positions,
     authorPhone: normalizePhone(formValues.phone),

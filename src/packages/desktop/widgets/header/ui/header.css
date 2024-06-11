@@ -66,6 +66,16 @@
   padding-left: 5px;
 }
 
+@media (max-width: 1100px) {
+  .search {
+    width: 90vw;
+    top: 80px;
+  }
+  .search__wrapper {
+    width: 100%;
+  }
+}
+
 .search::placeholder {
   color: white;
   font-weight: 400;

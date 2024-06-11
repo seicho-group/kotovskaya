@@ -2,9 +2,9 @@ import "./cart.css"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Link } from "react-router-dom"
 import { Button } from "src/shared/ui/button/button"
-import { CartPersonalInfo } from "src/packages/desktop/pages/cart-page/ui/cart-personal-info"
-import { CartEntities } from "src/packages/desktop/pages/cart-page/ui/cart-entities"
-import { CartOrderDetails } from "src/packages/desktop/pages/cart-page/ui/cart-order-details"
+import { CartPersonalInfo } from "src/pages/cart-page/ui/cart-personal-info"
+import { CartEntities } from "src/pages/cart-page/ui/cart-entities"
+import { CartOrderDetails } from "src/pages/cart-page/ui/cart-order-details"
 import { Text } from "src/shared/ui/text/text"
 
 export function Cart() {

@@ -1,5 +1,5 @@
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { CartItem } from "src/packages/desktop/pages/cart-page/ui/cart-item/cart-item"
+import { CartItem } from "src/pages/cart-page/ui/cart-item/cart-item"
 import { Text } from "src/shared/ui/text/text"
 
 export function CartEntities() {
