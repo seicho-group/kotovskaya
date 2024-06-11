@@ -84,9 +84,8 @@
 
 .inputs {
   grid-template-columns: auto auto;
-  gap: 40px;
+  gap: 10px;
   width: 720px;
-  height: 50px;
   display: grid;
 
   margin-bottom: 20px;
@@ -172,6 +171,7 @@ label {
 
 @media (width < 1100px) {
   .fullcart__wrapper {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     max-width: 100%;
@@ -215,7 +215,7 @@ label {
     flex-direction: column;
     height: auto;
     width: 100%;
-    gap: 20px;
+    gap: 10px;
   }
   /* .delivery__header {
     text-align: center;
@@ -237,7 +237,7 @@ label {
     border-radius: 7px;
     border: #c1a88a solid 2px;
     background-color: white;
-    font-size: 16px;
+    font-size: 12px;
   }
   .delivery__info {
     margin-top: 20px;
