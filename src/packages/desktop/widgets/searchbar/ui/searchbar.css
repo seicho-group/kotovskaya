@@ -26,7 +26,7 @@
 .search__wrapper {
   width: 100%;
   display: grid;
-  max-width: 500px;
+  max-width: 800px;
   grid-template-rows: 80px auto;
 }
 

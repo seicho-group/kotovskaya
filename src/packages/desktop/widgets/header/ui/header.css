@@ -54,6 +54,7 @@
   width: 100%;
   z-index: 3;
   background-color: #0001;
+  cursor: pointer;
 }
 
 .search {
