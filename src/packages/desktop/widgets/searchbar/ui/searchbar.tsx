@@ -47,47 +47,49 @@ export function Searchbar(props: any) {
   }
 
   return createPortal(
-    <div className="search">
-      <div className="search__wrapper">
-        <form onSubmit={onInputSubmit}>
-          <input
-            onChange={(event) => setInputState(event.target.value)}
-            className="searchinput"
-            type="search"
-            placeholder="Поиск..."
-            onSelect={console.log}
-          />
-        </form>
+    <div className="search_on_click" onClick={() => setIsClicked(false)}>
+      <div className="search" onClick={(e) => e.stopPropagation()}>
+        <div className="search__wrapper">
+          <form onSubmit={onInputSubmit}>
+            <input
+              onChange={(event) => setInputState(event.target.value)}
+              className="searchinput"
+              type="search"
+              placeholder="Поиск..."
+              onSelect={console.log}
+            />
+          </form>
 
-        <div className="search__results">
-          <div>
-            {searchProductsResult !== null
-              ? searchProductsResult.map((product: ProductDTO) => (
-                  <SearchProduct
-                    setIsClicked={setIsClicked}
-                    name={product.name}
-                    id={product.id}
-                  />
-                ))
-              : popularArrayForSearch.map((product: ProductDTO) => (
-                  <SearchProduct
-                    setIsClicked={setIsClicked}
-                    name={product.name}
-                    id={product.id}
-                  />
-                ))}
-          </div>
-          <Link to={"/searchresults"}>
-            <div
-              onClick={() => {
-                setWord(debouncedValue || "")
-                setIsClicked(false)
-              }}
-              className="showallresults"
-            >
-              Показать все результаты
+          <div className="search__results">
+            <div>
+              {searchProductsResult !== null
+                ? searchProductsResult.map((product: ProductDTO) => (
+                    <SearchProduct
+                      setIsClicked={setIsClicked}
+                      name={product.name}
+                      id={product.id}
+                    />
+                  ))
+                : popularArrayForSearch.map((product: ProductDTO) => (
+                    <SearchProduct
+                      setIsClicked={setIsClicked}
+                      name={product.name}
+                      id={product.id}
+                    />
+                  ))}
             </div>
-          </Link>
+            <Link to={"/searchresults"}>
+              <div
+                onClick={() => {
+                  setWord(debouncedValue || "")
+                  setIsClicked(false)
+                }}
+                className="showallresults"
+              >
+                Показать все результаты
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>,
