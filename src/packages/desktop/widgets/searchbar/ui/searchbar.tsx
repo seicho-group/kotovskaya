@@ -32,11 +32,18 @@ export function Searchbar(props: any) {
   const onInputSubmit = () => {
     setWord(inputState || "")
     setIsClicked(false)
+    document.body.style.overflow = "auto"
     navigate("/searchresults")
   }
 
   return createPortal(
-    <div className="search_on_click" onClick={() => setIsClicked(false)}>
+    <div
+      className="search_on_click"
+      onClick={() => {
+        document.body.style.overflow = "auto"
+        setIsClicked(false)
+      }}
+    >
       <div className="search" onClick={(e) => e.stopPropagation()}>
         <div className="search__wrapper">
           <form

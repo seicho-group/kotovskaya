@@ -66,9 +66,12 @@ export function HeaderMobile() {
         <div className="header__mobile__leftpanel">
           <div
             className="alignitemscenter"
-            onClick={() =>
+            onClick={() => {
+              if (!searchIsClicked) {
+                document.body.style.overflow = "hidden"
+              }
               !searchIsClicked ? setSearchIsOpened() : setSearchIsClosed()
-            }
+            }}
           >
             {searchIsClicked ? (
               <X color={"#c1a88a"} width={24} height={24} />
@@ -89,7 +92,16 @@ export function HeaderMobile() {
       ) : (
         ""
       )}
-      {searchIsClicked ? <Searchbar setIsClicked={setSearchIsClosed} /> : ""}
+      {searchIsClicked ? (
+        <Searchbar
+          setIsClicked={() => {
+            document.body.style.overflow = "auto"
+            setSearchIsClosed()
+          }}
+        />
+      ) : (
+        ""
+      )}
       <div className="header-line">Добро пожаловать на наш новый сайт!</div>
     </>
   )

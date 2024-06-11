@@ -22,7 +22,12 @@ export function Header() {
           <div className="left_panel_wrapper">
             <div
               className="alignitemscenter"
-              onClick={() => setIsOpened(!isOpened)}
+              onClick={() => {
+                if (!isOpened) {
+                  document.body.style.overflow = "hidden"
+                }
+                setIsOpened(!isOpened)
+              }}
             >
               {isOpened ? (
                 <X cursor={"pointer"} color={"white"} width={30} height={30} />
@@ -45,7 +50,13 @@ export function Header() {
           </div>
         </div>
       </div>
-      {isOpened ? <Searchbar setIsClicked={setIsOpened} /> : null}
+      {isOpened ? (
+        <Searchbar
+          setIsClicked={() => {
+            setIsOpened(false)
+          }}
+        />
+      ) : null}
     </div>
   )
 }
