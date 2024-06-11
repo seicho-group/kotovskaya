@@ -8,7 +8,7 @@ import { PopularCategoriesPage } from "src/pages/popular-categories-page/popular
 import { NewCategoriesPage } from "src/pages/new-categories-page/ui/new-categories-page"
 import { SalesPage } from "src/pages/sales-page/sales-page"
 import { CategoryPage } from "src/pages/category-page/category-page"
-import { ShowAllResults } from "../../pages/show-all-results/show-all-results"
+import { ShowAllResults } from "src/pages/show-all-results/show-all-results"
 import { CartPage } from "src/pages/cart-page/cart-page"
 import React from "react"
 import { TopCategoryPage } from "src/pages/top-category-page/top-category-page"

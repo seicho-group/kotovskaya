@@ -1,15 +1,12 @@
 import "./product-page-mobile.css"
 import { useEffect, useState } from "react"
-import mock from "src/shared/assets/mock2.jpg"
 import { useParams } from "react-router-dom"
 import { requestProduct } from "src/shared/api/single-product/request"
-import { useCartStore } from "src/entities/cart/model/cart-store"
-import { Image } from "src/shared/ui/image/image"
 import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
-import { Product, ProductDTO } from "src/shared/types/productDTO"
-import { IsMobileContext } from "src/app/app"
-import { useContext } from "react"
+import { ProductDTO } from "src/shared/types/productDTO"
 import { Loader } from "src/widgets/loader/loader"
+import pic from "src/shared/assets/mockphoto.png"
+import { Image } from "src/shared/ui/image/image"
 
 export function ProductPageMobile() {
   const { id } = useParams<{ id: string }>()
@@ -32,16 +29,7 @@ export function ProductPageMobile() {
     <div className="productpage__mobile">
       <div className="productpage__wrapper__mobile">
         <div className="image__productpage">
-          <img
-            onError={(e) => {
-              // @ts-ignore
-              e.target.src = pic
-            }}
-            className="card__pic"
-            src={`https://storage.yandexcloud.net/kotovskaya.products/${productInfo?.imageLink}`}
-            alt="alt"
-          />
-          {/* <Image imageLink={productInfo?.imageLink} /> */}
+          <Image imageLink={productInfo?.imageLink} />
         </div>
 
         <h1 className="productpage__name__mobile">{productInfo?.name}</h1>
@@ -71,65 +59,6 @@ export function ProductPageMobile() {
         >
           <ProductAccumulatorControls product={productInfo} />
         </div>
-        {/* <div className="productpage__bottom__mobile">
-          <div className="productpage__bottom__button__mobile">
-            {productInfo?.quantity > 0 ? (
-              (cart[productInfo?.id]?.accumulator || 0) > 0 ? (
-                <div className="card__quantity__mobile">
-                  <button
-                    className="card__quantity__button__mobile"
-                    onClick={() => {
-                      if (cart[props.id].accumulator === 1) {
-                        deleteProduct(productInfo?.id)
-                      }
-                      decrementById(productInfo?.id)
-                    }}
-                  >
-                    -
-                  </button>
-                  <div className="card__quantity__number">
-                    {cart[productInfo?.id]?.accumulator}
-                  </div>
-                  {(cart[productInfo?.id]?.accumulator || 0) <
-                  cart[productInfo?.id]?.quantity ? (
-                    <button
-                      className="card__quantity__button__mobile"
-                      onClick={() => {
-                        incrementById(productInfo?.id)
-                      }}
-                    >
-                      +
-                    </button>
-                  ) : (
-                    <div className="card__quantity__button__mobile__disabled">
-                      +
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <button
-                  onClick={() => {
-                    setNewProduct({
-                      name: productInfo?.name,
-                      price: productInfo?.price,
-                      accumulator: 1,
-                      id: productInfo?.id,
-                      image: productInfo?.image,
-                      quantity: productInfo?.quantity,
-                    })
-                    incrementById(productInfo?.id)
-                  }}
-                >
-                  В корзину
-                </button>
-              )
-            ) : (
-              <div className="card__button__notinstock__mobile">
-                <div className="notinstock">Нет в наличии</div>
-              </div>
-            )}
-          </div>
-        </div> */}
       </div>
     </div>
   )

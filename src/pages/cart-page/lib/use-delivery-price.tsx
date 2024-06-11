@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import { useFormContext } from "react-hook-form"
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { OrderForm } from "src/features/create-order/model/order-form"
 import { DeliveryWay } from "src/shared/types/productDTO"
 
 export const useDeliveryPrice = () => {

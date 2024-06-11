@@ -3,15 +3,16 @@ import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
-import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { CategoryInfo } from "src/widgets/category-info/category-info"
+import { useSearchStore } from "src/entities/searchbar/model/use-search-store"
 
 export function ShowAllResults() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<
     ProductDTO[]
   >([])
-  const { searchRequest, setWord } = useSearchStore()
+  const { searchRequest } = useSearchStore()
+  // todo: rq
   useEffect(() => {
     axios
       .post(`${API_URL}/products/search_for_products`, {

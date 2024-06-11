@@ -1,22 +1,10 @@
 import "./header-mobile.css"
-import burger from "src/shared/assets/burgermobile.svg"
 import logo from "src/shared/assets/mobilelogo.svg"
-import lupa from "src/shared/assets/lupamobile.svg"
-import cart from "src/shared/assets/cartmobile.svg"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import closepic from "src/shared/assets/closebrown.svg"
 import { BurgerMobile } from "src/packages/mobile/widgets/burger/burger-mobile"
-import { SearchMobile } from "../../search-mobile/ui/search-mobile"
 import { create } from "zustand"
-import {
-  Menu,
-  Search,
-  ShoppingBag,
-  ShoppingBasket,
-  ShoppingCart,
-  X,
-} from "lucide-react"
+import { Menu, Search, ShoppingBasket, X } from "lucide-react"
 import { Searchbar } from "src/packages/desktop/widgets/searchbar/ui/searchbar"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Notification } from "src/shared/ui/notification/notification"

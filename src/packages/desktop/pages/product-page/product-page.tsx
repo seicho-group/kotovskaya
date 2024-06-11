@@ -30,16 +30,7 @@ export function ProductPage() {
     <div className="productpage">
       <Helmet title={productInfo?.name ?? "Страница продукта"} />
       <div className="productpage__wrapper">
-        <img
-          onError={(e) => {
-            // @ts-ignore
-            e.target.src = pic
-          }}
-          className="card__pic"
-          src={`https://storage.yandexcloud.net/kotovskaya.products/${productInfo?.imageLink}`}
-          alt="alt"
-        />
-        {/* <Image imageLink={productInfo?.imageLink} /> */}
+        <Image imageLink={productInfo?.imageLink} width={"400px"} />
         <div className="productpage__rightinfo">
           <h1 className="productpage__name">{productInfo?.name}</h1>
           <div className="productpage__description">

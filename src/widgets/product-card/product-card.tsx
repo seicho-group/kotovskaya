@@ -6,6 +6,7 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
 import { Text } from "src/shared/ui/text/text"
+import { Image } from "src/shared/ui/image/image"
 
 type Props = {
   product: ProductDTO
@@ -25,16 +26,7 @@ export function ProductCard({ product }: Props) {
       <div>
         {product.id ? (
           <Link to={`/product/${product.id}`}>
-            <img
-              onError={(e) => {
-                e.preventDefault()
-                // @ts-ignore
-                e.target.src = pic
-              }}
-              className="card__pic"
-              src={`https://storage.yandexcloud.net/kotovskaya.products/${product.imageLink}`}
-              alt="alt"
-            />
+            <Image imageLink={product.imageLink} width="100%" />
           </Link>
         ) : null}
       </div>

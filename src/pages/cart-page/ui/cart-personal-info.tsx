@@ -1,10 +1,8 @@
 import { useFormContext } from "react-hook-form"
-import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { OrderForm } from "src/features/create-order/model/order-form"
 import { validatePhoneNumber } from "src/pages/cart-page/lib/cart-form-validators"
 import { DeliveryWay } from "src/shared/types/productDTO"
 import { Link } from "react-router-dom"
-import { IsMobileContext } from "src/app/app"
-import { useContext } from "react"
 import ReactInputMask from "react-input-mask"
 import { Text } from "src/shared/ui/text/text"
 
@@ -51,10 +49,9 @@ export function CartPersonalInfo() {
         <div>
           <ReactInputMask
             mask="+7 (999) 999-99-99"
-            maskChar={null}
             style={{ width: "100%" }}
+            defaultValue={""}
             className="input__info"
-            value={watch("phone")}
             onChange={formPhone.onChange}
             name={formPhone.name}
             ref={formPhone.ref}
