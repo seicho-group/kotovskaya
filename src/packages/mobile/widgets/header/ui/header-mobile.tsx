@@ -18,6 +18,8 @@ import {
   X,
 } from "lucide-react"
 import { Searchbar } from "src/packages/desktop/widgets/searchbar/ui/searchbar"
+import { useCartStore } from "src/entities/cart/model/cart-store"
+import { Notification } from "src/shared/ui/notification/notification"
 
 type TSearchIsClicked = {
   searchIsClicked: boolean
@@ -37,6 +39,11 @@ export function HeaderMobile() {
   const [burgerClicked, setBurgerClicked] = useState(false)
   const navigate = useNavigate()
 
+  const { cart } = useCartStore()
+  const totalQuantity = Object.values(cart).reduce(
+    (acc, item) => acc + item.accumulator,
+    0,
+  )
   return (
     <>
       <div className="header__mobile">
@@ -79,12 +86,15 @@ export function HeaderMobile() {
               <Search color={"#c1a88a"} width={24} height={24} />
             )}
           </div>
-          <ShoppingBasket
-            height={24}
-            width={24}
-            color={"#c1a88a"}
-            onClick={() => navigate("/cart")}
-          />
+          <div style={{ position: "relative" }}>
+            <ShoppingBasket
+              height={24}
+              width={24}
+              color={"#c1a88a"}
+              onClick={() => navigate("/cart")}
+            />
+            <Notification char={totalQuantity.toString()} />
+          </div>
         </div>
       </div>
       {burgerClicked ? (
