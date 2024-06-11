@@ -1,5 +1,4 @@
 import "./cart-item.css"
-import pic from "src/shared/assets/фотобудетпозже.png"
 import delete1 from "src/shared/assets/delete.svg"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Product } from "src/shared/types/productDTO"
@@ -8,14 +7,14 @@ import { Image } from "src/shared/ui/image/image"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
 import { Text } from "src/shared/ui/text/text"
+import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumulator-controls"
 
 type TProps = {
   product: Product
 }
 
-// todo: это сущность а не страница
 export function CartItem({ product }: TProps) {
-  const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
+  const { cart, deleteProduct } = useCartStore()
   const isMobile = useContext(IsMobileContext)
 
   return (
@@ -31,32 +30,9 @@ export function CartItem({ product }: TProps) {
           {(cart[product.id].accumulator * product.price) / 100 + "₽"}
         </Text>
       </div>
-      <div className="cartitem__quantity">
-        <div className="cartitem__quantity__buttons">
-          <button
-            className="cartitem__quantity__button"
-            onClick={() => {
-              if (cart[product.id].accumulator === 1) {
-                deleteProduct(product.id)
-              }
-              decrementById(product.id)
-            }}
-          >
-            -
-          </button>
-          <div className="cartitem__quantity">
-            {cart[product.id]?.accumulator}
-          </div>
-          <button
-            className="cartitem__quantity__button"
-            onClick={() => {
-              incrementById(product.id)
-            }}
-          >
-            +
-          </button>
-        </div>
-      </div>
+      <ProductAccumulatorControls
+        product={{ salePrice: product.price, oldPrice: 0, ...product }}
+      />
       {isMobile ? null : (
         <div
           className="cartitem__delete__area"

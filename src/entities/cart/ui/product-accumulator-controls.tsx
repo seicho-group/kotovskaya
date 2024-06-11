@@ -1,10 +1,8 @@
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { ProductDTO } from "src/shared/types/productDTO"
-import mock from "src/shared/assets/mock.png"
 import { Button } from "src/shared/ui/button/button"
-import { CSSProperties } from "react"
+import { CSSProperties, useContext } from "react"
 import { IsMobileContext } from "src/app/app"
-import { useContext } from "react"
 
 type Props = {
   product: ProductDTO
