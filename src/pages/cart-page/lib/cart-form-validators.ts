@@ -24,7 +24,6 @@ export const formatPhone = (phone: string): string => {
 }
 
 export const validatePhoneNumber = (phone: string) => {
-  console.log(normalizePhone(phone))
   return (
     (phone?.startsWith("+7") && normalizePhone(phone).length === 10) ||
     "Телефон не отвечает правилам валидации"

@@ -2,8 +2,8 @@ import { useMutation } from "@tanstack/react-query"
 import axios, { AxiosResponse } from "axios"
 import { Order, Product } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
-import { getOrderRequestByFormValues } from "src/packages/desktop/features/create-order/model/order-request"
-import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { getOrderRequestByFormValues } from "src/features/create-order/model/order-request"
+import { OrderForm } from "src/features/create-order/model/order-form"
 
 import { productsToProductOrderRequest } from "src/pages/cart-page/lib/products-to-product-order-request"
 

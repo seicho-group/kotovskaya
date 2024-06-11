@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { DeliveryMobile } from "../../pages/delivery-mobile/delivery-mobile"
 import { ContactsMobile } from "../../pages/contacts-mobile/contacts-mobile"
-import { ShowAllResultsMobile } from "../../pages/show-all-results/show-all-results-mobile"
-import { SliderFirst } from "../../pages/slider-first/slider-first"
 import { ProductPageMobile } from "../../pages/product-page-mobile/product-page-mobile"
 import { CartPage } from "src/pages/cart-page/cart-page"
 import { Ordered } from "src/pages/ordered/ordered"
@@ -17,7 +15,7 @@ import {
 } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 import React from "react"
 import { CategoryPage } from "src/pages/category-page/category-page"
-import { ShowAllResults } from "src/packages/desktop/pages/show-all-results/show-all-results"
+import { ShowAllResults } from "src/pages/show-all-results/show-all-results"
 
 export const MobileRouter = () => {
   return (

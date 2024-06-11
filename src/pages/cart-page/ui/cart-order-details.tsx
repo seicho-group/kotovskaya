@@ -1,7 +1,7 @@
 import { useDeliveryPrice } from "src/pages/cart-page/lib/use-delivery-price"
 import { useCreateOrder } from "src/pages/cart-page/lib/use-create-order"
 import { useFormContext } from "react-hook-form"
-import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { OrderForm } from "src/features/create-order/model/order-form"
 import { DeliveryWay } from "src/shared/types/productDTO"
 
 export function CartOrderDetails() {

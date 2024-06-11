@@ -1,6 +1,7 @@
 import "./search-product-mobile.css"
 import { Link } from "react-router-dom"
 import pic from "src/shared/assets/mockphoto.png"
+import { Image } from "src/shared/ui/image/image"
 
 export function SearchProductMobile(props: any) {
   return (
@@ -10,15 +11,7 @@ export function SearchProductMobile(props: any) {
         to={`/product/${props.id}`}
       >
         <div className="search__product__mobile">
-          <img
-            onError={(e) => {
-              // @ts-ignore
-              e.target.src = pic
-            }}
-            src={`https://storage.yandexcloud.net/kotovskaya.products/${props.imageLink}`}
-            alt=""
-            style={{ width: "60px", height: "60px" }}
-          />
+          <Image imageLink={props.imageLink} width="40px" />
           <div>{props.name}</div>
         </div>
       </Link>

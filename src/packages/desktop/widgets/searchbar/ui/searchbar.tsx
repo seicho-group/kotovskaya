@@ -1,13 +1,13 @@
 import { createPortal } from "react-dom"
 import "./searchbar.css"
-import { SearchProduct } from "../../../entities/search-product/search-product"
+import { SearchProductCard } from "src/widgets/search-product-card/search-product-card"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
 import { useDebounce } from "src/shared/utils/hooks/use-debounce"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Link, useNavigate } from "react-router-dom"
-import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
+import { useSearchStore } from "src/entities/searchbar/model/use-search-store"
 
 export function Searchbar(props: any) {
   const { setWord } = useSearchStore()
@@ -56,17 +56,17 @@ export function Searchbar(props: any) {
               className="searchinput"
               type="text"
               placeholder="Поиск..."
-              onSelect={console.log}
             />
           </form>
 
           <div className="search__results">
             {(searchProductsResult || []).map((product: ProductDTO) => (
-              <SearchProduct
+              <SearchProductCard
                 setIsClicked={setIsClicked}
                 name={product.name}
                 imageLink={product.imageLink}
                 id={product.id}
+                key={product.id}
               />
             ))}
             {searchProductsResult?.length > 0 && (

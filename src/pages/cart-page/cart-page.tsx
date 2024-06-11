@@ -1,5 +1,5 @@
 import { FormProvider, useForm } from "react-hook-form"
-import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { OrderForm } from "src/features/create-order/model/order-form"
 import { Cart } from "src/pages/cart-page/ui/cart"
 import { DeliveryWay } from "src/shared/types/productDTO"
 import { Helmet } from "react-helmet"
