@@ -46,7 +46,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
     return (
       <Button
         width={isMobile ? "99px" : "130px"}
-        // font-size={isMobile ? "16px" : "20pxpx"}
+        height={isMobile ? "30px" : "40px"}
         onClick={() => {
           setNewProduct({
             accumulator: 1,
@@ -66,6 +66,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
     <div className={isMobile ? "card__quantity__mobile" : "card__quantity"}>
       <Button
         width={isMobile ? "33px" : "40px"}
+        height={isMobile ? "30px" : "40px"}
         onClick={() => {
           if (currentProductInCart?.accumulator === 1) {
             deleteProduct(currentProductInCart?.id)
@@ -85,6 +86,7 @@ export const ProductAccumulatorControls = ({ product }: Props) => {
       </div>
       <Button
         width={isMobile ? "33px" : "40px"}
+        height={isMobile ? "30px" : "40px"}
         onClick={() => {
           incrementById(currentProductInCart?.id)
         }}
