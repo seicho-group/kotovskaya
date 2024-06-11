@@ -7,10 +7,19 @@ import closepic from "src/shared/assets/Vector (2) 1.svg"
 import { useState } from "react"
 import { Searchbar } from "../../searchbar/ui/searchbar"
 import { Cross, Search, ShoppingBasket, X } from "lucide-react"
+import { Notification } from "src/shared/ui/notification/notification"
+import { useCartStore } from "src/entities/cart/model/cart-store"
 
 export function Header() {
   const [isOpened, setIsOpened] = useState(false)
   const navigate = useNavigate()
+
+  const { cart } = useCartStore()
+  const totalQuantity = Object.values(cart).reduce(
+    (acc, item) => acc + item.accumulator,
+    0,
+  )
+
   return (
     <div className="underHeader">
       <div className="wrapper header">
@@ -40,13 +49,16 @@ export function Header() {
                 />
               )}
             </div>
-            <ShoppingBasket
-              cursor={"pointer"}
-              width={30}
-              height={30}
-              color={"white"}
-              onClick={() => navigate("/cart")}
-            />
+            <div style={{ position: "relative" }}>
+              <ShoppingBasket
+                cursor={"pointer"}
+                width={30}
+                height={30}
+                color={"white"}
+                onClick={() => navigate("/cart")}
+              />
+              <Notification char={totalQuantity.toString()} />
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,16 @@
+.notification {
+    height: 17px;
+    width: 17px;
+    border-radius: 100%;
+    background-color: #85745f;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 10px;
+    color: white;
+
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+}
