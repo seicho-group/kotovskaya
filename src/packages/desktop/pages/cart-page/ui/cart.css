@@ -217,9 +217,7 @@ label {
     width: 100%;
     gap: 10px;
   }
-  /* .delivery__header {
-    text-align: center;
-  } */
+
   .delivery__buttons {
     display: grid;
     gap: 10px;

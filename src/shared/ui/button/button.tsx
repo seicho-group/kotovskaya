@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, CSSProperties } from "react"
+import styles from "./button.module.css"
 
 type Props = ButtonHTMLAttributes<any> & {
   children: React.ReactNode
@@ -6,56 +7,25 @@ type Props = ButtonHTMLAttributes<any> & {
   height?: string
 }
 
-const buttonStyles: CSSProperties = {
-  // colors
-  color: "white",
-  backgroundColor: "#c1a88a",
-  // positioning
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  // typography
-  fontSize: "16px",
-  fontWeight: "500",
-  // decorations none
-  cursor: "pointer",
-  borderRadius: "5px",
-  outline: "none",
-  border: "none",
-}
-
-const disabledButtonStyles: CSSProperties = {
-  ...buttonStyles,
-  backgroundColor: "#a19f9f",
-  cursor: "not-allowed",
-  width: "99px",
-}
-
-const MobileButtonStyles: CSSProperties = {
-  ...buttonStyles,
-  width: "30px",
-}
-
 export const Button = ({
   children,
   width = "135px",
   height = "40px",
-  style,
   ...props
 }: Props) => {
   const baseStyles = {
     width,
     height,
   }
-  const getStyle = () => {
-    if (props.disabled) {
-      return disabledButtonStyles
-    }
-    return buttonStyles
-  }
+
+  const disabledStyles = props.disabled ? " " + styles.disabled : ""
 
   return (
-    <button style={{ ...style, ...getStyle(), ...baseStyles }} {...props}>
+    <button
+      style={{ ...baseStyles }}
+      className={styles.button + disabledStyles}
+      {...props}
+    >
       {children}
     </button>
   )

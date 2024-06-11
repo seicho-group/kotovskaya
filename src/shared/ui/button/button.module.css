@@ -1,0 +1,23 @@
+.button {
+    color: white;
+    background-color: #c1a88a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+.button.disabled {
+    background-color: #a19f9f;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1100px) {
+    .button {
+        font-size: 12px;
+    }
+}
