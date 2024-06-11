@@ -1,19 +1,19 @@
 .subtitle {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .subtitle.isBolder {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .title {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .title.isBolder {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .text {

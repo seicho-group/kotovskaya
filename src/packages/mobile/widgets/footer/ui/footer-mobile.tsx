@@ -1,5 +1,5 @@
 import "./footer-mobile.css"
-import { formatPhone } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
+import { formatPhone } from "src/pages/cart-page/lib/cart-form-validators"
 import { phoneNumber } from "src/shared/const"
 export function FooterMobile() {
   return (

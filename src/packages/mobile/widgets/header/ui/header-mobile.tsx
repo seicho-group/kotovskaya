@@ -17,6 +17,7 @@ import {
   ShoppingCart,
   X,
 } from "lucide-react"
+import { Searchbar } from "src/packages/desktop/widgets/searchbar/ui/searchbar"
 
 type TSearchIsClicked = {
   searchIsClicked: boolean
@@ -88,7 +89,7 @@ export function HeaderMobile() {
       ) : (
         ""
       )}
-      {searchIsClicked ? <SearchMobile /> : ""}
+      {searchIsClicked ? <Searchbar setIsClicked={setSearchIsClosed} /> : ""}
       <div className="header-line">Добро пожаловать на наш новый сайт!</div>
     </>
   )

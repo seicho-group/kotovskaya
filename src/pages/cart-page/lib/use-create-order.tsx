@@ -1,9 +1,9 @@
 import { useCartStore } from "src/entities/cart/model/cart-store"
-import { useMutationCreateOrder } from "src/packages/desktop/pages/cart-page/api/use-mutation-create-order"
+import { useMutationCreateOrder } from "src/pages/cart-page/api/use-mutation-create-order"
 import { useNavigate } from "react-router-dom"
 import { useFormContext } from "react-hook-form"
-import { OrderForm } from "src/packages/desktop/features/order/model/order-form"
-import { useOrderIdStore } from "src/packages/desktop/pages/cart-page/lib/use-order-id-store"
+import { OrderForm } from "src/packages/desktop/features/create-order/model/order-form"
+import { useOrderIdStore } from "src/pages/cart-page/lib/use-order-id-store"
 
 export const useCreateOrder = () => {
   const { handleSubmit } = useFormContext<OrderForm>()

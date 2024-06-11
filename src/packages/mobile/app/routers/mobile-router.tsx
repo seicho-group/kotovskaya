@@ -4,8 +4,8 @@ import { ContactsMobile } from "../../pages/contacts-mobile/contacts-mobile"
 import { ShowAllResultsMobile } from "../../pages/show-all-results/show-all-results-mobile"
 import { SliderFirst } from "../../pages/slider-first/slider-first"
 import { ProductPageMobile } from "../../pages/product-page-mobile/product-page-mobile"
-import { CartPage } from "src/packages/desktop/pages/cart-page/cart-page"
-import { Ordered } from "src/packages/desktop/pages/ordered/ordered"
+import { CartPage } from "src/pages/cart-page/cart-page"
+import { Ordered } from "src/pages/ordered/ordered"
 import { Main } from "src/pages/main/ui/main"
 import { TopCategoryPage } from "src/pages/top-category-page/top-category-page"
 import {
@@ -17,6 +17,7 @@ import {
 } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 import React from "react"
 import { CategoryPage } from "src/pages/category-page/category-page"
+import { ShowAllResults } from "src/packages/desktop/pages/show-all-results/show-all-results"
 
 export const MobileRouter = () => {
   return (
@@ -42,7 +43,7 @@ export const MobileRouter = () => {
       <Route path="/contacts" element={<ContactsMobile />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/category/:id" element={<CategoryPage />} />
-      <Route path="/showallresults" element={<ShowAllResultsMobile />} />
+      <Route path="/searchresults" element={<ShowAllResults />} />
       <Route path="/product/:id" element={<ProductPageMobile />} />
       <Route path="/ordered" element={<Ordered />} />
     </Routes>

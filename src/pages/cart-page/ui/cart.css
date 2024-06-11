@@ -11,6 +11,10 @@
   font-weight: 500;
 }
 
+.cart__empty button {
+  height: 40px;
+}
+
 .fullcart {
   display: flex;
   justify-content: center;
