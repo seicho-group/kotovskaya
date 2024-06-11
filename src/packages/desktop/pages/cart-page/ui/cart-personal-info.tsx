@@ -6,10 +6,9 @@ import { Link } from "react-router-dom"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
 import ReactInputMask from "react-input-mask"
-
+import { Text } from "src/shared/ui/text/text"
 
 export function CartPersonalInfo() {
-  const { isMobile } = useContext(IsMobileContext)
   // form data -> убрать по компонентам через форм контекст
   const { watch, register, setValue, formState } = useFormContext<OrderForm>()
 
@@ -27,8 +26,11 @@ export function CartPersonalInfo() {
   register("deliveryWay")
 
   return (
-    <div className="cartifull__personinfo">
-      <div className="fullcart__header">Информация о заказе</div>
+    <div
+      className="cartifull__personinfo"
+      style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+    >
+      <Text variant={"subtitle"}>Информация о заказе</Text>
       <div className="inputs">
         <div style={{ width: "100%" }}>
           <input
@@ -63,8 +65,6 @@ export function CartPersonalInfo() {
             {formState.errors?.["phone"]?.["message"] as string}
           </p>
         </div>
-      </div>
-      <div className="inputs">
         <input
           className="input__info"
           onChange={formEMail.onChange}
@@ -84,12 +84,7 @@ export function CartPersonalInfo() {
           placeholder="Комментрий"
         />
       </div>
-
-      {/* <div style={{ color: "gray" }}>
-        Если у вас есть карта постоянного клиента, пожалуйста введите ее номер в
-        комментарий
-      </div> */}
-      <div className="fullcart__header">Выберите способ доставки</div>
+      <Text variant={"subtitle"}>Выберите способ доставки</Text>
       <div className="delivery__buttons">
         <button
           className={deliveryWay === DeliveryWay.Self ? "active" : ""}

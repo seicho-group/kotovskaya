@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import { Image } from "src/shared/ui/image/image"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
+import { Text } from "src/shared/ui/text/text"
 
 type TProps = {
   product: Product
@@ -20,23 +21,13 @@ export function CartItem({ product }: TProps) {
   return (
     <div className="cartitem__area">
       <div className="center">
-        {/* <img
-            onError={(e) => {
-              // @ts-ignore
-              e.target.src = pic
-            }}
-            className="cartitem__area__photo"
-            src={getImageUrl(product.id)}
-            alt=""
-          /> */}
         <Link to={`/product/${product.id}`}>
           <Image imageLink={product.imageLink} />
         </Link>
       </div>
       <div className="cartitem__name">
-        {" "}
-        <p>{product.name}</p>
-        <div>{product.price / 100 + "₽"}</div>
+        <Text>{product.name}</Text>
+        <Text isBolder>{product.price / 100 + "₽"}</Text>
       </div>
       <div className="cartitem__quantity">
         <div className="cartitem__quantity__buttons">
