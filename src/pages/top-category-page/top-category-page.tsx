@@ -1,9 +1,11 @@
 import { useCategories } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
-import { Navigate, useNavigate } from "react-router-dom"
-import sharedStyles from "src/shared/styles/shared.module.css"
+import { Navigate } from "react-router-dom"
 import React from "react"
-import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
+import { CategoryPanel } from "src/widgets/category-panel/category-panel"
+import { ContentWrapper } from "src/widgets/content-wrapper/content-wrapper"
+import { Loader } from "src/widgets/loader/loader"
 
+// todo: объединить с categoryPage
 export const TopCategoryPage = ({
   categoriesArray,
 }: {
@@ -19,10 +21,10 @@ export const TopCategoryPage = ({
   }
 
   if (isPending) {
-    return <p> loading...</p>
+    return <Loader />
   }
   return (
-    <section className={sharedStyles.contentWrapper}>
+    <ContentWrapper>
       <h1 style={{ padding: "20px 0px" }}>
         Выберите интересующую вас категорию
       </h1>
@@ -31,6 +33,6 @@ export const TopCategoryPage = ({
           <CategoryPanel category={cat} key={cat.id} />
         ))}
       </div>
-    </section>
+    </ContentWrapper>
   )
 }

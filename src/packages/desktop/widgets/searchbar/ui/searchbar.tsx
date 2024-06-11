@@ -4,13 +4,13 @@ import { SearchProduct } from "../../../entities/search-product/search-product"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
-import { useDebounce } from "src/shared/hooks/use-debounce"
+import { useDebounce } from "src/shared/utils/hooks/use-debounce"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Link, useNavigate } from "react-router-dom"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 
 export function Searchbar(props: any) {
-  const { searchRequest, setWord } = useSearchStore()
+  const { setWord } = useSearchStore()
   const setIsClicked = props.setIsClicked
   const [inputState, setInputState] = useState<string>("")
   const debouncedValue = useDebounce(inputState)
@@ -88,11 +88,6 @@ export function Searchbar(props: any) {
               Показать все результаты
             </div>
           </Link>
-          {/* <div>
-            <SearchCategory/>
-            <SearchCategory/>
-            <SearchCategory/>
-        </div> */}
         </div>
       </div>
     </div>,

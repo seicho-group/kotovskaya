@@ -1,0 +1,41 @@
+.burger {
+  color: #9b846e;
+  background-color: white;
+  height: calc(100vh - 50px);
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 80vw;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  font-size: 21px;
+  overflow: hidden;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.burger__items {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.burger__item p {
+  color: black;
+}
+
+.burger__forclick {
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 50px);
+}
+
+.smblock {
+  margin-left: 40px;
+  margin-top: 15px;
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}

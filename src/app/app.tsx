@@ -65,9 +65,11 @@ export function App() {
             <Footer />
           </div>
         ) : (
-          <div className="mobile__app">
+          <div className="app mobile__app">
             <HeaderMobile />
-            <MobileRouter />
+            <main style={{ minHeight: "calc(100vh - 250px)" }}>
+              <MobileRouter />
+            </main>
             <FooterMobile />
           </div>
         )}

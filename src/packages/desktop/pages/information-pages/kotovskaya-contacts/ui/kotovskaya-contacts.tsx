@@ -4,8 +4,8 @@ import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
 import { formatPhone } from "../../../cart-page/lib/cart-form-validators"
-import { phoneNumber } from "src/shared/static-info/phone-number"
 import { Helmet } from "react-helmet"
+import { phoneNumber } from "src/shared/const"
 
 export function KotovskayaContacts() {
   return (

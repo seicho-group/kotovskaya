@@ -2,8 +2,8 @@ import "./footer.css"
 import vk from "src/shared/assets/vk.svg"
 import tg from "src/shared/assets/tg.svg"
 import wa from "src/shared/assets/wa.svg"
-import { phoneNumber } from "src/shared/static-info/phone-number"
 import { formatPhone } from "src/packages/desktop/pages/cart-page/lib/cart-form-validators"
+import { phoneNumber } from "src/shared/const"
 
 export function Footer() {
   return (

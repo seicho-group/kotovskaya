@@ -1,13 +1,15 @@
 import "./catalog-menu.css"
-import { CatalogItem } from "../../../entities/product-card/catalog-item"
+import { CatalogItem } from "src/widgets/product-card/catalog-item"
 import axios from "axios"
-import { API_URL_CATEGORIES } from "src/shared/api/config"
+import { API_URL, API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"
 
-export type TCategory = {
+// todo: ну и говно тут наворотили ебаный рот
+
+export type TCategoryInfo = {
   id: string
   name: string
-  categoryItems: TCategory[] | null
+  categoryItems: TCategoryInfo[] | null
 }
 export const soapmaking = [
   "Эфирные масла",
@@ -35,11 +37,11 @@ export const candlesMaking = ["Все для свечей"]
 export const cosmeticsMaking = ["Компоненты для косметики", "Бисер для ванн"]
 
 export const useCategories = () => {
-  return useQuery<TCategory[]>({
+  return useQuery<TCategoryInfo[]>({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await axios.get<TCategory[]>(
-        `${API_URL_CATEGORIES}/get_all_categories_tree`,
+      const response = await axios.get<TCategoryInfo[]>(
+        `${API_URL}/categories/get_all_categories_tree`,
       )
       return response.data
     },
@@ -48,7 +50,7 @@ export const useCategories = () => {
 }
 
 const mapCategoriesToUI = (
-  categories: TCategory[],
+  categories: TCategoryInfo[],
   filterStrings: string[],
   setIsShown: (isOShown: boolean) => void,
 ) => {

@@ -29,9 +29,8 @@
 }
 
 .left_panel_wrapper {
-  width: 80px;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   padding-bottom: 15px;
 }
 

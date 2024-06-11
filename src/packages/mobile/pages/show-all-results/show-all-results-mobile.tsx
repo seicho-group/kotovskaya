@@ -3,8 +3,7 @@ import axios from "axios"
 import { useSearchStore } from "src/packages/mobile/widgets/search-mobile/ui/search-mobile"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { API_URL, API_URL_PRODUCTS } from "src/shared/api/config"
-import { ProductCardMobile } from "src/packages/mobile/entities/product-card-mobile"
-import { ProductCard } from "src/packages/desktop/entities/product-card/product-card"
+import { ProductCard } from "src/widgets/product-card/product-card"
 
 export function ShowAllResultsMobile() {
   const [productsSearchResultAll, setProductsSearchResultAll] = useState<

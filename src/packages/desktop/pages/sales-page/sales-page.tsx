@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_URL } from "src/shared/api/config"
-import { ProductsList } from "src/packages/desktop/widgets/products-list/ui/products-list"
+import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Helmet } from "react-helmet"
 

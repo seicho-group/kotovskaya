@@ -4,11 +4,19 @@ import logo from "src/shared/assets/mobilelogo.svg"
 import lupa from "src/shared/assets/lupamobile.svg"
 import cart from "src/shared/assets/cartmobile.svg"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import closepic from "src/shared/assets/closebrown.svg"
-import { BurgerMobile } from "../../search-mobile/ui/burger/burger-mobile"
+import { BurgerMobile } from "src/packages/mobile/widgets/burger/burger-mobile"
 import { SearchMobile } from "../../search-mobile/ui/search-mobile"
 import { create } from "zustand"
+import {
+  Menu,
+  Search,
+  ShoppingBag,
+  ShoppingBasket,
+  ShoppingCart,
+  X,
+} from "lucide-react"
 
 type TSearchIsClicked = {
   searchIsClicked: boolean
@@ -25,8 +33,9 @@ export const useSearchIsClicked = create<TSearchIsClicked>((set) => ({
 export function HeaderMobile() {
   const { searchIsClicked, setSearchIsOpened, setSearchIsClosed } =
     useSearchIsClicked()
-  const [searchClicked, setSearchClicked] = useState(false)
   const [burgerClicked, setBurgerClicked] = useState(false)
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="header__mobile">
@@ -42,7 +51,11 @@ export function HeaderMobile() {
           }}
           className="header__mobile__burgericon"
         >
-          <img src={burger} alt="" />
+          {burgerClicked ? (
+            <X color={"#c1a88a"} width={24} height={24} />
+          ) : (
+            <Menu color={"#c1a88a"} width={24} height={24} />
+          )}
         </div>
         <Link to={"/"}>
           <div className="mobilelogo">
@@ -53,22 +66,21 @@ export function HeaderMobile() {
           <div
             className="alignitemscenter"
             onClick={() =>
-              searchIsClicked == false
-                ? setSearchIsOpened()
-                : setSearchIsClosed()
+              !searchIsClicked ? setSearchIsOpened() : setSearchIsClosed()
             }
           >
             {searchIsClicked ? (
-              <img className="searchpic" src={closepic} alt="" />
+              <X color={"#c1a88a"} width={24} height={24} />
             ) : (
-              <img className="searchpic" src={lupa} alt="" />
+              <Search color={"#c1a88a"} width={24} height={24} />
             )}
           </div>
-          <Link to={"/cart"}>
-            <div>
-              <img src={cart} alt="" />
-            </div>
-          </Link>
+          <ShoppingBasket
+            height={24}
+            width={24}
+            color={"#c1a88a"}
+            onClick={() => navigate("/cart")}
+          />
         </div>
       </div>
       {burgerClicked ? (

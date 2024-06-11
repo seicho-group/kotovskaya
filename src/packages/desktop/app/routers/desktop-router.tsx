@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { Main } from "../../pages/main/ui/main"
+import { Main } from "src/pages/main/ui/main"
 import { KotovskayaContacts } from "../../pages/information-pages/kotovskaya-contacts/ui/kotovskaya-contacts"
 import { DeliveryInformation } from "../../pages/information-pages/delivery-information/ui/delivery-information"
 import { ProductPage } from "../../pages/product-page/product-page"
@@ -7,7 +7,7 @@ import { Ordered } from "../../pages/ordered/ordered"
 import { PopularCategoriesPage } from "../../pages/popular-categories-page/popular-categories-page"
 import { NewCategoriesPage } from "../../pages/new-categories-page/ui/new-categories-page"
 import { SalesPage } from "../../pages/sales-page/sales-page"
-import { CategoryFullPage } from "../../pages/category-page/category-full-page/category-full-page"
+import { CategoryPage } from "src/pages/category-page/category-page"
 import { ShowAllResults } from "../../pages/show-all-results/show-all-results"
 import { CartPage } from "src/packages/desktop/pages/cart-page/cart-page"
 import React from "react"
@@ -47,7 +47,7 @@ export const DesktopRouter = () => {
       <Route path="/popular" element={<PopularCategoriesPage />} />
       <Route path="/new" element={<NewCategoriesPage />} />
       <Route path="/sale" element={<SalesPage />} />
-      <Route path="/categorypage/:id" element={<CategoryFullPage />} />
+      <Route path="/category/:id" element={<CategoryPage />} />
       <Route path="/searchresults" element={<ShowAllResults />} />
       <Route path="/" element={<Main />} />
       <Route path="*" element={<Navigate replace to={"/"} />} />
