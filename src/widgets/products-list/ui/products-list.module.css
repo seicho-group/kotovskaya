@@ -56,11 +56,6 @@
   justify-content: center;
 }
 
-.productsListSubcategories {
-  display: flex;
-  justify-content: center;
-}
-
 @media (max-width: 1100px) {
   .productsListItems {
     width: 100%;

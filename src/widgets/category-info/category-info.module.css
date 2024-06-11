@@ -1,0 +1,11 @@
+.productsListSubcategories {
+    display: flex;
+    justify-content: center;
+}
+
+.subcategoriesLayout {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0 25px 0;
+    flex-wrap: wrap;
+}

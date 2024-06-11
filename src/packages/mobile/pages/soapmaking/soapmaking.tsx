@@ -2,11 +2,11 @@ import "./soapmaking.css"
 import axios, { AxiosResponse } from "axios"
 import { useEffect, useState } from "react"
 import { API_URL_CATEGORIES } from "src/shared/api/config"
-import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
+import { CategoryPanel } from "src/widgets/category-panel/category-panel"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQuery } from "@tanstack/react-query"
-import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
+import { TCategoryInfo } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 
 export type Category = {
   name: string
@@ -31,10 +31,10 @@ export type GetCategoryRequest = {
   categoryId: string
 }
 const useCategories = () => {
-  return useQuery<TCategory[]>({
+  return useQuery<TCategoryInfo[]>({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await axios.get<TCategory[]>(
+      const response = await axios.get<TCategoryInfo[]>(
         `${API_URL_CATEGORIES}/get_all_categories_tree`,
       )
       return response.data

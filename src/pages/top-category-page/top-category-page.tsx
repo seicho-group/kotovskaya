@@ -1,9 +1,10 @@
 import { useCategories } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 import { Navigate } from "react-router-dom"
 import React from "react"
-import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
+import { CategoryPanel } from "src/widgets/category-panel/category-panel"
 import { ContentWrapper } from "src/widgets/content-wrapper/content-wrapper"
 
+// todo: объединить с categoryPage
 export const TopCategoryPage = ({
   categoriesArray,
 }: {

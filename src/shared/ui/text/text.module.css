@@ -3,7 +3,7 @@
     font-weight: 500;
 }
 
-.subtitle .selected {
+.subtitle.isBolder {
     font-weight: 600;
 }
 
@@ -12,7 +12,7 @@
     font-weight: 500;
 }
 
-.title .selected {
+.title.isBolder {
     font-weight: 600;
 }
 
@@ -21,7 +21,7 @@
     font-weight: 400;
 }
 
-.text .selected {
+.text.isBolder {
     font-weight: 500;
 }
 

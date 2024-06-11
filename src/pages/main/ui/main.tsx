@@ -5,6 +5,7 @@ import { useQueryGetNewProducts } from "src/shared/api/use-query-get-new-product
 import { useQueryGetPopularProducts } from "src/shared/api/use-query-get-popular-products"
 import { Helmet } from "react-helmet"
 import { MainPageNavigation } from "src/widgets/main-page-navigation/main-page-navigation"
+import { CategoryInfo } from "src/widgets/category-info/category-info"
 
 export function Main() {
   const { data: newProducts = [] } = useQueryGetNewProducts()
@@ -15,15 +16,10 @@ export function Main() {
       <Helmet title={"Мыловарня Мадам Котовской"} />
       <Slider />
       <MainPageNavigation />
-      <ProductsList
-        categoryName={"Новинки"}
-        productsArray={newProducts}
-        linkTo={"/new"}
-      />
-      <ProductsList
+      <CategoryInfo categoryName={"Новинки"} productsArray={newProducts} />
+      <CategoryInfo
         categoryName={"Популярное"}
         productsArray={popularProducts}
-        linkTo={"/popular"}
       />
     </div>
   )

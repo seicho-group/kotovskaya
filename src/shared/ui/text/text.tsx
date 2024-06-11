@@ -5,15 +5,15 @@ type TextVariant = "common" | "subtitle" | "title"
 
 type TProps = {
   variant?: TextVariant
-  isSelected?: boolean
+  isBolder?: boolean
 }
 
 export const Text: FC<PropsWithChildren<TProps>> = ({
   variant = "common",
-  isSelected = false,
+  isBolder = false,
   children,
 }) => {
-  const selectedClass = isSelected ? " " + styles.selected : ""
+  const selectedClass = isBolder ? " " + styles.isBolder : ""
 
   if (variant === "subtitle") {
     return <h3 className={styles.subtitle + selectedClass}>{children}</h3>

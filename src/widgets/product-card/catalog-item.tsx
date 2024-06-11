@@ -1,5 +1,5 @@
 import "./catalog-item.css"
-import { TCategory } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
+import { TCategoryInfo } from "src/packages/desktop/widgets/catalog-menu/ui/catalog-menu"
 import { Link } from "react-router-dom"
 
 export function CatalogItem({
@@ -10,7 +10,7 @@ export function CatalogItem({
 }: {
   id: string
   category: string
-  subcategory: TCategory[] | null
+  subcategory: TCategoryInfo[] | null
   setIsShown: (isShown: boolean) => void
 }) {
   return (
@@ -19,7 +19,7 @@ export function CatalogItem({
         <div className="catalog__item__h1">{category}</div>
       </Link>
       <div className="catalog__item__body">
-        {subcategory?.map((sub: TCategory) => (
+        {subcategory?.map((sub: TCategoryInfo) => (
           <div className="catalog__item__body__item" key={sub.id}>
             <Link
               onClick={() => setIsShown(false)}

@@ -1,4 +1,4 @@
-import "./category-full-page.css"
+import "./category-page.css"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { useParams } from "react-router-dom"
 import axios, { AxiosResponse } from "axios"
@@ -7,8 +7,9 @@ import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQuery } from "@tanstack/react-query"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { useQueryGetCategory } from "src/shared/api/use-query-get-category"
+import { CategoryInfo } from "src/widgets/category-info/category-info"
 
-export function CategoryFullPage() {
+export function CategoryPage() {
   const { id } = useParams<{ id: string }>()
   const { data, isPending } = useQueryGetCategory(id!)
 
@@ -23,8 +24,8 @@ export function CategoryFullPage() {
     )
   }
   return (
-    <div className="productsListContainer">
-      <ProductsList
+    <div style={{ margin: "20px 0 " }}>
+      <CategoryInfo
         productsArray={data.categoryItems}
         subcategoryArray={data.categoryChildren}
         categoryName={data.categoryName}

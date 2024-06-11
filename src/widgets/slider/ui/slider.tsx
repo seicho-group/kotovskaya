@@ -52,7 +52,7 @@ export function Slider() {
           alt=""
         />
       )}
-      <Link to={"/categorypage/ffd433e7-ef80-417f-b36d-fed4031d17a0"}>
+      <Link to={"/category/ffd433e7-ef80-417f-b36d-fed4031d17a0"}>
         <img className={styles.sliderPic} src={sliderGallery[current]} alt="" />
       </Link>
       {sliderGallery.length != 1 && circlesArray}

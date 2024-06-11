@@ -24,7 +24,7 @@ export const MainPageNavigationSection = ({
         className={classes.navigationSectionOverlap}
         onClick={() => categoryLink && navigate(categoryLink)}
       >
-        <Text isSelected>{categoryName}</Text>
+        <Text isBolder>{categoryName}</Text>
       </div>
     </li>
   )

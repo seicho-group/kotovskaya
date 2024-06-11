@@ -6,10 +6,10 @@ import { useQuery } from "@tanstack/react-query"
 
 // todo: ну и говно тут наворотили ебаный рот
 
-export type TCategory = {
+export type TCategoryInfo = {
   id: string
   name: string
-  categoryItems: TCategory[] | null
+  categoryItems: TCategoryInfo[] | null
 }
 export const soapmaking = [
   "Эфирные масла",
@@ -37,10 +37,10 @@ export const candlesMaking = ["Все для свечей"]
 export const cosmeticsMaking = ["Компоненты для косметики", "Бисер для ванн"]
 
 export const useCategories = () => {
-  return useQuery<TCategory[]>({
+  return useQuery<TCategoryInfo[]>({
     queryKey: ["categories"],
     queryFn: async () => {
-      const response = await axios.get<TCategory[]>(
+      const response = await axios.get<TCategoryInfo[]>(
         `${API_URL}/categories/get_all_categories_tree`,
       )
       return response.data
@@ -50,7 +50,7 @@ export const useCategories = () => {
 }
 
 const mapCategoriesToUI = (
-  categories: TCategory[],
+  categories: TCategoryInfo[],
   filterStrings: string[],
   setIsShown: (isOShown: boolean) => void,
 ) => {
