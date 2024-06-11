@@ -56,20 +56,12 @@
   justify-content: center;
 }
 
-.productsListContainer {
-  padding-bottom: 60px;
-}
-
 .productsListSubcategories {
   display: flex;
   justify-content: center;
 }
 
 @media (max-width: 1100px) {
-  .productsListContainer {
-    padding: 0 5px;
-  }
-
   .productsListItems {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);

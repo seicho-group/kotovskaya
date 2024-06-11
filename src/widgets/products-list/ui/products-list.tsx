@@ -3,42 +3,21 @@ import { ProductCard } from "src/widgets/product-card/product-card"
 import { ProductDTO } from "src/shared/types/productDTO"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { CategoryPanel } from "src/packages/mobile/entities/category-panel"
-import sharedStyles from "src/shared/styles/shared.module.css"
+import { Text } from "src/shared/ui/text/text"
+import { ContentWrapper } from "src/widgets/content-wrapper/content-wrapper"
 
 type Props = {
   productsArray: ProductDTO[]
-  categoryName?: string
   subcategoryArray?: Category[]
   linkTo?: string
 }
 
-export function ProductsList({
-  categoryName,
-  productsArray,
-  subcategoryArray,
-}: Props) {
+export function ProductsList({ productsArray, subcategoryArray }: Props) {
   if (!productsArray) {
-    return (
-      <div className={styles.productsListContainer}>
-        <div className={styles.productsListTitle}>
-          <div className={sharedStyles.contentWrapper}>{categoryName}</div>
-        </div>
-      </div>
-    )
+    throw new Error("Компонент ProductsList вызван с нулевым массивом")
   }
   return (
-    <div className={styles.productsListContainer}>
-      {categoryName ? (
-        <div
-          className={sharedStyles.contentWrapper}
-          style={{
-            paddingTop: "50px",
-          }}
-        >
-          <h2>{categoryName}</h2>
-        </div>
-      ) : null}
-
+    <ContentWrapper>
       {subcategoryArray && (
         <div className={styles.productsListSubcategories}>
           <div className="fff">
@@ -55,6 +34,6 @@ export function ProductsList({
           ))}
         </div>
       </div>
-    </div>
+    </ContentWrapper>
   )
 }

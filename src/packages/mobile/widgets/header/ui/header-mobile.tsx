@@ -6,7 +6,7 @@ import cart from "src/shared/assets/cartmobile.svg"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import closepic from "src/shared/assets/closebrown.svg"
-import { BurgerMobile } from "../../search-mobile/ui/burger/burger-mobile"
+import { BurgerMobile } from "src/packages/mobile/widgets/burger/burger-mobile"
 import { SearchMobile } from "../../search-mobile/ui/search-mobile"
 import { create } from "zustand"
 

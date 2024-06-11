@@ -1,5 +1,6 @@
 import classes from "./main-page-navigation-section.module.css"
 import { useNavigate } from "react-router-dom"
+import { Text } from "src/shared/ui/text/text"
 
 type TProps = {
   /** Ссылка на изображение */
@@ -23,7 +24,7 @@ export const MainPageNavigationSection = ({
         className={classes.navigationSectionOverlap}
         onClick={() => categoryLink && navigate(categoryLink)}
       >
-        <p>{categoryName}</p>
+        <Text isSelected>{categoryName}</Text>
       </div>
     </li>
   )

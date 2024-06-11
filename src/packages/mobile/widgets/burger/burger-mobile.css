@@ -3,21 +3,24 @@
   background-color: white;
   height: 100vh;
   width: 80vw;
-  position: absolute;
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
   flex-direction: column;
   font-size: 21px;
   overflow: hidden;
+  padding: 20px;
 }
 
-.burger__item p {
-  margin-left: 40px;
-  margin-top: 25px;
+.burger__items {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
+
 
 
 .burger__forclick {
+  z-index: 2;
   position: absolute;
   width: 100vw;
   height: calc(100vh - 50px);

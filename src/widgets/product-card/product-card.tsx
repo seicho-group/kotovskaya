@@ -5,6 +5,7 @@ import { ProductAccumulatorControls } from "src/entities/cart/ui/product-accumul
 import { ProductDTO } from "src/shared/types/productDTO"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
+import { Text } from "src/shared/ui/text/text"
 
 type Props = {
   product: ProductDTO
@@ -39,7 +40,7 @@ export function ProductCard({ product }: Props) {
       </div>
       <div className={isMobile ? "card__name__mobile" : "card__name"}>
         <Link to={`/product/${product.id}`}>
-          <p>{product.name}</p>
+          <Text>{product.name}</Text>
         </Link>
       </div>
 

@@ -1,8 +1,10 @@
 import "./catalog-menu.css"
 import { CatalogItem } from "src/widgets/product-card/catalog-item"
 import axios from "axios"
-import { API_URL_CATEGORIES } from "src/shared/api/config"
+import { API_URL, API_URL_CATEGORIES } from "src/shared/api/config"
 import { useQuery } from "@tanstack/react-query"
+
+// todo: ну и говно тут наворотили ебаный рот
 
 export type TCategory = {
   id: string
@@ -39,7 +41,7 @@ export const useCategories = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await axios.get<TCategory[]>(
-        `${API_URL_CATEGORIES}/get_all_categories_tree`,
+        `${API_URL}/categories/get_all_categories_tree`,
       )
       return response.data
     },
