@@ -1,5 +1,4 @@
 import "./cart-item.css"
-import pic from "src/shared/assets/фотобудетпозже.png"
 import delete1 from "src/shared/assets/delete.svg"
 import { useCartStore } from "src/entities/cart/model/cart-store"
 import { Product } from "src/shared/types/productDTO"
@@ -14,9 +13,8 @@ type TProps = {
   product: Product
 }
 
-// todo: это сущность а не страница
 export function CartItem({ product }: TProps) {
-  const { cart, deleteProduct, incrementById, decrementById } = useCartStore()
+  const { cart, deleteProduct } = useCartStore()
   const isMobile = useContext(IsMobileContext)
 
   return (
