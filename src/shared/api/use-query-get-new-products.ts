@@ -4,7 +4,7 @@ import { ProductDTO } from "src/shared/types/productDTO"
 import { API_URL } from "src/shared/api/config"
 
 export const useQueryGetNewProducts = () => {
-  return useQuery({
+  return useQuery<ProductDTO[]>({
     queryKey: ["newProducts"],
     queryFn: async () => {
       const response = await axios.post<undefined, AxiosResponse<ProductDTO[]>>(

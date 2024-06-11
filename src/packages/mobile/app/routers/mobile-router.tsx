@@ -44,7 +44,7 @@ export const MobileRouter = () => {
       <Route path="/category/:id" element={<CategoryPage />} />
       <Route path="/showallresults" element={<ShowAllResultsMobile />} />
       <Route path="/slider/:id" element={<SliderFirst />} />
-      <Route path="/product/:id" element={<ProductPageMobile id={123} />} />
+      <Route path="/product/:id" element={<ProductPageMobile />} />
       <Route path="/ordered" element={<Ordered />} />
     </Routes>
   )

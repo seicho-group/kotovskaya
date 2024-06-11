@@ -6,6 +6,7 @@ type TextVariant = "common" | "subtitle" | "title"
 type TProps = {
   variant?: TextVariant
   isBolder?: boolean
+  withCross?: boolean
 }
 
 export const Text: FC<PropsWithChildren<TProps>> = ({

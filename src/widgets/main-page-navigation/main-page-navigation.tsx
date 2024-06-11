@@ -25,9 +25,7 @@ export const MainPageNavigation = () => {
   return (
     <ContentWrapper>
       <nav className={classes.navigation}>
-        <div className={classes.navigationTitle}>
-          <Text variant={"subtitle"}>Выберите категорию</Text>
-        </div>
+        <Text variant={"title"}>Выберите категорию</Text>
         <ul className={classes.navigationList}>
           {categories.map((cat) => (
             <MainPageNavigationSection

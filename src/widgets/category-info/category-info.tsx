@@ -22,14 +22,12 @@ export const CategoryInfo: FC<TProps> = ({
     <ContentWrapper>
       <Text variant={"title"}>{categoryName}</Text>
       {subcategoryArray && (
-        <div className={styles.productsListSubcategories}>
-          <div className={styles.subcategoriesLayout}>
-            {subcategoryArray
-              ?.sort((cat1, cat2) => cat2.name.length - cat1.name.length)
-              .map((element: any) => (
-                <CategoryPanel key={element.id} category={element} />
-              ))}
-          </div>
+        <div className={styles.subcategoriesLayout}>
+          {subcategoryArray
+            ?.sort((cat1, cat2) => cat2.name.length - cat1.name.length)
+            .map((element: any) => (
+              <CategoryPanel key={element.id} category={element} />
+            ))}
         </div>
       )}
       <ProductsList productsArray={productsArray} />

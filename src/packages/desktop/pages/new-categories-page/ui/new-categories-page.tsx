@@ -1,16 +1,17 @@
-import { ProductsList } from "src/widgets/products-list/ui/products-list"
 import { useQueryGetNewProducts } from "src/shared/api/use-query-get-new-products"
 import { Helmet } from "react-helmet"
-import { Text } from "src/shared/ui/text/text"
-import { ContentWrapper } from "src/widgets/content-wrapper/content-wrapper"
+import { CategoryInfo } from "src/widgets/category-info/category-info"
+import { Loader } from "src/widgets/loader/loader"
 
 export function NewCategoriesPage() {
-  const { data: newFullArray = [] } = useQueryGetNewProducts()
+  const { data: newFullArray = [], isPending } = useQueryGetNewProducts()
+  if (isPending) {
+    return <Loader />
+  }
   return (
-    <ContentWrapper>
+    <div style={{ margin: "50px 0" }}>
       <Helmet title={"Новинки"} />
-      <Text variant={"subtitle"}>Новинки</Text>
-      <ProductsList productsArray={newFullArray} />
-    </ContentWrapper>
+      <CategoryInfo categoryName={"Новинки"} productsArray={newFullArray} />
+    </div>
   )
 }

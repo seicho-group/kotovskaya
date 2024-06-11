@@ -15,16 +15,13 @@ export function CatalogItem({
 }) {
   return (
     <div className="catalog__item">
-      <Link onClick={() => setIsShown(false)} to={`/categorypage/${id}`}>
+      <Link onClick={() => setIsShown(false)} to={`/category/${id}`}>
         <div className="catalog__item__h1">{category}</div>
       </Link>
       <div className="catalog__item__body">
         {subcategory?.map((sub: TCategoryInfo) => (
           <div className="catalog__item__body__item" key={sub.id}>
-            <Link
-              onClick={() => setIsShown(false)}
-              to={`/categorypage/${sub.id}`}
-            >
+            <Link onClick={() => setIsShown(false)} to={`/category/${sub.id}`}>
               {sub.name}
             </Link>
           </div>

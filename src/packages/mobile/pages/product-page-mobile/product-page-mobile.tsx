@@ -10,11 +10,7 @@ import { Product, ProductDTO } from "src/shared/types/productDTO"
 import { IsMobileContext } from "src/app/app"
 import { useContext } from "react"
 
-export function ProductPageMobile(props: any) {
-  const { isMobile } = useContext(IsMobileContext)
-
-  const { cart, deleteProduct, incrementById, decrementById, setNewProduct } =
-    useCartStore()
+export function ProductPageMobile() {
   const { id } = useParams<{ id: string }>()
   const [productInfo, setProductInfo] = useState<ProductDTO | null>(null)
 

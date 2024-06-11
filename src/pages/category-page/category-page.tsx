@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query"
 import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { useQueryGetCategory } from "src/shared/api/use-query-get-category"
 import { CategoryInfo } from "src/widgets/category-info/category-info"
+import { Helmet } from "react-helmet"
 
 export function CategoryPage() {
   const { id } = useParams<{ id: string }>()
@@ -24,7 +25,8 @@ export function CategoryPage() {
     )
   }
   return (
-    <div style={{ margin: "20px 0 " }}>
+    <div style={{ margin: "50px 0" }}>
+      <Helmet title={data.categoryName} />
       <CategoryInfo
         productsArray={data.categoryItems}
         subcategoryArray={data.categoryChildren}

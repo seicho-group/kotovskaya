@@ -11,6 +11,7 @@
 .navigationSection img {
     transition: 0.4s;
     height: 100%;
+    width: 100%;
 }
 
 /* Картинка внутри при наведении */
@@ -38,14 +39,6 @@
     font-weight: 500;
     user-select: none;
     text-align: right;
-}
-
-/* Стрелочка после тайтла */
-.navigationSectionOverlap p:after {
-    content: "→";
-    position: relative;
-    padding-left: 2px;
-    top: 2px;
 }
 
 @media (max-width: 1100px) {
