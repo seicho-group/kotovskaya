@@ -1,8 +1,8 @@
 import { ProductDTO } from "src/shared/types/productDTO"
-import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
 import { useQuery } from "@tanstack/react-query"
 import axios, { AxiosResponse } from "axios"
 import { API_URL_CATEGORIES } from "src/shared/api/config"
+import { Category } from "src/shared/types/category"
 
 export type TCategoryData = {
   categoryItems: ProductDTO[]
