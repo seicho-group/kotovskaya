@@ -70,17 +70,9 @@ export function Searchbar(props: any) {
               />
             ))}
             {searchProductsResult?.length > 0 && (
-              <Link to={"/searchresults"}>
-                <div
-                  onClick={() => {
-                    setWord(debouncedValue || "")
-                    setIsClicked(false)
-                  }}
-                  className="showallresults"
-                >
-                  Показать все результаты
-                </div>
-              </Link>
+              <div onClick={onInputSubmit} className="showallresults">
+                Показать все результаты
+              </div>
             )}
           </div>
         </div>
