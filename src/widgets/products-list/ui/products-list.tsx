@@ -1,7 +1,7 @@
 import styles from "./products-list.module.css"
 import { ProductCard } from "src/widgets/product-card/product-card"
 import { ProductDTO } from "src/shared/types/productDTO"
-import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
+import { Category } from "src/shared/types/category"
 
 type Props = {
   productsArray: ProductDTO[]

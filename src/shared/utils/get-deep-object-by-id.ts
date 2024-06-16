@@ -1,4 +1,4 @@
-import { Category } from "src/packages/mobile/pages/soapmaking/soapmaking"
+import { Category } from "src/shared/types/category"
 
 export const searchObject = <T extends Category>(
   objs: T[],
