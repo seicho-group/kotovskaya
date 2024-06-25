@@ -14,19 +14,19 @@ export function CatalogItem({
   setIsShown: (isShown: boolean) => void
 }) {
   return (
-    <div className="catalog__item">
+    <ul className="catalog__item">
       <Link onClick={() => setIsShown(false)} to={`/category/${id}`}>
-        <div className="catalog__item__h1">{category}</div>
+        <li className="catalog__item__h1">{category}</li>
       </Link>
       <div className="catalog__item__body">
         {subcategory?.map((sub: TCategoryInfo) => (
-          <div className="catalog__item__body__item" key={sub.id}>
+          <li className="catalog__item__body__item" key={sub.id}>
             <Link onClick={() => setIsShown(false)} to={`/category/${sub.id}`}>
               {sub.name}
             </Link>
-          </div>
+          </li>
         ))}
       </div>
-    </div>
+    </ul>
   )
 }

@@ -16,6 +16,7 @@ import {
 import React from "react"
 import { CategoryPage } from "src/pages/category-page/category-page"
 import { ShowAllResults } from "src/pages/show-all-results/show-all-results"
+import { DeliveryInformation } from "src/packages/desktop/pages/information-pages/delivery-information/ui/delivery-information"
 
 export const MobileRouter = () => {
   return (
@@ -37,7 +38,7 @@ export const MobileRouter = () => {
         path="/candlesmaking"
         element={<TopCategoryPage categoriesArray={candlesMaking} />}
       />
-      <Route path="/delivery" element={<DeliveryMobile />} />
+      <Route path="/delivery" element={<DeliveryInformation />} />
       <Route path="/contacts" element={<ContactsMobile />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/category/:id" element={<CategoryPage />} />

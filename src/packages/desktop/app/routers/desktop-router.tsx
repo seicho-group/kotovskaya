@@ -10,6 +10,7 @@ import { SalesPage } from "src/pages/sales-page/sales-page"
 import { CategoryPage } from "src/pages/category-page/category-page"
 import { ShowAllResults } from "src/pages/show-all-results/show-all-results"
 import { CartPage } from "src/pages/cart-page/cart-page"
+import { ContactsMobile } from "src/packages/mobile/pages/contacts-mobile/contacts-mobile"
 import React from "react"
 import { TopCategoryPage } from "src/pages/top-category-page/top-category-page"
 import {
@@ -23,7 +24,7 @@ import {
 export const DesktopRouter = () => {
   return (
     <Routes>
-      <Route path="/contacts" element={<KotovskayaContacts />} />
+      <Route path="/contacts" element={<ContactsMobile />} />
       <Route path="/delivery" element={<DeliveryInformation />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/product/:id" element={<ProductPage />} />
