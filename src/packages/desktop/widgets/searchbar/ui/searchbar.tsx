@@ -60,15 +60,17 @@ export function Searchbar(props: any) {
           </form>
 
           <div className="search__results">
-            {(searchProductsResult || []).map((product: ProductDTO) => (
-              <SearchProductCard
-                setIsClicked={setIsClicked}
-                name={product.name}
-                imageLink={product.imageLink}
-                id={product.id}
-                key={product.id}
-              />
-            ))}
+            {(searchProductsResult || [])
+              .filter((product: any) => product.salePrice > 0)
+              .map((product: ProductDTO) => (
+                <SearchProductCard
+                  setIsClicked={setIsClicked}
+                  name={product.name}
+                  imageLink={product.imageLink}
+                  id={product.id}
+                  key={product.id}
+                />
+              ))}
             {searchProductsResult?.length > 0 && (
               <div onClick={onInputSubmit} className="showallresults">
                 Показать все результаты
