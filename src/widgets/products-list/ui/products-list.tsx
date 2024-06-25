@@ -15,9 +15,11 @@ export function ProductsList({ productsArray, subcategoryArray }: Props) {
   return (
     <div className={styles.productsListMain}>
       <div className={styles.productsListItems}>
-        {productsArray.map((product: ProductDTO) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+        {productsArray
+          .filter((product) => product.salePrice > 0)
+          .map((product: ProductDTO) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
       </div>
     </div>
   )
