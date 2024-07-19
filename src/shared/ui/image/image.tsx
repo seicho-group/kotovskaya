@@ -11,7 +11,7 @@ export function Image(props: any) {
       className="card__pic"
       src={
         props.imageLink
-          ? `https://storage.yandexcloud.net/kotovskaya.products/${props.imageLink}`
+          ? `https://storage.yandexcloud.net/kotovskaya.products/${props.imageLink}.jpg`
           : pic
       }
       alt="фотография не загрузилась"
