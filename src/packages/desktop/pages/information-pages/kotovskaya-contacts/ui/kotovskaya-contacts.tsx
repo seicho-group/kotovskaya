@@ -10,7 +10,6 @@ import { phoneNumber } from "src/shared/const"
 export function KotovskayaContacts() {
   return (
     <div className="contacts">
-      <Helmet title={"Контакты"} />
       <div className="contacts__wrapper bottom50">
         <div className="h1 bottom25">Контакты</div>
         <div className="contacts__grid">
